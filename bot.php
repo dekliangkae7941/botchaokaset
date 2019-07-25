@@ -1,5 +1,5 @@
 <?php
-
+include "admin/config.php";
 #-----------------------------------------------------------#
 $sql = "SELECT category_id, category_name FROM market_category";
 $result = mysqli_query($conn, $sql);
