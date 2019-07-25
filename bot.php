@@ -1,5 +1,15 @@
 <?php
-include "admin/config.php";
+$servername = "localhostchatbot";
+$username = "dekliangkae";
+$password = "0967358315";
+$dbconnect = "chatbot_chaokaset";
+$conn = mysqli_connect($servername, $username, $password, $dbconnect);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+$conn->set_charset("utf8");
+echo "Connected successfully";
 #-----------------------------------------------------------#
 $sql = "SELECT category_id, category_name FROM market_category";
 $result = mysqli_query($conn, $sql);
