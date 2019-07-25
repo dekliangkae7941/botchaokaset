@@ -1,7 +1,7 @@
 <?php
 include "admin/config.php";
 #-----------------------------------------------------------#
-/*$sql = "SELECT category_id, category_name FROM market_category";
+$sql = "SELECT category_id, category_name FROM market_category";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -10,7 +10,7 @@ if (mysqli_num_rows($result) > 0) {
     }
 } else {
     echo " 0 result";
-}*/
+}
 
 
 
@@ -122,7 +122,7 @@ elseif ($type == 'leave') {
 //////////////
 elseif ($type == 'follow') {
         //$text = "เมื่อผู้ใช้กดติดตามบอท";
-        $sql = "INSERT INTO person (userId) VALUES ('".$keyword."')";
+        /*$sql = "INSERT INTO person (userId) VALUES ('".$keyword."')";
         if ($conn->query($sql) === TRUE) {
             echo "<center>บันทึกสำเร็จ</center>";
             //header('refresh: 2; url=/admin');
@@ -131,7 +131,7 @@ elseif ($type == 'follow') {
             echo "<center>ไม่สามารถบันทึกได้</center>";
             //header('refresh: 2; url=/admin');
             exit(0);
-        }
+        }*/
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
