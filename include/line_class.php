@@ -1,4 +1,5 @@
 <?php 
+//hash_equalsเทียบสตริง
 if (!function_exists('hash_equals')) 
 {
     defined('USE_MB_STRING') or define('USE_MB_STRING', function_exists('mb_strlen'));
