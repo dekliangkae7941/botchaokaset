@@ -11,7 +11,6 @@
 <body>
 
 <div class="container">
-
 <h2>เพิ่มคำสำหรับ Chatbot</h2>
   <form action="insert.php" method="post">
     <div class="form-group">
