@@ -1,21 +1,7 @@
 <?php
-include "admin/config.php";
-#-----------------------------------------------------------#
-$sql = "SELECT category_id, category_name FROM market_category";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "category_id: " . $row["category_id"]. " - category_name: " . $row["category_name"]."<br>";
-    }
-} else {
-    echo " 0 result";
-}
 
 
-
-
-
+$timestamp = $jsonData["events"][0]["timestamp"];
 //////////////////////////////////////
 #-------------------------[Include]-------------------------#
 require_once('./include/line_class.php');
@@ -24,6 +10,7 @@ require_once('./unirest-php-master/src/Unirest.php');
 $channelAccessToken = 'pZmLfAv73zYnio19mFJo2hudRTgr7y8FbMdAayR7VXep+rZyVt1NAAEL+ZcsjfbrA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vzhQPrIgSXQ3Uj23DnEpFiCa+MC60K2WexRcqsdgTDQ6gdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'ddfedb5ad9fad19c7c0bbe791cd28166';
 #-------------------------[Events]-------------------------#
+////////////////////////////////////////////////////////////////
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $userId     = $client->parseEvents()[0]['source']['userId'];
 $groupId    = $client->parseEvents()[0]['source']['groupId'];
