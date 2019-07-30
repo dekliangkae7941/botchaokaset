@@ -1,0 +1,9 @@
+$arr_postdata = array();
+            $arr_postdata['to'] = $user_id;
+            $arr_postdata['messages'][0]['type'] = "text";
+            $arr_postdata['messages'][0]['text'] = $arr[$i];
+
+/////
+$data = json_encode($arr_postdata);
+           
+            $this->send_reply_message('/push',$data);
