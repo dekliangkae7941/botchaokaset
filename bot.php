@@ -381,20 +381,15 @@ else {
         
             $text .= " รหัสประเภทตลาด : " . $resulcaid . "\n";
             $text .= " ประเภทตลาด : " . $resulcaname . "\n";
-        
             $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => 'รหัสประเภทตลาด ของคุณคือ '.$resulcaid. 'ประเภทตลาด ของคุณคือ '.$resulcaname;
-                    ),            array(
-                        'type' => 'text',
                         'text' => $text
                     )
                 )
             );
-
     }
     
     //////////
