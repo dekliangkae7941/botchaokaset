@@ -121,6 +121,7 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
+
         //$text = "เมื่อผู้ใช้กดติดตามบอท";
         /*$sql = "INSERT INTO person (userId) VALUES ('".$keyword."')";
         if ($conn->query($sql) === TRUE) {
@@ -426,6 +427,38 @@ else {
     }
     /////////////
     else {
+            $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
+            $response = Unirest\Request::get("$uri");
+            $json = json_decode($response->raw_body, true);
+            $resulta = $json['name'];
+            $resultb = $json['weather'][0]['main'];
+            $resultc = $json['weather'][0]['description'];
+            $resultd = $json['main']['temp'];
+            $resulte = $json['coord']['lon'];
+        
+            $text .= " พื้นที่ : " . $resulta . "\n";
+            $text .= " สภาพอากาศ : " . $resultb . "\n";
+            $text .= " รายละเอียด : " . $resultc . "\n";
+            $text .= " อุณหภูมิ : " . $resultd;
+        
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'location',
+                        'title' => $msg_title,
+                        'address' => $msg_address,
+                        'latitude' => $msg_latitude,
+                        'longitude' => $msg_longitude
+                    ),            array(
+                        'type' => 'text',
+                        'text' => $text
+                    )
+                )
+            );
+
+
+        //////////
                         $url = "https://bots.dialogflow.com/line/37d316a1-c0b5-46ca-9b85-e58789028d26/webhook";
                         $headers = getallheaders();
                         file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
