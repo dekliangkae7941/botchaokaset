@@ -27,12 +27,12 @@
           curl_close($ch);
     return $result;
   }
-  $mysql->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-  $getUser = $mysql->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
+  $mysql->query("INSERT INTO 'LOG'('UserID', 'Text', 'Timestamp') VALUES ('$userID','$text','$timestamp')");
+  $getUser = $mysql->query("SELECT * FROM 'Customer' WHERE 'UserID'='$userID'");
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
-    $replyText["text"] = "สวัสดีคับบบบ";
+    $replyText["text"] = "สวัสดี";
   } else {
     while($row = $getUser->fetch_assoc()){
       $Name = $row['Name'];
@@ -42,7 +42,7 @@
     $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
   }
   $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
-  $lineData['AccessToken'] = "(เเก้เป็น Channel AccessToken ของเราเลยครับ)";
+  $lineData['AccessToken'] = "pZmLfAv73zYnio19mFJo2hudRTgr7y8FbMdAayR7VXep+rZyVt1NAAEL+ZcsjfbrA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vzhQPrIgSXQ3Uj23DnEpFiCa+MC60K2WexRcqsdgTDQ6gdB04t89/1O/w1cDnyilFU=";
   $replyJson["replyToken"] = $replyToken;
   $replyJson["messages"][0] = $replyText;
   $encodeJson = json_encode($replyJson);
