@@ -32,7 +32,7 @@
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
-    $replyText["text"] = "สวัสดี";
+    $replyText["text"] = "vbvb";
   } else {
     while($row = $getUser->fetch_assoc()){
       $Name = $row['Name'];
