@@ -82,6 +82,7 @@ $channelSecret = 'ddfedb5ad9fad19c7c0bbe791cd28166';
 #-------------------------[Events]-------------------------#
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $userId     = $client->parseEvents()[0]['source']['userId'];
+$displayName= $client->parseEvents()[0]['source']['displayName'];
 $groupId    = $client->parseEvents()[0]['source']['groupId'];
 $replyToken = $client->parseEvents()[0]['replyToken'];
 $timestamp  = $client->parseEvents()[0]['timestamp'];
@@ -185,7 +186,7 @@ elseif ($type == 'follow') {
         'messages' => array(
             array(
                 'type' => 'text',
-                'text' => 'userId ของคุณคือ '.$userId.'ชื่อคุณคือ'.$displayName
+                'text' => 'userId ของคุณคือ '.$userId.' ชื่อคุณคือ '.$displayName
             )
         )
     );
