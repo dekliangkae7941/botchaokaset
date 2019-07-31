@@ -177,8 +177,8 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
-    $query = "INSERT INTO line_log VALUES ('$_POST[userId]')";
-    $result = pg_query($query);
+    //$query = "INSERT INTO line_log VALUES ('$userId')";
+    //$result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
     $mreply = array(
         'replyToken' => $replyToken,
@@ -408,7 +408,8 @@ elseif ($msg_type == 'location') {
 /////////////
 else { 
     if ($command== 'myid') { 
-	    	
+        $query = "INSERT INTO line_log VALUES ('.$userId.')";
+        $result = pg_query($query);
     $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
