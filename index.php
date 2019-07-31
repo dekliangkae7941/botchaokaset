@@ -20,7 +20,7 @@
 
 
 #--------------------------------------------------------------------------------------------------------------------#
-  function sendMessage($replyJson, $sendInfo){
+  /*function sendMessage($replyJson, $sendInfo){
           $ch = curl_init($sendInfo["URL"]);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           curl_setopt($ch, CURLINFO_HEADER_OUT, true);
@@ -51,7 +51,7 @@
   
   //$results = sendMessage($encodeJson,$lineData);
   //echo $results;
-  http_response_code(200);
+  http_response_code(200);*/
 #------------------------------------------------------------------------------------------------------------#
 #-------------------------[Include]-------------------------#
 require_once('./include/line_class.php');
