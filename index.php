@@ -198,7 +198,7 @@ elseif ($type == 'follow') {
 }
 /////////////
 elseif ($type == 'unfollow') {
-    $sql = "DELETE FROM line_log WHERE userId = $userId ";
+    $sql = "DELETE FROM line_log WHERE userId = '$userId' ";
     if(mysqli_query($dbconn, $sql)){
         echo "Records were deleted successfully.";
     } else{
