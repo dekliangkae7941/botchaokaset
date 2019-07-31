@@ -177,7 +177,7 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
-    //$query = "INSERT INTO line_log VALUES ('$userId')";
+    //$query = "INSERT INTO line_log VALUES ('.$userId.')";
     //$result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
     $mreply = array(
@@ -408,8 +408,15 @@ elseif ($msg_type == 'location') {
 /////////////
 else { 
     if ($command== 'myid') { 
-        $query = "INSERT INTO line_log VALUES ('.$userId.')";
-        $result = pg_query($query);
+        if (isset($userId)) {
+            $username = mysql_real_escape_string($userId);
+            if (!empty($userId)) {
+                $userId_query = mysql_query("SELECT COUNT userId
+                                               FROM line_log
+                                               WHERE userId = '$userId'");
+                 echo $userId_result = mysql_result($userId_query, 0);
+            }
+        }
     $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
