@@ -408,15 +408,7 @@ elseif ($msg_type == 'location') {
 /////////////
 else { 
     if ($command== 'myid') { 
-        if (isset($userId)) {
-            $username = mysql_real_escape_string($userId);
-            if (!empty($userId)) {
-                $userId_query = mysql_query("SELECT COUNT userId
-                                               FROM line_log
-                                               WHERE userId = '$userId'");
-                 echo $userId_result = mysql_result($userId_query, 0);
-            }
-        }
+        
     $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
@@ -439,6 +431,15 @@ else {
                 )
             )
         );
+        if (isset($userId)) {
+            $username = mysql_real_escape_string($userId);
+            if (!empty($userId)) {
+                $userId_query = mysql_query("SELECT COUNT userId
+                                               FROM line_log
+                                               WHERE userId = '$userId'");
+                 echo $userId_result = mysql_result($userId_query, 0);
+            }
+        }
     }
     //////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
