@@ -1,5 +1,5 @@
 <?php
-  /*$LINEData = file_get_contents('php://input');
+  $LINEData = file_get_contents('php://input');
   $jsonData = json_decode($LINEData,true);
   $replyToken = $jsonData["events"][0]["replyToken"];
   $userID = $jsonData["events"][0]["source"]["userId"];
@@ -9,7 +9,7 @@
   $lineData['AccessToken'] = "pZmLfAv73zYnio19mFJo2hudRTgr7y8FbMdAayR7VXep+rZyVt1NAAEL+ZcsjfbrA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vzhQPrIgSXQ3Uj23DnEpFiCa+MC60K2WexRcqsdgTDQ6gdB04t89/1O/w1cDnyilFU=";
   $replyJson["replyToken"] = $replyToken;
   $replyJson["messages"][0] = $replyText;
-  $encodeJson = json_encode($replyJson);*/
+  $encodeJson = json_encode($replyJson);
 #--------------------------------------------------------------------------------------------------------------------#
   $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dant72mtqngrqg user=zzeiglpdbgcsup password=357b5ef3838e36150679d259aeb37a2c9d2ec1dafb8ae5c90e7669d040874a9e");
   if (!$dbconn){
