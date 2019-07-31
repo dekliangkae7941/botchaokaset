@@ -1,16 +1,4 @@
 
-  /*$LINEData = file_get_contents('php://input');
-  $jsonData = json_decode($LINEData,true);
-  $replyToken = $jsonData["events"][0]["replyToken"];
-  $userID = $jsonData["events"][0]["source"]["userId"];
-  $text = $jsonData["events"][0]["message"]["text"];
-  $timestamp = $jsonData["events"][0]["timestamp"];
-  $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
-  $lineData['AccessToken'] = "pZmLfAv73zYnio19mFJo2hudRTgr7y8FbMdAayR7VXep+rZyVt1NAAEL+ZcsjfbrA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vzhQPrIgSXQ3Uj23DnEpFiCa+MC60K2WexRcqsdgTDQ6gdB04t89/1O/w1cDnyilFU=";
-  $replyJson["replyToken"] = $replyToken;
-  $replyJson["messages"][0] = $replyText;
-  $encodeJson = json_encode($replyJson);*/
-#--------------------------------------------------------------------------------------------------------------------#
 <!DOCTYPE html>
 <head>
 <title>Insert data to PostgreSQL with php - creating a simple web application</title>
@@ -28,7 +16,6 @@ list-style: none;
 <li>Book ID:</li><li><input type="text" name="bookid" /></li>
 <li>Book Name:</li><li><input type="text" name="book_name" /></li>
 <li>Price (USD):</li><li><input type="text" name="price" /></li>
-<li>Date of publication:</li><li><input type="text" name="dop" /></li>
 <li><input type="submit" /></li>
 </form>
 </ul>
@@ -41,10 +28,22 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
   }else
    echo "<center><h1>Good connection</h1></center>";
    $query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
-   '$_POST[price]','$_POST[dop]')";
+   '$_POST[price]')";
    $result = pg_query($query); 
 
 
+#--------------------------------------------------------------------------------------------------------------------#
+  /*$LINEData = file_get_contents('php://input');
+  $jsonData = json_decode($LINEData,true);
+  $replyToken = $jsonData["events"][0]["replyToken"];
+  $userID = $jsonData["events"][0]["source"]["userId"];
+  $text = $jsonData["events"][0]["message"]["text"];
+  $timestamp = $jsonData["events"][0]["timestamp"];
+  $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
+  $lineData['AccessToken'] = "pZmLfAv73zYnio19mFJo2hudRTgr7y8FbMdAayR7VXep+rZyVt1NAAEL+ZcsjfbrA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vzhQPrIgSXQ3Uj23DnEpFiCa+MC60K2WexRcqsdgTDQ6gdB04t89/1O/w1cDnyilFU=";
+  $replyJson["replyToken"] = $replyToken;
+  $replyJson["messages"][0] = $replyText;
+  $encodeJson = json_encode($replyJson);*/
 #--------------------------------------------------------------------------------------------------------------------#
   /*function sendMessage($replyJson, $sendInfo){
           $ch = curl_init($sendInfo["URL"]);
