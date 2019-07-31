@@ -177,8 +177,8 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
-    //$query = "INSERT INTO line_log VALUES ('.$userId.')";
-    //$result = pg_query($query);
+    $query = "INSERT INTO line_log VALUES ('$userId')";
+    $result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
     $mreply = array(
         'replyToken' => $replyToken,
@@ -431,7 +431,7 @@ else {
                 )
             )
         );
-        if (isset($userId)) {
+        /*if (isset($userId)) {
             $username = mysql_real_escape_string($userId);
             if (!empty($userId)) {
                 $userId_query = mysql_query("SELECT COUNT userId
@@ -439,7 +439,7 @@ else {
                                                WHERE userId = '$userId'");
                  echo $userId_result = mysql_result($userId_query, 0);
             }
-        }
+        }*/
     }
     //////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
