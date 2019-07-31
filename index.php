@@ -7,11 +7,6 @@
   $timestamp = $jsonData["events"][0]["timestamp"];
 #--------------------------------------------------------------------------------------------------------------------#
   $dbConnect = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dant72mtqngrqg user=zzeiglpdbgcsup password=357b5ef3838e36150679d259aeb37a2c9d2ec1dafb8ae5c90e7669d040874a9e");
-  mysqli_set_charset($dbConnect, "utf8");
-  if ($dbConnect->connect_error){
-  $errorcode = $dbConnect->connect_error;
-  print("MySQL(Connection)> ".$errorcode);
-  }
 #--------------------------------------------------------------------------------------------------------------------#
   function sendMessage($replyJson, $sendInfo){
           $ch = curl_init($sendInfo["URL"]);
