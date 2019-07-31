@@ -83,6 +83,8 @@ $channelSecret = 'ddfedb5ad9fad19c7c0bbe791cd28166';
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $userId     = $client->parseEvents()[0]['source']['userId'];
 $displayName= $client->parseEvents()[0]['source']['displayName'];
+echo $displayName;
+
 $groupId    = $client->parseEvents()[0]['source']['groupId'];
 $replyToken = $client->parseEvents()[0]['replyToken'];
 $timestamp  = $client->parseEvents()[0]['timestamp'];
