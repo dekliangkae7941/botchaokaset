@@ -183,7 +183,7 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
-    $query = "INSERT INTO line_log VALUES ('$userId')";
+    $query = "INSERT INTO line_log VALUES ('$userId','$displayName')";
     $result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
     $mreply = array(
