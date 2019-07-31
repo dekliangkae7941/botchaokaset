@@ -199,11 +199,7 @@ elseif ($type == 'follow') {
 /////////////
 elseif ($type == 'unfollow') {
     $sql = "DELETE FROM line_log WHERE userId = '$userId' ";
-    if(mysqli_query($dbconn, $sql)){
-        echo "Records were deleted successfully.";
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($dbconn);
-    }
+    $result = pg_query($sql);
     $text = "เมื่อบอทถูกบล็อค";
         $mreply = array(
         'replyToken' => $replyToken,
