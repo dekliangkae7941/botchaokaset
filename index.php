@@ -198,7 +198,7 @@ elseif ($type == 'follow') {
 }
 /////////////
 elseif ($type == 'unfollow') {
-    $sql = "DELETE FROM line_log WHERE userId = '$userId' ";
+    $sql = "DELETE FROM line_log WHERE userId = '$userId'";
     $result = pg_query($sql);
     $text = "เมื่อบอทถูกบล็อค";
         $mreply = array(
