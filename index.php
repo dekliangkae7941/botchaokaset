@@ -123,8 +123,6 @@ $profile    = $client->profil($userId);
 $en_profile = json_encode($profile, true);
 $de_profile = json_decode($en_profile, true);
 $displayName    = $de_profile['displayName'];
-
-
 $messageid  = $client->parseEvents()[0]['message']['id'];
 $msg_type      = $client->parseEvents()[0]['message']['type'];
 
@@ -200,7 +198,7 @@ elseif ($type == 'join') {
 }
 ///////////
 elseif ($type == 'leave') {
-    $text = "เมื่อบอทถูกเตะออกจากห้อง";
+        $text = "เมื่อบอทถูกเตะออกจากห้อง";
         $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -480,8 +478,29 @@ else {
     //////////
     elseif ($command == 'ข้าว') {
         $category = 1;
-        $sql = "SELECT category_id FROM line_type WHERE category_id = '$category'";
-        $result = pg_query($sql);
+        $sql = "SELECT * FROM line_type WHERE category_id = '$category'";
+        /*-if($result = pg_query($dbconn, $sql)){
+            if(pg_num_rows($result) > 0){
+                echo "<table>";
+                    echo "<tr>";
+                        echo "<th>id</th>";
+                        echo "<th>first_name</th>";
+                    echo "</tr>";
+                while($row = pg_fetch_array($result)){
+                    echo "<tr>";
+                        echo "<td>" . $row['type_id'] . "</td>";
+                        echo "<td>" . $row['type_name'] . "</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+                // Free result set
+                pg_free_result($result);
+            } else{
+                echo "No records matching your query were found.";
+            }
+        } else{
+            echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
+        }*/
         $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
