@@ -451,8 +451,8 @@ else {
     }
     //////////
     elseif ($command == 'ข้าว') {
-        $category_id = 1;
-        $sql = "SELECT * FROM line_type WHERE category_id = '$category_id'";
+        $category = 1;
+        $sql = "SELECT * FROM line_type WHERE category_id = '$category'";
         $result = pg_query($sql);
         $mreply = array(
             'replyToken' => $replyToken,
@@ -463,6 +463,9 @@ else {
                 )
             )
         );
+
+        
+
     }
     /////////////////////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
