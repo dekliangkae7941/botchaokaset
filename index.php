@@ -31,7 +31,7 @@ echo "<center><h1>Doesn't work =(</h1></center>";
 #--------------------------------------------------------------------------------------------------------------------#
 
 // Attempt select query execution
-$sql = "SELECT * FROM line_type WHERE category_id = 1";
+$sql = "SELECT * FROM line_type WHERE category_id = '1'";
 if($result = mysqli_query($dbconn, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table>";
