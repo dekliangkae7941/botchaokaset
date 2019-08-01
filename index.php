@@ -32,15 +32,12 @@ echo "<center><h1>Doesn't work =(</h1></center>";
 
 // Attempt select query execution
 $sql = "SELECT * FROM line_type WHERE category_id = '1'";
-
 if($result = pg_query($dbconn, $sql)){
     if(pg_num_rows($result) > 0){
         echo "<table>";
             echo "<tr>";
                 echo "<th>id</th>";
                 echo "<th>first_name</th>";
-                echo "<th>last_name</th>";
-                echo "<th>email</th>";
             echo "</tr>";
         while($row = pg_fetch_array($result)){
             echo "<tr>";
