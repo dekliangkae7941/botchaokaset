@@ -390,12 +390,10 @@ elseif ($msg_type == 'location') {
     $resultc = $json['weather'][0]['description'];
     $resultd = $json['main']['temp'];
     $resulte = $json['coord']['lon'];
-
     $text .= " พื้นที่ : " . $resulta . "\n";
     $text .= " สภาพอากาศ : " . $resultb . "\n";
     $text .= " รายละเอียด : " . $resultc . "\n";
     $text .= " อุณหภูมิ : " . $resultd;
-
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -452,20 +450,17 @@ else {
     //////////
     elseif ($command == 'ข้าว') {
         $category = 1;
-        $sql = "SELECT * FROM line_type WHERE category_id = '$category'";
+        $sql = "SELECT category_id FROM line_type WHERE category_id = '$category'";
         $result = pg_query($sql);
         $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
                 array(
                     'type' => 'text',
-                    'text' => $category_id
+                    'text' => $result
                 )
             )
         );
-
-        
-
     }
     /////////////////////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
