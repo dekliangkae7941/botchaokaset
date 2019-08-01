@@ -450,8 +450,9 @@ else {
         }*/
     }
     //////////
-    /*elseif ($command== 'ข้าว') { 
-        $sql = "SELECT * FROM line_category RIGHT JOIN line_type ON line_category.category_id = line_type.category_id WHERE category_id = 1";
+    elseif ($command == 'ข้าว') {
+        $category_id = 1;
+        $sql = "SELECT * FROM line_type WHERE category_id = '$category_id'";
         $result = pg_query($sql);
         $mreply = array(
             'replyToken' => $replyToken,
@@ -462,7 +463,7 @@ else {
                 )
             )
         );
-    }*/
+    }
     /////////////////////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
