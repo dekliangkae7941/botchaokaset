@@ -459,7 +459,7 @@ else {
             'messages' => array(
                 array(
                     'type' => 'text',
-                    'text' => $row["type_name"]
+                    'text' => $category_id
                 )
             )
         );
