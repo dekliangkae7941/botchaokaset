@@ -36,13 +36,13 @@ if($result = pg_query($dbconn, $sql)){
     if(pg_num_rows($result) > 0){
         echo "<table>";
             echo "<tr>";
-                echo "<center><th>type_id</th></center>";
-                echo "<center><th>type_name</th></center>";
+                echo "<li><th>id</th></li>";
+                echo "<li><th>first_name</th></li>";
             echo "</tr>";
         while($row = pg_fetch_array($result)){
             echo "<tr>";
-                echo "<center><td>" . $row['type_id'] . "</td></center>";
-                echo "<center><td>" . $row['type_name'] . "</td></center>";
+                echo "<li><td>" . $row['type_id'] . "</td></li>";
+                echo "<li><td>" . $row['type_name'] . "</td></li>";
             echo "</tr>";
         }
         echo "</table>";
