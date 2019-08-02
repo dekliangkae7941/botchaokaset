@@ -471,16 +471,16 @@ else {
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
-        $userId = $arrayJson['events'][0]['source']['userId'];
+        //$userId = $arrayJson['events'][0]['source']['userId'];
         while($row=pg_fetch_assoc($result)){
             $type_name=$row['type_name'];
-            for($i=1;$i<=$row['type_id'];$i++){
+            /*for($i=1;$i<=$row['type_id'];$i++){
                 $arrayPostData['to'] = $userId;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = $type_name;
                 pushMsg($arrayHeader,$arrayPostData);
-            }
-            /*$mreply = array(
+            }*/
+            $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
                     array(
@@ -488,7 +488,7 @@ else {
                         'text' => $type_name
                     )
                 )
-            );*/
+            );
         }
             $json_headers = array();
             function pushMsg($json_headers,$arrayPostData){
