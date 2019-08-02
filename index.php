@@ -473,6 +473,8 @@ else {
         $result = pg_query($dbconn,$query);
         while($row=pg_fetch_assoc($result)){
         $type_name=$row['type_name'];
+        
+        }
         $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
@@ -482,7 +484,6 @@ else {
                 )
             )
         );
-        };
         /*-if($result = pg_query($dbconn, $sql)){
             if(pg_num_rows($result) > 0){
                 echo "<table>";
