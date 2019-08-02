@@ -43,8 +43,9 @@ $category = 1;
         $value == $myrow[category_id];
         $value2 == $myrow[type_id];
         $value3 == $myrow[type_name];
-        echo $value, $value2,$value3;
-
+        echo $value;
+        echo $value2;
+        echo $value3;
 // Attempt select query execution
 /*$sql = "SELECT * FROM line_type WHERE category_id = '1'";
 if($result = pg_query($dbconn, $sql)){
