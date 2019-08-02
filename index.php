@@ -472,18 +472,17 @@ else {
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
         while($row=pg_fetch_assoc($result)){
-        $type_name=$row['type_name'];
-        
-        }
-        $mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $type_name
+            $type_name=$row['type_name'];
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $type_name
+                    )
                 )
-            )
-        );
+            );
+        }
         /*-if($result = pg_query($dbconn, $sql)){
             if(pg_num_rows($result) > 0){
                 echo "<table>";
