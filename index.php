@@ -494,6 +494,15 @@ else {
         } else{
             echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
         }*/
+        /*$db = pg_connect("host=localhost port=5432 dbname=w3r user=w3r_admin password=admin123");
+        $result = pg_query($db,"SELECT actor_id, first_name FROM actor");
+        echo "<table>";while($row=pg_fetch_assoc($result)){echo "<tr>";
+        echo "<td align='center' width='200'>" . $row['actor_id'] . "</td>";
+        echo "<td align='center' width='200'>" . $row['first_name'] . "</td>";
+        echo "<td align='center' width='100'>" . $row['last_name'] . "</td>";
+        echo "<td align='center' width='100'>" . $row['last_update'] . "</td>";
+        echo "</tr>";}
+        echo "</table>";*/
         $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
