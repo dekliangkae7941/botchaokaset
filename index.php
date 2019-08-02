@@ -39,14 +39,14 @@ $category = 1;
             echo pg_last_error();
             exit();
         }
-        $myrow = pg_fetch_assoc($result); 
+        $myrow = pg_fetch_array($result); 
         $value == $myrow[category_id];
         $value2 == $myrow[type_id];
         $value3 == $myrow[type_name];
         echo "$value, $value2,$value3";
 
 // Attempt select query execution
-$sql = "SELECT * FROM line_type WHERE category_id = '1'";
+/*$sql = "SELECT * FROM line_type WHERE category_id = '1'";
 if($result = pg_query($dbconn, $sql)){
     if(pg_num_rows($result) > 0){
         echo "<table>";
@@ -68,7 +68,7 @@ if($result = pg_query($dbconn, $sql)){
     }
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
-}
+}*/
  
 // Close connection
 
