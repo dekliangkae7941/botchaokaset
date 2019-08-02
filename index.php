@@ -471,9 +471,16 @@ else {
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
+        $userId = $arrayJson['events'][0]['source']['userId'];
         while($row=pg_fetch_assoc($result)){
             $type_name=$row['type_name'];
-            $mreply = array(
+            for($i=1;$i<=$row['type_id'];$i++){
+                $arrayPostData['to'] = $userId;
+                $arrayPostData['messages'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['text'] = $type_name;
+                pushMsg($arrayHeader,$arrayPostData);
+            }
+            /*$mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
                     array(
@@ -481,39 +488,23 @@ else {
                         'text' => $type_name
                     )
                 )
-            );
+            );*/
         }
-        /*-if($result = pg_query($dbconn, $sql)){
-            if(pg_num_rows($result) > 0){
-                echo "<table>";
-                    echo "<tr>";
-                        echo "<th>id</th>";
-                        echo "<th>first_name</th>";
-                    echo "</tr>";
-                while($row = pg_fetch_array($result)){
-                    echo "<tr>";
-                        echo "<td>" . $row['type_id'] . "</td>";
-                        echo "<td>" . $row['type_name'] . "</td>";
-                    echo "</tr>";
-                }
-                echo "</table>";
-                // Free result set
-                pg_free_result($result);
-            } else{
-                echo "No records matching your query were found.";
+            $json_headers = array();
+            function pushMsg($json_headers,$arrayPostData){
+                $strUrl = "https://api.line.me/v2/bot/message/push";
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL,$strUrl);
+                curl_setopt($ch, CURLOPT_HEADER, false);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $json_headers);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                $result = curl_exec($ch);
+                curl_close ($ch);
             }
-        } else{
-            echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
-        }*/
-        /*$db = pg_connect("host=localhost port=5432 dbname=w3r user=w3r_admin password=admin123");
-        $result = pg_query($db,"SELECT actor_id, first_name FROM actor");
-        echo "<table>";while($row=pg_fetch_assoc($result)){echo "<tr>";
-        echo "<td align='center' width='200'>" . $row['actor_id'] . "</td>";
-        echo "<td align='center' width='200'>" . $row['first_name'] . "</td>";
-        echo "<td align='center' width='100'>" . $row['last_name'] . "</td>";
-        echo "<td align='center' width='100'>" . $row['last_update'] . "</td>";
-        echo "</tr>";}
-        echo "</table>";*/
+
 
     }
     /////////////////////////
