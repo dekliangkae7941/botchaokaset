@@ -469,9 +469,20 @@ else {
     elseif ($command == 'ข้าว') {
         $category = 1;
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
-
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
-        $result = pg_query($query);
+        $result = pg_query($dbconn,$query);
+        while($row=pg_fetch_assoc($result)){
+        $type_name=$row['type_name'];
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $type_name
+                )
+            )
+        );
+        };
         /*-if($result = pg_query($dbconn, $sql)){
             if(pg_num_rows($result) > 0){
                 echo "<table>";
@@ -503,15 +514,7 @@ else {
         echo "<td align='center' width='100'>" . $row['last_update'] . "</td>";
         echo "</tr>";}
         echo "</table>";*/
-        $mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
+
     }
     /////////////////////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
