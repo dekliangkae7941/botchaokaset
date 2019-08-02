@@ -469,7 +469,22 @@ else {
     //////////
     elseif ($command == 'ข้าว') {
         $category = 1;
-        $sql = "SELECT * FROM line_type WHERE category_id = '$category'";
+        $query = "SELECT * FROM line_type WHERE category_id = '$category'";
+
+        //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
+        $result = pg_query($query);
+        if (!$result) {
+            echo "Problem with query " . $query . "<br/>";
+            echo pg_last_error();
+            exit();
+        }
+        $myrow = pg_fetch_assoc($result); 
+        $value == $myrow[category_id];
+        $value2 == $myrow[type_id];
+        $value3 == $myrow[type_name];
+        echo "$value, $value2,$value3";
+
+
         /*-if($result = pg_query($dbconn, $sql)){
             if(pg_num_rows($result) > 0){
                 echo "<table>";
