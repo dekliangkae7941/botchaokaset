@@ -30,7 +30,7 @@ echo "<center><h1>Doesn't work =(</h1></center>";
 
 #--------------------------------------------------------------------------------------------------------------------#
 $category = 1;
-        $query = "SELECT * FROM line_type WHERE category_id = '$category'";
+        $query = "SELECT * FROM line_type WHERE category_id = $category";
 
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($query);
