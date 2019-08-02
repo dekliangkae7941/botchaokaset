@@ -485,7 +485,7 @@ else {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => $type_name
+                        'text' => $type_name.$type_name
                     )
                 )
             );
