@@ -466,7 +466,7 @@ else {
         );
     }
     //////////
-    elseif ($command == 'ข้าว') {
+    /*elseif ($command == 'ข้าว') {
         $category = 5;
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
@@ -479,7 +479,7 @@ else {
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = $type_name;
                 pushMsg($arrayHeader,$arrayPostData);
-            }*/
+            }
             $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
@@ -492,7 +492,7 @@ else {
         }
 
 
-    }
+    }*/
     /////////////////////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
