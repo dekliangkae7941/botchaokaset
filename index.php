@@ -218,7 +218,7 @@ elseif ($type == 'follow') {
         'messages' => array(
             array(
                 'type' => 'text',
-                'text' => 'สวัสดี '.$displayName.' userId ของคุณคือ '.$userId
+                'text' => 'สวัสดีจ้าคุณ '.$displayName.' userId ของคุณคือ '.$userId
             )
         )
     );
