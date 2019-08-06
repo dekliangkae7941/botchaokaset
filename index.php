@@ -441,7 +441,7 @@ elseif ($msg_type == 'location') {
 /////////////
 else { 
     if ($command== 'myid') { 
-        $data = '{"to":"'.  $user_id .'","messages":[
+        $mreply = '{"to":"'.  $user_id .'","messages":[
               "type": "flex",
               "altText": "Flex Message",
               "contents": {
