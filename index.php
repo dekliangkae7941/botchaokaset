@@ -322,7 +322,7 @@ $botDataUserFolder = './user/file/video/' . $userId;
                     } 
 $fileFullSavePath = $botDataUserFolder . '/' . $ran . '.mp4';
 $vidurl = 'https://botphp2019.herokuapp.com' . $fileFullSavePath;
-file_put_contents($fileFullSavePath,$result);
+file_put_contents($fileFullSavePath,$result); 
   $text = "บันทึกไฟล์วิดีโอเรียบร้อยแล้ว";
       $mreply = array(
         'replyToken' => $replyToken,
@@ -466,33 +466,26 @@ else {
         );
     }
     //////////
-    /*elseif ($command == 'ข้าว') {
+    elseif ($command == 'ข้าว') {
         $category = 5;
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
         //$userId = $arrayJson['events'][0]['source']['userId'];
-        while($row=pg_fetch_assoc($result)){
-            $type_name=$row['type_name'];
-            /*for($i=1;$i<=$row['type_id'];$i++){
-                $arrayPostData['to'] = $userId;
-                $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = $type_name;
-                pushMsg($arrayHeader,$arrayPostData);
-            }
+
+        while ($row = $result->fetch_assoc()){
+            $name = $row["type_name"];
             $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => $type_name
+                        'text' => $name
                     )
                 )
             );
-        }
-
-
-    }*/
+            }
+    }
     /////////////////////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
