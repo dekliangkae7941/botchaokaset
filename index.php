@@ -441,8 +441,97 @@ elseif ($msg_type == 'location') {
 /////////////
 else { 
     if ($command== 'myid') { 
-        
-    $mreply = array(
+        $data = '{"to":"'.  $user_id .'","messages":[
+              "type": "flex",
+              "altText": "Flex Message",
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "กรุณาเลือกสาเหตุของการเกิดโรค",
+                      "size": "xl",
+                      "weight": "bold",
+                      "wrap": true
+                    }
+                  ]
+                },
+                "footer": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "message",
+                        "label": "แบคทีเรีย",
+                        "text": "โรคข้าวจากแบคทีเรีย"
+                      },
+                      "color": "#F39C12",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "message",
+                        "label": "รา",
+                        "text": "โรคข้าวจากรา"
+                      },
+                      "color": "#F1C40F",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "message",
+                        "label": "ไวรัส",
+                        "text": "โรคข้าวจากไวรัส"
+                      },
+                      "color": "#2ECC71",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "message",
+                        "label": "ไฟโตพลาสมา",
+                        "text": "โรคข้าวจากไฟโตพลาสมา"
+                      },
+                      "color": "#2E86C1",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "message",
+                        "label": "ใส้เดือนฝอย",
+                        "text": "โรคข้าวจากใส้เดือนฝอย"
+                      },
+                      "color": "#884EA0",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "message",
+                        "label": "ไม่ทราบสาเหตุ",
+                        "text": "ไม่ทราบสาเหตุโรคข้าว"
+                      },
+                      "color": "#CB4335",
+                      "style": "primary"
+                    }
+                  ]
+                }
+                ]
+              }
+            }
+          }]}';
+    /*$mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
                 array(
@@ -463,7 +552,7 @@ else {
 
                 )
             )
-        );
+        );*/
     }
     //////////
     elseif ($command == 'ข้าว') {
