@@ -471,8 +471,6 @@ else {
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
-        //$userId = $arrayJson['events'][0]['source']['userId'];
-
         while ($row = $result->fetch_assoc()){
             $name = $row["type_name"];
             $mreply = array(
