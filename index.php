@@ -499,7 +499,7 @@ else {
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,$type_id";
         }
-        pg_free_result($result);
+        //pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
