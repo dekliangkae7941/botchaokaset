@@ -513,7 +513,7 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
         $datacount = 1;
         //while($row = pg_fetch_array($result)){
-        while($eventrow = pg_fetch_assoc($result)){
+        while($trow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
             $datacount = $datacount + 1;
             $type_id = $row['type_id'];
