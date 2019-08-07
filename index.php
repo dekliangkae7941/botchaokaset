@@ -487,7 +487,7 @@ else {
         $datacount = 0;
         
 
-        while($eventrow = pg_fetch_array($result)){
+        while($eventrow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
             $datacount = $datacount + 1;
             $type_id = $eventrow['type_id'];
