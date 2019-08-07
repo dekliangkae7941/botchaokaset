@@ -480,6 +480,16 @@ else {
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,$type_id";
         }
+
+        $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
+        $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
+        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "Rwar";
+        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
+        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
+        $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = true;
+        pushMsg($arrayHeader,$arrayPostData);
+
     }
     /////////////////////////
 
