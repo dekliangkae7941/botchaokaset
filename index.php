@@ -108,7 +108,44 @@ require_once('./unirest-php-master/src/Unirest.php');
 #-------------------------[Token]-------------------------#
 $channelAccessToken = 'pZmLfAv73zYnio19mFJo2hudRTgr7y8FbMdAayR7VXep+rZyVt1NAAEL+ZcsjfbrA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vzhQPrIgSXQ3Uj23DnEpFiCa+MC60K2WexRcqsdgTDQ6gdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'ddfedb5ad9fad19c7c0bbe791cd28166';
+$content = file_get_contents('php://input');
+$arrayJson = json_decode($content, true);
+$arrayHeader = array();
+$arrayHeader[] = "Content-Type: application/json";
+$arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
+
+#------------------------------------------------------------------------#
+//รับข้อความจากผู้ใช้
+$messages = $arrayJson['events'][0]['message']['text'];
+//รับ id ของผู้ใช้
+$uid = $arrayJson['events'][0]['source']['userId'];
+
+
+#ตัวอย่าง Message Type "Text + Sticker"
+if($messages == "สวัสดี"){
+    $arrayPostData['to'] = $uid;
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
+    $arrayPostData['messages'][1]['type'] = "sticker";
+    $arrayPostData['messages'][1]['packageId'] = "2";
+    $arrayPostData['messages'][1]['stickerId'] = "34";
+    pushMsg($arrayHeader,$arrayPostData);
+ }
+ function pushMsg($arrayHeader,$arrayPostData){
+    $strUrl = "https://api.line.me/v2/bot/message/push";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL,$strUrl);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $result = curl_exec($ch);
+    curl_close ($ch);
+ }
 #-------------------------[Events]-------------------------#
+
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $userId     = $client->parseEvents()[0]['source']['userId'];
 //$displayName= $client->parseEvents()[0]['source']['displayName'];
