@@ -484,10 +484,10 @@ else {
     }
     //////////
     elseif ($command == 'แมว') {
-        //$category = 5;
-        //$query = "SELECT * FROM line_type WHERE category_id = '5'";
+        $category = 5;
+        $query = "SELECT * FROM line_type WHERE category_id = '5'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
-        //$result = pg_query($dbconn,$query);
+        $result = pg_query($dbconn,$query);
         /*if (!$result) {
             echo "An error occurred.\n";
             exit;
@@ -511,19 +511,19 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "Test";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
-        //$datacount = 0;
+        $datacount = 1;
         //while($row = pg_fetch_array($result)){
-        //while($eventrow = pg_fetch_assoc($result)){
+        while($eventrow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
-            //$datacount = $datacount + 1;
-            //$type_id = $row['type_id'];
-            //$type_name = $row['type_name'];
+            $datacount = $datacount + 1;
+            $type_id = $row['type_id'];
+            $type_name = $row['type_name'];
             $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "button";
             $arrayPostData['messages'][0]['contents']['body']['contents'][1]['style'] = "secondary";
             $arrayPostData['messages'][0]['contents']['body']['contents'][1]['action']['type'] = "message";
             $arrayPostData['messages'][0]['contents']['body']['contents'][1]['action']['label'] = ") 55555";
             $arrayPostData['messages'][0]['contents']['body']['contents'][1]['action']['text'] = "event,";
-        //}
+        }
         //pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
