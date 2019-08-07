@@ -486,7 +486,7 @@ else {
         
         $datacount = 0;
         
-        while($row = pg_fetch_array($result)){
+        //while($row = pg_fetch_array($result)){
         //while($eventrow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
             $datacount = $datacount + 1;
@@ -496,9 +496,9 @@ else {
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "button";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['style'] = "secondary";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,$type_id";
-        }
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = ") ";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,";
+        //}
         //pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
