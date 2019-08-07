@@ -493,11 +493,11 @@ else {
             $type_id = $row['type_id'];
             $type_name = $row['type_name'];
 
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "botton";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['style'] = "secondary";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,$type_id";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "botton";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][0]['style'] = "secondary";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['type'] = "message";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['label'] = "$datacount) $type_name";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['text'] = "event,$type_id";
         }
         //pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
