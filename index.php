@@ -92,25 +92,6 @@ $messages = $arrayJson['events'][0]['message']['text'];
 $uid = $arrayJson['events'][0]['source']['userId'];
 
 
-#ตัวอย่าง Message Type "Text + Sticker"
-if($messages == "สวัสดี"){
-    $arrayPostData['to'] = $uid;
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
-    $arrayPostData['messages'][1]['type'] = "sticker";
-    $arrayPostData['messages'][1]['packageId'] = "2";
-    $arrayPostData['messages'][1]['stickerId'] = "34";
-    pushMsg($arrayHeader,$arrayPostData);
- }
- elseif($messages == "นับ1-10"){
-    for($i=1;$i<=10;$i++){
-       $arrayPostData['to'] = $uid;
-       $arrayPostData['messages'][0]['type'] = "text";
-       $arrayPostData['messages'][0]['text'] = $i;
-       pushMsg($arrayHeader,$arrayPostData);
-    }
-}
-
 #-------------------------[Func]-------------------------#
 function pushMsg($arrayHeader,$arrayPostData){
     $strUrl = "https://api.line.me/v2/bot/message/push";
@@ -592,6 +573,25 @@ else {
             }
     }
     /////////////////////////
+
+    #ตัวอย่าง Message Type "Text + Sticker"
+    elseif($command == "สวัสดี"){
+        $arrayPostData['to'] = $uid;
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
+        $arrayPostData['messages'][1]['type'] = "sticker";
+        $arrayPostData['messages'][1]['packageId'] = "2";
+        $arrayPostData['messages'][1]['stickerId'] = "34";
+        pushMsg($arrayHeader,$arrayPostData);
+    }
+    elseif($command == "นับ1-10"){
+        for($i=1;$i<=10;$i++){
+        $arrayPostData['to'] = $uid;
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $i;
+        pushMsg($arrayHeader,$arrayPostData);
+        }
+    }
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
         $mreply = array(
