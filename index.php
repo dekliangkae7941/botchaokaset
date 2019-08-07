@@ -69,38 +69,7 @@ if($result = pg_query($dbconn, $sql)){
   $replyJson["messages"][0] = $replyText;
   $encodeJson = json_encode($replyJson);*/
 #--------------------------------------------------------------------------------------------------------------------#
-  /*function sendMessage($replyJson, $sendInfo){
-          $ch = curl_init($sendInfo["URL"]);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($ch, CURLINFO_HEADER_OUT, true);
-          curl_setopt($ch, CURLOPT_POST, true);
-          curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-              'Content-Type: application/json',
-              'Authorization: Bearer ' . $sendInfo["AccessToken"])
-              );
-          curl_setopt($ch, CURLOPT_POSTFIELDS, $replyJson);
-          $result = curl_exec($ch);
-          curl_close($ch);
-    return $result;
-  }
-  $mysql->query("INSERT INTO 'LOG'('UserID', 'Text', 'Timestamp') VALUES ('$userID','$text','$timestamp')");
-  $getUser = $mysql->query("SELECT * FROM 'Customer' WHERE 'UserID'='$userID'");
-  $getuserNum = $getUser->num_rows;
-  $replyText["type"] = "text";
-  if ($getuserNum == "0"){
-    $replyText["text"] = "vbvb";
-  } else {
-    while($row = $getUser->fetch_assoc()){
-      $Name = $row['Name'];
-      $Surname = $row['Surname'];
-      $CustomerID = $row['CustomerID'];
-    }
-    $replyText["text"] = "สวัสดีคุณ $Name $Surname ($CustomerID)";
-  }
-  
-  //$results = sendMessage($encodeJson,$lineData);
-  //echo $results;
-  http_response_code(200);*/
+
 #------------------------------------------------------------------------------------------------------------#
 #-------------------------[Include]-------------------------#
 require_once('./include/line_class.php');
@@ -118,12 +87,12 @@ $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 //รับข้อความจากผู้ใช้
 $messages = $arrayJson['events'][0]['message']['text'];
 //รับ id ของผู้ใช้
-$uid = $arrayJson['events'][0]['source']['userId'];
+//$uid = $arrayJson['events'][0]['source']['userId'];
 
 
 #ตัวอย่าง Message Type "Text + Sticker"
 if($messages == "สวัสดี"){
-    $arrayPostData['to'] = $uid;
+    $arrayPostData['to'] = $userId;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
     $arrayPostData['messages'][1]['type'] = "sticker";
@@ -131,26 +100,15 @@ if($messages == "สวัสดี"){
     $arrayPostData['messages'][1]['stickerId'] = "34";
     pushMsg($arrayHeader,$arrayPostData);
  }
- if($messages == "นับ 1-10"){
+ elseif($messages == "นับ 1-10"){
     for($i=1;$i<=10;$i++){
-       $arrayPostData['to'] = $uid;
+       $arrayPostData['to'] = $userId;
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $i;
        pushMsg($arrayHeader,$arrayPostData);
     }
- function pushMsg($arrayHeader,$arrayPostData){
-    $strUrl = "https://api.line.me/v2/bot/message/push";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,$strUrl);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    $result = curl_exec($ch);
-    curl_close ($ch);
- }
+}
+
 #-------------------------[Events]-------------------------#
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
@@ -684,7 +642,8 @@ else {
     }
     /////////
 }
-////////////////
+
+
 
 if (isset($mreply)) {
     $result = json_encode($mreply);
