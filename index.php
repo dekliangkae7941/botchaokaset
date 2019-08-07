@@ -533,7 +533,6 @@ else {
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
         replyMsg($arrayHeader,$arrayPostData);
 
-
     }
     /////////////////////////
 
