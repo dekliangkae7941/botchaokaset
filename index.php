@@ -493,7 +493,7 @@ else {
             //$type_id = $row['type_id'];
             //$type_name = $row['type_name'];
             $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "button";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][0]['styles'] = "secondary";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][0]['style'] = "secondary";
             $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['type'] = "message";
             $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['label'] = ") 55555";
             $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['text'] = "event,";
