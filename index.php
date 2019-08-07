@@ -498,7 +498,6 @@ else {
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,$type_id";
-            pushMsg($arrayHeader,$arrayPostData);
         }
         //pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
