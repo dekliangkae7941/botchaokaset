@@ -461,10 +461,11 @@ else {
         $query = "SELECT * FROM line_type WHERE category_id = $category";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
-        if (!$result) {
+        /*if (!$result) {
             echo "An error occurred.\n";
             exit;
-        }
+        }*/
+        if(pg_num_rows($result) > 0){
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "flex";
         $arrayPostData['messages'][0]['altText'] = "text";
@@ -485,7 +486,10 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
         
         $datacount = 0;
-        while($eventrow = $result->pg_fetch_assoc()){
+        
+
+        while($eventrow = pg_fetch_array($result)){
+        //while($eventrow = $result->pg_fetch_assoc()){
             $datacount = $datacount + 1;
             $type_id = $eventrow['type_id'];
             $type_name = $eventrow['type_name'];
@@ -496,7 +500,7 @@ else {
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,$type_id";
         }
-
+        pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
@@ -505,6 +509,9 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = true;
         replyMsg($arrayHeader,$arrayPostData);
+    } else{
+        echo "No records matching your query were found.";
+    }
 
     }
     /////////////////////////
