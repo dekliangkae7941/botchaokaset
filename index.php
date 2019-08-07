@@ -531,6 +531,24 @@ else {
         pushMsg($arrayHeader,$arrayPostData);
         }
     }
+    elseif($command == "นับ"){
+        $sql = "SELECT * FROM line_type WHERE category_id = '5'";
+        $datacount = 0;
+        //while($eventrow = $result->pg_fetch_assoc()){
+        $result = pg_query($dbconn, $sql);
+            while($row = pg_fetch_array($result)){
+                $datacount = $datacount + 1;
+                $type_id = $row['type_id'];
+                $type_name = $row['type_name'];
+                
+                $arrayPostData['to'] = $uid;
+                $arrayPostData['messages'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                pushMsg($arrayHeader,$arrayPostData);
+            }
+            // Free result set
+            //pg_free_result($result);
+    }
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
         $mreply = array(
