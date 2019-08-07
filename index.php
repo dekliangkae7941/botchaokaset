@@ -506,6 +506,7 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+            echo $arrayPostData;
         replyMsg($arrayHeader,$arrayPostData);
 
 
