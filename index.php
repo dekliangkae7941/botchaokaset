@@ -483,9 +483,7 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "Test";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
-        
         //$datacount = 0;
-        
         //while($row = pg_fetch_array($result)){
         //while($eventrow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
@@ -506,7 +504,6 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-            echo $arrayPostData;
         replyMsg($arrayHeader,$arrayPostData);
 
 
