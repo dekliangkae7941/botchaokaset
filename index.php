@@ -492,7 +492,7 @@ else {
             echo "An error occurred.\n";
             exit;
         }*/
-        
+
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "flex";
         $arrayPostData['messages'][0]['altText'] = "text";
@@ -532,7 +532,7 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-        replyMsg($arrayHeader,$arrayPostData);
+        pushMsg($arrayHeader,$arrayPostData);
 
     }
     /////////////////////////
