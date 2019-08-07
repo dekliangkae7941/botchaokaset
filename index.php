@@ -540,7 +540,7 @@ else {
                 
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 pushMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
@@ -558,7 +558,7 @@ else {
                 
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 pushMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
@@ -576,7 +576,7 @@ else {
                 
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 pushMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
@@ -594,7 +594,7 @@ else {
                 
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 pushMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
@@ -612,7 +612,7 @@ else {
                 
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 pushMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
@@ -630,7 +630,7 @@ else {
                 
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 pushMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
@@ -648,7 +648,7 @@ else {
                 
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) $type_id $type_name";
+                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 pushMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
