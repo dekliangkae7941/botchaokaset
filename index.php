@@ -86,10 +86,7 @@ $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 
 #------------------------------------------------------------------------#
-//รับข้อความจากผู้ใช้
-$messages = $arrayJson['events'][0]['message']['text'];
-//รับ id ของผู้ใช้
-$uid = $arrayJson['events'][0]['source']['userId'];
+
 
 
 #-------------------------[Func]-------------------------#
@@ -109,8 +106,11 @@ function pushMsg($arrayHeader,$arrayPostData){
 #-------------------------[Events]-------------------------#
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
+//รับข้อความจากผู้ใช้
+//$messages = $arrayJson['events'][0]['message']['text'];
+//รับ id ของผู้ใช้
+//$uid = $arrayJson['events'][0]['source']['userId'];
 $userId     = $client->parseEvents()[0]['source']['userId'];
-//$displayName= $client->parseEvents()[0]['source']['displayName'];
 $groupId    = $client->parseEvents()[0]['source']['groupId'];
 $replyToken = $client->parseEvents()[0]['replyToken'];
 $timestamp  = $client->parseEvents()[0]['timestamp'];
