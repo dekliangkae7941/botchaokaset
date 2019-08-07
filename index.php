@@ -448,7 +448,10 @@ else {
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
-
+        if (!$result) {
+            echo "An error occurred.\n";
+            exit;
+        }
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "flex";
         $arrayPostData['messages'][0]['altText'] = "text";
@@ -469,7 +472,7 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
         
         $datacount = 0;
-        while($eventrow = $query->pg_fetch_assoc()){
+        while($eventrow = pg_fetch_assoc($result)){
             $datacount = $datacount + 1;
             $type_id= $eventrow['type_id'];
             $type_name = $eventrow['type_name'];
