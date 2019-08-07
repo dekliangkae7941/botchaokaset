@@ -80,7 +80,7 @@ class LINEBotTiny
     }
 
     #--------------------------------func------------------------------------------------#
-    function pushMsg($arrayHeader,$arrayPostData){
+    public function pushMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/push";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
