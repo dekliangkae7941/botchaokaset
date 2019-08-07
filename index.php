@@ -515,7 +515,7 @@ else {
         while($row = pg_fetch_array($result)){
         //while($trow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
-            $datacount = $datacount + 1;
+            $datacount += 1;
             $type_id = $row['type_id'];
             $type_name = $row['type_name'];
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "button";
@@ -524,7 +524,7 @@ else {
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount ) Type : $type_id | $type_name";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event, $type_id";
         }
-        //pg_free_result($result);
+        pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
