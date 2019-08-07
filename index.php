@@ -486,12 +486,12 @@ else {
         
         $datacount = 0;
         
-
-        while($eventrow = pg_fetch_assoc($result)){
+        while($row = pg_fetch_array($result)){
+        //while($eventrow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
             $datacount = $datacount + 1;
-            $type_id = $eventrow['type_id'];
-            $type_name = $eventrow['type_name'];
+            $type_id = $row['type_id'];
+            $type_name = $row['type_name'];
 
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "botton";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['style'] = "secondary";
