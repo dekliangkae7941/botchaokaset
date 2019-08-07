@@ -484,8 +484,7 @@ else {
     }
     //////////
     elseif ($command == 'แมว') {
-        $category = 5;
-        $query = "SELECT * FROM line_type WHERE category_id = '5'";
+        $query = "SELECT * FROM line_type WHERE category_id = '1'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
         /*if (!$result) {
