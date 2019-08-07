@@ -440,118 +440,7 @@ elseif ($msg_type == 'location') {
 /////////////
 else { 
     if ($command== 'myid') { 
-        $mreply = '{"to":"'.  $user_id .'","messages":[
-              "type": "flex",
-              "altText": "Flex Message",
-              "contents": {
-                "type": "bubble",
-                "body": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "กรุณาเลือกสาเหตุของการเกิดโรค",
-                      "size": "xl",
-                      "weight": "bold",
-                      "wrap": true
-                    }
-                  ]
-                },
-                "footer": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "message",
-                        "label": "แบคทีเรีย",
-                        "text": "โรคข้าวจากแบคทีเรีย"
-                      },
-                      "color": "#F39C12",
-                      "style": "primary"
-                    },
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "message",
-                        "label": "รา",
-                        "text": "โรคข้าวจากรา"
-                      },
-                      "color": "#F1C40F",
-                      "style": "primary"
-                    },
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "message",
-                        "label": "ไวรัส",
-                        "text": "โรคข้าวจากไวรัส"
-                      },
-                      "color": "#2ECC71",
-                      "style": "primary"
-                    },
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "message",
-                        "label": "ไฟโตพลาสมา",
-                        "text": "โรคข้าวจากไฟโตพลาสมา"
-                      },
-                      "color": "#2E86C1",
-                      "style": "primary"
-                    },
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "message",
-                        "label": "ใส้เดือนฝอย",
-                        "text": "โรคข้าวจากใส้เดือนฝอย"
-                      },
-                      "color": "#884EA0",
-                      "style": "primary"
-                    },
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "message",
-                        "label": "ไม่ทราบสาเหตุ",
-                        "text": "ไม่ทราบสาเหตุโรคข้าว"
-                      },
-                      "color": "#CB4335",
-                      "style": "primary"
-                    }
-                  ]
-                }
-                ]
-              }
-            }
-          }]}';
-    /*$mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => 'userId ของคุณคือ '.$userId,
-                    'quickReply' => array(
-                        'items' => array(
-                        array(
-                        'type' => 'action',
-                        'action' => array(
-                        'type' => 'postback',
-                        'label' => 'Postback',
-                        'data' => 'happy'
-                        )
-                        )
-                        )
-                    )
-
-                )
-            )
-        );*/
+        
     }
     //////////
     elseif ($command == 'ข้าว') {
@@ -559,18 +448,38 @@ else {
         $query = "SELECT * FROM line_type WHERE category_id = '$category'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
         $result = pg_query($dbconn,$query);
-        while ($row = $result->fetch_assoc()){
-            $name = $row["type_name"];
-            $mreply = array(
-                'replyToken' => $replyToken,
-                'messages' => array(
-                    array(
-                        'type' => 'text',
-                        'text' => $name
-                    )
-                )
-            );
-            }
+
+        $arrayPostData['to'] = $uid;
+        $arrayPostData['messages'][0]['type'] = "flex";
+        $arrayPostData['messages'][0]['altText'] = "text";
+        $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+        
+        $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
+        $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
+        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "Testtt";
+        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
+        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
+
+        $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+        $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+        $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "Test";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
+        
+        $datacount = 0;
+        while($eventrow = $eventquery->pg_fetch_assoc()){
+            $datacount = $datacount + 1;
+            $type_id= $eventrow['type_id'];
+            $type_name = $eventrow['type_name'];
+
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "botton";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['style'] = "secondary";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event,$type_id";
+        }
     }
     /////////////////////////
 
