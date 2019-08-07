@@ -90,7 +90,7 @@ $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 
 
 #-------------------------[Func]-------------------------#
-function pushMsg($arrayHeader,$arrayPostData){
+/*function pushMsg($arrayHeader,$arrayPostData){
     $strUrl = "https://api.line.me/v2/bot/message/push";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -115,7 +115,7 @@ function replyMsg($arrayHeader,$arrayPostData){
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($ch);
     curl_close ($ch);
-}
+}*/
 #-------------------------[Events]-------------------------#
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
