@@ -87,12 +87,12 @@ $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 //รับข้อความจากผู้ใช้
 $messages = $arrayJson['events'][0]['message']['text'];
 //รับ id ของผู้ใช้
-//$uid = $arrayJson['events'][0]['source']['userId'];
+$uid = $arrayJson['events'][0]['source']['userId'];
 
 
 #ตัวอย่าง Message Type "Text + Sticker"
 if($messages == "สวัสดี"){
-    $arrayPostData['to'] = $userId;
+    $arrayPostData['to'] = $uid;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
     $arrayPostData['messages'][1]['type'] = "sticker";
@@ -100,15 +100,14 @@ if($messages == "สวัสดี"){
     $arrayPostData['messages'][1]['stickerId'] = "34";
     pushMsg($arrayHeader,$arrayPostData);
  }
- elseif($messages == "นับ 1-10"){
+ elseif($messages == "นับ1-10"){
     for($i=1;$i<=10;$i++){
-       $arrayPostData['to'] = $userId;
+       $arrayPostData['to'] = $uid;
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $i;
        pushMsg($arrayHeader,$arrayPostData);
     }
 }
-
 #-------------------------[Events]-------------------------#
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
