@@ -529,7 +529,7 @@ else {
         }
     }
     elseif($command == "นับ"){
-        $sql = "SELECT * FROM line_type WHERE category_id = '4'";
+        $sql = "SELECT * FROM line_type WHERE category_id = '1'";
         $datacount = 0;
         //while($eventrow = $result->pg_fetch_assoc()){
         $result = pg_query($dbconn, $sql);
