@@ -103,6 +103,19 @@ function pushMsg($arrayHeader,$arrayPostData){
     $result = curl_exec($ch);
     curl_close ($ch);
 }
+function replyMsg($arrayHeader,$arrayPostData){
+    $strUrl = "https://api.line.me/v2/bot/message/reply";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL,$strUrl);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
+    curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $result = curl_exec($ch);
+    curl_close ($ch);
+}
 #-------------------------[Events]-------------------------#
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
@@ -474,7 +487,7 @@ else {
         $datacount = 0;
         while($eventrow = $result->pg_fetch_assoc()){
             $datacount = $datacount + 1;
-            $type_id= $eventrow['type_id'];
+            $type_id = $eventrow['type_id'];
             $type_name = $eventrow['type_name'];
 
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "botton";
@@ -491,7 +504,7 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = true;
-        pushMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader,$arrayPostData);
 
     }
     /////////////////////////
