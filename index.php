@@ -484,7 +484,7 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "Test";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
         
-        $datacount = 0;
+        //$datacount = 0;
         
         //while($row = pg_fetch_array($result)){
         //while($eventrow = pg_fetch_assoc($result)){
