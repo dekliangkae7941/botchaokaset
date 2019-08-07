@@ -465,7 +465,6 @@ else {
             echo "An error occurred.\n";
             exit;
         }*/
-        if(pg_num_rows($result) > 0){
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "flex";
         $arrayPostData['messages'][0]['altText'] = "text";
@@ -509,9 +508,7 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = true;
         replyMsg($arrayHeader,$arrayPostData);
-    } else{
-        echo "No records matching your query were found.";
-    }
+
 
     }
     /////////////////////////
