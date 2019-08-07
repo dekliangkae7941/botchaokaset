@@ -133,7 +133,7 @@ if($messages == "สวัสดี"){
  }
  if($messages == "นับ 1-10"){
     for($i=1;$i<=10;$i++){
-       $arrayPostData['to'] = $id;
+       $arrayPostData['to'] = $uid;
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $i;
        pushMsg($arrayHeader,$arrayPostData);
