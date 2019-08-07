@@ -469,7 +469,7 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
         
         $datacount = 0;
-        while($eventrow = $result->pg_fetch_assoc()){
+        while($eventrow = $query->pg_fetch_assoc()){
             $datacount = $datacount + 1;
             $type_id= $eventrow['type_id'];
             $type_name = $eventrow['type_name'];
