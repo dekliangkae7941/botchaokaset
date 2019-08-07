@@ -493,7 +493,7 @@ else {
             $type_id = $row['type_id'];
             $type_name = $row['type_name'];
 
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "botton";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "button";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['style'] = "secondary";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount) $type_name";
