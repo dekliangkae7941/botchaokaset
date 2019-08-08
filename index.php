@@ -544,7 +544,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 pushMsg($arrayHeader,$arrayPostData);
             }
-            //if($type_id=1){
+            if($type_id!=0){
                 //$subtype_id=1;
                 $querytype = "SELECT * FROM line_subtype WHERE type_id = '$type_id'";
                 if($resulttype = pg_query($dbconn, $querytype)){
@@ -590,7 +590,7 @@ else {
                         pushMsg($arrayHeader,$arrayPostData);
                     }
                 }
-            //}            
+            }            
         }
         
     /////////////////////////
