@@ -482,24 +482,31 @@ elseif ($msg_type == 'location') {
 else { 
     if ($command == 'ผัก') {
         $categoryid = 1;
+        $type_id = 0;
     }
     elseif ($command == 'ผลไม้') {
         $categoryid = 2;
+        $type_id = 0;
     }
     elseif ($command == 'สัตว์น้ำ') {
         $categoryid = 3;
+        $type_id = 0;
     }
     elseif ($command == 'ปศุสัตว์') {
         $categoryid = 4;
+        $type_id = 0;
     }
     elseif ($command == 'ข้าว') {
         $categoryid = 5;
+        $type_id = 0;
     }
     elseif ($command == 'พืชเศรษฐกิจ') {
         $categoryid = 6;
+        $type_id = 0;
     }
     elseif ($command == 'ดอกไม้') {
         $categoryid = 7;
+        $type_id = 0;
     }
         $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         if($resultmarket = pg_query($dbconn, $querymarket)){
@@ -544,7 +551,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 pushMsg($arrayHeader,$arrayPostData);
             }
-            if($type_id!=0){
+            if($type_id>=1){
                 //$subtype_id=1;
                 $querytype = "SELECT * FROM line_subtype WHERE type_id = '$type_id'";
                 if($resulttype = pg_query($dbconn, $querytype)){
