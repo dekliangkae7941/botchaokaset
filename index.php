@@ -515,7 +515,7 @@ else {
         
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "flex";
-        $arrayPostData['messages'][0]['altText'] = "text";
+        $arrayPostData['messages'][0]['altText'] = "$command";
         $arrayPostData['messages'][0]['contents']['type'] = "bubble";
         
         $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
