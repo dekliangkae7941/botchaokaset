@@ -558,27 +558,21 @@ else {
     ////////////////////////////
     elseif ($command == "กระเทียม") {
         $typeid = 1;
-        //$type_id = 0;   
     }
     elseif ($command == "กล้วย") {
         $typeid = 2;
-        //$type_id = 0;  
     }
     elseif ($command == "กุ้ง") {
         $typeid = 3;
-        //$type_id = 0;   
     }
     elseif ($command == "ไก่") {
         $typeid = 4;
-        //$type_id = 0;  
     }
     elseif ($command == "ข้าวเปลือกเจ้า") {
-        $typeid = 5;
-        //$type_id = 0;   
+        $typeid = 5;  
     }
     elseif ($command == "ข้าวเปลือกเหนียว") {
-        $typeid = 6;
-        //$type_id = 0;  
+        $typeid = 6; 
     }
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
@@ -609,7 +603,7 @@ else {
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['type'] = "button";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['type'] = "message";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['label'] = "$typeid // $subtype_id // $subtype_name";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['label'] = "$subtype_name";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['text'] = "$subtype_id";
                 }
                 pg_free_result($resulttype);
