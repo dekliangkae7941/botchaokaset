@@ -483,7 +483,6 @@ else {
     if ($command == 'ผัก') {
         $categoryid = 1;
         //$type_id = 0;
-
     }
     elseif ($command == 'ผลไม้') {
         $categoryid = 2;
@@ -508,6 +507,10 @@ else {
     elseif ($command == 'ดอกไม้') {
         $categoryid = 7;
         //$type_id = 0;
+    }
+    elseif ($command == 'ผัก1') {
+        $typeid = 1;
+        //$type_id = 0;   
     }
         $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         if($resultmarket = pg_query($dbconn, $querymarket)){
@@ -539,7 +542,7 @@ else {
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_id";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "ผัก$type_id";
                 }
                 pg_free_result($resultmarket);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
@@ -555,50 +558,50 @@ else {
             }
         }
                 //$subtype_id=1;
-                /*$querytype = "SELECT * FROM line_subtype WHERE type_id = '$command'";
-                if($resulttype = pg_query($dbconn, $querytype)){
-                    if(pg_num_rows($resulttype) > 0){
-                        $arrayPostData['to'] = $uid;
-                        $arrayPostData['messages'][0]['type'] = "flex";
-                        $arrayPostData['messages'][0]['altText'] = "ราคาตลาด";
-                        $arrayPostData['messages'][0]['contents']['type'] = "bubble";
-                        
-                        $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
-                        $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคาตลาด";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
-        
-                        $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
-                        $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
-                        $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
-                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
-                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกประเภทของ";
-                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
-                        $datacountrowtype = 0;
-                        while($rowtype = pg_fetch_array($resulttype)){
-                            $datacountrowtype += 1;
-                            $subtype_id = $rowtype['subtype_id'];
-                            $subtype_name = $rowtype['subtype_name'];
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['type'] = "button";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['style'] = "secondary";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['type'] = "message";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['label'] = "$command // $subtype_id // $subtype_name";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['text'] = "$subtype_id";
-                        }
-                        pg_free_result($resulttype);
-                        $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
-                        $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
-                        $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-                        pushMsg($arrayHeader,$arrayPostData);
-                    }
-                }*/        
+        $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
+        if($resulttype = pg_query($dbconn, $querytype)){
+            if(pg_num_rows($resulttype) > 0){
+                $arrayPostData['to'] = $uid;
+                $arrayPostData['messages'][0]['type'] = "flex";
+                $arrayPostData['messages'][0]['altText'] = "ราคาตลาด";
+                $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+                
+                $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคาตลาด";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
+
+                $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกประเภทของ";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
+                $datacountrowtype = 0;
+                while($rowtype = pg_fetch_array($resulttype)){
+                    $datacountrowtype += 1;
+                    $subtype_id = $rowtype['subtype_id'];
+                    $subtype_name = $rowtype['subtype_name'];
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['type'] = "button";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['style'] = "secondary";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['type'] = "message";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['label'] = "$typeid // $subtype_id // $subtype_name";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['text'] = "$subtype_id";
+                }
+                pg_free_result($resulttype);
+                $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
+                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+                pushMsg($arrayHeader,$arrayPostData);
+            }
+        }       
     /////////////////////////
     #ตัวอย่าง Message Type "Text + Sticker"
     elseif($command == "สวัสดี"){
