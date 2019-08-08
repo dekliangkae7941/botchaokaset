@@ -558,7 +558,6 @@ else {
     ////////////////////////////
     elseif ($command == "กระเทียม") {
         $typeid = 1;
-        
     }
     elseif ($command == "กล้วย") {
         $typeid = 2;
@@ -615,7 +614,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
-                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f1C40f";
+                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 pushMsg($arrayHeader,$arrayPostData);
             }
         }       
