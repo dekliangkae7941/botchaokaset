@@ -195,6 +195,7 @@ function replyMsg($arrayHeader,$arrayPostData){
     $result = curl_exec($ch);
     curl_close ($ch);
 }
+
 #-------------------------[EVENT TYPE]-------------------------#
 if ($type == 'memberJoined') {
     $text = "เมื่อมีผู้ใช้เข้ากลุ่ม";
