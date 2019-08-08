@@ -538,7 +538,7 @@ else {
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_id";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_name";
                 }
                 pg_free_result($resultmarket);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
@@ -554,9 +554,13 @@ else {
             }
         }
             
-    elseif ($command == "$type_id") {
-        $typeid = $type_id;
+    elseif ($command == "กระเทียม") {
+        $typeid = 1;
         //$type_id = 0;   
+    }
+    elseif ($command == "ข้าวโพดฝักอ่อน") {
+        $typeid = 2;
+        //$type_id = 0;  
     }
         //$subtype_id=1;
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
