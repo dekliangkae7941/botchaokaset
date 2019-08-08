@@ -585,7 +585,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคา$subtype_name";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคา$command";
                 $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
 
@@ -593,7 +593,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
                 $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกประเภทของ$subtype_name";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกประเภทของ$command";
                 $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
                 $datacountrowtype = 0;
                 while($rowtype = pg_fetch_array($resulttype)){
@@ -614,7 +614,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
-                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#F1C40F";
+                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f1C40f";
                 pushMsg($arrayHeader,$arrayPostData);
             }
         }       
