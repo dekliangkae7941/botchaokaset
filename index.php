@@ -508,10 +508,6 @@ else {
         $categoryid = 7;
         //$type_id = 0;
     }
-    elseif ($command == 'ผัก1') {
-        $typeid = 1;
-        //$type_id = 0;   
-    }
         $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         if($resultmarket = pg_query($dbconn, $querymarket)){
             if(pg_num_rows($resultmarket) > 0){
@@ -542,7 +538,7 @@ else {
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "ผัก$type_id";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_id";
                 }
                 pg_free_result($resultmarket);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
@@ -557,7 +553,12 @@ else {
                 
             }
         }
-                //$subtype_id=1;
+            
+    elseif ($command == "$type_id") {
+        $typeid = $type_id;
+        //$type_id = 0;   
+    }
+        //$subtype_id=1;
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
