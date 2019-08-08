@@ -508,6 +508,31 @@ else {
         $categoryid = 7;
         //$type_id = 0;
     }
+    elseif ($command == "กระเทียม") {
+        $typeid = 1;
+        //$type_id = 0;   
+    }
+    elseif ($command == "กล้วย") {
+        $typeid = 2;
+        //$type_id = 0;  
+    }
+    elseif ($command == "กุ้ง") {
+        $typeid = 3;
+        //$type_id = 0;   
+    }
+    elseif ($command == "ไก่") {
+        $typeid = 4;
+        //$type_id = 0;  
+    }
+    elseif ($command == "ข้าวเปลือกเจ้า") {
+        $typeid = 5;
+        //$type_id = 0;   
+    }
+    elseif ($command == "ข้าวเปลือกเหนียว") {
+        $typeid = 6;
+        //$type_id = 0;  
+    }
+    /////////////////////////////////
         $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         if($resultmarket = pg_query($dbconn, $querymarket)){
             if(pg_num_rows($resultmarket) > 0){
@@ -552,16 +577,8 @@ else {
                 pushMsg($arrayHeader,$arrayPostData);
                 
             }
-        }
-            
-    elseif ($command == "กระเทียม") {
-        $typeid = 1;
-        //$type_id = 0;   
-    }
-    elseif ($command == "ข้าวโพดฝักอ่อน") {
-        $typeid = 2;
-        //$type_id = 0;  
-    }
+        }    
+    ////////////////////////////
         //$subtype_id=1;
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
@@ -752,7 +769,7 @@ else {
             // Free result set
             //pg_free_result($result);
     }
-    
+    ////////////////
     elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
         $mreply = array(
