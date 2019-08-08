@@ -480,19 +480,39 @@ elseif ($msg_type == 'location') {
 }
 /////////////
 else { 
-    if ($command== 'myid') { 
-        
+    if ($command == 'ผัก') {
+        $categoryid = 1;
     }
-    //////////
-    elseif ($command == 'แมว') {
-        $query = "SELECT * FROM line_type WHERE category_id = '1'";
+    elseif ($command == 'ผลไม้') {
+        $categoryid = 2;
+    }
+    elseif ($command == 'สัตว์น้ำ') {
+        $categoryid = 3;
+    }
+    elseif ($command == 'ปศุสัตว์') {
+        $categoryid = 4;
+    }
+    elseif ($command == 'ข้าว') {
+        $categoryid = 5;
+    }
+    elseif ($command == 'พืชเศรษฐกิจ') {
+        $categoryid = 6;
+    }
+    elseif ($command == 'ดอกไม้') {
+        $categoryid = 7;
+    }
+        $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         //$query = "SELECT rating, numofratings FROM menu where name = 'Pasta'";
-        $result = pg_query($dbconn,$query);
+        //$result = pg_query($dbconn,$query);
+        
+        if($resultmarket = pg_query($dbconn, $querymarket)){
+            if(pg_num_rows($resultmarket) > 0){
+
         /*if (!$result) {
             echo "An error occurred.\n";
             exit;
         }*/
-
+        
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "flex";
         $arrayPostData['messages'][0]['altText'] = "text";
@@ -511,18 +531,18 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "Test";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
-        $datacount = 0;
-        while($row = pg_fetch_array($result)){
+        $datacountrowmarket = 0;
+        while($rowmarket = pg_fetch_array($resultmarket)){
         //while($trow = pg_fetch_assoc($result)){
         //while($eventrow = $result->pg_fetch_assoc()){
-            $datacount += 1;
-            $type_id = $row['type_id'];
-            $type_name = $row['type_name'];
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['type'] = "button";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['style'] = "secondary";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['label'] = "$datacount ) Type : $type_id | $type_name";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacount]['action']['text'] = "event, $type_id";
+            $datacountrowmarket += 1;
+            $type_id = $rowmarket['type_id'];
+            $type_name = $rowmarket['type_name'];
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$datacountrowmarket ) Type : $type_id | $type_name";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "event, $type_id";
         }
         pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
@@ -533,8 +553,8 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
         pushMsg($arrayHeader,$arrayPostData);
-
-    }
+            }
+        }
     /////////////////////////
 
     #ตัวอย่าง Message Type "Text + Sticker"
