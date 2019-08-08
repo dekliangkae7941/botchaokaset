@@ -499,12 +499,6 @@ else {
     elseif ($command == 'ข้าว') {
         $categoryid = 5;
         //$type_id = 0;
-        if ($command == "ข้าวเปลือกเจ้า") {
-            $typeid = 5;  
-        }
-        elseif ($command == "ข้าวเปลือกเหนียว") {
-            $typeid = 6; 
-        }
     }
     elseif ($command == 'พืชเศรษฐกิจ') {
         $categoryid = 6;
@@ -564,7 +558,7 @@ else {
     ////////////////////////////
     elseif ($command == "กระเทียม") {
         $typeid = 1;
-
+        
     }
     elseif ($command == "กล้วย") {
         $typeid = 2;
@@ -575,7 +569,12 @@ else {
     elseif ($command == "ไก่") {
         $typeid = 4;
     }
-    
+    elseif ($command == "ข้าวเปลือกเจ้า") {
+        $typeid = 5;  
+    }
+    elseif ($command == "ข้าวเปลือกเหนียว") {
+        $typeid = 6; 
+    }
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
