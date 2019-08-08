@@ -483,6 +483,7 @@ else {
     if ($command == 'ผัก') {
         $categoryid = 1;
         //$type_id = 0;
+
     }
     elseif ($command == 'ผลไม้') {
         $categoryid = 2;
@@ -534,12 +535,11 @@ else {
                     $datacountrowmarket += 1;
                     $type_id = $rowmarket['type_id'];
                     $type_name = $rowmarket['type_name'];
-                    
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$typeid";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_id";
                 }
                 pg_free_result($resultmarket);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
@@ -553,9 +553,9 @@ else {
                 pushMsg($arrayHeader,$arrayPostData);
                 
             }
-            if($command!=0){
+        }
                 //$subtype_id=1;
-                $querytype = "SELECT * FROM line_subtype WHERE type_id = '$command'";
+                /*$querytype = "SELECT * FROM line_subtype WHERE type_id = '$command'";
                 if($resulttype = pg_query($dbconn, $querytype)){
                     if(pg_num_rows($resulttype) > 0){
                         $arrayPostData['to'] = $uid;
@@ -598,10 +598,7 @@ else {
                         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                         pushMsg($arrayHeader,$arrayPostData);
                     }
-                } 
-            
-        }  
-    }            
+                }*/        
     /////////////////////////
     #ตัวอย่าง Message Type "Text + Sticker"
     elseif($command == "สวัสดี"){
