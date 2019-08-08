@@ -551,10 +551,11 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 pushMsg($arrayHeader,$arrayPostData);
-                $typeid = $type_id;
+                
             }
-            //$typeid = $type_id;
+            
         }
+        $typeid = $type_id;
         if($typeid!=0){
             //$subtype_id=1;
             $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
@@ -600,9 +601,7 @@ else {
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                     pushMsg($arrayHeader,$arrayPostData);
                 }
-            }
-
-        
+            } 
     }            
     /////////////////////////
     #ตัวอย่าง Message Type "Text + Sticker"
