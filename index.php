@@ -534,12 +534,12 @@ else {
                     $datacountrowmarket += 1;
                     $type_id = $rowmarket['type_id'];
                     $type_name = $rowmarket['type_name'];
+                    $typeid = $type_id;
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_id";
-                    $typeid = $type_id;
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$typeid";
                 }
                 pg_free_result($resultmarket);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
@@ -552,8 +552,8 @@ else {
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 pushMsg($arrayHeader,$arrayPostData);
             }
-            
-            elseif($typeid!=0){
+            //$typeid = $type_id;
+            if($typeid!=0){
                 //$subtype_id=1;
                 $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
                 if($resulttype = pg_query($dbconn, $querytype)){
