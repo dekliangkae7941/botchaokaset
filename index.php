@@ -515,13 +515,13 @@ else {
         
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "flex";
-        $arrayPostData['messages'][0]['altText'] = "$command";
+        $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
         $arrayPostData['messages'][0]['contents']['type'] = "bubble";
         
         $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
         $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "Testtt";
+        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคาตลาด$command";
         $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
         $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
 
@@ -529,7 +529,7 @@ else {
         $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
         $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "Test";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกประเภทของ$command ";
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
         $datacountrowmarket = 0;
         while($rowmarket = pg_fetch_array($resultmarket)){
@@ -548,7 +548,7 @@ else {
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "Rwar";
+        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
