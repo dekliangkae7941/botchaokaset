@@ -541,14 +541,15 @@ else {
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
             $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$datacountrowmarket ) Type : $type_id | $type_name";
-            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "event, $type_id";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
+            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "event $type_id";
         }
         pg_free_result($result);
         $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
