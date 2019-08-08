@@ -553,7 +553,7 @@ else {
                 pushMsg($arrayHeader,$arrayPostData);
             }
             //$typeid = $type_id;
-            if($typeid!=0){
+            elseif($typeid!=0){
                 //$subtype_id=1;
                 $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
                 if($resulttype = pg_query($dbconn, $querytype)){
