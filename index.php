@@ -508,30 +508,7 @@ else {
         $categoryid = 7;
         //$type_id = 0;
     }
-    elseif ($command == "กระเทียม") {
-        $typeid = 1;
-        //$type_id = 0;   
-    }
-    elseif ($command == "กล้วย") {
-        $typeid = 2;
-        //$type_id = 0;  
-    }
-    elseif ($command == "กุ้ง") {
-        $typeid = 3;
-        //$type_id = 0;   
-    }
-    elseif ($command == "ไก่") {
-        $typeid = 4;
-        //$type_id = 0;  
-    }
-    elseif ($command == "ข้าวเปลือกเจ้า") {
-        $typeid = 5;
-        //$type_id = 0;   
-    }
-    elseif ($command == "ข้าวเปลือกเหนียว") {
-        $typeid = 6;
-        //$type_id = 0;  
-    }
+    
     /////////////////////////////////
         $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         if($resultmarket = pg_query($dbconn, $querymarket)){
@@ -579,7 +556,30 @@ else {
             }
         }    
     ////////////////////////////
-        //$subtype_id=1;
+    elseif ($command == "กระเทียม") {
+        $typeid = 1;
+        //$type_id = 0;   
+    }
+    elseif ($command == "กล้วย") {
+        $typeid = 2;
+        //$type_id = 0;  
+    }
+    elseif ($command == "กุ้ง") {
+        $typeid = 3;
+        //$type_id = 0;   
+    }
+    elseif ($command == "ไก่") {
+        $typeid = 4;
+        //$type_id = 0;  
+    }
+    elseif ($command == "ข้าวเปลือกเจ้า") {
+        $typeid = 5;
+        //$type_id = 0;   
+    }
+    elseif ($command == "ข้าวเปลือกเหนียว") {
+        $typeid = 6;
+        //$type_id = 0;  
+    }
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
