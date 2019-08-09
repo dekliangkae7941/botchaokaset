@@ -554,12 +554,12 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 pushMsg($arrayHeader,$arrayPostData);
-                $comm = $type_name; 
+               
                         }
-                        $comm= $co;   
+                        
             }
-            $co= $c;   
-            
+              
+            $command = $c;
             if ($command == $c) {
                 $typename = $type_name;
             }
