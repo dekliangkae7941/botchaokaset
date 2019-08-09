@@ -525,37 +525,38 @@ else {
 
                 $arrayPostData['messages'][$datacountrowmarket]['type'] = "flex";
                 $arrayPostData['messages'][$datacountrowmarket]['altText'] = "ราคาตลาด$command";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['type'] = "bubble";
                 
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['header']['type'] = "box";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['header']['layout'] = "vertical";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['header']['contents'][$datacountrowmarket]['type'] = "text";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['header']['contents'][$datacountrowmarket]['text'] = "ราคาตลาด$command";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['header']['contents'][$datacountrowmarket]['size'] = "lg";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['header']['contents'][$datacountrowmarket]['weight'] = "bold";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type'] = "carousel";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['type'] = "bubble";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['header']['type'] = "box";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['header']['layout'] = "vertical";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['header']['contents'][$datacountrowmarket]['type'] = "text";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['header']['contents'][$datacountrowmarket]['text'] = "ราคาตลาด$command";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['header']['contents'][$datacountrowmarket]['size'] = "lg";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['header']['contents'][$datacountrowmarket]['weight'] = "bold";
 
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['type'] = "box";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['layout'] = "vertical";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['spacing'] = "md";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket]['type'] = "text";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket]['text'] = "กรุณาเลือกประเภทของ$command ";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket]['wrap'] = true;
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['type'] = "box";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['layout'] = "vertical";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['spacing'] = "md";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['contents'][$datacountrowmarket]['type'] = "text";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['contents'][$datacountrowmarket]['text'] = "กรุณาเลือกประเภทของ$command ";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['contents'][$datacountrowmarket]['wrap'] = true;
                 
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['type'] = "button";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['style'] = "secondary";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['action']['text'] = "$type_name";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['contents'][$datacount]['type'] = "button";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['contents'][$datacount]['style'] = "secondary";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['contents'][$datacount]['action']['type'] = "message";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['body']['contents'][$datacount]['action']['label'] = "$type_name";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['body']['contents'][$datacount]['action']['text'] = "$type_name";
                 
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['type'] = "box";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['layout'] = "vertical";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['footer']['type'] = "box";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['footer']['layout'] = "vertical";
     
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['contents'][$datacountrowmarket]['type'] = "text";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['contents'][$datacountrowmarket]['text'] = "ข้อมูลจาก Chaokaset Mobile";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['contents'][$datacountrowmarket]['size'] = "xs";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['contents'][$datacountrowmarket]['wrap'] = true;
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['contents'][$datacountrowmarket]['align'] = "center";
-                $arrayPostData['messages'][$datacountrowmarket]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['footer']['contents'][$datacountrowmarket]['type'] = "text";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['footer']['contents'][$datacountrowmarket]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['footer']['contents'][$datacountrowmarket]['size'] = "xs";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['footer']['contents'][$datacountrowmarket]['wrap'] = true;
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['footer']['contents'][$datacountrowmarket]['align'] = "center";
+                $arrayPostData['messages'][$datacountrowmarket]['contents']['type']['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
             }
             pg_free_result($resultmarket);
                 pushMsg($arrayHeader,$arrayPostData);
