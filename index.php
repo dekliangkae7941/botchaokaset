@@ -556,11 +556,11 @@ else {
                 pushMsg($arrayHeader,$arrayPostData);
                 $comm = $type_name; 
                         }
-                        $comm= $command;   
+                        $comm= $co;   
             }
-            $comm= $co;   
+            $co= $c;   
             
-            if ($command == $co) {
+            if ($command == $c) {
                 $typename = $type_name;
             }
             $querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id FROM line_subtype RIGHT JOIN line_type ON line_subtype.type_id = line_type.type_id
