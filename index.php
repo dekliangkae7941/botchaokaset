@@ -558,8 +558,9 @@ else {
                         }
                         $comm= $command;   
             }
+            $comm= $co;   
             
-            elseif ($command == $comm) {
+            if ($command == $co) {
                 $typename = $type_name;
             }
             $querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id FROM line_subtype RIGHT JOIN line_type ON line_subtype.type_id = line_type.type_id
