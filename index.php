@@ -547,7 +547,6 @@ else {
                 pg_free_result($resultmarket);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
-    
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
