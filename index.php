@@ -565,25 +565,19 @@ else {
             }
         }    
     ////////////////////////////
-    elseif ($command == "กระเทียม") {
-        $typeid = 1;
+    elseif ($command == $typename) {
+        $typename = $type_name;
     }
-    elseif ($command == "กล้วย") {
-        $typeid = 2;
-    }
-    elseif ($command == "กุ้ง") {
-        $typeid = 3;
-    }
-    elseif ($command == "ไก่") {
-        $typeid = 4;
-    }
-    elseif ($command == "ข้าวเปลือกเจ้า") {
-        $typeid = 5;  
-    }
-    elseif ($command == "ข้าวเปลือกเหนียว") {
-        $typeid = 6; 
-    }
-        $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
+    $querytype = "SELECT * FROM line_subtype WHERE type_name = '$typename'";
+        /*$querytype = "SELECT line_subtype.subtype_id, line_subtype_all.subtype_id ,line_subtype.type_id, FROM line_subtype RIGHT JOIN line_subtype_all
+        ON line_subtype.subtype_id = line_subtype_all.subtype_id
+        WHERE line_subtype.type_id = '$typeid' 
+        SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees
+ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+";*/
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
                 $arrayPostData['to'] = $uid;
