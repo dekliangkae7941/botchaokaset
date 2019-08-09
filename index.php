@@ -514,43 +514,46 @@ else {
         if($resultmarket = pg_query($dbconn, $querymarket)){
             if(pg_num_rows($resultmarket) > 0){
                 $arrayPostData['to'] = $uid;
+                $datacountrowmarket = 0;
+                while($rowmarket = pg_fetch_array($resultmarket)){
+                    $datacountrowmarket += 1;
+                    $type_id = $rowmarket['type_id'];
+                    $type_name = $rowmarket['type_name'];
                 $arrayPostData['messages'][0]['type'] = "flex";
                 $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
                 $arrayPostData['messages'][0]['contents']['type'] = "bubble";
                 
                 $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
-                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคาตลาด$command";
-                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
-                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][$datacountrowmarket]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][$datacountrowmarket]['text'] = "ราคาตลาด$command";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][$datacountrowmarket]['size'] = "lg";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][$datacountrowmarket]['weight'] = "bold";
 
                 $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
-                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกประเภทของ$command ";
-                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
-                $datacountrowmarket = 0;
-                while($rowmarket = pg_fetch_array($resultmarket)){
-                    $datacountrowmarket += 1;
-                    $type_id = $rowmarket['type_id'];
-                    $type_name = $rowmarket['type_name'];
+                $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['text'] = "กรุณาเลือกประเภทของ$command ";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['wrap'] = true;
+                
+                
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_name";
-                }
-                pg_free_result($resultmarket);
+               
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
-                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
-                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
-                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
-                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][$datacountrowmarket]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][$datacountrowmarket]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][$datacountrowmarket]['size'] = "xs";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][$datacountrowmarket]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][$datacountrowmarket]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+                }
+                pg_free_result($resultmarket);
                 pushMsg($arrayHeader,$arrayPostData);
                 
             }
