@@ -568,7 +568,8 @@ else {
     elseif ($command == $typename) {
         $typename = $type_name;
     }
-    $querytype = "SELECT * FROM line_subtype WHERE type_name = '$typename'";
+    $querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id FROM line_subtype RIGHT JOIN line_type ON line_subtype.type_id = line_type.type_id
+     WHERE line_type.type_name = '$typename'";
         /*$querytype = "SELECT line_subtype.subtype_id, line_subtype_all.subtype_id ,line_subtype.type_id, FROM line_subtype RIGHT JOIN line_subtype_all
         ON line_subtype.subtype_id = line_subtype_all.subtype_id
         WHERE line_subtype.type_id = '$typeid' 
