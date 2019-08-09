@@ -515,10 +515,13 @@ else {
             if(pg_num_rows($resultmarket) > 0){
                 $arrayPostData['to'] = $uid;
                 $datacountrowmarket = 0;
+                $datacount = 1;
                 while($rowmarket = pg_fetch_array($resultmarket)){
                     $datacountrowmarket += 1;
                     $type_id = $rowmarket['type_id'];
                     $type_name = $rowmarket['type_name'];
+                    
+                    $datacount += 1;
 
                 $arrayPostData['messages'][$datacountrowmarket]['type'] = "flex";
                 $arrayPostData['messages'][$datacountrowmarket]['altText'] = "ราคาตลาด$command";
@@ -538,11 +541,11 @@ else {
                 $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket]['text'] = "กรุณาเลือกประเภทของ$command ";
                 $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket]['wrap'] = true;
                 
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket+1]['type'] = "button";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket+1]['style'] = "secondary";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket+1]['action']['type'] = "message";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket+1]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacountrowmarket+1]['action']['text'] = "$type_name";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['type'] = "button";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['style'] = "secondary";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['action']['type'] = "message";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['action']['label'] = "$type_name";
+                    $arrayPostData['messages'][$datacountrowmarket]['contents']['body']['contents'][$datacount]['action']['text'] = "$type_name";
                 
                 $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['type'] = "box";
                 $arrayPostData['messages'][$datacountrowmarket]['contents']['footer']['layout'] = "vertical";
