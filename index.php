@@ -622,12 +622,12 @@ else {
                     
 
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['text'] = "ราคาตลาด$command";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['text'] = "ราคาตลาด";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['size'] = "lg";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['weight'] = "bold";
 
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['text'] = "ราคาตลาด$command";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['text'] = "ราคาตลาด";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['size'] = "lg";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['weight'] = "bold";
 
