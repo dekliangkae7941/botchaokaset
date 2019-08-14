@@ -664,7 +664,7 @@ else {
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['label'] = "$subtype_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['text'] = "$subtype_id";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['text'] = "$subtype_name";
                 }
                 pg_free_result($resulttype);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
