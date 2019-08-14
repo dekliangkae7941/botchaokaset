@@ -538,24 +538,9 @@ else {
                 //$querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
                 if($resulttype = pg_query($dbconn, $querytype)){
                     if(pg_num_rows($resulttype) > 0){
-                        $arrayPostData['to'] = $uid;
-                        $arrayPostData['messages'][0]['type'] = "flex";
-                        $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
-                        $arrayPostData['messages'][0]['contents']['type'] = "bubble";
                         
-                        $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
-                        $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคาตลาด$command";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
-                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
-        
-                        $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
-                        $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
-                        $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
-                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
-                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกชนิดของ$command";
-                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
+                        
+                        /*
                         $datacountrowtype = 0;
                         while($rowtype = pg_fetch_array($resulttype)){
                             $datacountrowtype += 1;
@@ -577,9 +562,9 @@ else {
                         $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                         $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                         pushMsg($arrayHeader,$arrayPostData);
-                                
-                        }       
-                    }*/
+                               */ 
+                        //}       
+                    //}
     ////////////////////////////
     elseif ($command == "กระเทียม") {
         $typeid = 1;
@@ -659,7 +644,107 @@ else {
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "2";
         $arrayPostData['messages'][1]['stickerId'] = "34";
-        pushMsg($arrayHeader,$arrayPostData);
+        $arrayPostData['to'] = $uid;
+                        $arrayPostData['messages'][0]['type'] = "flex";
+                        $arrayPostData['messages'][0]['altText'] = "flexxxxxx";
+                        $arrayPostData['messages'][0]['contents']['type'] = "carousel";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['type'] = "bubble";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['hero']['type'] = "image";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['hero']['url'] = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['hero']['size'] = "full";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['hero']['aspectRatio'] = "20:13";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['hero']['aspectMode'] = "cover";
+                        
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['type'] = "box";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['layout'] = "vertical";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['spacing'] = "md";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['text'] = "กรุณาเลือกชนิดของ$command";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['size'] = "lg";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['weight'] = "bold";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['wrap'] = true;
+
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['type'] = "box";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['layout'] = "baseline";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['text'] = "55555555555";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['flex'] = 0;
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['size'] = "lg";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['weight'] = "bold";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['wrap'] = true;
+
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['text'] = "666666666";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['flex'] = 0;
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['size'] = "lg";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['weight'] = "bold";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['wrap'] = true;
+
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['type'] = "box";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['layout'] = "vertical";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['spacing'] = "sm";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][0]['type'] = "button";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][0]['action']['type'] = "uri";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][0]['action']['label'] = "Click";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][0]['action']['uri'] = "https://linecorp.com";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][0]['style'] = "primary";
+                        
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][1]['type'] = "button";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][1]['action']['type'] = "uri";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][1]['action']['label'] = "Click";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
+                        $arrayPostData['messages'][0]['contents']['contents'][0]['footer']['contents'][1]['style'] = "primary";
+
+                        #------------------------------------------11111------------------------------------------#
+
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['type'] = "bubble";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['hero']['type'] = "image";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['hero']['url'] = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/11_5_carousel.png";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['hero']['size'] = "full";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['hero']['aspectRatio'] = "21:13";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['hero']['aspectMode'] = "cover";
+                        
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['type'] = "box";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['layout'] = "vertical";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['spacing'] = "md";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['type'] = "text";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['text'] = "กรุณาเลือกชนิดของ$command";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['size'] = "lg";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['weight'] = "bold";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['wrap'] = true;
+
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['type'] = "box";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['layout'] = "baseline";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][1]['type'] = "text";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][1]['text'] = "55555555555";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][1]['flex'] = 1;
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][1]['size'] = "lg";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][1]['weight'] = "bold";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][1]['wrap'] = true;
+
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][2]['type'] = "text";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][2]['text'] = "666666666";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][2]['flex'] = 1;
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][2]['size'] = "lg";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][2]['weight'] = "bold";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['body']['contents'][1]['contents'][2]['wrap'] = true;
+
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['type'] = "box";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['layout'] = "vertical";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['spacing'] = "sm";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][1]['type'] = "button";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][1]['action']['type'] = "uri";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][1]['action']['label'] = "Click";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][1]['style'] = "primary";
+                        
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][2]['type'] = "button";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][2]['action']['type'] = "uri";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][2]['action']['label'] = "Click";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][2]['action']['uri'] = "https://linecorp.com";
+                        $arrayPostData['messages'][1]['contents']['contents'][1]['footer']['contents'][2]['style'] = "primary";
+
+                        pushMsg($arrayHeader,$arrayPostData);
     }
     elseif($command == "นับ1-10"){
         for($i=1;$i<=10;$i++){
