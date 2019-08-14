@@ -610,29 +610,33 @@ else {
                 $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกชนิดของ$command";
                 $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
-                $datacountrowtype = 0;
+                $datacountrowtype1 = 0;
+                $datacountrowtype2 = 1;
+                $datacountrowtype3 = 2;
                 while($rowtype = pg_fetch_array($resulttype)){
-                    $datacountrowtype += 1;
+                    $datacountrowtype1 += 1;
+                    $datacountrowtype2 += 1;
+                    $datacountrowtype3 += 1;
                     $subtype_id = $rowtype['subtype_id'];
                     $subtype_name = $rowtype['subtype_name'];
                     
 
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['text'] = "ราคาตลาด$command";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['size'] = "lg";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['weight'] = "bold";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['type'] = "text";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['text'] = "ราคาตลาด$command";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['size'] = "lg";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype1]['weight'] = "bold";
 
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+1]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+1]['text'] = "ราคาตลาด$command";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+1]['size'] = "lg";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+1]['weight'] = "bold";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['type'] = "text";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['text'] = "ราคาตลาด$command";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['size'] = "lg";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype2]['weight'] = "bold";
 
 
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+2]['type'] = "button";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+2]['style'] = "secondary";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+2]['action']['type'] = "message";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+2]['action']['label'] = "$subtype_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype+2]['action']['text'] = "$subtype_name";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype3]['type'] = "button";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype3]['style'] = "secondary";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype3]['action']['type'] = "message";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype3]['action']['label'] = "$subtype_name";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype3]['action']['text'] = "$subtype_name";
                 }
                 pg_free_result($resulttype);
                 $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
