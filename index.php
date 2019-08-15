@@ -137,7 +137,6 @@ $stickerId = $remsg1['stickerId'];
 $reline = json_encode($profile, true);
 $reline1 = json_decode($reline, true);
 $reline2 = $reline1['displayName'];
-
 #-------------------------[Func]-------------------------#
 function replyMsg($arrayHeader,$arrayPostData){
     $strUrl = "https://api.line.me/v2/bot/message/reply";
@@ -482,7 +481,6 @@ else {
         if($resultmarket = pg_query($dbconn, $querymarket)){
             if(pg_num_rows($resultmarket) > 0){
                 $arrayPostData['to'] = $uid;
-                
                 $arrayPostData['messages'][0]['type'] = "flex";
                 $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
                 $arrayPostData['messages'][0]['contents']['type'] = "bubble";
@@ -695,14 +693,12 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['text'] = "No.$subtype_id";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['flex'] = $datacountrowtype1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['size'] = "sm";
-                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['wrap'] = true;
                 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['text'] = "$subtype_name";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['flex'] = $datacountrowtype1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['size'] = "sm";
-                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['wrap'] = true;
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
