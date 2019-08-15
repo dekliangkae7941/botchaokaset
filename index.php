@@ -587,9 +587,9 @@ else {
     /*elseif ($command == $type_name) {
         $typename = $type_name;
     }*/
-    $querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id FROM line_subtype RIGHT JOIN line_type ON line_subtype.type_id = line_type.type_id
-     WHERE line_type.type_id = '$typeid'";
-        //$querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
+    //$querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id FROM line_subtype RIGHT JOIN line_type ON line_subtype.type_id = line_type.type_id
+    // WHERE line_type.type_id = '$typeid'";
+        $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
                 /*$arrayPostData['to'] = $uid;
@@ -676,7 +676,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][0]['text'] = "$type_name";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][0]['text'] = "$command";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][0]['flex'] = 0;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][0]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][0]['weight'] = "bold";
