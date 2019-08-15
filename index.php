@@ -658,11 +658,8 @@ else {
         ON line_subtype.type_id = line_type.type_id
         RIGHT JOIN line_subtype_all
         ON line_subtype.subtype_id = line_subtype_all.subtype_id
-        WHERE line_type.type_id = '$typeid' AND line_subtype.subtype_id = line_subtype_all.subtype_id";*/
-        $querytype = "SELECT * FROM line_subtype 
-        RIGHT JOIN line_subtype_all
-        ON line_subtype.subtype_id = line_subtype_all.subtype_id
-        WHERE type_id = '$typeid'";
+        WHERE line_type.type_name = 'กระเทียม'"*/
+        $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
                 $arrayPostData['replyToken'] = $replyToken;
@@ -679,11 +676,7 @@ else {
                     //$datacountrowtype3 += 1;
                     $subtype_id = $rowtype['subtype_id'];
                     $subtype_name = $rowtype['subtype_name'];
-                    $location_name = $rowsubtype['location_name'];
-                    $province_name = $rowsubtype['province_name'];
-                    $product_price = $rowsubtype['product_price'];
-                    $unit_name = $rowsubtype['unit_name'];
-                    $reference_name = $rowsubtype['reference_name'];
+
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
@@ -712,7 +705,6 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
 
-                        
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['text'] = "No.$subtype_id";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['flex'] = $datacountrowtype1;
@@ -720,7 +712,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['wrap'] = true;
                 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['text'] = "wtffffffffffffffffffff";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['text'] = "$subtype_name";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['flex'] = $datacountrowtype1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['size'] = "sm";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['wrap'] = true;
@@ -747,13 +739,17 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['label'] = "Click";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['style'] = "primary";*/
-                $datacountrowtype2 += 2;
-                $datacountrowtype3 += 2;   
+                
                 $datacountrowtype1 += 1;    
                 }
                 
                 pg_free_result($resulttype);
+                
                 replyMsg($arrayHeader,$arrayPostData);
+
+
+
+
             }
         }       
     /////////////////////////
