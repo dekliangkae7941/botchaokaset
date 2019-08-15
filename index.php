@@ -523,7 +523,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-                //replyMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
                
                         }
                         
@@ -783,7 +783,7 @@ else {
                 
                 pg_free_result($resulttype);
                 
-                //replyMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
 
 
 
@@ -1134,7 +1134,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                //replyMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1209,11 +1209,9 @@ else {
 
 
 
-if (isset($mreply) || isset($command)) {
+if (isset($mreply)) {
     $result = json_encode($mreply);
     $client->replyMessage($mreply);
-    $result = json_encode($command);
-    $client->replyMessage($command);
 }  
     file_put_contents('log.txt',file_get_contents('php://input'));
   pg_close($dbconn);
