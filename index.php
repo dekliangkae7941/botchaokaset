@@ -790,7 +790,14 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['flex'] = 0;
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['size'] = "md";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['weight'] = "bold";
-	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['wrap'] = true;
+    $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['wrap'] = true;
+    
+    $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['type'] = "text";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['text'] = "7777777777";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['flex'] = 0;
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['size'] = "md";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['weight'] = "bold";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['wrap'] = true;
 
 	$arrayPostData['messages'][0]['contents']['contents'][0]['footer']['type'] = "box";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['footer']['layout'] = "vertical";
@@ -835,6 +842,13 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['size'] = "md";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['wrap'] = true;
+
+    $arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['type'] = "text";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['text'] = "777777777";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['flex'] = 0;
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['size'] = "md";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['weight'] = "bold";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][2]['wrap'] = true;
 
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['type'] = "box";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['layout'] = "vertical";
