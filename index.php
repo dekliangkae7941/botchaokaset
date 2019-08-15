@@ -523,7 +523,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-                pushMsg($arrayHeader,$arrayPostData);
+                //replyMsg($arrayHeader,$arrayPostData);
                
                         }
                         
@@ -783,7 +783,7 @@ else {
                 
                 pg_free_result($resulttype);
                 
-                pushMsg($arrayHeader,$arrayPostData);
+                //replyMsg($arrayHeader,$arrayPostData);
 
 
 
@@ -1003,14 +1003,14 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['action']['label'] = "Click";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['style'] = "primary";*/
-	pushMsg($arrayHeader,$arrayPostData);
+	replyMsg($arrayHeader,$arrayPostData);
     }
     elseif($command == "นับ1-10"){
         for($i=1;$i<=10;$i++){
         $arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $i;
-        pushMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader,$arrayPostData);
         }
     }
     elseif($command == "นับ1"){
@@ -1026,7 +1026,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                pushMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1044,7 +1044,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                pushMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1062,7 +1062,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                pushMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1080,7 +1080,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                pushMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1098,7 +1098,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                pushMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1116,7 +1116,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                pushMsg($arrayHeader,$arrayPostData);
+                replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1134,7 +1134,7 @@ else {
                 $arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                pushMsg($arrayHeader,$arrayPostData);
+                //replyMsg($arrayHeader,$arrayPostData);
             }
             // Free result set
             //pg_free_result($result);
@@ -1209,9 +1209,11 @@ else {
 
 
 
-if (isset($mreply)) {
+if (isset($mreply) || isset($command)) {
     $result = json_encode($mreply);
     $client->replyMessage($mreply);
+    $result = json_encode($command);
+    $client->replyMessage($command);
 }  
     file_put_contents('log.txt',file_get_contents('php://input'));
   pg_close($dbconn);
