@@ -678,9 +678,11 @@ else {
                 while($rowtype = pg_fetch_array($resulttype)){
                     //$datacountrowtype2 += 1;
                     //$datacountrowtype3 += 1;
+                    
                     $subtype_id = $rowtype['subtype_id'];
                     $subtype_name = $rowtype['subtype_name'];
-
+                    $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
+                    $resultsubtype = pg_query($dbconn, $querysubtype);
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
@@ -709,8 +711,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
-                $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
-                $resultsubtype = pg_query($dbconn, $querysubtype);
+                
                         while($rowsubtype = pg_fetch_array($resulttype)){
                             //$datacountrowtype2 += 1;
                             //$datacountrowtype3 += 1;
