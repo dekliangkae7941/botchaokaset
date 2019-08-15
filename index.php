@@ -777,7 +777,7 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['spacing'] = "md";
 
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['type'] = "box";
-	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['layout'] = "baseline";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['layout'] = "vertical";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['text'] = "55555555555";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][0]['flex'] = 0;
