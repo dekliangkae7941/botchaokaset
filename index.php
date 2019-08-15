@@ -480,7 +480,8 @@ else {
         $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         if($resultmarket = pg_query($dbconn, $querymarket)){
             if(pg_num_rows($resultmarket) > 0){
-                $arrayPostData['to'] = $uid;
+                $arrayPostData['replyToken'] = $$replyToken;
+                //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
                 $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
                 $arrayPostData['messages'][0]['contents']['type'] = "bubble";
@@ -655,7 +656,8 @@ else {
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
-                $arrayPostData['to'] = $uid;
+                $arrayPostData['replyToken'] = $$replyToken;
+                //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
                 $arrayPostData['messages'][0]['altText'] = "flexxxxxx";
                 $arrayPostData['messages'][0]['contents']['type'] = "carousel";
@@ -739,7 +741,8 @@ else {
     }
     elseif($command == "นับ1-10"){
         for($i=1;$i<=10;$i++){
-        $arrayPostData['to'] = $uid;
+        $arrayPostData['replyToken'] = $$replyToken;
+        //$arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $i;
         replyMsg($arrayHeader,$arrayPostData);
@@ -754,8 +757,8 @@ else {
                 $datacount = $datacount + 1;
                 $type_id = $row['type_id'];
                 $type_name = $row['type_name'];
-                
-                $arrayPostData['to'] = $uid;
+                $arrayPostData['replyToken'] = $$replyToken;
+                //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
                 replyMsg($arrayHeader,$arrayPostData);
