@@ -684,7 +684,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][0]['wrap'] = true;
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][1]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][1]['text'] = "$subtype_id";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][1]['text'] = "No.$subtype_id";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][1]['flex'] = 0;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][1]['size'] = "sm";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['body']['contents'][0]['contents'][1]['weight'] = "bold";
