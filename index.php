@@ -539,34 +539,12 @@ else {
                 if($resulttype = pg_query($dbconn, $querytype)){
                     if(pg_num_rows($resulttype) > 0){
                         
+                        */
                         
-                        /*
-                        $datacountrowtype = 0;
-                        while($rowtype = pg_fetch_array($resulttype)){
-                            $datacountrowtype += 1;
-                            $subtype_id = $rowtype['subtype_id'];
-                            $subtype_name = $rowtype['subtype_name'];
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['type'] = "button";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['style'] = "secondary";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['type'] = "message";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['label'] = "$subtype_name";
-                            $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowtype]['action']['text'] = "$subtype_id";
-                        }
-                        pg_free_result($resulttype);
-                        $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
-                        $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
-                        $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
-                        $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-                        pushMsg($arrayHeader,$arrayPostData);
-                               */ 
                         //}       
                     //}
     ////////////////////////////
-    elseif ($command == "กระเทียม") {
+    /*elseif ($command == "กระเทียม") {
         $typeid = 1;
     }
     elseif ($command == "กล้วย") {
@@ -584,12 +562,101 @@ else {
     elseif ($command == "ข้าวเปลือกเหนียว") {
         $typeid = 6; 
     }
+    elseif ($command == "ข้าวโพดฝักอ่อน") {
+        $typeid = 7;
+    }
+    elseif ($command == "ข้าวโพด") {
+        $typeid = 8;
+    }
+    elseif ($command == "ไข่") {
+        $typeid = 9;
+    }
+    elseif ($command == "เงาะ") {
+        $typeid = 10;
+    }
+    elseif ($command == "ดอกรัก") {
+        $typeid = 11;  
+    }
+    elseif ($command == "ดาวเรือง") {
+        $typeid = 12; 
+    }
+    elseif ($command == "ถั่วเขียว") {
+        $typeid = 13;
+    }
+    elseif ($command == "ถั่วฝักยาว") {
+        $typeid = 14;
+    }
+    elseif ($command == "ถั่วเหลือง") {
+        $typeid = 15;
+    }
+    elseif ($command == "ทุเรียน") {
+        $typeid = 16;
+    }
+    elseif ($command == "ปลา") {
+        $typeid = 17;  
+    }
+    elseif ($command == "ปาล์มน้ำมัน") {
+        $typeid = 18; 
+    }
+    elseif ($command == "เป็ด") {
+        $typeid = 19;
+    }
+    elseif ($command == "ผักชี") {
+        $typeid = 20;
+    }
+    elseif ($command == "มะนาว") {
+        $typeid = 21;
+    }
+    elseif ($command == "มะพร้าว") {
+        $typeid = 22;
+    }
+    elseif ($command == "มะละกอ") {
+        $typeid = 23;  
+    }
+    elseif ($command == "มะลิ") {
+        $typeid = 24; 
+    }
+    elseif ($command == "มังคุด") {
+        $typeid = 25;
+    }
+    elseif ($command == "มันสำปะหลัง") {
+        $typeid = 26;
+    }
+    elseif ($command == "ยางพารา") {
+        $typeid = 27;
+    }
+    elseif ($command == "ลองกอง") {
+        $typeid = 28;
+    }
+    elseif ($command == "สัปะรด") {
+        $typeid = 29;  
+    }
+    elseif ($command == "สุกร") {
+        $typeid = 30; 
+    }
+    elseif ($command == "หน่อไม้ฝรั่ง") {
+        $typeid = 31;
+    }
+    elseif ($command == "หอมแดง") {
+        $typeid = 32;
+    }
+    elseif ($command == "เห็ด") {
+        $typeid = 33;
+    }
+    elseif ($command == "เบญจมาศ") {
+        $typeid = 34;
+    }*/
     /*elseif ($command == $type_name) {
         $typename = $type_name;
     }*/
     //$querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id FROM line_subtype RIGHT JOIN line_type ON line_subtype.type_id = line_type.type_id
     // WHERE line_type.type_id = '$typeid'";
-        $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
+        $querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id 
+        FROM line_subtype 
+        RIGHT JOIN line_type 
+        ON line_subtype.type_id = line_type.type_id
+        WHERE line_type.type_name = '$command'";
+        //$querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
                 /*$arrayPostData['to'] = $uid;
