@@ -653,7 +653,13 @@ else {
         RIGHT JOIN line_type 
         ON line_subtype.type_id = line_type.type_id
         WHERE line_type.type_name = '$command'";*/
-        $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
+        $querytype = "SELECT *FROM line_subtype
+        RIGHT JOIN line_type 
+        ON line_subtype.type_id = line_type.type_id
+        RIGHT JOIN line_subtype_all
+        ON line_subtype.subtype_id = line_subtype_all.subtype_id
+        WHERE line_type.type_name = '$typeid'";
+        //$querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
                 $arrayPostData['replyToken'] = $replyToken;
