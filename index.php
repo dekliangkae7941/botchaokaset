@@ -750,12 +750,7 @@ else {
                 }
                 
                 pg_free_result($resulttype);
-                
                 replyMsg($arrayHeader,$arrayPostData);
-
-
-
-
             }
         }       
     /////////////////////////
