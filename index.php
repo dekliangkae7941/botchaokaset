@@ -788,7 +788,7 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['type'] = "text";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['text'] = "666666666";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['flex'] = 0;
-	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['size'] = "lg";
+	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['size'] = "md";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['weight'] = "bold";
 	$arrayPostData['messages'][0]['contents']['contents'][0]['body']['contents'][0]['contents'][1]['wrap'] = true;
 
@@ -821,7 +821,7 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['spacing'] = "md";
 
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['type'] = "box";
-	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['layout'] = "baseline";
+	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['layout'] = "vertical";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][0]['text'] = "55555555555";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][0]['flex'] = 1;
@@ -832,7 +832,7 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['type'] = "text";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['text'] = "666666666";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['flex'] = 1;
-	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['size'] = "lg";
+	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['size'] = "md";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['body']['contents'][0]['contents'][1]['wrap'] = true;
 
