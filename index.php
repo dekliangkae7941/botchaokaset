@@ -480,7 +480,7 @@ else {
         $querymarket = "SELECT * FROM line_type WHERE category_id = '$categoryid'";
         if($resultmarket = pg_query($dbconn, $querymarket)){
             if(pg_num_rows($resultmarket) > 0){
-                $arrayPostData['replyToken'] = $$replyToken;
+                $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
                 $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
@@ -656,7 +656,7 @@ else {
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
-                $arrayPostData['replyToken'] = $$replyToken;
+                $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
                 $arrayPostData['messages'][0]['altText'] = "flexxxxxx";
