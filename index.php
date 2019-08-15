@@ -665,7 +665,7 @@ else {
                 $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
-                $arrayPostData['messages'][0]['altText'] = "flexxxxxx";
+                $arrayPostData['messages'][0]['altText'] = "ราคา$command";
                 $arrayPostData['messages'][0]['contents']['type'] = "carousel";
 
                 $datacountrowtype1 = 0;
