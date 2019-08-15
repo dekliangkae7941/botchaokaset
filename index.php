@@ -675,9 +675,6 @@ else {
                     //$datacountrowtype3 += 1;
                     $subtype_id = $rowtype['subtype_id'];
                     $subtype_name = $rowtype['subtype_name'];
-                    
-
-                    
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
