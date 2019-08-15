@@ -713,8 +713,6 @@ else {
                         while($rowsubtype = pg_fetch_array($resulttype)){
                             //$datacountrowtype2 += 1;
                             //$datacountrowtype3 += 1;
-                            $subtype_id = $rowsubtype['subtype_id'];
-                            $subtype_name = $rowsubtype['subtype_name'];
                             $location_name = $rowsubtype['location_name'];
                             $province_name = $rowsubtype['province_name'];
                             $product_price = $rowsubtype['product_price'];
@@ -722,17 +720,17 @@ else {
                             $reference_name = $rowsubtype['reference_name'];
 
 
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['text'] = "No.$subtype_id / $location_name : $province_name";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['flex'] = $datacountrowtype1;
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['size'] = "sm";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype2]['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype2]['contents'][0]['text'] = "No.$subtype_id / $location_name : $province_name";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype2]['contents'][0]['flex'] = $datacountrowtype1;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype2]['contents'][0]['size'] = "sm";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype2]['contents'][0]['wrap'] = true;
                 
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['text'] = "$product_price : $unit_name // $reference_name";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['flex'] = $datacountrowtype1;
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['size'] = "sm";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype3]['contents'][1]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype3]['contents'][1]['text'] = "$product_price : $unit_name // $reference_name";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype3]['contents'][1]['flex'] = $datacountrowtype1;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype3]['contents'][1]['size'] = "sm";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][$datacountrowtype3]['contents'][1]['wrap'] = true;
                 $datacountrowtype2 += 2; 
                 $datacountrowtype3 += 2;     
                     }
