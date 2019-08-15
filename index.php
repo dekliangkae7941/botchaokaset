@@ -816,7 +816,7 @@ else {
 
 	#------------------------------------------11111------------------------------------------#
 
-	$arrayPostData['messages'][0]['contents']['contents'][1]['type'] = "bubble";
+	/*$arrayPostData['messages'][0]['contents']['contents'][1]['type'] = "bubble";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['hero']['type'] = "image";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['hero']['url'] = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/11_5_carousel.png";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['hero']['size'] = "full";
@@ -863,7 +863,7 @@ else {
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['action']['type'] = "uri";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['action']['label'] = "Click";
 	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
-	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['style'] = "primary";
+	$arrayPostData['messages'][0]['contents']['contents'][1]['footer']['contents'][1]['style'] = "primary";*/
 	pushMsg($arrayHeader,$arrayPostData);
     }
     elseif($command == "นับ1-10"){
