@@ -713,6 +713,14 @@ else {
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['size'] = "xs";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['align'] = "center";
+
+                /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['spacing'] = "sm";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['type'] = "button";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['type'] = "uri";
@@ -724,7 +732,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['type'] = "uri";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['label'] = "Click";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['style'] = "primary";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['style'] = "primary";*/
                 
                 $datacountrowtype1 += 1;    
                 }
