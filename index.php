@@ -663,8 +663,7 @@ else {
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
 
-                $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
-                $resultsubtype = pg_query($dbconn, $querysubtype);
+                
                    
 
                 $arrayPostData['replyToken'] = $replyToken;
@@ -710,9 +709,8 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
-
-                if(pg_num_rows($resultsubtype) > 0){
-                
+                $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
+                $resultsubtype = pg_query($dbconn, $querysubtype);
                         while($rowsubtype = pg_fetch_array($resulttype)){
                             //$datacountrowtype2 += 1;
                             //$datacountrowtype3 += 1;
@@ -738,7 +736,6 @@ else {
                 $datacountrowtype3 += 2;     
                     }
                     
-                }
                 /*
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['type'] = "button";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['action']['type'] = "action";
