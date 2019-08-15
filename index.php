@@ -658,7 +658,22 @@ else {
         ON line_subtype.type_id = line_type.type_id
         RIGHT JOIN line_subtype_all
         ON line_subtype.subtype_id = line_subtype_all.subtype_id
-        WHERE line_type.type_name = 'กระเทียม'"*/
+        WHERE line_type.type_name = 'กระเทียม'"
+        
+         $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
+                    $resultsubtype = pg_query($dbconn, $querysubtype);
+                        while($rowsubtype = pg_fetch_array($resulttype)){
+                            //$datacountrowtype2 += 1;
+                            //$datacountrowtype3 += 1;
+                            $location_name = $rowsubtype['location_name'];
+                            $province_name = $rowsubtype['province_name'];
+                            $product_price = $rowsubtype['product_price'];
+                            $unit_name = $rowsubtype['unit_name'];
+                            $reference_name = $rowsubtype['reference_name'];
+
+                        }
+        
+        */
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
@@ -681,8 +696,6 @@ else {
                     
                     $subtype_id = $rowtype['subtype_id'];
                     $subtype_name = $rowtype['subtype_name'];
-                    $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
-                    $resultsubtype = pg_query($dbconn, $querysubtype);
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
@@ -711,17 +724,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
-                
-                        while($rowsubtype = pg_fetch_array($resulttype)){
-                            //$datacountrowtype2 += 1;
-                            //$datacountrowtype3 += 1;
-                            $location_name = $rowsubtype['location_name'];
-                            $province_name = $rowsubtype['province_name'];
-                            $product_price = $rowsubtype['product_price'];
-                            $unit_name = $rowsubtype['unit_name'];
-                            $reference_name = $rowsubtype['reference_name'];
-
-
+               
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['text'] = "No.$subtype_id / $location_name : $province_name";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['flex'] = $datacountrowtype1;
@@ -735,7 +738,6 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['wrap'] = true;
                 $datacountrowtype2 += 2; 
                 $datacountrowtype3 += 2;     
-                    }
                     
                 /*
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['type'] = "button";
