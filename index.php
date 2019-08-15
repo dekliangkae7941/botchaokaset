@@ -648,6 +648,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";*/
                 $arrayPostData['to'] = $uid;
+
                 $arrayPostData['messages'][0]['type'] = "flex";
                 $arrayPostData['messages'][0]['altText'] = "flexxxxxx";
                 $arrayPostData['messages'][0]['contents']['type'] = "carousel";
@@ -710,8 +711,9 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['label'] = "Click";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['style'] = "primary";
+                $datacountrowtype1 += 1;    
                 }
-                $datacountrowtype1 += 1;
+                
                 pg_free_result($resulttype);
                 
                 pushMsg($arrayHeader,$arrayPostData);
