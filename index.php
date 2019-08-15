@@ -656,8 +656,9 @@ else {
         $querytype = "SELECT *FROM line_subtype
         RIGHT JOIN line_type 
         ON line_subtype.type_id = line_type.type_id
-        
-        WHERE line_type.type_name = '$typeid'";
+        RIGHT JOIN line_subtype_all
+        ON line_subtype.subtype_id = line_subtype_all.subtype_id
+        WHERE line_type.type_id = '$typeid' AND line_subtype.subtype_id = line_subtype_all.subtype_id";
         //$querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
@@ -675,7 +676,11 @@ else {
                     //$datacountrowtype3 += 1;
                     $subtype_id = $rowtype['subtype_id'];
                     $subtype_name = $rowtype['subtype_name'];
-
+                    $location_name = $rowsubtype['location_name'];
+                    $province_name = $rowsubtype['province_name'];
+                    $product_price = $rowsubtype['product_price'];
+                    $unit_name = $rowsubtype['unit_name'];
+                    $reference_name = $rowsubtype['reference_name'];
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
@@ -704,17 +709,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
 
-                $querysubtype = "SELECT *FROM line_subtype RIGHT JOIN line_subtype_all
-                ON line_subtype.subtype_id = line_subtype_all.subtype_id
-                WHERE line_subtype.subtype_id = '$subtype_id'";
-                if($resultsubtype = pg_query($dbconn, $querysubtype)){
-                    if(pg_num_rows($resultsubtype) > 0){
-                    while($rowsubtype = pg_fetch_array($resultsubtype)){
-                        $location_name = $rowsubtype['location_name'];
-                        $province_name = $rowsubtype['province_name'];
-                        $product_price = $rowsubtype['product_price'];
-                        $unit_name = $rowsubtype['unit_name'];
-                        $reference_name = $rowsubtype['reference_name'];
+                        
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['text'] = "No.$subtype_id $product_price : $unit_name";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype2]['flex'] = $datacountrowtype1;
@@ -726,11 +721,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['flex'] = $datacountrowtype1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['size'] = "sm";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype3]['wrap'] = true;
-                    }
-                    $datacountrowtype2 += 2;
-                    $datacountrowtype3 += 2;   
-                    }
-                }
+
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['type'] = "text";
@@ -753,7 +744,8 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['label'] = "Click";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['action']['uri'] = "https://linecorp.com";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1 ]['footer']['contents'][1]['style'] = "primary";*/
-                
+                $datacountrowtype2 += 2;
+                $datacountrowtype3 += 2;   
                 $datacountrowtype1 += 1;    
                 }
                 
