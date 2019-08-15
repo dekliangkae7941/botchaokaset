@@ -726,7 +726,7 @@ else {
                 
                 $datacountrowtype1 += 1;    
                 }
-                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#9b59b6";
+                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 pg_free_result($resulttype);
                 
                 replyMsg($arrayHeader,$arrayPostData);
