@@ -717,7 +717,13 @@ else {
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['layout'] = "vertical";
-                
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['text'] = "$subtype_name";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['flex'] = $datacountrowtype1;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['size'] = "lg";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
+                $datacountrowtype += 1;
                 $querystype = "SELECT *FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
                 /*"SELECT *FROM line_subtype
                 RIGHT JOIN line_subtype_all
@@ -726,7 +732,7 @@ else {
                 $sql = "SELECT * FROM booking WHERE month = '04' ";
                 */
                 $resultstype = pg_query($dbconn, $querystype);
-                $datacountrowtype = 0;
+                $datacountrowtype = 1;
                         while($rowstype = pg_fetch_array($resultstype)){
                             $location_name = $rowstype['location_name'];
                             $province_name = $rowstype['province_name'];
