@@ -724,7 +724,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
                 $datacountrowtype += 1;
-                $querystype = "SELECT * COUNT(DISTINCT location_name) FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
+                $querystype = "SELECT *FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
                 /*"SELECT *FROM line_subtype
                 RIGHT JOIN line_subtype_all
                 ON line_subtype.subtype_id = line_subtype_all.subtype_id
