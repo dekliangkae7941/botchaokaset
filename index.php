@@ -724,26 +724,6 @@ else {
                 ON line_subtype.subtype_id = line_subtype_all.subtype_id
                 WHERE line_subtype.subtype_id = '$subtype_id'";
                 $sql = "SELECT * FROM booking WHERE month = '04' ";
-                    04.
-                    $result = mysql_query($sql);//คิวรี่ครั้งที่ 1
-                    05.
-                    while( $rs = mysql_fetch_assoc($result) ){
-                    06.
-                    
-                    07.
-                    $dpId = $rs["book_department_id"];
-                    08.
-                    //คิวรี่ครั้งที่ 2
-                    09.
-                    $qry = mysql_query("SELECT department_name FROM tb_department WHERE department_id = '".$dpId."' ");
-                    10.
-                    $rsDp = mysql_fetch_assoc($qry);
-                    11.
-                    $departMentName = $rsDp["department_name"];
-                    12.
-                    
-                    13.
-                    echo "<br/>", $departMentName;
                 */
                 $resultstype = pg_query($dbconn, $querystype);
                 $datacountrowtype = 0;
@@ -757,6 +737,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                 $datacountrowtype += 1;
+                        }
                 /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['text'] = "No.$subtype_id / $location_name : $province_name";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['flex'] = $datacountrowtype1;
@@ -769,7 +750,6 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['size'] = "sm";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['wrap'] = true; */  
                        
-            
                 
 
 
