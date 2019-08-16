@@ -718,11 +718,34 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['layout'] = "vertical";
                 
-                $querystype = "SELECT *FROM line_subtype
+                $querystype = "SELECT *FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
+                /*"SELECT *FROM line_subtype
                 RIGHT JOIN line_subtype_all
                 ON line_subtype.subtype_id = line_subtype_all.subtype_id
-                WHERE line_subtype.subtype_id = '1'";
-                $resulsttype = pg_query($dbconn, $querystype);
+                WHERE line_subtype.subtype_id = '$subtype_id'";
+                $sql = "SELECT * FROM booking WHERE month = '04' ";
+                    04.
+                    $result = mysql_query($sql);//คิวรี่ครั้งที่ 1
+                    05.
+                    while( $rs = mysql_fetch_assoc($result) ){
+                    06.
+                    
+                    07.
+                    $dpId = $rs["book_department_id"];
+                    08.
+                    //คิวรี่ครั้งที่ 2
+                    09.
+                    $qry = mysql_query("SELECT department_name FROM tb_department WHERE department_id = '".$dpId."' ");
+                    10.
+                    $rsDp = mysql_fetch_assoc($qry);
+                    11.
+                    $departMentName = $rsDp["department_name"];
+                    12.
+                    
+                    13.
+                    echo "<br/>", $departMentName;
+                */
+                $resultstype = pg_query($dbconn, $querystype);
                 $datacountrowtype = 0;
                         while($rowstype = pg_fetch_array($resultstype)){
                             $location_name = $rowstype['location_name'];
