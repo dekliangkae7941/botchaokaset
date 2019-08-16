@@ -71,7 +71,7 @@ class LINEBotTiny
         ));
     $response = exec_url('https://api.line.me/v2/bot/message/reply',$this->channelAccessToken,json_encode($message));
     }
-
+    
 
     public function pushMessage($message) 
     {
