@@ -725,7 +725,7 @@ else {
                 if($resulsttype = pg_query($dbconn, $querystype)){
                     if(pg_num_rows($resultstype) > 0){
                         while($rowstype = pg_fetch_array($resultstype)){
-                            $location_name = $rowtype['location_name'];
+                            $location_name = $rowstype['location_name'];
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['text'] = "$subtype_name";
