@@ -846,21 +846,106 @@ else {
         replyMsg($arrayHeader,$arrayPostData);
         }
     }
-    elseif($command == "นับ1"){
-        $sql = "SELECT * FROM line_type WHERE category_id = '1'";
-        $datacount = 0;
-        //while($eventrow = $result->pg_fetch_assoc()){
-        $result = pg_query($dbconn, $sql);
-            while($row = pg_fetch_array($result)){
-                $datacount = $datacount + 1;
-                $type_id = $row['type_id'];
-                $type_name = $row['type_name'];
-                $arrayPostData['replyToken'] = $$replyToken;
+    elseif($command == "เตือนภัยเกษตร"){
+        //$sql = "SELECT * FROM line_type WHERE category_id = '1'";
+                $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
-                $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "$datacount) Type : $type_id | $type_name";
-                replyMsg($arrayHeader,$arrayPostData);
-            }
+                $arrayPostData['messages'][0]['type'] = "flex";
+                $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
+                $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+                
+                $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "กรุณาเลือกชนิดการเพาะปลูก";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
+
+                $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['label'] = "ข้าว";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['text'] = "เตือนภัยข้าว";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][1]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][1]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][1]['action']['label'] = "ข้าวโพด";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][1]['action']['text'] = "เตือนภัยข้าวโพด";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][2]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][2]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][2]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][2]['action']['label'] = "ถั่วเหลือง";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][2]['action']['text'] = "เตือนภัยถั่วเหลือง";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][3]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][3]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][3]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][3]['action']['label'] = "ถั่วเขียว";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][3]['action']['text'] = "เตือนภัยถั่วเขียว";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][4]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][4]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][4]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][4]['action']['label'] = "ลำไย";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][4]['action']['text'] = "เตือนภัยลำไย";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][5]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][5]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][5]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][5]['action']['label'] = "คะน้า";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][5]['action']['text'] = "เตือนภัยคะน้า";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][6]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][6]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][6]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][6]['action']['label'] = "ตะไคร้หอม";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][6]['action']['text'] = "เตือนภัยตะไคร้หอม";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][7]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][7]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][7]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][7]['action']['label'] = "เห็ดนางรม-นางฟ้า";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][7]['action']['text'] = "เตือนภัยเห็ดนางรม-นางฟ้า";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][8]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][8]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][8]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][8]['action']['label'] = "กาแฟ";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][8]['action']['text'] = "เตือนภัยกาแฟ";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][9]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][9]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][9]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][9]['action']['label'] = "มันสำปะหลัง";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][9]['action']['text'] = "เตือนภัยมันสำปะหลัง";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][10]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][10]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][10]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][10]['action']['label'] = "กำหนดเอง";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][10]['action']['text'] = "เตือนภัยกำหนดเอง";
+
+                $arrayPostData['messages'][0]['contents']['body']['contents'][11]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][11]['style'] = "secondary";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][11]['action']['type'] = "message";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][11]['action']['label'] = "มะเขือเทศ";
+                $arrayPostData['messages'][0]['contents']['body']['contents'][11]['action']['text'] = "เตือนภัยมะเขือเทศ";
+
+                $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
+                $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+
             // Free result set
             //pg_free_result($result);
     }
