@@ -718,14 +718,14 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['layout'] = "vertical";
                 
-                $querystype = "SELECT *FROM line_subtype
+                /*$querystype = "SELECT *FROM line_subtype
                 RIGHT JOIN line_subtype_all
                 ON line_subtype.subtype_id = line_subtype_all.subtype_id
                 WHERE line_subtype.subtype_id = '1'";
                 $resulsttype = pg_query($dbconn, $querystype);
                 
                         while($rowstype = pg_fetch_array($resultstype)){
-                            $location_name = $rowstype['location_name'];
+                            $location_name = $rowstype['location_name'];*/
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['text'] = "$subtype_name $location_name";
@@ -745,7 +745,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['flex'] = $datacountrowtype1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['size'] = "sm";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][2]['wrap'] = true; */  
-                        }
+                       
             
                 
 
