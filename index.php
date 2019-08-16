@@ -945,7 +945,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-
+                replyMsg($arrayHeader,$arrayPostData);
             // Free result set
             //pg_free_result($result);
     }
