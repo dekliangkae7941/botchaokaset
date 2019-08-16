@@ -428,7 +428,7 @@ elseif ($msg_type == 'location') {
     $text .= " สภาพอากาศ : " . $resultb . "\n";
     $text .= " รายละเอียด : " . $resultc . "\n";
     $text .= " อุณหภูมิ : " . $resultd;
-    /*$mreply = array(
+    $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
             array(
@@ -442,7 +442,7 @@ elseif ($msg_type == 'location') {
                 'text' => $text
             )
         )
-    );*/
+    );
 
 }
 /////////////
