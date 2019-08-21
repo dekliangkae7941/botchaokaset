@@ -230,6 +230,7 @@ elseif ($type == 'follow') {
             )
         )
     );*/
+    
     $mreply = array (
         'replyToken' => $replyToken,
         'messages' => array (
