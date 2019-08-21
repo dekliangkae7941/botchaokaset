@@ -1098,9 +1098,279 @@ else {
         }       
     /////////////////////////
     #ตัวอย่าง Message Type "Text + Sticker"
-    /*elseif($command == "สวัสดี"){
-        
-        $arrayPostData['messages'][0]['type'] = "text";
+    elseif($command == "สวัสดี"){
+        $mreply = array (
+        'replyToken' => $replyToken,
+        'messages' => array (
+          'type' => 'flex',
+          'altText' => 'Flex Message',
+          'contents' => 
+          array (
+            'type' => 'bubble',
+            'direction' => 'ltr',
+            'styles' => 
+            array (
+              'header' => 
+              array (
+                'backgroundColor' => '#B7BBBB',
+              ),
+            ),
+            'header' => 
+            array (
+              'type' => 'box',
+              'layout' => 'horizontal',
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'text',
+                  'text' => 'กรุณาเลือกชนิดการเพาะปลูก',
+                  'size' => 'lg',
+                  'align' => 'center',
+                  'weight' => 'bold',
+                  'color' => '#000000',
+                ),
+              ),
+            ),
+            'body' => 
+            array (
+              'type' => 'box',
+              'layout' => 'horizontal',
+              'spacing' => 'md',
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'box',
+                  'layout' => 'vertical',
+                  'contents' => 
+                  array (
+                    0 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'ข้าว',
+                        'text' => 'ข้าว',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    1 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    2 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'ข้าวโพด',
+                        'text' => 'ข้าวโพด',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    3 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    4 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'ถั่วเหลือง',
+                        'text' => 'ถั่วเหลือง',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    5 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    6 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'ถั่วเขียว',
+                        'text' => 'ถั่วเขียว',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    7 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    8 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'ลำไย',
+                        'text' => 'ลำไย',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    9 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    10 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'คะน้า',
+                        'text' => 'คะน้า',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                  ),
+                ),
+                1 => 
+                array (
+                  'type' => 'box',
+                  'layout' => 'vertical',
+                  'contents' => 
+                  array (
+                    0 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'ตะไคร้หอม',
+                        'text' => 'ตะไคร้หอม',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    1 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    2 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'เห็ด',
+                        'text' => 'เห็ด',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    3 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    4 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'กาแฟ',
+                        'text' => 'กาแฟ',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    5 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    6 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'มันสำปะหลัง',
+                        'text' => 'มันสำปะหลัง',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    7 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    8 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'มะเขือเทศ',
+                        'text' => 'มะเขือเทศ',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                    9 => 
+                    array (
+                      'type' => 'separator',
+                      'margin' => 'md',
+                    ),
+                    10 => 
+                    array (
+                      'type' => 'button',
+                      'action' => 
+                      array (
+                        'type' => 'message',
+                        'label' => 'กำหนดเอง',
+                        'text' => 'กำหนดเอง',
+                      ),
+                      'color' => '#33BFA8',
+                      'style' => 'primary',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            'footer' => 
+            array (
+              'type' => 'box',
+              'layout' => 'horizontal',
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'text',
+                  'text' => 'ข้อมูลจาก Chaokaset Mobile',
+                  'size' => 'xs',
+                  'align' => 'center',
+                )
+              )
+            )
+          )
+        )
+        );
+    }
+        /*$arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "2";
