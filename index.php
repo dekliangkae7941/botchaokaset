@@ -248,7 +248,7 @@ elseif ($type == 'unfollow') {
 }
 ///////////
 #-------------------------[MSG TYPE]-------------------------#
-elseif ($msg_type == 'file') {
+/*elseif ($msg_type == 'file') {
 $url = 'https://api.line.me/v2/bot/message/' . $messageid . '/content';
 $headers = array('Authorization: Bearer ' . $channelAccessToken);
 $ch = curl_init($url);
@@ -413,7 +413,7 @@ $stickerurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" . $sti
             )
         )
     );
-}
+}*/
 ///////////////////
 elseif ($msg_type == 'location') {
     $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
@@ -826,13 +826,13 @@ else {
         }       
     /////////////////////////
     #ตัวอย่าง Message Type "Text + Sticker"
-    elseif($command == "สวัสดี"){
+    /*elseif($command == "สวัสดี"){
         
-        /*$arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "2";
-        $arrayPostData['messages'][1]['stickerId'] = "34";*/
+        $arrayPostData['messages'][1]['stickerId'] = "34";
     }
     elseif($command == "นับ1-10"){
         for($i=1;$i<=10;$i++){
@@ -945,7 +945,7 @@ else {
                 replyMsg($arrayHeader,$arrayPostData);
             // Free result set
             //pg_free_result($result);
-    }
+    }*/
     ////////////////
     /*elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
