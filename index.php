@@ -447,31 +447,31 @@ elseif ($msg_type == 'location') {
 }
 /////////////
 else { 
-    if ($command == 'ผัก') {
+    if ($command == 'ราคาผัก') {
         $categoryid = 1;
         //$type_id = 0;
     }
-    elseif ($command == 'ผลไม้') {
+    elseif ($command == 'ราคาผลไม้') {
         $categoryid = 2;
         ///$type_id = 0;
     }
-    elseif ($command == 'สัตว์น้ำ') {
+    elseif ($command == 'ราคาสัตว์น้ำ') {
         $categoryid = 3;
         //$type_id = 0;
     }
-    elseif ($command == 'ปศุสัตว์') {
+    elseif ($command == 'ราคาปศุสัตว์') {
         $categoryid = 4;
         //$type_id = 0;
     }
-    elseif ($command == 'ข้าว') {
+    elseif ($command == 'ราคาข้าว') {
         $categoryid = 5;
         //$type_id = 0;
     }
-    elseif ($command == 'พืชเศรษฐกิจ') {
+    elseif ($command == 'ราคาพืชเศรษฐกิจ') {
         $categoryid = 6;
         //$type_id = 0;
     }
-    elseif ($command == 'ดอกไม้') {
+    elseif ($command == 'ราคาดอกไม้') {
         $categoryid = 7;
         //$type_id = 0;
     }
@@ -508,7 +508,7 @@ else {
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "$type_name";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "ราคา$type_name";
                
                 }
                 pg_free_result($resultmarket);
@@ -541,106 +541,106 @@ else {
                         //}       
                     //}
     ////////////////////////////
-    elseif ($command == "กระเทียม") {
+    elseif ($command == "ราคากระเทียม") {
         $typeid = 1;
     }
-    elseif ($command == "กล้วย") {
+    elseif ($command == "ราคากล้วย") {
         $typeid = 2;
     }
-    elseif ($command == "กุ้ง") {
+    elseif ($command == "ราคากุ้ง") {
         $typeid = 3;
     }
-    elseif ($command == "ไก่") {
+    elseif ($command == "ราคาไก่") {
         $typeid = 4;
     }
-    elseif ($command == "ข้าวเปลือกเจ้า") {
+    elseif ($command == "ราคาข้าวเปลือกเจ้า") {
         $typeid = 5;  
     }
-    elseif ($command == "ข้าวเปลือกเหนียว") {
+    elseif ($command == "ราคาข้าวเปลือกเหนียว") {
         $typeid = 6; 
     }
-    elseif ($command == "ข้าวโพดฝักอ่อน") {
+    elseif ($command == "ราคาข้าวโพดฝักอ่อน") {
         $typeid = 7;
     }
-    elseif ($command == "ข้าวโพด") {
+    elseif ($command == "ราคาข้าวโพด") {
         $typeid = 8;
     }
-    elseif ($command == "ไข่") {
+    elseif ($command == "ราคาไข่") {
         $typeid = 9;
     }
-    elseif ($command == "เงาะ") {
+    elseif ($command == "ราคาเงาะ") {
         $typeid = 10;
     }
-    elseif ($command == "ดอกรัก") {
+    elseif ($command == "ราคาดอกรัก") {
         $typeid = 11;  
     }
-    elseif ($command == "ดาวเรือง") {
+    elseif ($command == "ราคาดาวเรือง") {
         $typeid = 12; 
     }
-    elseif ($command == "ถั่วเขียว") {
+    elseif ($command == "ราคาถั่วเขียว") {
         $typeid = 13;
     }
-    elseif ($command == "ถั่วฝักยาว") {
+    elseif ($command == "ราคาถั่วฝักยาว") {
         $typeid = 14;
     }
-    elseif ($command == "ถั่วเหลือง") {
+    elseif ($command == "ราคาถั่วเหลือง") {
         $typeid = 15;
     }
-    elseif ($command == "ทุเรียน") {
+    elseif ($command == "ราคาทุเรียน") {
         $typeid = 16;
     }
-    elseif ($command == "ปลา") {
+    elseif ($command == "ราคาปลา") {
         $typeid = 17;  
     }
-    elseif ($command == "ปาล์มน้ำมัน") {
+    elseif ($command == "ราคาปาล์มน้ำมัน") {
         $typeid = 18; 
     }
-    elseif ($command == "เป็ด") {
+    elseif ($command == "ราคาเป็ด") {
         $typeid = 19;
     }
-    elseif ($command == "ผักชี") {
+    elseif ($command == "ราคาผักชี") {
         $typeid = 20;
     }
-    elseif ($command == "มะนาว") {
+    elseif ($command == "ราคามะนาว") {
         $typeid = 21;
     }
-    elseif ($command == "มะพร้าว") {
+    elseif ($command == "ราคามะพร้าว") {
         $typeid = 22;
     }
-    elseif ($command == "มะละกอ") {
+    elseif ($command == "ราคามะละกอ") {
         $typeid = 23;  
     }
-    elseif ($command == "มะลิ") {
+    elseif ($command == "ราคามะลิ") {
         $typeid = 24; 
     }
-    elseif ($command == "มังคุด") {
+    elseif ($command == "ราคามังคุด") {
         $typeid = 25;
     }
-    elseif ($command == "มันสำปะหลัง") {
+    elseif ($command == "ราคามันสำปะหลัง") {
         $typeid = 26;
     }
-    elseif ($command == "ยางพารา") {
+    elseif ($command == "ราคายางพารา") {
         $typeid = 27;
     }
-    elseif ($command == "ลองกอง") {
+    elseif ($command == "ราคาลองกอง") {
         $typeid = 28;
     }
-    elseif ($command == "สัปะรด") {
+    elseif ($command == "ราคาสัปะรด") {
         $typeid = 29;  
     }
-    elseif ($command == "สุกร") {
+    elseif ($command == "ราคาสุกร") {
         $typeid = 30; 
     }
-    elseif ($command == "หน่อไม้ฝรั่ง") {
+    elseif ($command == "ราคาหน่อไม้ฝรั่ง") {
         $typeid = 31;
     }
-    elseif ($command == "หอมแดง") {
+    elseif ($command == "ราคาหอมแดง") {
         $typeid = 32;
     }
-    elseif ($command == "เห็ด") {
+    elseif ($command == "ราคาเห็ด") {
         $typeid = 33;
     }
-    elseif ($command == "เบญจมาศ") {
+    elseif ($command == "ราคาเบญจมาศ") {
         $typeid = 34;
     }
     /*elseif ($command == $type_name) {
