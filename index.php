@@ -230,7 +230,7 @@ elseif ($type == 'follow') {
             )
         )
     );*/
-    
+
     $mreply = array (
         'replyToken' => $replyToken,
         'messages' => array (
@@ -495,11 +495,11 @@ elseif ($type == 'follow') {
                   'text' => 'ข้อมูลจาก Chaokaset Mobile',
                   'size' => 'xs',
                   'align' => 'center',
-                ),
-              ),
-            ),
-          ),
-        ),
+                )
+              )
+            )
+          )
+        )
     );
 
 }
