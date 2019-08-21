@@ -950,7 +950,7 @@ else {
             //pg_free_result($result);
     }
     ////////////////
-    elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
+    /*elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
         $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
         $mreply = array(
             'replyToken' => $replyToken,
@@ -988,7 +988,7 @@ else {
                 )
             )
         );
-    }
+    }*/
     /////////////
     else {
                         
