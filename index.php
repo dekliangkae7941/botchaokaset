@@ -678,9 +678,6 @@ else {
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
 
-                
-                   
-
                 $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
@@ -846,7 +843,7 @@ else {
         replyMsg($arrayHeader,$arrayPostData);
         }
     }
-    elseif($command == "เตือนภัยเกษตร"){
+    elseif($command == "เ"){
         //$sql = "SELECT * FROM line_type WHERE category_id = '1'";
                 $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
