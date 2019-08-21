@@ -991,7 +991,21 @@ else {
     }
     /////////////
     else {
-                        $url = "https://bots.dialogflow.com/line/37d316a1-c0b5-46ca-9b85-e58789028d26/webhook";
+                        
+        /*$uri = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
+        $response = Unirest\Request::get("$uri");
+        $json = json_decode($response->raw_body, true);
+        $resulta = $json['name'];
+        $resultb = $json['weather'][0]['main'];
+        $resultc = $json['weather'][0]['description'];
+        $resultd = $json['main']['temp'];
+        $resulte = $json['coord']['lon'];
+        $text .= " พื้นที่ : " . $resulta . "\n";
+        $text .= " สภาพอากาศ : " . $resultb . "\n";
+        $text .= " รายละเอียด : " . $resultc . "\n";
+        $text .= " อุณหภูมิ : " . $resultd;*/
+        
+        $url = "https://bots.dialogflow.com/line/37d316a1-c0b5-46ca-9b85-e58789028d26/webhook";
                         $headers = getallheaders();
                         file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
                         file_put_contents('body.txt',file_get_contents('php://input'));
@@ -1013,6 +1027,8 @@ else {
                         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
                         $result = curl_exec( $ch );
                         curl_close( $ch );
+
+
     }
     /////////
 }
