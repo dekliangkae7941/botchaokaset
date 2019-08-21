@@ -793,9 +793,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                 $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                 replyMsg($arrayHeader,$arrayPostData);
-               
                         }
-                        
             }
               
             /*$command = $c;
@@ -931,7 +929,6 @@ else {
         RIGHT JOIN line_subtype_all
         ON line_subtype.subtype_id = line_subtype_all.subtype_id
         WHERE line_type.type_name = 'กระเทียม'"
-        
          $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
                     $resultsubtype = pg_query($dbconn, $querysubtype);
                         while($rowsubtype = pg_fetch_array($resulttype)){
@@ -942,9 +939,7 @@ else {
                             $product_price = $rowsubtype['product_price'];
                             $unit_name = $rowsubtype['unit_name'];
                             $reference_name = $rowsubtype['reference_name'];
-
                         }
-        
         */
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
@@ -1064,8 +1059,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                 $datacountrowtype += 1;
-            }    
-
+                }    
                 /*
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['type'] = "button";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['action']['type'] = "action";
@@ -1079,298 +1073,18 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['size'] = "xs";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['wrap'] = true;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['align'] = "center";
-
-
                 //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['uri'] = "line://nv/location";
                 //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
-                
-                
                 $datacountrowtype1 += 1;    
-                    }
+                }
                 pg_free_result($resulttype);
-                
                 replyMsg($arrayHeader,$arrayPostData);
-
-
-
-
             }
         }       
     /////////////////////////
     #ตัวอย่าง Message Type "Text + Sticker"
-    elseif($command == "สวัสดี"){
-        $mreply = array (
-        'replyToken' => $replyToken,
-        'messages' => array (
-          'type' => 'flex',
-          'altText' => 'Flex Message',
-          'contents' => 
-          array (
-            'type' => 'bubble',
-            'direction' => 'ltr',
-            'styles' => 
-            array (
-              'header' => 
-              array (
-                'backgroundColor' => '#B7BBBB',
-              ),
-            ),
-            'header' => 
-            array (
-              'type' => 'box',
-              'layout' => 'horizontal',
-              'contents' => 
-              array (
-                0 => 
-                array (
-                  'type' => 'text',
-                  'text' => 'กรุณาเลือกชนิดการเพาะปลูก',
-                  'size' => 'lg',
-                  'align' => 'center',
-                  'weight' => 'bold',
-                  'color' => '#000000',
-                ),
-              ),
-            ),
-            'body' => 
-            array (
-              'type' => 'box',
-              'layout' => 'horizontal',
-              'spacing' => 'md',
-              'contents' => 
-              array (
-                0 => 
-                array (
-                  'type' => 'box',
-                  'layout' => 'vertical',
-                  'contents' => 
-                  array (
-                    0 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'ข้าว',
-                        'text' => 'ข้าว',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    1 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    2 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'ข้าวโพด',
-                        'text' => 'ข้าวโพด',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    3 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    4 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'ถั่วเหลือง',
-                        'text' => 'ถั่วเหลือง',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    5 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    6 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'ถั่วเขียว',
-                        'text' => 'ถั่วเขียว',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    7 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    8 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'ลำไย',
-                        'text' => 'ลำไย',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    9 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    10 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'คะน้า',
-                        'text' => 'คะน้า',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                  ),
-                ),
-                1 => 
-                array (
-                  'type' => 'box',
-                  'layout' => 'vertical',
-                  'contents' => 
-                  array (
-                    0 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'ตะไคร้หอม',
-                        'text' => 'ตะไคร้หอม',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    1 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    2 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'เห็ด',
-                        'text' => 'เห็ด',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    3 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    4 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'กาแฟ',
-                        'text' => 'กาแฟ',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    5 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    6 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'มันสำปะหลัง',
-                        'text' => 'มันสำปะหลัง',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    7 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    8 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'มะเขือเทศ',
-                        'text' => 'มะเขือเทศ',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                    9 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    10 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'กำหนดเอง',
-                        'text' => 'กำหนดเอง',
-                      ),
-                      'color' => '#33BFA8',
-                      'style' => 'primary',
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            'footer' => 
-            array (
-              'type' => 'box',
-              'layout' => 'horizontal',
-              'contents' => 
-              array (
-                0 => 
-                array (
-                  'type' => 'text',
-                  'text' => 'ข้อมูลจาก Chaokaset Mobile',
-                  'size' => 'xs',
-                  'align' => 'center',
-                )
-              )
-            )
-          )
-        )
-        );
-    }
-        /*$arrayPostData['messages'][0]['type'] = "text";
+    /*elseif($command == "สวัสดี"){
+        $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "2";
