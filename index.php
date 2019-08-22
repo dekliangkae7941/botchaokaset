@@ -54,7 +54,7 @@ if($result = pg_query($dbconn, $sql)){
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
 }
-$client1 = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
+$client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
 array(
     "trace"      => 1,		// enable trace to view what is happening
     "exceptions" => 0,		// disable exceptions
@@ -66,17 +66,17 @@ array(
         'MM' => date('m'),
         'YYYY' => date('Y')
     );
-$data = $client1->GetOilPrice($params);
+$data = $client->GetOilPrice($params);
 $ob = $data->GetOilPriceResult;
 $xml = new SimpleXMLElement($ob);
 // PRICE_DATE , PRODUCT ,PRICE
 foreach ($xml  as  $key =>$val) {  
-if($val->PRODUCT != ' '){
-    echo $val->PRODUCT .'  '.$val->PRICE.' บาท<br>';
-}
+    if($val->PRODUCT != ' '){
+        echo $val->PRODUCT .'  '.$val->PRICE.' บาท<br>';
+    }
 }
 // Close connection
-
+//dfb33833ca384effa6b7d26c0145ecab//APIKEYข่าว
 #--------------------------------------------------------------------------------------------------------------------#
   /*$LINEData = file_get_contents('php://input');
   $jsonData = json_decode($LINEData,true);
@@ -725,12 +725,12 @@ elseif ($msg_type == 'location') {
         'replyToken' => $replyToken,
         'messages' => array(
             array(
-                'type' => 'location',
-                'title' => $msg_title,
-                'address' => $msg_address,
-                'latitude' => $msg_latitude,
-                'longitude' => $msg_longitude
-            ),            array(
+                //'type' => 'location',
+                //'title' => $msg_title,
+                //'address' => $msg_address,
+                //'latitude' => $msg_latitude,
+                //'longitude' => $msg_longitude
+            //),            array(
                 'type' => 'text',
                 'text' => $text
             )
