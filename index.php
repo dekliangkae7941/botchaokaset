@@ -704,12 +704,12 @@ elseif ($msg_type == 'location') {
         'replyToken' => $replyToken,
         'messages' => array(
             array(
-                'type' => 'location',
+                /*'type' => 'location',
                 'title' => $msg_title,
                 'address' => $msg_address,
                 'latitude' => $msg_latitude,
                 'longitude' => $msg_longitude
-            ),            array(
+            ),            array(*/
                 'type' => 'text',
                 'text' => $text
             )
