@@ -1897,7 +1897,7 @@ else {
             $url = 'https://api.line.me/v2/bot/message/reply';
             
             $post = json_encode($mreply);
-            $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+            $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $channelAccessToken);
 
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -1911,7 +1911,7 @@ else {
     }
     elseif($command == "นับ1-10"){
         for($i=1;$i<=10;$i++){
-        $arrayPostData['replyToken'] = $$replyToken;
+        $arrayPostData['replyToken'] = $replyToken;
         //$arrayPostData['to'] = $uid;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $i;
