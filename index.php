@@ -1121,12 +1121,793 @@ else {
     
     }
     #ตัวอย่าง Message Type "Text + Sticker"
-    /*elseif($command == "สวัสดี"){
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
-        $arrayPostData['messages'][1]['type'] = "sticker";
-        $arrayPostData['messages'][1]['packageId'] = "2";
-        $arrayPostData['messages'][1]['stickerId'] = "34";
+    elseif($command == "ข่าววันนี้"){
+        //$arrayPostData['messages'][0]['type'] = "text";
+        //$arrayPostData['messages'][0]['text'] = "สวัสดีจ้า";
+        //$arrayPostData['messages'][1]['type'] = "sticker";
+        //$arrayPostData['messages'][1]['packageId'] = "2";
+        //$arrayPostData['messages'][1]['stickerId'] = "34";
+        $url = 'https://newsapi.org/v2/top-headlines?country=th&apiKey=dfb33833ca384effa6b7d26c0145ecab';
+        function get_contents($url){
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_USERAGENT,"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36");
+            curl_setopt($ch, CURLOPT_URL, $url);
+
+            $data = curl_exec($ch);
+            curl_close($ch);
+            return $data;
+        }
+        $contents = get_contents($url);
+        file_put_contents('news.json', $contents);
+        ///////////////////////////////////////
+#-------------------------[Include]-------------------------#
+        $urinews1 = file_get_contents('./news/news.json');
+            $jsonnews1 = json_decode($urinews1, true);
+            $resultnews11 = $jsonnews1['articles'][0]['title'];
+            $resultnews12 = $jsonnews1['articles'][0]['description'];
+            $resultnews13x = $jsonnews1['articles'][0]['url'];
+            $resultnews13 = str_ireplace('http:','https:',$resultnews13x);
+            $resultnews14x = $jsonnews1['articles'][0]['urlToImage'];
+            $resultnews14 = str_ireplace('http:','https:',$resultnews14x);
+        $urinews2 = file_get_contents('./news/news.json');
+            $jsonnews2 = json_decode($urinews2, true);
+            $resultnews21 = $jsonnews2['articles'][1]['title'];
+            $resultnews22 = $jsonnews2['articles'][1]['description'];
+            $resultnews23x = $jsonnews2['articles'][1]['url'];
+            $resultnews23 = str_ireplace('http:','https:',$resultnews23x);
+            $resultnews24x = $jsonnews2['articles'][1]['urlToImage'];
+            $resultnews24 = str_ireplace('http:','https:',$resultnews24x);
+        $urinews3 = file_get_contents('./news/news.json');
+            $jsonnews3 = json_decode($urinews3, true);
+            $resultnews31 = $jsonnews3['articles'][2]['title'];
+            $resultnews32 = $jsonnews3['articles'][2]['description'];
+            $resultnews33x = $jsonnews3['articles'][2]['url'];
+            $resultnews33 = str_ireplace('http:','https:',$resultnews33x);
+            $resultnews34x = $jsonnews3['articles'][2]['urlToImage'];
+            $resultnews34 = str_ireplace('http:','https:',$resultnews34x);
+        $urinews4 = file_get_contents('./news/news.json');
+            $jsonnews4 = json_decode($urinews4, true);
+            $resultnews41 = $jsonnews4['articles'][3]['title'];
+            $resultnews42 = $jsonnews4['articles'][3]['description'];
+            $resultnews43x = $jsonnews4['articles'][3]['url'];
+            $resultnews43 = str_ireplace('http:','https:',$resultnews43x);
+            $resultnews44x = $jsonnews4['articles'][3]['urlToImage'];
+            $resultnews44 = str_ireplace('http:','https:',$resultnews44x);
+        $urinews5 = file_get_contents('./news/news.json');
+            $jsonnews5 = json_decode($urinews5, true);
+            $resultnews51 = $jsonnews5['articles'][4]['title'];
+            $resultnews52 = $jsonnews5['articles'][4]['description'];
+            $resultnews53x = $jsonnews5['articles'][4]['url'];
+            $resultnews53 = str_ireplace('http:','https:',$resultnews53x);
+            $resultnews54x = $jsonnews5['articles'][4]['urlToImage'];
+            $resultnews54 = str_ireplace('http:','https:',$resultnews54x);
+        $urinews6 = file_get_contents('./news/news.json');
+            $jsonnews6 = json_decode($urinews6, true);
+            $resultnews61 = $jsonnews6['articles'][5]['title'];
+            $resultnews62 = $jsonnews6['articles'][5]['description'];
+            $resultnews63x = $jsonnews6['articles'][5]['url'];
+            $resultnews63 = str_ireplace('http:','https:',$resultnews63x);
+            $resultnews64x = $jsonnews6['articles'][5]['urlToImage'];
+            $resultnews64 = str_ireplace('http:','https:',$resultnews64x);
+        $urinews7 = file_get_contents('./news/news.json');
+            $jsonnews7 = json_decode($urinews7, true);
+            $resultnews71 = $jsonnews7['articles'][6]['title'];
+            $resultnews72 = $jsonnews7['articles'][6]['description'];
+            $resultnews73x = $jsonnews7['articles'][6]['url'];
+            $resultnews73 = str_ireplace('http:','https:',$resultnews73x);
+            $resultnews74x = $jsonnews7['articles'][6]['urlToImage'];
+            $resultnews74 = str_ireplace('http:','https:',$resultnews74x);
+        $urinews8 = file_get_contents('./news/news.json');
+            $jsonnews8 = json_decode($urinews8, true);
+            $resultnews81 = $jsonnews8['articles'][7]['title'];
+            $resultnews82 = $jsonnews8['articles'][7]['description'];
+            $resultnews83x = $jsonnews8['articles'][7]['url'];
+            $resultnews83 = str_ireplace('http:','https:',$resultnews83x);
+            $resultnews84x = $jsonnews8['articles'][7]['urlToImage'];
+            $resultnews84 = str_ireplace('http:','https:',$resultnews84x);
+        $urinews9 = file_get_contents('./news/news.json');
+            $jsonnews9 = json_decode($urinews9, true);
+            $resultnews91 = $jsonnews9['articles'][8]['title'];
+            $resultnews92 = $jsonnews9['articles'][8]['description'];
+            $resultnews93x = $jsonnews9['articles'][8]['url'];
+            $resultnews93 = str_ireplace('http:','https:',$resultnews93x);
+            $resultnews94x = $jsonnews9['articles'][8]['urlToImage'];
+            $resultnews94 = str_ireplace('http:','https:',$resultnews94x);
+        $urinews0 = file_get_contents('./news/news.json');
+            $jsonnews0 = json_decode($urinews0, true);
+            $resultnews01 = $jsonnews0['articles'][9]['title'];
+            $resultnews02 = $jsonnews0['articles'][9]['description'];
+            $resultnews03x = $jsonnews0['articles'][9]['url'];
+            $resultnews03 = str_ireplace('http:','https:',$resultnews03x);
+            $resultnews04x = $jsonnews0['articles'][9]['urlToImage'];
+            $resultnews04 = str_ireplace('http:','https:',$resultnews04x);
+            if(preg_replace('/[^ก-ฮ]/u','',$resultnews14)){
+        $resultnews14ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews14 == NULL || $resultnews14 == '{{image}}'){
+        $resultnews14ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews14ok = $resultnews14;
+        }    if(preg_replace('/[^ก-ฮ]/u','',$resultnews24)){
+        $resultnews24ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews24 == NULL || $resultnews24 == '{{image}}'){
+        $resultnews24ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews24ok = $resultnews24;
+        }    if(preg_replace('/[^ก-ฮ]/u','',$resultnews34)){
+        $resultnews34ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews34 == NULL || $resultnews34 == '{{image}}'){
+        $resultnews34ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews34ok = $resultnews34;
+        }    if(preg_replace('/[^ก-ฮ]/u','',$resultnews44)){
+        $resultnews44ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews44 == NULL || $resultnews44 == '{{image}}'){
+        $resultnews44ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews44ok = $resultnews44;
+        }    if(preg_replace('/[^ก-ฮ]/u','',$resultnews54)){
+        $resultnews54ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews54 == NULL || $resultnews54 == '{{image}}'){
+        $resultnews54ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews54ok = $resultnews54;
+        }    if(preg_replace('/[^ก-ฮ]/u','',$resultnews64)){
+        $resultnews64ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews64 == NULL || $resultnews64 == '{{image}}'){
+        $resultnews64ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews64ok = $resultnews64;
+        }    if(preg_replace('/[^ก-ฮ]/u','',$resultnews74)){
+        $resultnews74ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews74 == NULL || $resultnews74 == '{{image}}'){
+        $resultnews74ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews74ok = $resultnews74;
+        }
+            if(preg_replace('/[^ก-ฮ]/u','',$resultnews84)){
+        $resultnews84ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews84 == NULL || $resultnews84 == '{{image}}'){
+        $resultnews84ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews84ok = $resultnews84;
+        }
+            if(preg_replace('/[^ก-ฮ]/u','',$resultnews94)){
+        $resultnews94ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews94 == NULL || $resultnews94 == '{{image}}'){
+        $resultnews94ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews94ok = $resultnews94;
+        }
+            if(preg_replace('/[^ก-ฮ]/u','',$resultnews04)){
+        $resultnews04ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';
+        }elseif($resultnews04 == NULL || $resultnews04 == '{{image}}'){
+        $resultnews04ok = 'https://cdn.pixabay.com/photo/2016/05/25/09/25/news-1414325_960_720.jpg';  
+        }else{
+        $resultnews04ok = $resultnews04;
+        }
+        if($resultnews12 == NULL){
+        $resultnews12ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews12ok = $resultnews12;
+        }
+        if($resultnews22 == NULL){
+        $resultnews22ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews22ok = $resultnews22;
+        }
+        if($resultnews32 == NULL){
+        $resultnews32ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews32ok = $resultnews32;
+        }
+        if($resultnews42 == NULL){
+        $resultnews42ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews42ok = $resultnews42;
+        }
+        if($resultnews52 == NULL){
+        $resultnews52ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews52ok = $resultnews52;
+        }
+        if($resultnews62 == NULL){
+        $resultnews62ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews62ok = $resultnews62;
+        }
+        if($resultnews72 == NULL){
+        $resultnews72ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews72ok = $resultnews72;
+        }
+        if($resultnews82 == NULL){
+        $resultnews82ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews82ok = $resultnews82;
+        }
+        if($resultnews92 == NULL){
+        $resultnews92ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews92ok = $resultnews92;
+        }
+        if($resultnews02 == NULL){
+        $resultnews02ok = 'ไม่มีเนื้อหาข่าวให้แสดง กรุณากดอ่านเพิ่มเติม'; 
+        }else{
+        $resultnews02ok = $resultnews02;
+        }
+
+
+            $mreply = array(
+                'messages' => array( 
+                array(  
+                'type' => 'flex',
+                'altText' => 'ข่าวทันเหตุการณ์',
+                'contents' => array(
+                'type' => 'carousel',
+                'contents' => array(
+        array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews14ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews11,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews12ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews13
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews24ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews21,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews22ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews23
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews34ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews31,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews32ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews33
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews44ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews41,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews42ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews43
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews54ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews51,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews52ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews53
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews64ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews61,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews62ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews63
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews74ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews71,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews72ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews73
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews84ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews81,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews82ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews83
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews94ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews91,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews92ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews93
+                    )
+                )
+                )
+            )
+            ),
+            array(
+            'type' => 'bubble',
+            'hero' => array(
+                'type' => 'image',
+                'size' => 'full',
+                'aspectRatio' => '20:10',
+                'aspectMode' => 'cover',
+                'url' => $resultnews04ok
+            ),
+            'body' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $resultnews01,
+                    'wrap' => true,
+                    'weight' => 'bold',
+                    'size' => 'sm'
+                ),
+                array(
+                    'type' => 'box',
+                    'layout' => 'baseline',
+                    'contents' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $resultnews02ok,
+                        'wrap' => true,
+                        'weight' => 'regular',
+                        'size' => 'xs',
+                        'flex' => 0
+                    )
+                    )
+                )
+                )
+            ),
+            'footer' => array(
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => array(
+                array(
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'action' => array(
+                    'type' => 'uri',
+                    'label' => 'อ่านเพิ่มเติม',
+                    'uri' => $resultnews03
+                    )
+                )
+                )
+            )
+            )
+        
+                )
+                )
+            )
+            )
+            );
+            //replyMsg($arrayHeader,$arrayPostData);
+            $url = 'https://api.line.me/v2/bot/message/reply';
+            
+            $post = json_encode($mreply);
+            $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            $result = curl_exec($ch);
+            curl_close($ch);
+
     }
     elseif($command == "นับ1-10"){
         for($i=1;$i<=10;$i++){
@@ -1136,7 +1917,7 @@ else {
         $arrayPostData['messages'][0]['text'] = $i;
         replyMsg($arrayHeader,$arrayPostData);
         }
-    }
+    }/*
     elseif($command == "เ"){
         //$sql = "SELECT * FROM line_type WHERE category_id = '1'";
                 $arrayPostData['replyToken'] = $replyToken;
