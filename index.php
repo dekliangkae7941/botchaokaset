@@ -721,6 +721,7 @@ elseif ($msg_type == 'location') {
     //$text .= " สภาพอากาศ : " . $resultb . "\n";
     //$text .= " รายละเอียด : " . $resultc . "\n";
     //$text .= " อุณหภูมิ : " . $resultd;
+        $arrayPostData['replyToken'] = $replyToken;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "พื้นที่ : $resulta";
         $arrayPostData['messages'][1]['type'] = "text";
