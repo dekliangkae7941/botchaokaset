@@ -76,3 +76,287 @@ INSERT INTO line_notifysent(plat_id,plat_name,plat_code,plat_pic,name,growing,we
 ๔. ทำความสะอาดเก็บกวาดเศษซากพืช หรือเศษ เมล็ดกาแฟที่ตกค้างบนลานตาก เพื่อไม่ให้เป็น แหล่งสะสมของเชื้อ',191);
 INSERT INTO line_notifysent(plat_id,plat_name,plat_code,plat_pic,name,growing,weather,problem,detail_id,detail_nt_gr_id,detail_nt_w_id,detail_date_create,detail_date_submit,detail_date_start,detail_date_end,detail_warning,detail_solution,detail_pr_id) VALUES (115,'กำหนดเอง','310a06b6a9eda60e6a55443387374331','','กาแฟโรบัสต้า','ระยะเก็บเกี่ยว-การตากผลผลิต','มีฝนร้อยละ ๑๐-๒๐ ของพื้นที่ และมีลมแรง','การหักโค่นของต้นและกิ่งกาแฟฉีกหัก',137,25,34,'2019-02-07 10:59:42','2019-06-02 17:09:20','2019-02-06','2019-02-12','ลำต้นและกิ่งกาแฟ โค่น และฉีกหัก','๑. ปลูกไม้บังลมเป็นกั้นเพื่อลดความเร็วของลม
 ๒. ใช้ไม้ค้ำยันกิ่งกาแฟ',192);
+
+
+
+
+<?php 
+         
+         
+         
+         $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
+		    	array(
+			           "trace"      => 1,		// enable trace to view what is happening
+			           "exceptions" => 0,		// disable exceptions
+			          "cache_wsdl" => 0) 		// disable any caching on the wsdl, encase you alter the wsdl server
+		           );
+
+               $params = array(
+                   'Language' => "en",
+                   'DD' => date('d'),
+                   'MM' => date('m'),
+                   'YYYY' => date('Y')
+               );
+
+		        $data = $client->GetOilPrice($params);
+              $ob = $data->GetOilPriceResult;
+            $xml = new SimpleXMLElement($ob);
+           
+               // PRICE_DATE , PRODUCT ,PRICE
+              foreach ($xml  as  $key =>$val) {  
+              
+            if($val->PRODUCT != ' '){
+              echo $val->PRODUCT .'  '.$val->PRICE.' บาท<br>';
+                }
+
+               }
+
+               {
+  "line":{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/4444444444444.jpg",
+          "size": "full",
+          "aspectRatio": "4:3",
+          "aspectMode": "cover"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ปฎิทินล้นเกวียน",
+              "size": "xl",
+              "weight": "bold",
+              "wrap": true
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "เครื่องมือวางแผนการปลูกข้าวสำหรับเกษตรกรที่เพาะปลูกข้าวในกลุ่มจังหวัดภาคกลาง",
+                  "size": "sm",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "แอปพลิเคชั่น TOP FARM เป็นโปรแกรมที่ใช้ช่วยเหลือเกษตรกรที่เพาะปลูกข้าว ในกลุ่มจังหวัดภาคกลาง เพื่อช่วยในการวางแผนการเพาะปลูกข้าว",
+                  "size": "xxs",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/topfarm.png",
+              "size": "lg"
+            },
+            {
+              "type": "text",
+              "text": "สแกนเพื่อดาวน์โหลด หรือ",
+              "size": "xs",
+              "align": "center"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "กดเพื่อดาวน์โหลด",
+                "uri": "https://play.google.com/store/apps/details?id=th.or.nectec.zoning.topfarm"
+              },
+              "color": "#42BCE1",
+              "style": "primary"
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/1111122222.jpg",
+          "size": "full",
+          "aspectRatio": "4:3",
+          "aspectMode": "cover"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "วิดีโอเรียนรู้ทางไกล",
+              "size": "xl",
+              "weight": "bold",
+              "wrap": true
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "ระบบเรียนรู้ทางไกลผ่านเครือข่ายคอมพิวเตอร์สำหรับเกษตรกร",
+                  "size": "sm",
+                  "weight": "bold",
+                  "wrap": true
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "แอปพลิเคชั่น What2Grow MOOC เป็นระบบเรียนรู้ทางไกลผ่านเครือข่ายคอมพิวเตอร์",
+                  "size": "xxs",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "เหมาะกับการเรียนรู้ด้วยตนเอง ผู้เรียนและผู้สอนสามารถสนทนาโต้ตอบกันได้ผ่านบริการออนไลน์",
+                  "size": "xxs",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/w2g.png",
+              "size": "lg"
+            },
+            {
+              "type": "text",
+              "text": "สแกนเพื่อดาวน์โหลด หรือ",
+              "size": "xs",
+              "align": "center"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "กดเพื่อดาวน์โหลด",
+                "uri": "https://play.google.com/store/apps/details?id=th.or.nectec.mooc.edx.mobile"
+              },
+              "color": "#E1424F",
+              "style": "primary"
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/78787.jpg",
+          "size": "full",
+          "aspectRatio": "4:3",
+          "aspectMode": "cover"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "คำนวณปุ๋ยสั่งตัด",
+              "size": "xl",
+              "weight": "bold",
+              "wrap": true
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": " คำนวณการใช้ปุ๋ยสั่งตัดและปุ๋ยตามค่าวิเคราะห์ดิน",
+                  "size": "sm",
+                  "weight": "bold",
+                  "wrap": true
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "แอปพลิเคชัน FCS: คำนวณปุ๋ยสั่งตัด เป็นโปรแกรมคำนวณการใช้ปุ๋ยสั่งตัดหรือปุ๋ยตามค่าวิเคราะห์ดินนอกจากจะได้ธาตุอาหารหลักที่ตรงตามความต้องการของพืชแล้วยังประหยัดต้นทุน ลดการสูญเสีย และช่วยลดผลกระทบต่อสิ่งแวดล้อม",
+                  "size": "xxs",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/fcs.png",
+              "size": "lg"
+            },
+            {
+              "type": "text",
+              "text": "สแกนเพื่อดาวน์โหลด หรือ",
+              "size": "xs",
+              "align": "center"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "กดเพื่อดาวน์โหลด",
+                "uri": "https://play.google.com/store/apps/details?id=th.or.nectec.android.fcs"
+              },
+              "color": "#8D42E1",
+              "style": "primary"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+}
