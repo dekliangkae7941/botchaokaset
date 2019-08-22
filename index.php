@@ -71,9 +71,9 @@ $ob = $data->GetOilPriceResult;
 $xml = new SimpleXMLElement($ob);
 // PRICE_DATE , PRODUCT ,PRICE
 foreach ($xml  as  $key =>$val) {  
-    if($val->PRODUCT != ' '){
-        echo $val->PRODUCT .'  '.$val->PRICE.' บาท<br>';
-    }
+if($val->PRODUCT != ' '){
+    echo $val->PRODUCT .'  '.$val->PRICE.' บาท<br>';
+}
 }
 // Close connection
 //dfb33833ca384effa6b7d26c0145ecab//APIKEYข่าว
@@ -717,35 +717,25 @@ elseif ($msg_type == 'location') {
     $resultc = $json['weather'][0]['description'];
     $resultd = $json['main']['temp'];
     $resulte = $json['coord']['lon'];
-    //$text .= " พื้นที่ : " . $resulta . "\n";
-    //$text .= " สภาพอากาศ : " . $resultb . "\n";
-    //$text .= " รายละเอียด : " . $resultc . "\n";
-    //$text .= " อุณหภูมิ : " . $resultd;
-        $arrayPostData['replyToken'] = $replyToken;
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "พื้นที่ : $resulta";
-        $arrayPostData['messages'][1]['type'] = "text";
-        $arrayPostData['messages'][1]['text'] = "สภาพอากาศ : $resultb";
-        $arrayPostData['messages'][2]['type'] = "text";
-        $arrayPostData['messages'][2]['text'] = "รายละเอียด : $resultc";
-        $arrayPostData['messages'][3]['type'] = "text";
-        $arrayPostData['messages'][3]['text'] = "อุณหภูมิ : $resultd";     
-        replyMsg($arrayHeader,$arrayPostData);
-    /*$mreply = array(
+    $text .= " พื้นที่ : " . $resulta . "\n";
+    $text .= " สภาพอากาศ : " . $resultb . "\n";
+    $text .= " รายละเอียด : " . $resultc . "\n";
+    $text .= " อุณหภูมิ : " . $resultd;
+    $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
             array(
-                //'type' => 'location',
-                //'title' => $msg_title,
-                //'address' => $msg_address,
-                //'latitude' => $msg_latitude,
-                //'longitude' => $msg_longitude
-            //),            array(
+                'type' => 'location',
+                'title' => $msg_title,
+                'address' => $msg_address,
+                'latitude' => $msg_latitude,
+                'longitude' => $msg_longitude
+            ),            array(
                 'type' => 'text',
                 'text' => $text
             )
         )
-    );*/
+    );
 
 }
 /////////////
