@@ -54,7 +54,7 @@ if($result = pg_query($dbconn, $sql)){
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
 }
-$client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
+$client1 = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
 array(
     "trace"      => 1,		// enable trace to view what is happening
     "exceptions" => 0,		// disable exceptions
@@ -66,7 +66,7 @@ array(
         'MM' => date('m'),
         'YYYY' => date('Y')
     );
-$data = $client->GetOilPrice($params);
+$data = $client1->GetOilPrice($params);
 $ob = $data->GetOilPriceResult;
 $xml = new SimpleXMLElement($ob);
 // PRICE_DATE , PRODUCT ,PRICE
