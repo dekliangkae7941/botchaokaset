@@ -791,7 +791,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "ราคาตลาด$command";
+                $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "$command";
                 $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
 
@@ -943,34 +943,6 @@ else {
     elseif ($command == "ราคาเบญจมาศ") {
         $typeid = 34;
     }
-    /*elseif ($command == $type_name) {
-        $typename = $type_name;
-    }*/
-    //$querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id FROM line_subtype RIGHT JOIN line_type ON line_subtype.type_id = line_type.type_id
-    // WHERE line_type.type_id = '$typeid'";
-        /*$querytype = "SELECT line_subtype.type_id,line_type.type_id,line_type.type_name,line_subtype.subtype_name , line_subtype.subtype_id 
-        FROM line_subtype 
-        RIGHT JOIN line_type 
-        ON line_subtype.type_id = line_type.type_id
-        WHERE line_type.type_name = '$command'";*/
-        /*$querytype = "SELECT *FROM line_subtype
-        RIGHT JOIN line_type 
-        ON line_subtype.type_id = line_type.type_id
-        RIGHT JOIN line_subtype_all
-        ON line_subtype.subtype_id = line_subtype_all.subtype_id
-        WHERE line_type.type_name = 'กระเทียม'"
-         $querysubtype = "SELECT * FROM line_subtype_all WHERE subtype_id = '$subtype_id'";
-                    $resultsubtype = pg_query($dbconn, $querysubtype);
-                        while($rowsubtype = pg_fetch_array($resulttype)){
-                            //$datacountrowtype2 += 1;
-                            //$datacountrowtype3 += 1;
-                            $location_name = $rowsubtype['location_name'];
-                            $province_name = $rowsubtype['province_name'];
-                            $product_price = $rowsubtype['product_price'];
-                            $unit_name = $rowsubtype['unit_name'];
-                            $reference_name = $rowsubtype['reference_name'];
-                        }
-        */
         $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
         if($resulttype = pg_query($dbconn, $querytype)){
             if(pg_num_rows($resulttype) > 0){
@@ -978,7 +950,7 @@ else {
                 $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
-                $arrayPostData['messages'][0]['altText'] = "ราคา$command";
+                $arrayPostData['messages'][0]['altText'] = "$command";
                 $arrayPostData['messages'][0]['contents']['type'] = "carousel";
 
                 $datacountrowtype1 = 0;
@@ -1084,22 +1056,22 @@ else {
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "xxs";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
                         $datacountrowtype += 1;
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
+                        /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['type'] = "text";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['label'] = "ที่อยู่ $location_name";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['text'] = "$location_name";
-                        $datacountrowtype += 1;
-                        /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
+                        $datacountrowtype += 1;*/
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['type'] = "location";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['title']= "$location_name";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['address']= "$province_name";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['latitude']= "$msg_latitude";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['longitude']= "$msg_longitude";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['latitude']= "$latitude";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['longitude']= "$longitude";
 
                                                                                                                                                     
-                        $datacountrowtype += 1;*/
+                        $datacountrowtype += 1;
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "--------------------------------------------------";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
