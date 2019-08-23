@@ -502,6 +502,31 @@ elseif ($type == 'follow') {
         )
         )
     );
+    if($command!=''){
+        $query = "INSERT INTO line_log VALUES ('$plat_name') WHERE WHERE userId = '$userId'";
+        $result = pg_query($query);
+        $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อนรับแจ้งเตือน";
+        $mreply = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+                )
+            )
+        );
+    }else{
+        $text = "กรุณาเลือกชนิดการเพาะปลูกเพื่อนรับแจ้งเตือน";
+        $mreply = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+                )
+            )
+        );
+    }
 }
 /////////////
 elseif ($type == 'unfollow') {
