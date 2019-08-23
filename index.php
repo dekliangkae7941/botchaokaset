@@ -699,7 +699,7 @@ $stickerurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" . $sti
 }*/
 ///////////////////
 elseif ($msg_type == 'location') {
-    $query = "INSERT INTO line_log (latitude , longitude) VALUES ('$msg_latitude','$msg_longitude')";
+    $query = "INSERT INTO line_log (userid latitude , longitude) VALUES ('$userId','$msg_latitude','$msg_longitude')";
     $result = pg_query($query);
     $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
     $response = Unirest\Request::get("$uri");
