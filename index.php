@@ -508,7 +508,7 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
 $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
     $query = "INSERT INTO line_log VALUES ('$plat_name') WHERE WHERE userId = '$userId'";
     $result = pg_query($query);
-    $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อนรับแจ้งเตือน";
+    $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
     $mreply = array(
     'replyToken' => $replyToken,
     'messages' => array(
