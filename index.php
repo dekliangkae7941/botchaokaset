@@ -997,9 +997,31 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['wrap'] = true;
                 //$datacountrowtype += 1;
-                $querystype = "SELECT DISTINCT location_name, * FROM line_subtype_all WHERE subtype_id = '$subtype_id' 
-                ORDER BY product_price DESC";
-                /*"SELECT *FROM line_subtype
+                $querylog = "SELECT * FROM line_subtype_all WHERE userid = '$userId'";
+                $resultlog = pg_query($dbconn, $querylog);
+                $latitude = $rowstype['latitude'];
+                $longitude = $rowstype['longitude'];
+                $querystype = "SELECT DISTINCT location_name, * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
+                WHERE subtype_id = '$subtype_id' 
+                ORDER BY la ,lo";
+                
+
+
+/*
+
+SELECT DISTINCT location_name, * FROM line_subtype_all
+FULL OUTER JOIN line_log
+ON table1.column_name = table2.column_name
+WHERE condition;
+                    SELECT * FROM ( <= SELECT ชั้นนอกใช้เพื่อเรียงลำดับผลลัท์ตาม id
+                    SELECT id,field_name,ABS(id-5) AS p
+                    FROM table_name
+                    WHERE id!=5 <= ไม่รวมรายการที่ต้องการ
+                    ORDER BY p <= เรียงลำดับตาม ABS()
+                    LIMIT 4
+                    ) AS Q ORDER BY id
+
+                "SELECT *FROM line_subtype
                 RIGHT JOIN line_subtype_all
                 ON line_subtype.subtype_id = line_subtype_all.subtype_id
                 WHERE line_subtype.subtype_id = '$subtype_id'";
