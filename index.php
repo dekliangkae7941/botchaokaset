@@ -250,7 +250,7 @@ elseif ($type == 'follow') {
             'header' => 
             array (
               'type' => 'box',
-              'layout' => 'horizontal',
+              'layout' => 'vertical',
               'contents' => 
               array (
                 0 => 
@@ -262,21 +262,14 @@ elseif ($type == 'follow') {
                   'color' => '#FFFFFF',
                   'wrap' => true,
                 ),
-              ),
-            ),
-            array (
-              'type' => 'box',
-              'layout' => 'horizontal',
-              'contents' => 
-              array (
-                0 => 
+                1 => 
                 array (
-                    'type' => 'text',
-                    'text' => '*หมายเหตุ คุณจะไม่สามารถแก้ไขชนิดการเพาะปลูกได้',
-                    'size' => 'xxs',
-                    'weight' => 'bold',
-                    'color' => '#F14848',
-                    'wrap' => true,
+                  'type' => 'text',
+                  'text' => '*คุณจะไม่สามารถแก้ไขชนิดการเพาะปลูกได้',
+                  'size' => 'xxs',
+                  'weight' => 'bold',
+                  'color' => '#FC5B5B',
+                  'wrap' => true,
                 ),
               ),
             ),
