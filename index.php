@@ -743,15 +743,25 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
     $result = pg_query($query);
     $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
     $mreply = array(
-    'replyToken' => $replyToken,
-    'messages' => array(
-        array(
-            'type' => 'text',
-            'text' => $text
-            )
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+            ),
+            array( 
+                'quickReply'=> array(
+                'items' => array( 
+                    "type" => "action",
+                    "action"=> array(
+                        "type"=> "location",
+                        "label"=> "Location"
+                    )
+                )
+                )
+            )  
         )
-    );
-    
+    );  
 } 
 /////////////
 else {
