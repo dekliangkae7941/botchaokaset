@@ -244,7 +244,7 @@ elseif ($type == 'follow') {
             array (
               'header' => 
               array (
-                'backgroundColor' => '#B7BBBB',
+                'backgroundColor' => '#DAD1FF',
               ),
             ),
             'header' => 
@@ -256,8 +256,8 @@ elseif ($type == 'follow') {
                 0 => 
                 array (
                   'type' => 'text',
-                  'text' => 'กรุณาเลือกชนิดการเพาะปลูก',
-                  'size' => 'lg',
+                  'text' => 'กรุณาเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน',
+                  'size' => 'md',
                   'align' => 'center',
                   'weight' => 'bold',
                   'color' => '#000000',
@@ -286,7 +286,7 @@ elseif ($type == 'follow') {
                         'label' => 'ข้าว',
                         'text' => 'ข้าว',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     1 => 
@@ -303,7 +303,7 @@ elseif ($type == 'follow') {
                         'label' => 'ข้าวโพด',
                         'text' => 'ข้าวโพด',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     3 => 
@@ -320,7 +320,7 @@ elseif ($type == 'follow') {
                         'label' => 'ถั่วเหลือง',
                         'text' => 'ถั่วเหลือง',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     5 => 
@@ -337,7 +337,7 @@ elseif ($type == 'follow') {
                         'label' => 'ถั่วเขียว',
                         'text' => 'ถั่วเขียว',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     7 => 
@@ -354,7 +354,7 @@ elseif ($type == 'follow') {
                         'label' => 'ลำไย',
                         'text' => 'ลำไย',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     9 => 
@@ -371,7 +371,7 @@ elseif ($type == 'follow') {
                         'label' => 'คะน้า',
                         'text' => 'คะน้า',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                   ),
@@ -391,7 +391,7 @@ elseif ($type == 'follow') {
                         'label' => 'ตะไคร้หอม',
                         'text' => 'ตะไคร้หอม',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     1 => 
@@ -408,7 +408,7 @@ elseif ($type == 'follow') {
                         'label' => 'เห็ด',
                         'text' => 'เห็ด',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     3 => 
@@ -425,7 +425,7 @@ elseif ($type == 'follow') {
                         'label' => 'กาแฟ',
                         'text' => 'กาแฟ',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     5 => 
@@ -459,7 +459,7 @@ elseif ($type == 'follow') {
                         'label' => 'มะเขือเทศ',
                         'text' => 'มะเขือเทศ',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     9 => 
@@ -476,7 +476,7 @@ elseif ($type == 'follow') {
                         'label' => 'กำหนดเอง',
                         'text' => 'กำหนดเอง',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                   ),
