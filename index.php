@@ -31,11 +31,12 @@ echo "<center><h1>Doesn't work =(</h1></center>";
 
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
-$querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
+$querylog = "SELECT * FROM line_log ";
                 $resultlog = pg_query($dbconn, $querylog);
+                $rowlog = pg_fetch_array($resultlog);
                 $latitude = $rowlog['latitude'];
                 $longitude = $rowlog['longitude'];
-echo "$latitude : $longitude";
+                echo "$latitude : $longitude";
 $sql = "SELECT * FROM line_type WHERE category_id = '1'";
 if($result = pg_query($dbconn, $sql)){
     if(pg_num_rows($result) > 0){
