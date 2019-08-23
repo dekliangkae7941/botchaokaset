@@ -257,7 +257,7 @@ elseif ($type == 'follow') {
                 array (
                   'type' => 'text',
                   'text' => 'กรุณาเลือกชนิดการเพาะปลูก  เพื่อรับแจ้งเตือน',
-                  'size' => 'md',
+                  'size' => 'lg',
                   'weight' => 'bold',
                   'color' => '#FFFFFF',
                   'wrap' => true,
