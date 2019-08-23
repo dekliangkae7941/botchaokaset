@@ -954,7 +954,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['type'] = "carousel";
 
                 $datacountrowtype1 = 0;
-                $datacountrowtype2 = 1;
+                $datacountrowtype2 = 0;
                 $datacountrowtype3 = 2;
 
                 
@@ -1082,13 +1082,14 @@ WHERE condition;
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "xxs";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
                         $datacountrowtype += 1;
-                        
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['type'] = "message";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['label'] = "$location_name";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['text'] = "$location_name";
-                        $datacountrowtype += 1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['type'] = "box";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['layout'] = "vertical";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['type'] = "button";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['style'] = "secondary";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['action']['type'] = "message";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['action']['label'] = "$location_name";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['action']['text'] = "$location_name";
+                        $datacountrowtype2 += 1;
                         /*
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
