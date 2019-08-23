@@ -506,8 +506,7 @@ elseif ($type == 'follow') {
 }
 elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'||
 $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
-    $command = $plat_name;
-    $query = "INSERT INTO line_log VALUES ('$plat_name') WHERE userId = '$userId'";
+    $query = "INSERT INTO line_log (plat_name) VALUES ('$command') WHERE userId = '$userId'";
     $result = pg_query($query);
     $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
     $mreply = array(
