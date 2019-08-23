@@ -295,7 +295,7 @@ elseif ($type == 'follow') {
                         'label' => 'ข้าว',
                         'text' => 'ข้าว',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     1 => 
@@ -312,7 +312,7 @@ elseif ($type == 'follow') {
                         'label' => 'ข้าวโพด',
                         'text' => 'ข้าวโพด',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     3 => 
@@ -329,7 +329,7 @@ elseif ($type == 'follow') {
                         'label' => 'ถั่วเหลือง',
                         'text' => 'ถั่วเหลือง',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     5 => 
@@ -346,7 +346,7 @@ elseif ($type == 'follow') {
                         'label' => 'ถั่วเขียว',
                         'text' => 'ถั่วเขียว',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     7 => 
@@ -363,7 +363,7 @@ elseif ($type == 'follow') {
                         'label' => 'ลำไย',
                         'text' => 'ลำไย',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     9 => 
@@ -380,7 +380,7 @@ elseif ($type == 'follow') {
                         'label' => 'คะน้า',
                         'text' => 'คะน้า',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                   ),
@@ -400,7 +400,7 @@ elseif ($type == 'follow') {
                         'label' => 'ตะไคร้หอม',
                         'text' => 'ตะไคร้หอม',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     1 => 
@@ -417,7 +417,7 @@ elseif ($type == 'follow') {
                         'label' => 'เห็ด',
                         'text' => 'เห็ด',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     3 => 
@@ -434,7 +434,7 @@ elseif ($type == 'follow') {
                         'label' => 'กาแฟ',
                         'text' => 'กาแฟ',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     5 => 
@@ -451,7 +451,7 @@ elseif ($type == 'follow') {
                         'label' => 'มันสำปะหลัง',
                         'text' => 'มันสำปะหลัง',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     7 => 
@@ -468,7 +468,7 @@ elseif ($type == 'follow') {
                         'label' => 'มะเขือเทศ',
                         'text' => 'มะเขือเทศ',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                     9 => 
@@ -485,7 +485,7 @@ elseif ($type == 'follow') {
                         'label' => 'กำหนดเอง',
                         'text' => 'กำหนดเอง',
                       ),
-                      'color' => '#775AF5',
+                      'color' => '#DA7D40',
                       'style' => 'primary',
                     ),
                   ),
