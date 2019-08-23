@@ -218,8 +218,8 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
-    $query = "INSERT INTO line_log (userid , displayName)VALUES ('$userId','$displayName')";
-    $result = pg_query($query);
+    //$query = "INSERT INTO line_log (userid , displayName)VALUES ('$userId','$displayName')";
+    //$result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
     /*$mreply = array(
         'replyToken' => $replyToken,
@@ -722,7 +722,7 @@ elseif ($msg_type == 'location') {
 else {
     if($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
         //$command = $plat_name;
-        $query = "INSERT INTO line_log (plat_name) VALUES ('$msg_message') WHERE userId = '$userId'";
+        $query = "INSERT INTO line_log (userid , displayName, plat_name)VALUES ('$userId','$displayName','$command')";
         $result = pg_query($query);
         $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
         $mreply = array(
