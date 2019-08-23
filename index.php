@@ -244,7 +244,7 @@ elseif ($type == 'follow') {
             array (
               'header' => 
               array (
-                'backgroundColor' => '#A9A6B6',
+                'backgroundColor' => '#75737A',
               ),
             ),
             'header' => 
@@ -256,11 +256,10 @@ elseif ($type == 'follow') {
                 0 => 
                 array (
                   'type' => 'text',
-                  'text' => 'กรุณาเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน',
+                  'text' => 'กรุณาเลือกชนิดแปลงเพาะปลูก  เพื่อรับแจ้งเตือน',
                   'size' => 'lg',
-                  'align' => 'center',
                   'weight' => 'bold',
-                  'color' => '#000000',
+                  'color' => '#FFFFFF',
                   'wrap' => true,
                 ),
               ),
