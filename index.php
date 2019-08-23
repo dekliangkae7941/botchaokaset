@@ -91,7 +91,7 @@ $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 //รับข้อความจากผู้ใช้
 //$messages = $arrayJson['events'][0]['message']['text'];
-//รับ id ของผู้ใช้
+//รับ id ของผู้ใช
 $uid = $arrayJson['events'][0]['source']['userId'];
 $userId     = $client->parseEvents()[0]['source']['userId'];
 $groupId    = $client->parseEvents()[0]['source']['groupId'];
@@ -721,8 +721,8 @@ elseif ($msg_type == 'location') {
 /////////////
 else {
     if($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
-        $command = $plat_name;
-        $query = "INSERT INTO line_log (plat_name) VALUES ('$plat_name') WHERE userId = '$userId'";
+        //$command = $plat_name;
+        $query = "INSERT INTO line_log (plat_name) VALUES ('$msg_message') WHERE userId = '$userId'";
         $result = pg_query($query);
         $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
         $mreply = array(
