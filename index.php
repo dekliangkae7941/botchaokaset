@@ -1014,8 +1014,8 @@ else {
                         $reference_name = $rowstype['reference_name'];
                         $product_price = $rowstype['product_price'];
                         $lastupdate = $rowstype['lastupdate'];
-                        $msg_latitude = $rowstype['coord_latitude'];
-                        $msg_longitude = $rowstype['coord_longitude'];
+                        //$msg_latitude = $rowstype['coord_latitude'];
+                        //$msg_longitude = $rowstype['coord_longitude'];
 
                /* $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "$subtype_name";
@@ -1062,16 +1062,7 @@ else {
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['label'] = "ที่อยู่ $location_name";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['text'] = "$location_name";
                         $datacountrowtype += 1;*/
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['type'] = "location";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['title']= "$location_name";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['address']= "$province_name";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['latitude']= "$latitude";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['longitude']= "$longitude";
 
-                                                                                                                                                    
-                        $datacountrowtype += 1;
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "--------------------------------------------------";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
