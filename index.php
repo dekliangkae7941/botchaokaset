@@ -733,6 +733,13 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
             )
         )
     );
+    
+
+} 
+$queryplat = "SELECT plat_name FROM line_log WHERE userID = '$userID'";
+$result = pg_query($queryplat);
+$plat_name = $rowplat['plat_name'];
+if($plat_name != '' ){
     if ($command == 'ราคาผัก') {
         $categoryid = 1;
         //$type_id = 0;
@@ -2102,7 +2109,7 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
 
     }
 
-} 
+}
 /////////////
 else {
     $text = 'กรุณาเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน';
