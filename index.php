@@ -502,32 +502,7 @@ elseif ($type == 'follow') {
         )
         )
     );
-    if($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
-        //$command = $plat_name;
-        $query = "INSERT INTO line_log (userid , displayName, plat_name)VALUES ('$userId','$displayName','$command')";
-        $result = pg_query($query);
-        $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
-        $mreply = array(
-        'replyToken' => $replyToken,
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => $text
-                )
-            )
-        );
-    }else{
-        $text = "กรุณาเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
-        $mreply = array(
-        'replyToken' => $replyToken,
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => $text
-                )
-            )
-        );
-    }
+    
     
 }
 /////////////
@@ -744,9 +719,20 @@ elseif ($msg_type == 'location') {
     );
 
 }
-/////////////
-else {
-    
+elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
+    //$command = $plat_name;
+    $query = "INSERT INTO line_log (userid , displayName, plat_name)VALUES ('$userId','$displayName','$command')";
+    $result = pg_query($query);
+    $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
+    $mreply = array(
+    'replyToken' => $replyToken,
+    'messages' => array(
+        array(
+            'type' => 'text',
+            'text' => $text
+            )
+        )
+    );
     if ($command == 'ราคาผัก') {
         $categoryid = 1;
         //$type_id = 0;
@@ -2115,6 +2101,36 @@ else {
 
 
     }
+
+} 
+/////////////
+else {
+    $text = 'กรุณาเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน';
+    $mreply = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+                )
+            )
+        );
+    /*if($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
+        //$command = $plat_name;
+        $query = "INSERT INTO line_log (userid , displayName, plat_name)VALUES ('$userId','$displayName','$command')";
+        $result = pg_query($query);
+        $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
+        $mreply = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+                )
+            )
+        );
+    } */
+    
     /////////
 }
 if (isset($mreply)) {
