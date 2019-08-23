@@ -956,6 +956,11 @@ else {
                 $datacountrowtype1 = 0;
                 $datacountrowtype2 = 1;
                 $datacountrowtype3 = 2;
+
+                $querylog = "SELECT userid,latitude, longitude FROM line_log WHERE userid = '$userId'";
+                $resultlog = pg_query($dbconn, $querylog);
+                $latitude = $rowlog['latitude'];
+                $longitude = $rowlog['longitude'];
                 while($rowtype = pg_fetch_array($resulttype)){
                     //$datacountrowtype2 += 1;
                     //$datacountrowtype3 += 1;
@@ -997,10 +1002,6 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['wrap'] = true;
                 //$datacountrowtype += 1;
-                $querylog = "SELECT userid,latitude, longitude FROM line_log WHERE userid = '$userId'";
-                $resultlog = pg_query($dbconn, $querylog);
-                $latitude = $rowlog['latitude'];
-                $longitude = $rowlog['longitude'];
                 $querystype = "SELECT DISTINCT location_name, * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
                 WHERE subtype_id = '$subtype_id' 
                 ORDER BY la ,lo";
