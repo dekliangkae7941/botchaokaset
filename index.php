@@ -1008,12 +1008,13 @@ else {
 
                 $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
                 $resultlog = pg_query($dbconn, $querylog);
+                $rowlog = pg_fetch_array($resultlog);
                 $latitude = $rowlog['latitude'];
                 $longitude = $rowlog['longitude'];
 //echo "$latitude : $longitude";
                 $querystype = "SELECT DISTINCT location_name, * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
                 WHERE subtype_id = '$subtype_id' 
-                ORDER BY product_price DESC";
+                ORDER BY lo,la";
                 
 
 
