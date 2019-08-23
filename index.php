@@ -267,7 +267,6 @@ elseif ($type == 'follow') {
                   'type' => 'text',
                   'text' => '*หมายเหตุ คุณจะไม่สามารถแก้ไขชนิดการเพาะปลูกได้',
                   'size' => 'xxs',
-                  'weight' => 'bold',
                   'color' => '#D52C2C',
                   'wrap' => true,
                 ),
