@@ -1039,7 +1039,6 @@ else {
                         $reference_name = $rowstype['reference_name'];
                         $product_price = $rowstype['product_price'];
                         $lastupdate = $rowstype['lastupdate'];
-                        $lastupdate = $rowstype['lastupdate'];
                         $msg_latitude = $rowstype['coord_latitude'];
                         $msg_longitude = $rowstype['coord_longitude'];
 
@@ -1082,7 +1081,14 @@ else {
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "xxs";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
                         $datacountrowtype += 1;
-
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['type'] = "location";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['title'] = "$location_name";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['address'] = "$location_name $province_name";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['latitude']= "$msg_latitude";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['longitude']= "$msg_longitude";
+                        $datacountrowtype += 1;
                         /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['type'] = "location";
