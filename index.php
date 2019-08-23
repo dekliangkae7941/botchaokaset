@@ -218,8 +218,8 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
-    //$query = "INSERT INTO line_log (userid , displayName)VALUES ('$userId','$displayName')";
-    //$result = pg_query($query);
+    $query = "INSERT INTO line_log (userid , displayName) VALUES ('$userId','$displayName')";
+    $result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
     /*$mreply = array(
         'replyToken' => $replyToken,
@@ -701,7 +701,6 @@ $stickerurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" . $sti
 elseif ($msg_type == 'location') {
     $query = "UPDATE line_log SET latitude = '$msg_latitude',longitude = '$msg_longitude' WHERE userid = '$userId'";
     //"INSERT INTO line_log (userid latitude , longitude) VALUES ('$userId','$msg_latitude','$msg_longitude')";
-    
     $result = pg_query($query);
     $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
     $response = Unirest\Request::get("$uri");
@@ -734,7 +733,7 @@ elseif ($msg_type == 'location') {
 }
 elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
     //$command = $plat_name;
-    $query = "INSERT INTO line_log (userid , displayName, plat_name)VALUES ('$userId','$displayName','$command')";
+    $query = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
     $result = pg_query($query);
     $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
     $mreply = array(
