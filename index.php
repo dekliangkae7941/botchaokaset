@@ -244,7 +244,7 @@ elseif ($type == 'follow') {
             array (
               'header' => 
               array (
-                'backgroundColor' => '#75737A',
+                'backgroundColor' => '#FCFA7E',
               ),
             ),
             'header' => 
@@ -259,7 +259,7 @@ elseif ($type == 'follow') {
                   'text' => 'กรุณาเลือกชนิดการเพาะปลูก  เพื่อรับแจ้งเตือน',
                   'size' => 'lg',
                   'weight' => 'bold',
-                  'color' => '#FFFFFF',
+                  'color' => '#000000',
                   'wrap' => true,
                 ),
                 1 => 
@@ -268,7 +268,7 @@ elseif ($type == 'follow') {
                   'text' => '*คุณจะไม่สามารถแก้ไขชนิดการเพาะปลูกได้',
                   'size' => 'xxs',
                   'weight' => 'bold',
-                  'color' => '#FC5B5B',
+                  'color' => '#F33232',
                   'wrap' => true,
                 ),
               ),
@@ -746,21 +746,6 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
 } 
 /////////////
 else {
-    /*if($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
-        //$command = $plat_name;
-        $query = "INSERT INTO line_log (userid , displayName, plat_name)VALUES ('$userId','$displayName','$command')";
-        $result = pg_query($query);
-        $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
-        $mreply = array(
-        'replyToken' => $replyToken,
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => $text
-                )
-            )
-        );
-    } */
     if ($command == 'ราคาผัก') {
         $categoryid = 1;
         //$type_id = 0;
