@@ -1049,19 +1049,6 @@ WHERE condition;
                         $lastupdate = $rowstype['lastupdate'];
                         $clatitude = $rowstype['coord_latitude'];
                         $clongitude = $rowstype['coord_longitude'];
-                    function thaidate($lastupdate) //แปลงวันที่เป็นวันที่ไทย
-                    {
-                        $y = substr($lastupdate, 0, 4) + 543;
-                        $m = substr($lastupdate, 5, 2);
-                        $d = substr($lastupdate, 8, 9);
-                        if ($lastupdate == "")
-                        {
-                            return "";
-                        } else
-                        {
-                            return $d . "/" . $m . "/" . $y;
-                        }
-                    }
 
                /* $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "$subtype_name";
@@ -1091,7 +1078,7 @@ WHERE condition;
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
                         $datacountrowtype += 1;
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "อัปเดตล่าสุด : $d $m $y";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "อัปเดตล่าสุด : $lastupdate";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "xxs";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
