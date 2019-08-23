@@ -244,7 +244,7 @@ elseif ($type == 'follow') {
             array (
               'header' => 
               array (
-                'backgroundColor' => '#DAD1FF',
+                'backgroundColor' => '#A9A6B6',
               ),
             ),
             'header' => 
@@ -257,10 +257,11 @@ elseif ($type == 'follow') {
                 array (
                   'type' => 'text',
                   'text' => 'กรุณาเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน',
-                  'size' => 'md',
+                  'size' => 'lg',
                   'align' => 'center',
                   'weight' => 'bold',
                   'color' => '#000000',
+                  'wrap' => true,
                 ),
               ),
             ),
@@ -442,7 +443,7 @@ elseif ($type == 'follow') {
                         'label' => 'มันสำปะหลัง',
                         'text' => 'มันสำปะหลัง',
                       ),
-                      'color' => '#33BFA8',
+                      'color' => '#775AF5',
                       'style' => 'primary',
                     ),
                     7 => 
