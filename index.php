@@ -1014,8 +1014,8 @@ else {
                         $reference_name = $rowstype['reference_name'];
                         $product_price = $rowstype['product_price'];
                         $lastupdate = $rowstype['lastupdate'];
-                        $latitude = $rowstype['coord_latitude'];
-                        $longitude = $rowstype['coord_longitude'];
+                        //$latitude = $rowstype['coord_latitude'];
+                        //$longitude = $rowstype['coord_longitude'];
 
                /* $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "$subtype_name";
