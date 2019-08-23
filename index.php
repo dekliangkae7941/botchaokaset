@@ -748,18 +748,7 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
             array(
                 'type' => 'text',
                 'text' => $text
-            ),
-            array( 
-                'quickReply'=> array(
-                'items' => array( 
-                    "type" => "action",
-                    "action"=> array(
-                        "type"=> "location",
-                        "label"=> "Location"
-                    )
-                )
-                )
-            )  
+            )
         )
     );  
 } 
