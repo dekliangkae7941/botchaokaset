@@ -262,13 +262,21 @@ elseif ($type == 'follow') {
                   'color' => '#FFFFFF',
                   'wrap' => true,
                 ),
-                1 => 
+              ),
+            ),
+            array (
+              'type' => 'box',
+              'layout' => 'horizontal',
+              'contents' => 
+              array (
+                0 => 
                 array (
-                  'type' => 'text',
-                  'text' => '*หมายเหตุ คุณจะไม่สามารถแก้ไขชนิดการเพาะปลูกได้',
-                  'size' => 'xxs',
-                  'color' => '#D52C2C',
-                  'wrap' => true,
+                    'type' => 'text',
+                    'text' => '*หมายเหตุ คุณจะไม่สามารถแก้ไขชนิดการเพาะปลูกได้',
+                    'size' => 'xxs',
+                    'weight' => 'bold',
+                    'color' => '#F14848',
+                    'wrap' => true,
                 ),
               ),
             ),
