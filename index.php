@@ -1005,9 +1005,9 @@ else {
                 $latitude = $rowlog['latitude'];
                 $longitude = $rowlog['longitude'];
 
-                $querystype = "SELECT DISTINCT location_name, * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
+                $querystype = "SELECT DISTINCT location_name, * /*,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la*/ FROM line_subtype_all
                 WHERE subtype_id = '$subtype_id' 
-                ORDER BY la ,lo";
+                ORDER BY product_price DESC";
                 
 
 
