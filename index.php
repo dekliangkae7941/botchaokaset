@@ -221,7 +221,7 @@ elseif ($type == 'follow') {
     $query = "INSERT INTO line_log VALUES ('$userId','$displayName')";
     $result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
-    $mreply = array(
+    /*$mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
             array(
@@ -229,7 +229,7 @@ elseif ($type == 'follow') {
                 'text' => 'สวัสดีจ้าคุณ '.$displayName.' userId ของคุณคือ '.$userId
             )
         )
-    );
+    );*/
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array (
