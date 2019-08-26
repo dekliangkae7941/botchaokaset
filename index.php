@@ -1089,7 +1089,7 @@ else {
                 $resultnotify = pg_query($dbconn, $querynotify);
                 $rownotify = pg_fetch_array($resultnotify);
                 $c_plat_name = $rownotify['plat_name'];
-    if($command == "เตือนภัย$plat_name"){
+    if($command == "เตือนภัย$c_plat_name"){
         $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$c_plat_name'";
                 $resultnotifysent = pg_query($dbconn, $querynotifysent);
                 //$rownotifysent = pg_fetch_array($resultnotifysent);
