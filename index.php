@@ -1239,6 +1239,8 @@ else {
                 }
                 pg_free_result($resultnotifysent);
                 replyMsg($arrayHeader,$arrayPostData);
+            }
+        }
     elseif($command == "ราคาน้ำมัน"){
         $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
 		    	array(
