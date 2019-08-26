@@ -980,12 +980,6 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['wrap'] = true;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['styles']['header']['backgroundColor'] = "#cb4335";
                 
-                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['type'] = "image";
-                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['url'] = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png";
-                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['size'] = "full";
-                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['aspectRatio'] = "20:13";
-                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['aspectMode'] = "cover";
-                
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['spacing'] = "md";
@@ -1016,29 +1010,7 @@ else {
                 $querystype = "SELECT DISTINCT location_name, * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
                 WHERE subtype_id = '$subtype_id' 
                 ORDER BY lo,la";
-                 
 
-
-/*
-
-SELECT DISTINCT location_name, * FROM line_subtype_all
-FULL OUTER JOIN line_log
-ON table1.column_name = table2.column_name
-WHERE condition;
-                    SELECT * FROM ( <= SELECT ชั้นนอกใช้เพื่อเรียงลำดับผลลัท์ตาม id
-                    SELECT id,field_name,ABS(id-5) AS p
-                    FROM table_name
-                    WHERE id!=5 <= ไม่รวมรายการที่ต้องการ
-                    ORDER BY p <= เรียงลำดับตาม ABS()
-                    LIMIT 4
-                    ) AS Q ORDER BY id
-
-                "SELECT *FROM line_subtype
-                RIGHT JOIN line_subtype_all
-                ON line_subtype.subtype_id = line_subtype_all.subtype_id
-                WHERE line_subtype.subtype_id = '$subtype_id'";
-                $sql = "SELECT * FROM booking WHERE month = '04' ";
-                */
                 $resultstype = pg_query($dbconn, $querystype);
                 $datacountrowtype = 0;
                     while($rowstype = pg_fetch_array($resultstype)){
@@ -1050,14 +1022,6 @@ WHERE condition;
                         $lastupdate = $rowstype['lastupdate'];
                         $clatitude = $rowstype['coord_latitude'];
                         $clongitude = $rowstype['coord_longitude'];
-
-               /* $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "$subtype_name";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "lg";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['weight'] = "bold";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
-                $datacountrowtype += 1;*/
                                 
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "Location : $location_name ";
@@ -1090,25 +1054,7 @@ WHERE condition;
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "xxs";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
                         $datacountrowtype += 1;
-                        /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['type'] = "box";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['layout'] = "vertical";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['type'] = "button";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['style'] = "secondary";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['action']['type'] = "message";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['action']['label'] = "$location_name";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['contents'][$datacountrowtype2]['action']['text'] = "$location_name";
-                        $datacountrowtype2 += 1;
                         
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "button";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['style'] = "secondary";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['type'] = "location";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['title']= "$location_name";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['address']= "$province_name";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['latitude']= "$latitude";
-                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['action']['longitude']= "$longitude";
-
-                                                                                                                                                    
-                        $datacountrowtype += 1;*/
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "--------------------------------------------------";
                         $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
@@ -1139,6 +1085,132 @@ WHERE condition;
             }
         }       
     /////////////////////////
+    $querynotify = "SELECT * from line_notifysent";
+                $resultnotify = pg_query($dbconn, $querynotify);
+                $rownotify = pg_fetch_array($resultnotify);
+                $plat_name = $rownotify['plat_name'];
+    if($command == "$plat_name"){
+        $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$command'";
+                $resultnotifysent = pg_query($dbconn, $querynotifysent);
+                //$rownotifysent = pg_fetch_array($resultnotifysent);
+                
+                $arrayPostData['replyToken'] = $replyToken;
+                //$arrayPostData['to'] = $uid;
+                $arrayPostData['messages'][0]['type'] = "flex";
+                $arrayPostData['messages'][0]['altText'] = "$command";
+                $arrayPostData['messages'][0]['contents']['type'] = "carousel";
+
+                $datacountrownotifysent = 0;
+                $datacountrownotifysent1 = 0;              
+                while($rownotifysent = pg_fetch_array($resultnotifysent)){
+                    $plat_name = $rownotifysent['plat_name'];
+                    $name = $rownotifysent['name'];
+                    $growing = $rownotifysent['growing'];
+                    $weather = $rownotifysent['weather'];
+                    $problem = $rownotifysent['problem'];
+                    $detail_warning = $rownotifysent['detail_warning'];
+                    $detail_solution = $rownotifysent['detail_solution'];
+
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['type'] = "bubble";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['text'] = "$plat_name";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['size'] = "lg";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['weight'] = "bold";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['color'] = "#ffffff";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['styles']['header']['backgroundColor'] = "#cb4335";
+                
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['spacing'] = "md";
+
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['layout'] = "vertical";
+                /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['text'] = "$subtype_name";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['flex'] = $datacountrownotifysent1;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['size'] = "lg";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['weight'] = "bold";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['wrap'] = true;
+                
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['text'] = "_____________________";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['flex'] = $datacountrownotifysent1;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['size'] = "lg";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['wrap'] = true;*/
+                //$datacountrowtype += 1;
+
+                                
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['text'] = "$name : $growing";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['flex'] = $datacountrownotifysent1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['size'] = "sm";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['wrap'] = true;
+                        $datacountrownotifysent += 1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['text'] = "สภาพอากาศ : $weather";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['flex'] = $datacountrownotifysent1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['size'] = "sm";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['wrap'] = true;
+                        $datacountrownotifysent += 1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['text'] = "ปัญหา : $problem";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['flex'] = $datacountrownotifysent1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['size'] = "sm";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['weight'] = "bold";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['wrap'] = true;   
+                        $datacountrownotifysent += 1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['text'] = "เตือนภัย : $detail_warning";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['flex'] = $datacountrownotifysent1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['size'] = "xxs";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['wrap'] = true;   
+                        $datacountrownotifysent += 1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['text'] = "วิธีแก้ไข : $detail_solution";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['flex'] = $datacountrownotifysent1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['size'] = "xxs";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['wrap'] = true;   
+                        $datacountrownotifysent += 1;
+                        
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['text'] = "--------------------------------------------------";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['flex'] = $datacountrownotifysent1;
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['size'] = "sm";
+                        $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][$datacountrownotifysent]['wrap'] = true;
+                        $datacountrownotifysent += 1;
+                        
+                    
+                /*
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['type'] = "button";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type'] = "action";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['type'] = "location";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['label'] = "กดที่นี่เพื่อหาร้านค้าใกล้ตัว";*/
+
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['type'] = "box";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['layout'] = "vertical";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['size'] = "xs";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['wrap'] = true;
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['align'] = "center";
+                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['action']['uri'] = "line://nv/location";
+                //$arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['style'] = "primary";
+                $datacountrownotifysent1 += 1;    
+                }
+                pg_free_result($resultnotifysent);
+                replyMsg($arrayHeader,$arrayPostData);
+
+
+
+
+
+    }
+
+
     elseif($command == "ราคาน้ำมัน"){
         $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
 		    	array(
