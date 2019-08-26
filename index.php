@@ -1085,12 +1085,12 @@ else {
             }
         }       
     /////////////////////////
-    $querynotify = "SELECT * from line_notifysent";
+    $querynotify = "SELECT plat_name from line_notifysent";
                 $resultnotify = pg_query($dbconn, $querynotify);
                 $rownotify = pg_fetch_array($resultnotify);
-                $plat_name = $rownotify['plat_name'];
+                $c_plat_name = $rownotify['plat_name'];
     if($command == "เตือนภัย$plat_name"){
-        $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$command'";
+        $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$c_plat_name'";
                 $resultnotifysent = pg_query($dbconn, $querynotifysent);
                 //$rownotifysent = pg_fetch_array($resultnotifysent);
                 
