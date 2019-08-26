@@ -1091,7 +1091,39 @@ else {
                 $c_plat_name = $rownotify['plat_name'];*/
     elseif($command == "เตือนภัยกำหนดเอง"){
         $c_plat_name = "กำหนดเอง";
-    
+    }
+    elseif($command == "เตือนภัยข้าว"){
+        $c_plat_name = "ข้าว";
+    }
+    elseif($command == "เตือนภัยข้าวโพด"){
+        $c_plat_name = "ข้าวโพด";
+    }
+    elseif($command == "เตือนภัยถั่วเหลือง"){
+        $c_plat_name = "ถั่วเหลือง";
+    }
+    elseif($command == "เตือนภัยถั่วเขียว"){
+        $c_plat_name = "ถั่วเขียว";
+    }
+    elseif($command == "เตือนภัยลำไย"){
+        $c_plat_name = "ลำไย";
+    }
+    elseif($command == "เตือนภัยคะน้า"){
+        $c_plat_name = "คะน้า";
+    }
+    elseif($command == "เตือนภัยตะไคร้หอม"){
+        $c_plat_name = "ตะไร้หอม";
+    }
+    elseif($command == "เตือนภัยเห็ด"){
+        $c_plat_name = "เห็ด";
+    }
+    elseif($command == "เตือนภัยกาแฟ"){
+        $c_plat_name = "กาแฟ";
+    }
+    elseif($command == "เตือนภัยมันสำปะหลัง"){
+        $c_plat_name = "มันสำปะหลัง";
+    }
+    elseif($command == "เตือนภัยมะเขือเทศ"){
+        $c_plat_name = "มะเขือเทศ";
     }
         $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$c_plat_name'";
                 //$resultnotifysent = pg_query($dbconn, $querynotifysent);
