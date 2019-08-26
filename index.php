@@ -1088,7 +1088,7 @@ else {
     /*$querynotify = "SELECT plat_name from line_notifysent";
                 $resultnotify = pg_query($dbconn, $querynotify);
                 $rownotify = pg_fetch_array($resultnotify);
-                $c_plat_name = $rownotify['plat_name'];*/
+                $c_plat_name = $rownotify['plat_name'];
     elseif($command == "เตือนภัยกำหนดเอง"){
         $c_plat_name = "กำหนดเอง";
     
@@ -1165,7 +1165,7 @@ else {
 
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['layout'] = "vertical";
-                /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['text'] = "$subtype_name";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['flex'] = $datacountrownotifysent1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][0]['size'] = "lg";
@@ -1177,7 +1177,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['flex'] = $datacountrownotifysent1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['wrap'] = true;*/
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['wrap'] = true;
                 //$datacountrowtype += 1;
 
                                 
@@ -1221,12 +1221,11 @@ else {
                         $datacountrownotifysent += 1;
                         
                     
-                /*
+                
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['type'] = "button";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type'] = "action";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['type'] = "location";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['label'] = "กดที่นี่เพื่อหาร้านค้าใกล้ตัว";*/
-
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['label'] = "กดที่นี่เพื่อหาร้านค้าใกล้ตัว";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['type'] = "text";
@@ -1241,8 +1240,9 @@ else {
                 pg_free_result($resultnotifysent);
                 replyMsg($arrayHeader,$arrayPostData);
             }
-        }
-                elseif($command == "ราคาน้ำมัน"){
+        }*/
+
+        elseif($command == "ราคาน้ำมัน"){
         $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
 		    	array(
                     "trace"      => 1,		// enable trace to view what is happening
