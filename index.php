@@ -1085,16 +1085,19 @@ else {
             }
         }       
     /////////////////////////
-    $querynotify = "SELECT plat_name from line_notifysent";
+    /*$querynotify = "SELECT plat_name from line_notifysent";
                 $resultnotify = pg_query($dbconn, $querynotify);
                 $rownotify = pg_fetch_array($resultnotify);
-                $c_plat_name = $rownotify['plat_name'];
-    if($command == "เตือนภัย$c_plat_name"){
-        $subcommand = mb_substr($command,9,25,'UTF-8');
-        $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$subcommand'";
-                $resultnotifysent = pg_query($dbconn, $querynotifysent);
+                $c_plat_name = $rownotify['plat_name'];*/
+    elseif($command == "เตือนภัยกำหนดเอง"){
+        $c_plat_name = "กำหนดเอง";
+    
+    }
+        $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$c_plat_name'";
+                //$resultnotifysent = pg_query($dbconn, $querynotifysent);
                 //$rownotifysent = pg_fetch_array($resultnotifysent);
-                
+                if($resultnotifysent = pg_query($dbconn, $querynotifysent)){
+                    if(pg_num_rows($resultnotifysent) > 0){                
                 $arrayPostData['replyToken'] = $replyToken;
                 //$arrayPostData['to'] = $uid;
                 $arrayPostData['messages'][0]['type'] = "flex";
@@ -1204,14 +1207,6 @@ else {
                 }
                 pg_free_result($resultnotifysent);
                 replyMsg($arrayHeader,$arrayPostData);
-
-
-
-
-
-    }
-
-
     elseif($command == "ราคาน้ำมัน"){
         $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
 		    	array(
