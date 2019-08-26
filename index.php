@@ -1089,42 +1089,9 @@ else {
                 $resultnotify = pg_query($dbconn, $querynotify);
                 $rownotify = pg_fetch_array($resultnotify);
                 $c_plat_name = $rownotify['plat_name'];*/
-    elseif($command == "เตือนภัยกำหนดเอง"){
+    /*elseif($command == "เตือนภัยกำหนดเอง"){
         $c_plat_name = "กำหนดเอง";
     
-    }
-    elseif($command == "เตือนภัยข้าว"){
-        $c_plat_name = "ข้าว";
-    }
-    elseif($command == "เตือนภัยข้าวโพด"){
-        $c_plat_name = "ข้าวโพด";
-    }
-    elseif($command == "เตือนภัยถั่วเหลือง"){
-        $c_plat_name = "ถั่วเหลือง";
-    }
-    elseif($command == "เตือนภัยถั่วเขียว"){
-        $c_plat_name = "ถั่วเขียว";
-    }
-    elseif($command == "เตือนภัยลำไย"){
-        $c_plat_name = "ลำไย";
-    }
-    elseif($command == "เตือนภัยคะน้า"){
-        $c_plat_name = "คะน้า";
-    }
-    elseif($command == "เตือนภัยตะไคร้หอม"){
-        $c_plat_name = "ตะไร้หอม";
-    }
-    elseif($command == "เตือนภัยเห็ด"){
-        $c_plat_name = "เห็ด";
-    }
-    elseif($command == "เตือนภัยกาแฟ"){
-        $c_plat_name = "กาแฟ";
-    }
-    elseif($command == "เตือนภัยมันสำปะหลัง"){
-        $c_plat_name = "มันสำปะหลัง";
-    }
-    elseif($command == "เตือนภัยมะเขือเทศ"){
-        $c_plat_name = "มะเขือเทศ";
     }
             $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$c_plat_name'";
                 //$resultnotifysent = pg_query($dbconn, $querynotifysent);
@@ -1177,7 +1144,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['flex'] = $datacountrownotifysent1;
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['size'] = "lg";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['weight'] = "bold";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['wrap'] = true;*/
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['body']['contents'][0]['contents'][1]['wrap'] = true;
                 //$datacountrowtype += 1;
 
                                 
@@ -1225,8 +1192,7 @@ else {
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['type'] = "button";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type'] = "action";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['type'] = "location";
-                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['label'] = "กดที่นี่เพื่อหาร้านค้าใกล้ตัว";*/
-
+                $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][1]['action']['type']['action']['label'] = "กดที่นี่เพื่อหาร้านค้าใกล้ตัว";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['type'] = "box";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['layout'] = "vertical";
                 $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['footer']['contents'][0]['type'] = "text";
@@ -1241,8 +1207,8 @@ else {
                 pg_free_result($resultnotifysent);
                 replyMsg($arrayHeader,$arrayPostData);
             }
-        }
-                elseif($command == "ราคาน้ำมัน"){
+        }*/
+        elseif($command == "ราคาน้ำมัน"){
         $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
 		    	array(
                     "trace"      => 1,		// enable trace to view what is happening
