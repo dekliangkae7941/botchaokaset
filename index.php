@@ -820,7 +820,31 @@ else {
         }
     }
     elseif($command == 'แมว'){
-
+        $ct = 7;
+        $uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getsubType/".$ct;
+        $response = Unirest\Request::get("$uri");
+        $json = json_decode($response->raw_body, true);
+        $resultsid = $json['subtype_id'];
+        $resultasname = $json['subtype_name'];
+        $resultatid = $json['type_id'];
+        $text .= " เลขที่ชนิด : " . $resultsid . "\n";
+        $text .= " ชื่อชนิด : " . $resultasname . "\n";
+        $text .= " เลขที่กลุ่ม : " . $resultatid . "\n";
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    /*'type' => 'location',
+                    'title' => $msg_title,
+                    'address' => $msg_address,
+                    'latitude' => $msg_latitude,
+                    'longitude' => $msg_longitude
+                ),            array(*/
+                    'type' => 'text',
+                    'text' => $text
+                )
+            )
+        );
     }
     elseif ($command == 'ราคาผัก') {
         $categoryid = 1;
