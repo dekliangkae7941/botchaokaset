@@ -708,6 +708,7 @@ $stickerurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" . $sti
 elseif ($msg_type == 'location') {
     ////คือกดสภาพอากาศ แล้วส่งคำว่า lo...ไป เมื่อส่งไปให้ดึงข้อมูลละติ ลองจิ ของโลเคชันจากดาต้าเบสออกมาละส่งไปopenwเลย ส่วนโปรไฟล์จะมีให้แก้ไขที่อยู่ และแก้ไขแปลงผัก
     $query = "UPDATE line_log SET latitude = '$msg_latitude',longitude = '$msg_longitude' WHERE userid = '$userId'";
+    $result = pg_query($query);
     //"INSERT INTO line_log (userid latitude , longitude) VALUES ('$userId','$msg_latitude','$msg_longitude')";
     $text = "บอทได้บันทึกที่อยู่ของท่านเรียบร้อย ขอบคุณค่ะ";
     $mreply = array(
