@@ -708,24 +708,52 @@ $stickerurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" . $sti
 elseif ($msg_type == 'location') {
     ////คือกดสภาพอากาศ แล้วส่งคำว่า lo...ไป เมื่อส่งไปให้ดึงข้อมูลละติ ลองจิ ของโลเคชันจากดาต้าเบสออกมาละส่งไปopenwเลย ส่วนโปรไฟล์จะมีให้แก้ไขที่อยู่ และแก้ไขแปลงผัก
     $query = "UPDATE line_log SET latitude = '$msg_latitude',longitude = '$msg_longitude' WHERE userid = '$userId'";
-    $result = pg_query($query);
+    $resultlo = pg_query($query);
+    $rowlo = pg_fetch_array($resultlo);
+    $latitude = $rowlo['latitude'];
+    $longitude = $rowlo['longitude'];
     //"INSERT INTO line_log (userid latitude , longitude) VALUES ('$userId','$msg_latitude','$msg_longitude')";
-    $text = "บอทได้บันทึกที่อยู่ของท่านเรียบร้อย ขอบคุณค่ะ";
-    $mreply = array(
-        'replyToken' => $replyToken,
-        'messages' => array(
-            array(
-                /*'type' => 'location',
-                'title' => $msg_title,
-                'address' => $msg_address,
-                'latitude' => $msg_latitude,
-                'longitude' => $msg_longitude
-            ),            array(*/
-                'type' => 'text',
-                'text' => $text
+    if($latitude != NULL && $longitude != NULL){
+        $text = "บอทได้บันทึกที่อยู่ของท่านเรียบร้อย ขอบคุณค่ะ";
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    /*'type' => 'location',
+                    'title' => $msg_title,
+                    'address' => $msg_address,
+                    'latitude' => $msg_latitude,
+                    'longitude' => $msg_longitude
+                ),            array(*/
+                    'type' => 'text',
+                    'text' => $text
+                )
             )
-        )
-    );
+        );
+    }else{
+        $text = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $text,
+                    'quickReply' => array(
+                        'items' => array(
+                            array(
+                            'type' => 'action',
+                            'action' => array(
+                                'type' => 'location',
+                                'label' => 'Location'
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        );  
+    }
+    
 
 }
 elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
