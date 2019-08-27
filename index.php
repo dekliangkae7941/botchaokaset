@@ -766,33 +766,58 @@ else {
         $rowlocation = pg_fetch_array($resultlocation);
         $latitude = $rowlocation['latitude'];
         $longitude = $rowlocation['longitude'];
-        $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $latitude . "&lon=" . $longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
-        $response = Unirest\Request::get("$uri");
-        $json = json_decode($response->raw_body, true);
-        $resulta = $json['name'];
-        $resultb = $json['weather'][0]['main'];
-        $resultc = $json['weather'][0]['description'];
-        $resultd = $json['main']['temp'];
-        $resulte = $json['coord']['lon'];
-        $text .= " พื้นที่ : " . $resulta . "\n";
-        $text .= " สภาพอากาศ : " . $resultb . "\n";
-        $text .= " รายละเอียด : " . $resultc . "\n";
-        $text .= " อุณหภูมิ : " . $resultd;
-        $mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    /*'type' => 'location',
-                    'title' => $msg_title,
-                    'address' => $msg_address,
-                    'latitude' => $msg_latitude,
-                    'longitude' => $msg_longitude
-                ),            array(*/
-                    'type' => 'text',
-                    'text' => $text
+        if($latitude == NULL || $longitude == NULL){
+            $text = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text,
+                        'quickReply' => array(
+                            'items' => array(
+                                array(
+                                'type' => 'action',
+                                'action' => array(
+                                    'type' => 'location',
+                                    'label' => 'Location'
+                                    )
+                                )
+                            )
+                        )
+                    )
                 )
-            )
-        );
+            );  
+
+        }else{
+            $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $latitude . "&lon=" . $longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
+            $response = Unirest\Request::get("$uri");
+            $json = json_decode($response->raw_body, true);
+            $resulta = $json['name'];
+            $resultb = $json['weather'][0]['main'];
+            $resultc = $json['weather'][0]['description'];
+            $resultd = $json['main']['temp'];
+            $resulte = $json['coord']['lon'];
+            $text .= " พื้นที่ : " . $resulta . "\n";
+            $text .= " สภาพอากาศ : " . $resultb . "\n";
+            $text .= " รายละเอียด : " . $resultc . "\n";
+            $text .= " อุณหภูมิ : " . $resultd;
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        /*'type' => 'location',
+                        'title' => $msg_title,
+                        'address' => $msg_address,
+                        'latitude' => $msg_latitude,
+                        'longitude' => $msg_longitude
+                    ),            array(*/
+                        'type' => 'text',
+                        'text' => $text
+                    )
+                )
+            );
+        }
     }
     elseif ($command == 'ราคาผัก') {
         $categoryid = 1;
