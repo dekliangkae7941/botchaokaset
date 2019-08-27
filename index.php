@@ -820,7 +820,7 @@ else {
         }
     }
     elseif($command == 'แมว'){
-        $ct = 7;
+        $ct = 1;
         $uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getsubType/$ct";
         $response = Unirest\Request::get("$uri");
         $json = json_decode($response->raw_body, true);
