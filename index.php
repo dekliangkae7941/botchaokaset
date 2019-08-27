@@ -513,11 +513,23 @@ elseif ($type == 'follow') {
                 )
               )
             )
+        ),
+        'quickReply' => array(
+        'items' => array(
+            array(
+            'type' => 'action',
+            'action' => array(
+                'type' => 'postback',
+                'label' => 'Postback',
+                'data' => 'happy'
+                )
+            )
+        )
+        )
+        
           )
         )
-        )
     );
-    
     
 }
 /////////////
