@@ -743,7 +743,8 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
     //$command = $plat_name;
     $query = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
     $result = pg_query($query);
-    $text = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน";
+    $text .= "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
+    $text .= "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -755,9 +756,8 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
                         array(
                         'type' => 'action',
                         'action' => array(
-                            'type' => 'postback',
-                            'label' => 'Postback',
-                            'data' => 'happy'
+                            'type' => 'location',
+                            'label' => 'Location'
                             )
                         )
                     )
