@@ -829,7 +829,7 @@ else {
         $resultatid = $json['type_id'];
         $text .= " เลขที่ชนิด : " . $resultsid . "\n";
         $text .= " ชื่อชนิด : " . $resultasname . "\n";
-        $text .= " เลขที่กลุ่ม : " . $resultatid . "\n";
+        $text .= " เลขที่กลุ่ม : " . $resultatid;
         $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
