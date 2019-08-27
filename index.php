@@ -513,19 +513,8 @@ elseif ($type == 'follow') {
                 )
               )
             )
-        ),
-        'quickReply' => array(
-        'items' => array(
-            array(
-            'type' => 'action',
-            'action' => array(
-                'type' => 'postback',
-                'label' => 'Postback',
-                'data' => 'happy'
-                )
-            )
         )
-        )
+        
         
           )
         )
@@ -760,7 +749,19 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
         'messages' => array(
             array(
                 'type' => 'text',
-                'text' => $text
+                'text' => $text,
+                'quickReply' => array(
+                    'items' => array(
+                        array(
+                        'type' => 'action',
+                        'action' => array(
+                            'type' => 'postback',
+                            'label' => 'Postback',
+                            'data' => 'happy'
+                            )
+                        )
+                    )
+                )
             )
         )
     );  
