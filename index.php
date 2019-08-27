@@ -709,19 +709,7 @@ elseif ($msg_type == 'location') {
     ////คือกดสภาพอากาศ แล้วส่งคำว่า lo...ไป เมื่อส่งไปให้ดึงข้อมูลละติ ลองจิ ของโลเคชันจากดาต้าเบสออกมาละส่งไปopenwเลย ส่วนโปรไฟล์จะมีให้แก้ไขที่อยู่ และแก้ไขแปลงผัก
     $query = "UPDATE line_log SET latitude = '$msg_latitude',longitude = '$msg_longitude' WHERE userid = '$userId'";
     //"INSERT INTO line_log (userid latitude , longitude) VALUES ('$userId','$msg_latitude','$msg_longitude')";
-    $result = pg_query($query);
-    $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
-    $response = Unirest\Request::get("$uri");
-    $json = json_decode($response->raw_body, true);
-    $resulta = $json['name'];
-    $resultb = $json['weather'][0]['main'];
-    $resultc = $json['weather'][0]['description'];
-    $resultd = $json['main']['temp'];
-    $resulte = $json['coord']['lon'];
-    $text .= " พื้นที่ : " . $resulta . "\n";
-    $text .= " สภาพอากาศ : " . $resultb . "\n";
-    $text .= " รายละเอียด : " . $resultc . "\n";
-    $text .= " อุณหภูมิ : " . $resultd;
+    $text = "บอทได้บันทึกที่อยู่ของท่านเรียบร้อย ขอบคุณค่ะ";
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -771,7 +759,41 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
 } 
 /////////////
 else {
-    if ($command == 'ราคาผัก') {
+    if($command == 'Location' || $command == 'สภาพอากาศ'){
+        $querylocation = "SELECT * FROM line_log WHERE userid = '$userId'";
+        $resultlocation= pg_query($dbconn, $querylocation);
+        $rowlocation = pg_fetch_array($resultlocation);
+        $latitude = $rowlocation['latitude'];
+        $longitude = $rowlocation['longitude'];
+        $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $latitude . "&lon=" . $longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
+        $response = Unirest\Request::get("$uri");
+        $json = json_decode($response->raw_body, true);
+        $resulta = $json['name'];
+        $resultb = $json['weather'][0]['main'];
+        $resultc = $json['weather'][0]['description'];
+        $resultd = $json['main']['temp'];
+        $resulte = $json['coord']['lon'];
+        $text .= " พื้นที่ : " . $resulta . "\n";
+        $text .= " สภาพอากาศ : " . $resultb . "\n";
+        $text .= " รายละเอียด : " . $resultc . "\n";
+        $text .= " อุณหภูมิ : " . $resultd;
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    /*'type' => 'location',
+                    'title' => $msg_title,
+                    'address' => $msg_address,
+                    'latitude' => $msg_latitude,
+                    'longitude' => $msg_longitude
+                ),            array(*/
+                    'type' => 'text',
+                    'text' => $text
+                )
+            )
+        );
+    }
+    elseif ($command == 'ราคาผัก') {
         $categoryid = 1;
         //$type_id = 0;
     }
