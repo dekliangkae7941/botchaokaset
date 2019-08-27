@@ -819,6 +819,9 @@ else {
             );
         }
     }
+    elseif($command == 'แมว'){
+
+    }
     elseif ($command == 'ราคาผัก') {
         $categoryid = 1;
         //$type_id = 0;
