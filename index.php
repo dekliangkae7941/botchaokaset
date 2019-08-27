@@ -713,6 +713,7 @@ elseif ($msg_type == 'location') {
     $latitude = $rowlo['latitude'];
     $longitude = $rowlo['longitude'];
     //"INSERT INTO line_log (userid latitude , longitude) VALUES ('$userId','$msg_latitude','$msg_longitude')";
+}
     if($latitude != NULL && $longitude != NULL){
         $text = "บอทได้บันทึกที่อยู่ของท่านเรียบร้อย ขอบคุณค่ะ";
         $mreply = array(
@@ -755,8 +756,7 @@ elseif ($msg_type == 'location') {
     }
     
 
-}
-elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
+    if($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
     //$command = $plat_name;
     $query = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
     $result = pg_query($query);
