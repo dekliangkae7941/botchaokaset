@@ -819,7 +819,7 @@ else {
             );
         }
     }
-    elseif($command == 'แมว'){
+    /*elseif($command == 'แมว'){
         //$ct = 1;
         $uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getsubType/1";
         $response = Unirest\Request::get("$uri");
@@ -839,13 +839,13 @@ else {
                     'address' => $msg_address,
                     'latitude' => $msg_latitude,
                     'longitude' => $msg_longitude
-                ),            array(*/
+                ),            array(
                     'type' => 'text',
                     'text' => $text
                 )
             )
         );
-    }
+}*/
     elseif ($command == 'ราคาผัก') {
         $categoryid = 1;
         //$type_id = 0;
