@@ -728,10 +728,12 @@ elseif ($msg_type == 'location') {
     );
 
 }
-elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'||$command == 'กำหนดเอง'){
+elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'){
     //$command = $plat_name;
-    $query = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
-    $result = pg_query($query);
+    $queryplan = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
+    $resultplan = pg_query($queryplan);
+    $querypname = "UPDATE line_log SET name = '$command' WHERE userid = '$userId'";
+    $resultpname = pg_query($querypname);
     $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
     $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
     $mreply = array(
@@ -757,6 +759,57 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
             )
         )
     );  
+}
+elseif($command == 'กำหนดเอง'){
+    $queryplan = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
+    $resultplan = pg_query($queryplan);
+    $queryplann = "SELECT line_log WHERE userid = '$userId'";
+    $resultplann = pg_query($queryplann);
+    $rowplann = pg_fetch_array($resultplann);
+    $plat_name = $rowplann['plat_name'];
+    $name = $rowplann['name'];
+    if($plat_name == 'กำหนดเอง' && $name == ''){
+        $text = "กรุณากพิมพ์ชนิดแปลงเพาะปลูกของคุณและส่งหาเรา เพื่อรับการแจ้งเตือน";
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $text
+                )
+            )
+        );  
+    }elseif($command != '' &&  $command != 'กำหนดเอง'){
+        $querypname = "UPDATE line_log SET name = '$command' WHERE userid = '$userId'";
+        $resultpname = pg_query($querypname);
+    }
+    else{
+        $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
+        $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $text1
+                ),array(
+                    'type' => 'text',
+                    'text' => $text2,
+                    'quickReply' => array(
+                        'items' => array(
+                            array(
+                            'type' => 'action',
+                            'action' => array(
+                                'type' => 'location',
+                                'label' => 'Location'
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        );  
+    }
 } 
 /////////////
 else {
