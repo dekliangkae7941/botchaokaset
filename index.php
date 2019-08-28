@@ -775,7 +775,7 @@ elseif ($command != '') {
                         'type' => 'location',
                         'title' => $msg_title,
                         'address' => $address,
-                        'latitude' => $$latitude,
+                        'latitude' => $latitude,
                         'longitude' => $longitude
                     ),            array(
                         'type' => 'text',
