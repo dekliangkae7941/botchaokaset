@@ -1418,7 +1418,7 @@ elseif ($command != '') {
                 'messages' => array(
                 array (
                     'type' => 'flex',
-                    'altText' => 'Flex Message',
+                    'altText' => 'ข้อมูลผู้ใช้',
                     'contents' => 
                     array (
                       'type' => 'bubble',
