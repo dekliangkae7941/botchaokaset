@@ -1397,7 +1397,8 @@ elseif ($command != '') {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $mreply = array(
                 'replyToken' => $replyToken,
-                'messages' => array (
+                'messages' => array(
+                array (
                     'type' => 'flex',
                     'altText' => 'Flex Message',
                     'contents' => 
@@ -1595,6 +1596,7 @@ elseif ($command != '') {
                       ),
                     ),
                   )
+                )
                 );
 /////////////////////////////////////////////////////////////////////////
                 /*if($latitude == NULL && $longitude == NULL){
