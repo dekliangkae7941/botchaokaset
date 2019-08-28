@@ -791,8 +791,6 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
     //$command = $plat_name;
     $queryplan = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
     $resultplan = pg_query($queryplan);
-    $querypname = "UPDATE line_log SET name = '$command' WHERE userid = '$userId'";
-    $resultpname = pg_query($querypname);
     $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
     $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
     $mreply = array(
