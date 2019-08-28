@@ -728,11 +728,10 @@ elseif ($msg_type == 'location') {
     );
 
 }
-if ($command != '') {
+elseif ($command != '') {
     $query = "UPDATE line_log SET displayName WHERE userid = '$userId'";
     $result = pg_query($query);
-}
-elseif($command == 'Location' || $command == 'สภาพอากาศ'){
+    if($command == 'Location' || $command == 'สภาพอากาศ'){
     $querylocation = "SELECT * FROM line_log WHERE userid = '$userId'";
     $resultlocation= pg_query($dbconn, $querylocation);
     $rowlocation = pg_fetch_array($resultlocation);
@@ -2214,6 +2213,7 @@ else {
 
     }
     /////////
+}
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);
