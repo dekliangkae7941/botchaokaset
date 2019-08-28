@@ -1425,7 +1425,7 @@ elseif ($command != '') {
                       'hero' => 
                       array (
                         'type' => 'image',
-                        'url' => $pictureUrl,
+                        'url' => "$pictureUrl",
                         'align' => 'center',
                         'size' => 'full',
                         'aspectRatio' => '16:9',
@@ -1447,7 +1447,7 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => 'ชื่อผู้ใช้ : '.$displayName,
+                            'text' => "ชื่อผู้ใช้ : $displayName",
                             'size' => 'md',
                             'align' => 'start',
                             'gravity' => 'top',
@@ -1479,7 +1479,7 @@ elseif ($command != '') {
                                   1 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => '1. '.$plat_name,
+                                    'text' => "1. $plat_name",
                                     'size' => 'md',
                                     'align' => 'start',
                                     'gravity' => 'center',
@@ -1517,7 +1517,7 @@ elseif ($command != '') {
                               2 => 
                               array (
                                 'type' => 'text',
-                                'text' => $address,
+                                'text' => "$address",
                                 'size' => 'md',
                                 'gravity' => 'center',
                                 'weight' => 'regular',
