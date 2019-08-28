@@ -731,7 +731,7 @@ elseif ($command != '') {
         $rowlocation = pg_fetch_array($resultlocation);
         $latitude = $rowlocation['latitude'];
         $longitude = $rowlocation['longitude'];
-        $address = $rowlocation['longitude'];
+        $address = $rowlocation['address'];
         if($latitude == NULL || $longitude == NULL){
             $text = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
             $mreply = array(
