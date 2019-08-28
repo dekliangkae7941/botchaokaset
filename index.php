@@ -123,7 +123,7 @@ $msg_latitude  = $client->parseEvents()[0]['message']['latitude'];
 $msg_longitude = $client->parseEvents()[0]['message']['longitude'];
 #----Check title empty----#
 if (empty($msg_title)) {
-    $msg_title = 'ตำแหน่งของคุณ คือ ';
+    $msg_title = 'ตำแหน่งที่อยู่ของคุณ คือ ';
 }
 #----command option----#
 $usertext = explode(" ", $message['text']);
@@ -707,7 +707,7 @@ $stickerurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" . $sti
 ///////////////////
 elseif ($msg_type == 'location') {
     ////คือกดสภาพอากาศ แล้วส่งคำว่า lo...ไป เมื่อส่งไปให้ดึงข้อมูลละติ ลองจิ ของโลเคชันจากดาต้าเบสออกมาละส่งไปopenwเลย ส่วนโปรไฟล์จะมีให้แก้ไขที่อยู่ และแก้ไขแปลงผัก
-    $query = "UPDATE line_log SET latitude = '$msg_latitude',longitude = '$msg_longitude' WHERE userid = '$userId'";
+    $query = "UPDATE line_log SET latitude = '$msg_latitude',longitude = '$msg_longitude', address = '$msg_address' WHERE userid = '$userId'";
     $result = pg_query($query);
     //"INSERT INTO line_log (userid latitude , longitude) VALUES ('$userId','$msg_latitude','$msg_longitude')";
     $text = "บอทได้บันทึกที่อยู่ของท่านเรียบร้อย ขอบคุณค่ะ";
@@ -731,6 +731,7 @@ elseif ($command != '') {
         $rowlocation = pg_fetch_array($resultlocation);
         $latitude = $rowlocation['latitude'];
         $longitude = $rowlocation['longitude'];
+        $address = $rowlocation['longitude'];
         if($latitude == NULL || $longitude == NULL){
             $text = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
             $mreply = array(
@@ -773,9 +774,9 @@ elseif ($command != '') {
                     array(
                         'type' => 'location',
                         'title' => $msg_title,
-                        'address' => $msg_address,
-                        'latitude' => $msg_latitude,
-                        'longitude' => $msg_longitude
+                        'address' => $address,
+                        'latitude' => $$latitude,
+                        'longitude' => $longitude
                     ),            array(
                         'type' => 'text',
                         'text' => $text
