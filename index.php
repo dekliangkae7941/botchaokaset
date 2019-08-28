@@ -124,6 +124,9 @@ $en_profile = json_encode($profile, true);
 $de_profile = json_decode($en_profile, true);
 $displayName    = $de_profile['displayName'];
 $pictureUrl    = $de_profile['pictureUrl'];
+if(empty($pictureUrl)){
+    $pictureUrl = 'https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/logo.png';
+};
 $messageid  = $client->parseEvents()[0]['message']['id'];
 $msg_type      = $client->parseEvents()[0]['message']['type'];
 
@@ -1404,8 +1407,6 @@ elseif ($command != '') {
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
             $address = $rowlog['address'];
-            echo $plat_name ;
-            echo $address ;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $mreply = array(
                 'replyToken' => $replyToken,
