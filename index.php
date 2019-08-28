@@ -36,13 +36,13 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
-            $ddisplayName = $rowlog['displayName'];
+            //$ddisplayName = $rowlog['displayName'];
             $address = $rowlog['address'];
-            $ppictureUrl = $rowlog['pictureUrl'];
+            //$ppictureUrl = $rowlog['pictureUrl'];
             echo $plat_name."\n" ;
-            echo $displayName ."\n";
+            //echo $displayName ."\n";
             echo $address ."\n";
-            echo $pictureUrl ."\n";
+            //echo $pictureUrl ."\n";
 /////////////////////////
 $querylog = "SELECT * FROM line_log ";
                 $resultlog = pg_query($dbconn, $querylog);
@@ -1403,13 +1403,9 @@ elseif ($command != '') {
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
-            $ddisplayName = $rowlog['displayName'];
             $address = $rowlog['address'];
-            $ppictureUrl = $rowlog['pictureUrl'];
             echo $plat_name ;
-            echo $displayName ;
             echo $address ;
-            echo $pictureUrl ;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $mreply = array(
                 'replyToken' => $replyToken,
@@ -1440,7 +1436,7 @@ elseif ($command != '') {
                       'hero' => 
                       array (
                         'type' => 'image',
-                        'url' => $ppictureUrl,
+                        'url' => $pictureUrl,
                         'align' => 'center',
                         'size' => 'full',
                         'aspectRatio' => '16:9',
@@ -1456,7 +1452,7 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => "ชื่อผู้ใช้ : $ddisplayName",
+                            'text' => "ชื่อผู้ใช้ : $displayName",
                             'size' => 'md',
                             'align' => 'start',
                             'gravity' => 'top',
