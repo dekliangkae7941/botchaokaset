@@ -728,6 +728,10 @@ elseif ($msg_type == 'location') {
     );
 
 }
+if ($command != '') {
+    $query = "UPDATE line_log SET displayName WHERE userid = '$userId'";
+    $result = pg_query($query);
+}
 elseif($command == 'Location' || $command == 'สภาพอากาศ'){
     $querylocation = "SELECT * FROM line_log WHERE userid = '$userId'";
     $resultlocation= pg_query($dbconn, $querylocation);
