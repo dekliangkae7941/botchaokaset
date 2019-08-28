@@ -36,13 +36,13 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
-            $displayName = $rowlog['displayName'];
+            $ddisplayName = $rowlog['displayName'];
             $address = $rowlog['address'];
-            $pictureUrl = $rowlog['pictureUrl'];
-            echo $plat_name ;
-            echo $displayName ;
-            echo $address ;
-            echo $pictureUrl ;
+            $ppictureUrl = $rowlog['pictureUrl'];
+            echo $plat_name."\n" ;
+            echo $displayName ."\n";
+            echo $address ."\n";
+            echo $pictureUrl ."\n";
 /////////////////////////
 $querylog = "SELECT * FROM line_log ";
                 $resultlog = pg_query($dbconn, $querylog);
@@ -1403,9 +1403,9 @@ elseif ($command != '') {
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
-            $displayName = $rowlog['displayName'];
+            $ddisplayName = $rowlog['displayName'];
             $address = $rowlog['address'];
-            $pictureUrl = $rowlog['pictureUrl'];
+            $ppictureUrl = $rowlog['pictureUrl'];
             echo $plat_name ;
             echo $displayName ;
             echo $address ;
@@ -1440,7 +1440,7 @@ elseif ($command != '') {
                       'hero' => 
                       array (
                         'type' => 'image',
-                        'url' => $pictureUrl,
+                        'url' => $ppictureUrl,
                         'align' => 'center',
                         'size' => 'full',
                         'aspectRatio' => '16:9',
@@ -1456,7 +1456,7 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => "ชื่อผู้ใช้ : ".$displayName,
+                            'text' => "ชื่อผู้ใช้ : $ddisplayName",
                             'size' => 'md',
                             'align' => 'start',
                             'gravity' => 'top',
@@ -1488,7 +1488,7 @@ elseif ($command != '') {
                                   1 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => "1. ".$plat_name,
+                                    'text' => "1. $plat_name",
                                     'size' => 'md',
                                     'align' => 'start',
                                     'gravity' => 'center',
