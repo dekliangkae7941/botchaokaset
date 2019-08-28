@@ -768,7 +768,7 @@ elseif($command == 'กำหนดเอง'){
     $rowplann = pg_fetch_array($resultplann);
     $plat_name = $rowplann['plat_name'];
     $name = $rowplann['name'];
-    if($plat_name == 'กำหนดเอง' && $name == ''){
+    if($name == ''){
         $text = "กรุณากพิมพ์ชนิดแปลงเพาะปลูกของคุณและส่งหาเรา เพื่อรับการแจ้งเตือน";
         $mreply = array(
             'replyToken' => $replyToken,
