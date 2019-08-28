@@ -779,7 +779,8 @@ elseif($command == 'กำหนดเอง'){
                 )
             )
         );  
-    }elseif($command != '' &&  $command != 'กำหนดเอง'){
+    }
+    if($plat_name != '' &&  $command != 'กำหนดเอง'){
         $querypname = "UPDATE line_log SET name = '$command' WHERE userid = '$userId'";
         $resultpname = pg_query($querypname);
     }
