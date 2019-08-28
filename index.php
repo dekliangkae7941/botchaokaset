@@ -1182,7 +1182,7 @@ elseif ($command != '') {
                             $datacountrowtype += 1;
                             
                         }
-                    }    
+                      
                     /*
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['type'] = "button";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['action']['type'] = "action";
@@ -1200,8 +1200,10 @@ elseif ($command != '') {
                     //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
                     $datacountrowtype1 += 1;    
                     }
+                
                     pg_free_result($resulttype);
                     replyMsg($arrayHeader,$arrayPostData);
+                }
                 }
             }       
         /////////////////////////
