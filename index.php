@@ -238,7 +238,7 @@ elseif ($type == 'leave') {
 }
 //////////////
 elseif ($type == 'follow') {
-    $query = "INSERT INTO line_log (userid , displayName,pictureUrl) VALUES ('$userId','$displayName','$pictureUrl')";
+    $query = "INSERT INTO line_log (userid , displayName) VALUES ('$userId','$displayName')";
     $result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
     /*$mreply = array(
@@ -737,7 +737,7 @@ elseif ($msg_type == 'location') {
 
 }
 elseif ($command != '') {
-    $query = "UPDATE line_log SET displayName = '$displayName' ,pictureUrl = '$pictureUrl' WHERE userid = '$userId'";
+    $query = "UPDATE line_log SET displayName = '$displayName' WHERE userid = '$userId'";
     $result = pg_query($query);
     if($command == 'Location' || $command == 'สภาพอากาศ'){
         $querylocation = "SELECT * FROM line_log WHERE userid = '$userId'";
@@ -1439,8 +1439,8 @@ elseif ($command != '') {
                         'url' => $pictureUrl,
                         'align' => 'center',
                         'size' => 'full',
-                        'aspectRatio' => '16:9',
-                        'aspectMode' => 'fit'
+                        'aspectRatio' => '20:13',
+                        'aspectMode' => 'cover'
                       ),
                       'body' => 
                       array (
