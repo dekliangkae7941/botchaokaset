@@ -1407,10 +1407,10 @@ elseif ($command != '') {
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
             $address = $rowlog['address'];
-            if(empty($plat_name)){
+            if($plat_name == NULL){
                 $plat_name = 'คุณยังไม่ได้เพิ่มแปลงเพาะปลูก';
-            }if(empty($address)){
-                $plat_name = 'คุณยังไม่ได้เพิ่มที่อยู่';
+            }if($address == NULL){
+                $address = 'คุณยังไม่ได้เพิ่มที่อยู่';
             }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $mreply = array(
