@@ -761,28 +761,42 @@ elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command
     );  
 }
 elseif($command == 'กำหนดเอง'){
-    $queryplan = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
-    $resultplan = pg_query($queryplan);
+    
     $queryplann = "SELECT line_log WHERE userid = '$userId'";
     $resultplann = pg_query($queryplann);
     $rowplann = pg_fetch_array($resultplann);
     $plat_name = $rowplann['plat_name'];
     $name = $rowplann['name'];
-    if($name == ''){
-        $text = "กรุณากพิมพ์ชนิดแปลงเพาะปลูกของคุณและส่งหาเรา เพื่อรับการแจ้งเตือน";
-        $mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $text
+    if($plat_name == ''){
+        $queryplan = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
+        $resultplan = pg_query($queryplan);
+        if($plat_name == 'กำหนดเอง' && $name = ''){
+            $text = "กรุณากพิมพ์ชนิดแปลงเพาะปลูกของคุณและส่งหาเรา เพื่อรับการแจ้งเตือน";
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text
+                    )
                 )
-            )
-        );  
-    }
-    if($plat_name != '' &&  $command != 'กำหนดเอง'){
-        $querypname = "UPDATE line_log SET name = '$command' WHERE userid = '$userId'";
-        $resultpname = pg_query($querypname);
+            );  
+            $querypname = "UPDATE line_log SET name = '$command' WHERE userid = '$userId'";
+            $resultpname = pg_query($querypname);
+        }else{
+            $text = "กรุณากพิมพ์ชนิดแปลงเพาะปลูกของคุณและส่งหาเรา เพื่อรับการแจ้งเตือน";
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text
+                    )
+                )
+            );  
+        }
+        
+        
     }
     else{
         $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
