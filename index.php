@@ -1407,6 +1407,11 @@ elseif ($command != '') {
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
             $address = $rowlog['address'];
+            if(empty($plat_name)){
+                $plat_name = 'คุณยังไม่ได้เพิ่มแปลงเพาะปลูก';
+            }if(empty($address)){
+                $plat_name = 'คุณยังไม่ได้เพิ่มที่อยู่';
+            }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $mreply = array(
                 'replyToken' => $replyToken,
@@ -1495,7 +1500,7 @@ elseif ($command != '') {
                                   2 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => '2. กาแฟ',
+                                    'text' => '2. -',
                                     'size' => 'md',
                                     'align' => 'start',
                                     'weight' => 'regular',
@@ -1504,7 +1509,7 @@ elseif ($command != '') {
                                   3 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => '3. เห็ด',
+                                    'text' => '3. -',
                                     'size' => 'md',
                                     'gravity' => 'center',
                                     'weight' => 'regular',
