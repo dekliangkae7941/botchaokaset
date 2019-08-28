@@ -32,7 +32,7 @@ echo "<center><h1>Doesn't work =(</h1></center>";
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
 
-$querylog = "SELECT * FROM line_log ";
+$querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plat_name = $rowlog['plat_name'];
@@ -1440,7 +1440,7 @@ elseif ($command != '') {
                       'hero' => 
                       array (
                         'type' => 'image',
-                        'url' => "$pictureUrl",
+                        'url' => $pictureUrl,
                         'align' => 'center',
                         'size' => 'full',
                         'aspectRatio' => '16:9',
@@ -1462,7 +1462,7 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => "ชื่อผู้ใช้ : $displayName",
+                            'text' => "ชื่อผู้ใช้ : ".$displayName,
                             'size' => 'md',
                             'align' => 'start',
                             'gravity' => 'top',
@@ -1494,7 +1494,7 @@ elseif ($command != '') {
                                   1 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => "1. $plat_name",
+                                    'text' => "1. ".$plat_name,
                                     'size' => 'md',
                                     'align' => 'start',
                                     'gravity' => 'center',
@@ -1532,7 +1532,7 @@ elseif ($command != '') {
                               2 => 
                               array (
                                 'type' => 'text',
-                                'text' => "$address",
+                                'text' => $address,
                                 'size' => 'md',
                                 'gravity' => 'center',
                                 'weight' => 'regular',
