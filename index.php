@@ -1394,6 +1394,7 @@ elseif ($command != '') {
             $plat_name = $rowlog['plat_name'];
             $displayName = $rowlog['displayName'];
             $address = $rowlog['address'];
+            $pictureUrl = $rowlog['pictureUrl'];
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $mreply = array(
                 'replyToken' => $replyToken,
@@ -1424,7 +1425,7 @@ elseif ($command != '') {
                       'hero' => 
                       array (
                         'type' => 'image',
-                        'url' => 'https://profile.line-scdn.net/0h1ZAXPNXObnV8IUV3FQARIkBkYBgLD2g9BEFzRlggZxVXECoiEk8mEgt1Y0wEFHp3R0ApR18hOUdS',
+                        'url' => $pictureUrl,
                         'align' => 'center',
                         'size' => 'full',
                         'aspectRatio' => '16:9',
@@ -1446,7 +1447,7 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => 'ชื่อผู้ใช้ : fuckshpboil',
+                            'text' => 'ชื่อผู้ใช้ : '.$displayName,
                             'size' => 'md',
                             'align' => 'start',
                             'gravity' => 'top',
@@ -1478,7 +1479,7 @@ elseif ($command != '') {
                                   1 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => '1. ข้าว',
+                                    'text' => '1. '.$plat_name,
                                     'size' => 'md',
                                     'align' => 'start',
                                     'gravity' => 'center',
@@ -1516,7 +1517,7 @@ elseif ($command != '') {
                               2 => 
                               array (
                                 'type' => 'text',
-                                'text' => 'pojsdfsoahpkrghiorjhg',
+                                'text' => $address,
                                 'size' => 'md',
                                 'gravity' => 'center',
                                 'weight' => 'regular',
