@@ -1104,7 +1104,7 @@ else {
                 $querystype = "SELECT DISTINCT location_name,  * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
                 WHERE subtype_id = '$subtype_id' 
                 ORDER BY lo,la
-                LIMIT 5";
+                LIMIT 3";
 
                 $resultstype = pg_query($dbconn, $querystype);
                 $datacountrowtype = 0;
