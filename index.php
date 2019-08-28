@@ -31,6 +31,19 @@ echo "<center><h1>Doesn't work =(</h1></center>";
 
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
+
+$querylog = "SELECT * FROM line_log ";
+            $resultlog = pg_query($dbconn, $querylog);
+            $rowlog = pg_fetch_array($resultlog);
+            $plat_name = $rowlog['plat_name'];
+            $displayName = $rowlog['displayName'];
+            $address = $rowlog['address'];
+            $pictureUrl = $rowlog['pictureUrl'];
+            echo $plat_name ;
+            echo $displayName ;
+            echo $address ;
+            echo $pictureUrl ;
+/////////////////////////
 $querylog = "SELECT * FROM line_log ";
                 $resultlog = pg_query($dbconn, $querylog);
                 $rowlog = pg_fetch_array($resultlog);
@@ -1389,12 +1402,14 @@ elseif ($command != '') {
             $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
-            $latitude = $rowlog['latitude'];
-            $longitude = $rowlog['longitude'];
             $plat_name = $rowlog['plat_name'];
             $displayName = $rowlog['displayName'];
             $address = $rowlog['address'];
             $pictureUrl = $rowlog['pictureUrl'];
+            echo $plat_name ;
+            echo $displayName ;
+            echo $address ;
+            echo $pictureUrl ;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $mreply = array(
                 'replyToken' => $replyToken,
