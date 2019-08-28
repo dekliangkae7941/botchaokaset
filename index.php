@@ -1444,13 +1444,7 @@ elseif ($command != '') {
                         'align' => 'center',
                         'size' => 'full',
                         'aspectRatio' => '16:9',
-                        'aspectMode' => 'fit',
-                        'action' => 
-                        array (
-                          'type' => 'uri',
-                          'label' => 'Action',
-                          'uri' => 'https://linecorp.com/',
-                        ),
+                        'aspectMode' => 'fit'
                       ),
                       'body' => 
                       array (
