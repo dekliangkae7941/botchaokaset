@@ -1424,7 +1424,7 @@ elseif ($command != '') {
                       'type' => 'bubble',
                       'header' => 
                       array (
-                        'backgroundColor' => '#A977FF',
+                        'backgroundColor' => '#FDFFA6',
                         'type' => 'box',
                         'layout' => 'horizontal',
                         'contents' => 
