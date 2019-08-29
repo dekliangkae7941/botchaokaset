@@ -808,31 +808,45 @@ elseif ($command != '') {
         //$command = $plan_name1;
         $queryplan = "UPDATE line_log SET plan_name$i = '$command' WHERE userid = '$userId'";
         $resultplan = pg_query($queryplan);
-        $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
-        $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
-        $mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $text1
-                ),array(
-                    'type' => 'text',
-                    'text' => $text2,
-                    'quickReply' => array(
-                        'items' => array(
-                            array(
-                            'type' => 'action',
-                            'action' => array(
-                                'type' => 'location',
-                                'label' => 'Location'
+        if($plan_name1 != NULL && $plan_name2 != NULL && $plan_name3 != NULL){
+            $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
+            $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text1
+                    ),array(
+                        'type' => 'text',
+                        'text' => $text2,
+                        'quickReply' => array(
+                            'items' => array(
+                                array(
+                                'type' => 'action',
+                                'action' => array(
+                                    'type' => 'location',
+                                    'label' => 'Location'
+                                    )
                                 )
                             )
                         )
                     )
                 )
-            )
-        );  
+            ); 
+        }else{
+            $text = "กรุณาเลทอกแปลงเพาะปลกให้ครบ3แปลง";
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text
+                    )
+                )
+            );
+        }
+         
     }
 
     /////////////
