@@ -258,7 +258,7 @@ elseif ($type == 'follow') {
         'messages' => array (
          array (
           'type' => 'flex',
-          'altText' => 'Flex Message',
+          'altText' => 'แจ้งเตือนแปลงเพาะปลูก',
           'contents' => 
           array (
             'type' => 'bubble',
@@ -1424,6 +1424,7 @@ elseif ($command != '') {
                       'type' => 'bubble',
                       'header' => 
                       array (
+                        'backgroundColor' => '#A977FF',
                         'type' => 'box',
                         'layout' => 'horizontal',
                         'contents' => 
