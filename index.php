@@ -35,11 +35,11 @@ echo "<center><h1>Doesn't work =(</h1></center>";
 $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
-            $plat_name = $rowlog['plat_name'];
+            $plan_name1 = $rowlog['plan_name1'];
             //$ddisplayName = $rowlog['displayName'];
             $address = $rowlog['address'];
             //$ppictureUrl = $rowlog['pictureUrl'];
-            echo $plat_name."\n" ;
+            echo $plan_name1."\n" ;
             //echo $displayName ."\n";
             echo $address ."\n";
             //echo $pictureUrl ."\n";
@@ -253,6 +253,7 @@ elseif ($type == 'follow') {
             )
         )
     );*/
+    for($i == 0 ; $i<=3; $i++){
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array (
@@ -536,6 +537,7 @@ elseif ($type == 'follow') {
           )
         )
     );
+}
     
 }
 /////////////
@@ -803,8 +805,8 @@ elseif ($command != '') {
         }
     }
     elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'){
-        //$command = $plat_name;
-        $queryplan = "UPDATE line_log SET plat_name = '$command' WHERE userid = '$userId'";
+        //$command = $plan_name1;
+        $queryplan = "UPDATE line_log SET plan_name$i = '$command' WHERE userid = '$userId'";
         $resultplan = pg_query($queryplan);
         $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
         $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
@@ -1219,49 +1221,49 @@ elseif ($command != '') {
                 }
             }       
         /////////////////////////
-        /*$querynotify = "SELECT plat_name from line_notifysent";
+        /*$querynotify = "SELECT plan_name1 from line_notifysent";
                     $resultnotify = pg_query($dbconn, $querynotify);
                     $rownotify = pg_fetch_array($resultnotify);
-                    $c_plat_name = $rownotify['plat_name'];*/
+                    $c_plan_name1 = $rownotify['plan_name1'];*/
                     /*
         elseif($command == "เตือนภัยกำหนดเอง"){
-            $c_plat_name = "กำหนดเอง";
+            $c_plan_name1 = "กำหนดเอง";
         
         }
         elseif($command == "เตือนภัยข้าว"){
-            $c_plat_name = "ข้าว";
+            $c_plan_name1 = "ข้าว";
         }
         elseif($command == "เตือนภัยข้าวโพด"){
-            $c_plat_name = "ข้าวโพด";
+            $c_plan_name1 = "ข้าวโพด";
         }
         elseif($command == "เตือนภัยถั่วเหลือง"){
-            $c_plat_name = "ถั่วเหลือง";
+            $c_plan_name1 = "ถั่วเหลือง";
         }
         elseif($command == "เตือนภัยถั่วเขียว"){
-            $c_plat_name = "ถั่วเขียว";
+            $c_plan_name1 = "ถั่วเขียว";
         }
         elseif($command == "เตือนภัยลำไย"){
-            $c_plat_name = "ลำไย";
+            $c_plan_name1 = "ลำไย";
         }
         elseif($command == "เตือนภัยคะน้า"){
-            $c_plat_name = "คะน้า";
+            $c_plan_name1 = "คะน้า";
         }
         elseif($command == "เตือนภัยตะไคร้หอม"){
-            $c_plat_name = "ตะไร้หอม";
+            $c_plan_name1 = "ตะไร้หอม";
         }
         elseif($command == "เตือนภัยเห็ด"){
-            $c_plat_name = "เห็ด";
+            $c_plan_name1 = "เห็ด";
         }
         elseif($command == "เตือนภัยกาแฟ"){
-            $c_plat_name = "กาแฟ";
+            $c_plan_name1 = "กาแฟ";
         }
         elseif($command == "เตือนภัยมันสำปะหลัง"){
-            $c_plat_name = "มันสำปะหลัง";
+            $c_plan_name1 = "มันสำปะหลัง";
         }
         elseif($command == "เตือนภัยมะเขือเทศ"){
-            $c_plat_name = "มะเขือเทศ";
+            $c_plan_name1 = "มะเขือเทศ";
         }
-                $querynotifysent = "SELECT * from line_notifysent WHERE plat_name = '$c_plat_name'";
+                $querynotifysent = "SELECT * from line_notifysent WHERE plan_name1 = '$c_plan_name1'";
                     //$resultnotifysent = pg_query($dbconn, $querynotifysent);
                     //$rownotifysent = pg_fetch_array($resultnotifysent);
                     if($resultnotifysent = pg_query($dbconn, $querynotifysent)){
@@ -1275,7 +1277,7 @@ elseif ($command != '') {
                     $datacountrownotifysent = 0;
                     $datacountrownotifysent1 = 0;              
                     while($rownotifysent = pg_fetch_array($resultnotifysent)){
-                        $plat_name = $rownotifysent['plat_name'];
+                        $plan_name1 = $rownotifysent['plan_name1'];
                         $name = $rownotifysent['name'];
                         $growing = $rownotifysent['growing'];
                         $weather = $rownotifysent['weather'];
@@ -1287,7 +1289,7 @@ elseif ($command != '') {
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['type'] = "box";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['layout'] = "vertical";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['text'] = "$plat_name";
+                    $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['text'] = "$plan_name1";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['size'] = "lg";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrownotifysent1]['header']['contents'][0]['color'] = "#ffffff";
@@ -1405,10 +1407,10 @@ elseif ($command != '') {
             $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
-            $plat_name = $rowlog['plat_name'];
+            $plan_name1 = $rowlog['plan_name1'];
             $address = $rowlog['address'];
-            if($plat_name == NULL){
-                $plat_name = 'คุณยังไม่ได้เพิ่มแปลงเพาะปลูก';
+            if($plan_name1 == NULL){
+                $plan_name1 = 'คุณยังไม่ได้เพิ่มแปลงเพาะปลูก';
             }if($address == NULL){
                 $address = 'คุณยังไม่ได้เพิ่มที่อยู่';
             }
@@ -1490,7 +1492,7 @@ elseif ($command != '') {
                                   1 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => "1. $plat_name",
+                                    'text' => "1. $plan_name1",
                                     'size' => 'md',
                                     'align' => 'start',
                                     'gravity' => 'center',
