@@ -1382,11 +1382,11 @@ elseif ($command != '') {
                   )
                 )
             );
-        }else{
+        }elseif($plan_name1 != NULL && $plan_name2 != NULL){
         $queryplan = "UPDATE line_log SET plan_name3 = '$command' WHERE userid = '$userId'";
         $resultplan = pg_query($queryplan);        
         $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
-        $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+        $text2 = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่ม ระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
         $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
