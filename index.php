@@ -253,7 +253,6 @@ elseif ($type == 'follow') {
             )
         )
     );*/
-    for($i == 1;$i<=3;$i++){
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array (
@@ -280,7 +279,7 @@ elseif ($type == 'follow') {
                 0 => 
                 array (
                   'type' => 'text',
-                  'text' => "กรุณาเลือกชนิดการเพาะปลูกที่ $i เพื่อรับแจ้งเตือน",
+                  'text' => 'กรุณาเลือกชนิดการเพาะปลูก เพื่อรับแจ้งเตือน',
                   'size' => 'lg',
                   'weight' => 'bold',
                   'color' => '#000000',
@@ -537,38 +536,6 @@ elseif ($type == 'follow') {
           )
         )
     );
-    if($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'){
-        //$command = $plan_name1;
-        $queryplan = "UPDATE line_log SET plan_name$i = '$command' WHERE userid = '$userId'";
-        $resultplan = pg_query($queryplan);
-        /*$text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
-        $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
-        $mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $text1
-                ),array(
-                    'type' => 'text',
-                    'text' => $text2,
-                    'quickReply' => array(
-                        'items' => array(
-                            array(
-                            'type' => 'action',
-                            'action' => array(
-                                'type' => 'location',
-                                'label' => 'Location'
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-        );  */
-    }
-    }
-
 }
 /////////////
 elseif ($type == 'unfollow') {
@@ -834,7 +801,36 @@ elseif ($command != '') {
             );
         }
     }
-    
+    elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'){
+        //$command = $plan_name1;
+        $queryplan = "UPDATE line_log SET plan_name1 = '$command' WHERE userid = '$userId'";
+        $resultplan = pg_query($queryplan);
+        $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
+        $text2 = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $text1
+                ),array(
+                    'type' => 'text',
+                    'text' => $text2,
+                    'quickReply' => array(
+                        'items' => array(
+                            array(
+                            'type' => 'action',
+                            'action' => array(
+                                'type' => 'location',
+                                'label' => 'Location'
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        );  
+    }
 
     /////////////
     else {
