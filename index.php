@@ -279,7 +279,7 @@ elseif ($type == 'follow') {
                 0 => 
                 array (
                   'type' => 'text',
-                  'text' => 'กรุณาเลือกชนิดการเพาะปลูก เพื่อรับแจ้งเตือน',
+                  'text' => 'กรุณาเลือกชนิดการเพาะปลูก 1 เพื่อรับแจ้งเตือน',
                   'size' => 'lg',
                   'weight' => 'bold',
                   'color' => '#000000',
@@ -838,7 +838,7 @@ elseif ($command != '') {
                         0 => 
                         array (
                           'type' => 'text',
-                          'text' => 'กรุณาเลือกชนิดการเพาะปลูก เพื่อรับแจ้งเตือน',
+                          'text' => 'กรุณาเลือกชนิดการเพาะปลูก 2 เพื่อรับแจ้งเตือน',
                           'size' => 'lg',
                           'weight' => 'bold',
                           'color' => '#000000',
@@ -1096,7 +1096,7 @@ elseif ($command != '') {
                 )
             );
         }
-        elseif($plan_name3 == NULL){
+        elseif($plan_name1 != NULL && $plan_name2 == NULL){
             $queryplan = "UPDATE line_log SET plan_name2 = '$command' WHERE userid = '$userId'";
             $resultplan = pg_query($queryplan);
             $mreply = array(
@@ -1125,7 +1125,7 @@ elseif ($command != '') {
                         0 => 
                         array (
                           'type' => 'text',
-                          'text' => 'กรุณาเลือกชนิดการเพาะปลูก เพื่อรับแจ้งเตือน',
+                          'text' => 'กรุณาเลือกชนิดการเพาะปลูก 3 เพื่อรับแจ้งเตือน',
                           'size' => 'lg',
                           'weight' => 'bold',
                           'color' => '#000000',
@@ -1382,7 +1382,7 @@ elseif ($command != '') {
                   )
                 )
             );
-        }elseif($plan_name1 != NULL && $plan_name2 != NULL){
+        }elseif($plan_name1 != NULL && $plan_name2 != NULL && $plan_name3 == NULL ){
         $queryplan = "UPDATE line_log SET plan_name3 = '$command' WHERE userid = '$userId'";
         $resultplan = pg_query($queryplan);        
         $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
