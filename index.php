@@ -256,7 +256,6 @@ elseif ($type == 'follow') {
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array (
-         array (
             array (
                 'type' => 'flex',
                 'altText' => 'Flex Message',
@@ -350,8 +349,6 @@ elseif ($type == 'follow') {
                   ),
                 ),
               )
-        
-          )
         )
     );
 }
