@@ -257,281 +257,99 @@ elseif ($type == 'follow') {
         'replyToken' => $replyToken,
         'messages' => array (
          array (
-          'type' => 'flex',
-          'altText' => 'แจ้งเตือนแปลงเพาะปลูก',
-          'contents' => 
-          array (
-            'type' => 'bubble',
-            'direction' => 'ltr',
-            'styles' => 
             array (
-              'header' => 
-              array (
-                'backgroundColor' => '#FCFA7E',
-              ),
-            ),
-            'header' => 
-            array (
-              'type' => 'box',
-              'layout' => 'vertical',
-              'contents' => 
-              array (
-                0 => 
+                'type' => 'flex',
+                'altText' => 'Flex Message',
+                'contents' => 
                 array (
-                  'type' => 'text',
-                  'text' => 'กรุณาเลือกชนิดการเพาะปลูก  เพื่อรับแจ้งเตือน',
-                  'size' => 'lg',
-                  'weight' => 'bold',
-                  'color' => '#000000',
-                  'wrap' => true,
-                ),
-                1 => 
-                array (
-                  'type' => 'text',
-                  'text' => '*คุณจะไม่สามารถแก้ไขชนิดการเพาะปลูกได้',
-                  'size' => 'xxs',
-                  'weight' => 'bold',
-                  'color' => '#F33232',
-                  'wrap' => true,
-                ),
-              ),
-            ),
-            'body' => 
-            array (
-              'type' => 'box',
-              'layout' => 'horizontal',
-              'spacing' => 'md',
-              'contents' => 
-              array (
-                0 => 
-                array (
-                  'type' => 'box',
-                  'layout' => 'vertical',
-                  'contents' => 
+                  'type' => 'bubble',
+                  'header' => 
                   array (
-                    0 => 
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'flex' => 0,
+                    'contents' => 
                     array (
-                      'type' => 'button',
-                      'action' => 
+                      0 => 
                       array (
-                        'type' => 'message',
-                        'label' => 'พืชไร่',
-                        'text' => 'พืชไร่',
+                        'type' => 'text',
+                        'text' => 'ประเภทที่ต้องการรับแจ้งเตือนภัย',
+                        'size' => 'md',
                       ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
                     ),
-                    1 => 
+                  ),
+                  'body' => 
+                  array (
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'spacing' => 'sm',
+                    'contents' => 
                     array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    2 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
+                      0 => 
                       array (
-                        'type' => 'message',
-                        'label' => 'พืชสวน',
-                        'text' => 'พืชสวน',
+                        'type' => 'button',
+                        'action' => 
+                        array (
+                          'type' => 'message',
+                          'label' => 'พืชไร่',
+                          'text' => 'พืชไร่',
+                        ),
+                        'style' => 'primary',
                       ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    3 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    4 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
+                      1 => 
                       array (
-                        'type' => 'message',
-                        'label' => 'ปศุสัตว์',
-                        'text' => 'ปศุสัตว์',
+                        'type' => 'button',
+                        'action' => 
+                        array (
+                          'type' => 'message',
+                          'label' => 'พืชสวน',
+                          'text' => 'พืชสวน',
+                        ),
+                        'style' => 'primary',
                       ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    5 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    6 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
+                      2 => 
                       array (
-                        'type' => 'message',
-                        'label' => 'ประมง',
-                        'text' => 'ประมง',
+                        'type' => 'button',
+                        'action' => 
+                        array (
+                          'type' => 'message',
+                          'label' => 'ประมง',
+                          'text' => 'ประมง',
+                        ),
+                        'style' => 'primary',
                       ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    7 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    8 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
+                      3 => 
                       array (
-                        'type' => 'message',
-                        'label' => 'ลำไย',
-                        'text' => 'ลำไย',
+                        'type' => 'button',
+                        'action' => 
+                        array (
+                          'type' => 'message',
+                          'label' => 'ปศุสัตว์',
+                          'text' => 'ปศุสัตว์',
+                        ),
+                        'style' => 'primary',
                       ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
                     ),
-                    9 => 
+                  ),
+                  'footer' => 
+                  array (
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'spacing' => 'sm',
+                    'contents' => 
                     array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    10 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
+                      0 => 
                       array (
-                        'type' => 'message',
-                        'label' => 'คะน้า',
-                        'text' => 'คะน้า',
+                        'type' => 'separator',
                       ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
+                      1 => 
+                      array (
+                        'type' => 'spacer',
+                      ),
                     ),
                   ),
                 ),
-                1 => 
-                array (
-                  'type' => 'box',
-                  'layout' => 'vertical',
-                  'contents' => 
-                  array (
-                    0 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'ตะไคร้หอม',
-                        'text' => 'ตะไคร้หอม',
-                      ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    1 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    2 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'เห็ด',
-                        'text' => 'เห็ด',
-                      ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    3 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    4 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'กาแฟ',
-                        'text' => 'กาแฟ',
-                      ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    5 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    6 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'มันสำปะหลัง',
-                        'text' => 'มันสำปะหลัง',
-                      ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    7 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    8 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'มะเขือเทศ',
-                        'text' => 'มะเขือเทศ',
-                      ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                    9 => 
-                    array (
-                      'type' => 'separator',
-                      'margin' => 'md',
-                    ),
-                    10 => 
-                    array (
-                      'type' => 'button',
-                      'action' => 
-                      array (
-                        'type' => 'message',
-                        'label' => 'อื่นๆ',
-                        'text' => 'อื่นๆ',
-                      ),
-                      'color' => '#DA7D40',
-                      'style' => 'primary',
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            'footer' => 
-            array (
-              'type' => 'box',
-              'layout' => 'horizontal',
-              'contents' => 
-              array (
-                0 => 
-                array (
-                  'type' => 'text',
-                  'text' => 'ข้อมูลจาก Chaokaset Mobile',
-                  'size' => 'xs',
-                  'align' => 'center',
-                )
               )
-            )
-        )
-        
         
           )
         )
@@ -749,7 +567,7 @@ elseif ($command != '') {
         $longitude = $rowlocation['longitude'];
         $address = $rowlocation['address'];
         if($latitude == NULL || $longitude == NULL){
-            $text = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+            $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
             $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
@@ -762,7 +580,7 @@ elseif ($command != '') {
                                 'type' => 'action',
                                 'action' => array(
                                     'type' => 'location',
-                                    'label' => 'Location'
+                                    'label' => 'กดเพื่อระบุตำแหน่งของท่าน'
                                     )
                                 )
                             )
@@ -801,11 +619,11 @@ elseif ($command != '') {
             );
         }
     }
-    elseif($command == 'ข้าว'||$command == 'ข้าวโพด'||$command == 'ถั่วเหลือง'||$command == 'ถั่วเขียว'||$command == 'ลำไย'||$command == 'คะน้า'|| $command == 'ตะไคร้หอม'||$command == 'เห็ด'||$command == 'กาแฟ'||$command == 'มันสำปะหลัง'||$command == 'มะเขือเทศ'){
+    elseif($command == 'พืชไร่'||$command == 'พืชสวน'||$command == 'ประมง'||$command == 'ปศุสัตว์'){
         //$command = $plan_category;
         $queryplan = "UPDATE line_log SET plan_category = '$command' WHERE userid = '$userId'";
         $resultplan = pg_query($queryplan);
-        $text1 = "ขอบคุณสำหรับการเลือกชนิดการเพาะปลูกเพื่อรับแจ้งเตือน\n";
+        $text1 = "ขอบคุณสำหรับการเลือกประเภทการเพาะปลูกเพื่อรับแจ้งเตือน\n";
         $text2 = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
         $mreply = array(
             'replyToken' => $replyToken,
@@ -1065,7 +883,7 @@ elseif ($command != '') {
                     $latitude = $rowlog['latitude'];
                     $longitude = $rowlog['longitude'];
                     if($latitude == NULL && $longitude == NULL){
-                        $text = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
+                        $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
                         $mreply = array(
                             'replyToken' => $replyToken,
                             'messages' => array(
@@ -1078,7 +896,7 @@ elseif ($command != '') {
                                             'type' => 'action',
                                             'action' => array(
                                                 'type' => 'location',
-                                                'label' => 'Location'
+                                                'label' => 'กดเพื่อระบุตำแหน่งของท่าน'
                                                 )
                                             )
                                         )
