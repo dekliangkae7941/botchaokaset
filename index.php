@@ -1222,7 +1222,7 @@ elseif ($command != '') {
             $plan_category = $rowlog['plan_category'];
             $address = $rowlog['address'];
             if($plan_category == NULL){
-                $plan_category = 'คุณยังไม่ได้เพิ่มแปลงเพาะปลูก';
+                $plan_category = 'คุณยังไม่มีแปลงเพาะปลูกที่สนใจ';
             }if($address == NULL){
                 $address = 'คุณยังไม่ได้เพิ่มที่อยู่';
             }
