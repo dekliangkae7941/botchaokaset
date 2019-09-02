@@ -315,8 +315,8 @@ elseif ($type == 'follow') {
                       'action' => 
                       array (
                         'type' => 'message',
-                        'label' => 'ข้าว',
-                        'text' => 'ข้าว',
+                        'label' => 'พืชไร่',
+                        'text' => 'พืชไร่',
                       ),
                       'color' => '#DA7D40',
                       'style' => 'primary',
@@ -332,8 +332,8 @@ elseif ($type == 'follow') {
                       'action' => 
                       array (
                         'type' => 'message',
-                        'label' => 'ข้าวโพด',
-                        'text' => 'ข้าวโพด',
+                        'label' => 'พืชสวน',
+                        'text' => 'พืชสวน',
                       ),
                       'color' => '#DA7D40',
                       'style' => 'primary',
@@ -349,8 +349,8 @@ elseif ($type == 'follow') {
                       'action' => 
                       array (
                         'type' => 'message',
-                        'label' => 'ถั่วเหลือง',
-                        'text' => 'ถั่วเหลือง',
+                        'label' => 'ปศุสัตว์',
+                        'text' => 'ปศุสัตว์',
                       ),
                       'color' => '#DA7D40',
                       'style' => 'primary',
@@ -366,8 +366,8 @@ elseif ($type == 'follow') {
                       'action' => 
                       array (
                         'type' => 'message',
-                        'label' => 'ถั่วเขียว',
-                        'text' => 'ถั่วเขียว',
+                        'label' => 'ประมง',
+                        'text' => 'ประมง',
                       ),
                       'color' => '#DA7D40',
                       'style' => 'primary',
@@ -1480,7 +1480,7 @@ elseif ($command != '') {
                                   0 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => 'แปลงเพาะปลูกของฉัน : ',
+                                    'text' => 'ประเภทแปลงเพาะปลูกที่สนใจ : ',
                                     'size' => 'md',
                                     'gravity' => 'center',
                                     'weight' => 'bold',
@@ -1489,30 +1489,13 @@ elseif ($command != '') {
                                   1 => 
                                   array (
                                     'type' => 'text',
-                                    'text' => "1. $plan_category",
+                                    'text' => "$plan_category",
                                     'size' => 'md',
                                     'align' => 'start',
                                     'gravity' => 'center',
                                     'weight' => 'regular',
                                     'wrap' => true,
-                                  ),
-                                  2 => 
-                                  array (
-                                    'type' => 'text',
-                                    'text' => '2. -',
-                                    'size' => 'md',
-                                    'align' => 'start',
-                                    'weight' => 'regular',
-                                    'wrap' => true,
-                                  ),
-                                  3 => 
-                                  array (
-                                    'type' => 'text',
-                                    'text' => '3. -',
-                                    'size' => 'md',
-                                    'gravity' => 'center',
-                                    'weight' => 'regular',
-                                  ),
+                                  )
                                 ),
                               ),
                               1 => 
