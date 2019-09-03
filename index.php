@@ -1323,7 +1323,7 @@ elseif ($command != '') {
                     replyMsg($arrayHeader,$arrayPostData);
                 }
                     }*/
-            elseif($command == "ราคาน้ำมัน"){
+        elseif($command == "ราคาน้ำมัน"){
             $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
                     array(
                         "trace"      => 1,		// enable trace to view what is happening
@@ -1347,7 +1347,98 @@ elseif ($command != '') {
                 }
         
         }
-        #ตัวอย่าง Message Type "Text + Sticker"
+        elseif($command == "เทส"){
+            $t2 = 2;
+            $uri2 = "https://chaokaset.openservice.in.th/index.php/priceservices/getSubtype/".$t2;
+            $response = Unirest\Request::get("$uri2");
+            $json = json_decode($response->raw_body, true);
+            $resultasn = $json[0]['subtype_name'];
+            $resultasid = $json[0]['subtype_id'];
+            $resultatid = $json[0]['type_id'];
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array (
+                        'type' => 'flex',
+                        'altText' => 'Flex Message',
+                        'contents' => 
+                        array (
+                          'type' => 'bubble',
+                          'direction' => 'ltr',
+                          'header' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'สภาพอากาศวันนี้',
+                                'size' => 'lg',
+                                'align' => 'start',
+                                'wrap' => true,
+                              ),
+                            ),
+                          ),
+                          'hero' => 
+                          array (
+                            'type' => 'image',
+                            'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
+                            'size' => 'full',
+                            'aspectRatio' => '1.51:1',
+                            'aspectMode' => 'fit',
+                          ),
+                          'body' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "sname : $resultasn",
+                                'size' => 'md',
+                              ),
+                              1 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "sid : $resultasid",
+                                'size' => 'md',
+                              ),
+                              2 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "tid : $resultatid",
+                                'size' => 'md',
+                              ),
+                            ),
+                          ),
+                          'footer' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'ข้อมูลจาก api.openweathermap',
+                                'size' => 'sm',
+                                'align' => 'center',
+                                'color' => '#CBC5C5',
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                )
+            );
+
+
+        }
+        #ตัวอย่าง Message Type "Text + Sticker" https://chaokaset.openservice.in.th/index.php/priceservices/getSubtype/2
         elseif($command == "ข้อมูลผู้ใช้"){
             $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
             $resultlog = pg_query($dbconn, $querylog);
