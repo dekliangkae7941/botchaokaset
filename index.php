@@ -262,18 +262,28 @@ elseif ($type == 'follow') {
                 'contents' => 
                 array (
                   'type' => 'bubble',
+                  'direction' => 'ltr',
                   'header' => 
                   array (
                     'type' => 'box',
                     'layout' => 'vertical',
-                    'flex' => 0,
                     'contents' => 
                     array (
                       0 => 
                       array (
                         'type' => 'text',
-                        'text' => 'ประเภทที่ต้องการรับแจ้งเตือนภัย',
+                        'text' => 'กรุณาเลือกประเภทแปลงเพาะปลูก',
                         'size' => 'md',
+                        'align' => 'start',
+                        'wrap' => true,
+                      ),
+                      1 => 
+                      array (
+                        'type' => 'text',
+                        'text' => 'ที่สนใจ เพื่อรับแจ้งเตือน',
+                        'size' => 'md',
+                        'align' => 'start',
+                        'wrap' => true,
                       ),
                     ),
                   ),
@@ -281,7 +291,6 @@ elseif ($type == 'follow') {
                   array (
                     'type' => 'box',
                     'layout' => 'vertical',
-                    'spacing' => 'sm',
                     'contents' => 
                     array (
                       0 => 
@@ -293,9 +302,15 @@ elseif ($type == 'follow') {
                           'label' => 'พืชไร่',
                           'text' => 'พืชไร่',
                         ),
+                        'color' => '#DC9B3A',
                         'style' => 'primary',
                       ),
                       1 => 
+                      array (
+                        'type' => 'separator',
+                        'margin' => 'sm',
+                      ),
+                      2 => 
                       array (
                         'type' => 'button',
                         'action' => 
@@ -304,20 +319,15 @@ elseif ($type == 'follow') {
                           'label' => 'พืชสวน',
                           'text' => 'พืชสวน',
                         ),
-                        'style' => 'primary',
-                      ),
-                      2 => 
-                      array (
-                        'type' => 'button',
-                        'action' => 
-                        array (
-                          'type' => 'message',
-                          'label' => 'ประมง',
-                          'text' => 'ประมง',
-                        ),
+                        'color' => '#4ED946',
                         'style' => 'primary',
                       ),
                       3 => 
+                      array (
+                        'type' => 'separator',
+                        'margin' => 'sm',
+                      ),
+                      4 => 
                       array (
                         'type' => 'button',
                         'action' => 
@@ -326,6 +336,24 @@ elseif ($type == 'follow') {
                           'label' => 'ปศุสัตว์',
                           'text' => 'ปศุสัตว์',
                         ),
+                        'color' => '#E75959',
+                        'style' => 'primary',
+                      ),
+                      5 => 
+                      array (
+                        'type' => 'separator',
+                        'margin' => 'sm',
+                      ),
+                      6 => 
+                      array (
+                        'type' => 'button',
+                        'action' => 
+                        array (
+                          'type' => 'message',
+                          'label' => 'ประมง',
+                          'text' => 'ประมง',
+                        ),
+                        'color' => '#3E79C9',
                         'style' => 'primary',
                       ),
                     ),
@@ -333,17 +361,15 @@ elseif ($type == 'follow') {
                   'footer' => 
                   array (
                     'type' => 'box',
-                    'layout' => 'vertical',
-                    'spacing' => 'sm',
+                    'layout' => 'horizontal',
                     'contents' => 
                     array (
                       0 => 
                       array (
-                        'type' => 'separator',
-                      ),
-                      1 => 
-                      array (
-                        'type' => 'spacer',
+                        'type' => 'text',
+                        'text' => 'ข้อมูลจาก Chaokaset Mobile',
+                        'align' => 'center',
+                        'color' => '#CBC5C5',
                       ),
                     ),
                   ),
@@ -713,7 +739,7 @@ elseif ($command != '') {
                     $arrayPostData['replyToken'] = $replyToken;
                     //$arrayPostData['to'] = $uid;
                     $arrayPostData['messages'][0]['type'] = "flex";
-                    $arrayPostData['messages'][0]['altText'] = "ราคาตลาด$command";
+                    $arrayPostData['messages'][0]['altText'] = "$command";
                     $arrayPostData['messages'][0]['contents']['type'] = "bubble";
                     
                     $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
