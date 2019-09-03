@@ -240,7 +240,7 @@ elseif ($type == 'leave') {
     );
 }
 //////////////
-elseif ($type == 'follow') {
+elseif ($type == 'follow' || $command == "แก้ไขแปลงเพาะปลูก") {
     $query = "INSERT INTO line_log (userid , displayName) VALUES ('$userId','$displayName')";
     $result = pg_query($query);
 	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
@@ -621,10 +621,10 @@ elseif ($command != '') {
             $resultc = $json['weather'][0]['description'];
             $resultd = $json['main']['temp'];
             $resulte = $json['coord']['lon'];
-            $text .= " พื้นที่ : " . $resulta . "\n";
-            $text .= " สภาพอากาศ : " . $resultb . "\n";
-            $text .= " รายละเอียด : " . $resultc . "\n";
-            $text .= " อุณหภูมิ : " . $resultd;
+            $text1 = " พื้นที่ : " . $resulta . "\n";
+            $text2 = " สภาพอากาศ : " . $resultb . "\n";
+            $text3 = " รายละเอียด : " . $resultc . "\n";
+            $text4 = " อุณหภูมิ : " . $resultd;
             $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
@@ -648,29 +648,48 @@ elseif ($command != '') {
         $resultplan = pg_query($queryplan);
         $text1 = "ขอบคุณสำหรับการเลือกประเภทการเพาะปลูกเพื่อรับแจ้งเตือน\n";
         $text2 = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
-        $mreply = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $text1
-                ),array(
-                    'type' => 'text',
-                    'text' => $text2,
-                    'quickReply' => array(
-                        'items' => array(
-                            array(
-                            'type' => 'action',
-                            'action' => array(
-                                'type' => 'location',
-                                'label' => 'กดเพื่อระบุตำแหน่งของท่าน'
+        $querylocation = "SELECT * FROM line_log WHERE userid = '$userId'";
+        $resultlocation= pg_query($dbconn, $querylocation);
+        $rowlocation = pg_fetch_array($resultlocation);
+        $latitude = $rowlocation['latitude'];
+        $longitude = $rowlocation['longitude'];
+        $address = $rowlocation['address'];
+        if($latitude == NULL || $longitude == NULL){
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text1
+                    ),array(
+                        'type' => 'text',
+                        'text' => $text2,
+                        'quickReply' => array(
+                            'items' => array(
+                                array(
+                                'type' => 'action',
+                                'action' => array(
+                                    'type' => 'location',
+                                    'label' => 'กดเพื่อระบุตำแหน่งของท่าน'
+                                    )
                                 )
                             )
                         )
                     )
                 )
-            )
-        );  
+            );  
+        }else{
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text1
+                    )
+                )
+            );
+        }
+        
     }
 
     /////////////
