@@ -682,7 +682,7 @@ elseif ($command != '') {
                               3 => 
                               array (
                                 'type' => 'text',
-                                'text' => "อุณหภูมิ : $resultb",
+                                'text' => "อุณหภูมิ : $resultd",
                                 'size' => 'md',
                               ),
                             ),
