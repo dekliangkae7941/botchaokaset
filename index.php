@@ -589,7 +589,7 @@ elseif ($command != '') {
         $latitude = $rowlocation['latitude'];
         $longitude = $rowlocation['longitude'];
         $address = $rowlocation['address'];
-        if($latitude == NULL || $longitude == NULL || $command == "แก้ไขที่อยู่"){
+        if($latitude == NULL || $longitude == NULL ){
             $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
             $mreply = array(
                 'replyToken' => $replyToken,
@@ -690,8 +690,18 @@ elseif ($command != '') {
             );
         }
         
+    }elseif($command == "แก้ไขที่อยู่"){
+        $text = "ขอบคุณ";
+        $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $text
+                )
+            )
+        );
     }
-
     /////////////
     else {
         
@@ -1420,29 +1430,6 @@ elseif ($command != '') {
                                 ),
                                 'color' => '#487EB7',
                                 'style' => 'primary',
-                              ),
-                            ),
-                          ),
-                          1 => 
-                          array (
-                            'type' => 'box',
-                            'layout' => 'vertical',
-                            'contents' => 
-                            array (
-                              0 => 
-                              array (
-                                'type' => 'spacer',
-                              ),
-                              1 => 
-                              array (
-                                'type' => 'button',
-                                'action' => 
-                                array (
-                                  'type' => 'message',
-                                  'label' => 'ยกเลิก',
-                                  'text' => 'ยกเลิกแก้ไข',
-                                ),
-                                'style' => 'secondary',
                               ),
                             ),
                           ),
