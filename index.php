@@ -621,23 +621,90 @@ elseif ($command != '') {
             $resultc = $json['weather'][0]['description'];
             $resultd = $json['main']['temp'];
             $resulte = $json['coord']['lon'];
-            $text1 = " พื้นที่ : " . $resulta . "\n";
-            $text2 = " สภาพอากาศ : " . $resultb . "\n";
-            $text3 = " รายละเอียด : " . $resultc . "\n";
-            $text4 = " อุณหภูมิ : " . $resultd;
             $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
-                    /*array(
-                        'type' => 'location',
-                        'title' => $msg_title,
-                        'address' => $address,
-                        'latitude' => $latitude,
-                        'longitude' => $longitude
-                    ),*/            array(
-                        'type' => 'text',
-                        'text' => $text
-                    )
+                    array (
+                        'type' => 'flex',
+                        'altText' => 'Flex Message',
+                        'contents' => 
+                        array (
+                          'type' => 'bubble',
+                          'direction' => 'ltr',
+                          'header' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'สภาพอากาศวันนี้',
+                                'size' => 'lg',
+                                'align' => 'start',
+                                'wrap' => true,
+                              ),
+                            ),
+                          ),
+                          'hero' => 
+                          array (
+                            'type' => 'image',
+                            'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
+                            'size' => 'full',
+                            'aspectRatio' => '1.51:1',
+                            'aspectMode' => 'fit',
+                          ),
+                          'body' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "พื้นที่ : $resulta",
+                                'size' => 'md',
+                              ),
+                              1 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "สภาพอากาศ : $resultb",
+                                'size' => 'md',
+                              ),
+                              2 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "รายละเอียด : $resultc",
+                                'size' => 'md',
+                              ),
+                              3 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "อุณหภูมิ : $resultb",
+                                'size' => 'md',
+                              ),
+                            ),
+                          ),
+                          'footer' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'ข้อมูลจาก api.openweathermap',
+                                'size' => 'sm',
+                                'align' => 'center',
+                                'color' => '#CBC5C5',
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
                 )
             );
         }
