@@ -589,7 +589,7 @@ elseif ($command != '') {
         $latitude = $rowlocation['latitude'];
         $longitude = $rowlocation['longitude'];
         $address = $rowlocation['address'];
-        if($latitude == NULL || $longitude == NULL){
+        if($latitude == NULL || $longitude == NULL || $command == "แก้ไขที่อยู่"){
             $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
             $mreply = array(
                 'replyToken' => $replyToken,
@@ -646,7 +646,7 @@ elseif ($command != '') {
         //$command = $plan_category;
         $queryplan = "UPDATE line_log SET plan_category = '$command' WHERE userid = '$userId'";
         $resultplan = pg_query($queryplan);
-        $text1 = "ขอบคุณสำหรับการเลือกประเภทการเพาะปลูกเพื่อรับแจ้งเตือน\n";
+        $text1 = "ขอบคุณสำหรับการเลือกประเภทการเพาะปลูกเพื่อรับแจ้งเตือน";
         $text2 = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
         $querylocation = "SELECT * FROM line_log WHERE userid = '$userId'";
         $resultlocation= pg_query($dbconn, $querylocation);
