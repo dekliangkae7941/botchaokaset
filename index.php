@@ -691,16 +691,27 @@ elseif ($command != '') {
         }
         
     }elseif($command == "แก้ไขที่อยู่"){
-        $text = "ขอบคุณ";
+        $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
         $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
                 array(
                     'type' => 'text',
-                    'text' => $text
+                    'text' => $text,
+                    'quickReply' => array(
+                        'items' => array(
+                            array(
+                            'type' => 'action',
+                            'action' => array(
+                                'type' => 'location',
+                                'label' => 'กดเพื่อระบุตำแหน่งของท่าน'
+                                )
+                            )
+                        )
+                    )
                 )
             )
-        );
+        );  
     }
     /////////////
     else {
