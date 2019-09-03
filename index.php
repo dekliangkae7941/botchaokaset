@@ -1293,7 +1293,7 @@ elseif ($command != '') {
                 $address = 'คุณยังไม่ได้เพิ่มที่อยู่';
             }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            $mreply = array(
+           $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
                 array (
@@ -1441,6 +1441,18 @@ elseif ($command != '') {
                                 ),
                                 'color' => '#487EB7',
                                 'style' => 'primary',
+                              ),
+                            ),
+                          ),
+                          1 => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'spacer',
                               ),
                             ),
                           ),
