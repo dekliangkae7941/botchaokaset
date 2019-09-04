@@ -1438,6 +1438,102 @@ elseif ($command != '') {
 
 
         }
+        elseif($command == "เทส2"){
+            $t2 = 2;
+            $uri2 = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+            $response = Unirest\Request::post("$uri2");
+            $json = json_decode($response->raw_body, true);
+            $resulta = $json['name'];
+            $resultb = $json['weather'][0]['main'];
+            $resultc = $json['weather'][0]['description'];
+            $resultd = $json['main']['temp'];
+            $resulte = $json['coord']['lon'];
+            $resultasn = $json['data'];
+            $resultasid = $json[1]['subtype_id'];
+            $resultatid = $json[1]['type_id'];
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array (
+                        'type' => 'flex',
+                        'altText' => 'Flex Message',
+                        'contents' => 
+                        array (
+                          'type' => 'bubble',
+                          'direction' => 'ltr',
+                          'header' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'สภาพอากาศวันนี้',
+                                'size' => 'lg',
+                                'align' => 'start',
+                                'wrap' => true,
+                              ),
+                            ),
+                          ),
+                          'hero' => 
+                          array (
+                            'type' => 'image',
+                            'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
+                            'size' => 'full',
+                            'aspectRatio' => '1.51:1',
+                            'aspectMode' => 'fit',
+                          ),
+                          'body' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "sname : $resultasn",
+                                'size' => 'md',
+                              ),
+                              1 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "sid : $resultasid",
+                                'size' => 'md',
+                              ),
+                              2 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "tid : $resultatid",
+                                'size' => 'md',
+                              ),
+                            ),
+                          ),
+                          'footer' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'ข้อมูลจาก api.openweathermap',
+                                'size' => 'sm',
+                                'align' => 'center',
+                                'color' => '#CBC5C5',
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                )
+            );
+
+
+        }
         #ตัวอย่าง Message Type "Text + Sticker" https://chaokaset.openservice.in.th/index.php/priceservices/getSubtype/2
         elseif($command == "ข้อมูลผู้ใช้"){
             $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
@@ -1620,33 +1716,6 @@ elseif ($command != '') {
                   )
                 )
                 );
-/////////////////////////////////////////////////////////////////////////
-                /*if($latitude == NULL && $longitude == NULL){
-                    $text = "กรุณากดปุ่ม Location ด้านล่างเพื่อบันทึกที่อยู่ของท่าน";
-                    $mreply = array(
-                        'replyToken' => $replyToken,
-                        'messages' => array(
-                            array(
-                                'type' => 'text',
-                                'text' => $text,
-                                'quickReply' => array(
-                                    'items' => array(
-                                        array(
-                                        'type' => 'action',
-                                        'action' => array(
-                                            'type' => 'location',
-                                            'label' => 'Location'
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    ); 
-                }else{
-                
-            }*/
-
         }
         /*elseif($command == "นับ1-10"){
             for($i=1;$i<=10;$i++){
