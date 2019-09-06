@@ -1365,7 +1365,7 @@ elseif ($command != '') {
                 $xml = new SimpleXMLElement($ob);
                 // PRICE_DATE , PRODUCT ,PRICE
                 foreach ($xml  as  $key =>$val) {  
-                    if($val->PRODUCT != ' '){
+                    if($val->PRODUCT != ''){
                         echo $val->PRODUCT .'  '.$val->PRICE.' บาท<br>';
                     }
                 }
