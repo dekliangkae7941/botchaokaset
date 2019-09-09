@@ -96,7 +96,6 @@ public function index_post()
  // echo "index_posttum";
 	$this->load->model('Da_adddata', 'dd');
 	$dd = $this->dd;
-	
 	$post = $_POST;
 	$status_login = 0;
 	$Key =$post['Key'];
