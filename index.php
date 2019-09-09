@@ -122,6 +122,12 @@ $data = $client->GetOilPrice($params);
 $ob = $data->GetOilPriceResult;
 $xml = new SimpleXMLElement($ob);
 // PRICE_DATE , PRODUCT ,PRICE
+/*while($row = pg_fetch_array($data)){
+  echo "<tr>";
+      echo "<td>" . $row['PRODUCT'] . "</td>";
+      echo "<td>" . $row['PRICE'] . "</td>";
+  echo "</tr>";
+}*/
 foreach ($xml  as  $key =>$val) {  
  if($val->PRODUCT != ''){
      echo $val->PRODUCT .'  '.$val->PRICE.' บาท<br>';
