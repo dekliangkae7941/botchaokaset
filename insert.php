@@ -7,4 +7,9 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
    $query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
    '$_POST[price]')";
    $result = pg_query($query);
+   
+
+
+
+
 ?>
