@@ -1,6 +1,6 @@
 <?php
 // แก้ไขฟิวล์แล้ว
-include_once("PT_model.php");
+//include_once("PT_model.php");
 
 class Da_adddata extends PT_model {
 
