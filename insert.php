@@ -17,7 +17,7 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
     
     echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
-    echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>Uername</td><td>ชื่อ</td><td>นามสกุล</td><td>อีเมล์</td><td>แก้ไข</td><td>ลบ</td></tr>";
+    echo "<tr align='center' bgcolor='#CCCCCC'><td>main</td><td>title</td><td>description</td><td>url_link</td><td>url_image</td><td>แก้ไข</td><td>ลบ</td></tr>";
     while($row = pg_fetch_array($result)) { 
       echo "<tr>";
       echo "<td>" .$row["main"] .  "</td> "; 
