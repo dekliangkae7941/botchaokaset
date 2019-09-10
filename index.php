@@ -10,12 +10,24 @@ list-style: none;
 </style>
 </head>
 <body>
-<h2>Enter data into book table</h2>
+<!--<h2>Enter data into book table</h2>
 <ul>
 <form name="insert" action="insert.php" method="POST" >
 <li>Book ID:</li><li><input type="text" name="bookid" /></li>
 <li>Book Name:</li><li><input type="text" name="book_name" /></li>
 <li>Price (USD):</li><li><input type="text" name="price" /></li>
+<li><input type="submit" /></li>
+</form>
+</ul>-->
+
+<h2>input knowledge</h2>
+<ul>
+<form name="insert" action="insert.php" method="POST" >
+<li>Main : </li><li><input type="text" name="main" /></li>
+<li>Title : </li><li><input type="text" name="title" /></li>
+<li>Description : </li><li><input type="text" name="description" /></li>
+<li>url_link : </li><li><input type="text" name="url_link" /></li>
+<li>url_image : </li><li><input type="text" name="url_image" /></li>
 <li><input type="submit" /></li>
 </form>
 </ul>
