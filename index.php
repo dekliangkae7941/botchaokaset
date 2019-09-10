@@ -1365,266 +1365,16 @@ elseif ($command != '') {
           $query = "SELECT * FROM admin_log";
           if($result = pg_query($dbconn, $query)){
               if(pg_num_rows($result) > 0){
-                $mreply = array(
-                  'replyToken' => $replyToken,
-                  'messages' => array(
-                    array (
-                      'type' => 'flex',
-                      'altText' => 'ข่าวสารแะคลังความรู้',
-                      'contents' => 
-                      array (
-                        'type' => 'carousel',
-                        'contents' => 
-                        array (
-                          0 => 
-                          array (
-                            'type' => 'bubble',
-                            'hero' => 
-                            array (
-                              'type' => 'image',
-                              'url' => 'https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/4444444444444.jpg',
-                              'size' => 'full',
-                              'aspectRatio' => '4:3',
-                              'aspectMode' => 'cover',
-                            ),
-                            'body' => 
-                            array (
-                              'type' => 'box',
-                              'layout' => 'vertical',
-                              'spacing' => 'sm',
-                              'contents' => 
-                              array (
-                                0 => 
-                                array (
-                                  'type' => 'text',
-                                  'text' => 'ปฏิทินล้นเกวียน',
-                                  'size' => 'xl',
-                                  'weight' => 'bold',
-                                  'wrap' => true,
-                                ),
-                                1 => 
-                                array (
-                                  'type' => 'box',
-                                  'layout' => 'baseline',
-                                  'contents' => 
-                                  array (
-                                    0 => 
-                                    array (
-                                      'type' => 'text',
-                                      'text' => 'เครื่องมือวางแผนการปลูกข้าวสำหรับเกษตรกรที่เพาะปลูกข้าวในกลุ่มจังหวัดภาคกลาง',
-                                      'size' => 'sm',
-                                      'align' => 'start',
-                                      'weight' => 'bold',
-                                      'wrap' => true,
-                                    ),
-                                  ),
-                                ),
-                                2 => 
-                                array (
-                                  'type' => 'box',
-                                  'layout' => 'vertical',
-                                  'contents' => 
-                                  array (
-                                    0 => 
-                                    array (
-                                      'type' => 'text',
-                                      'text' => 'แอปพลิเคชั่น TOP FARM เป็นโปรแกรมที่ใช้ช่วยเหลือเกษตรกรที่เพาะปลูกข้าว ในกลุ่มจังหวัดภาคกลาง เพื่อช่วยในการวางแผนการเพาะปลูกข้าว',
-                                      'size' => 'xxs',
-                                      'wrap' => true,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            'footer' => 
-                            array (
-                              'type' => 'box',
-                              'layout' => 'vertical',
-                              'spacing' => 'sm',
-                              'contents' => 
-                              array (
-                                0 => 
-                                array (
-                                  'type' => 'button',
-                                  'action' => 
-                                  array (
-                                    'type' => 'uri',
-                                    'label' => 'กดเพื่อดาวน์โหลด',
-                                    'uri' => 'https://play.google.com/store/apps/details?id=th.or.nectec.zoning.topfarm',
-                                  ),
-                                  'color' => '#42BCE1',
-                                  'style' => 'primary',
-                                ),
-                              ),
-                            ),
-                          ),
-                          1 => 
-                          array (
-                            'type' => 'bubble',
-                            'hero' => 
-                            array (
-                              'type' => 'image',
-                              'url' => 'https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/1111122222.jpg',
-                              'size' => 'full',
-                              'aspectRatio' => '4:3',
-                              'aspectMode' => 'cover',
-                            ),
-                            'body' => 
-                            array (
-                              'type' => 'box',
-                              'layout' => 'vertical',
-                              'spacing' => 'sm',
-                              'contents' => 
-                              array (
-                                0 => 
-                                array (
-                                  'type' => 'text',
-                                  'text' => 'วีดิโอความรู้',
-                                  'size' => 'xl',
-                                  'weight' => 'bold',
-                                  'wrap' => true,
-                                ),
-                                1 => 
-                                array (
-                                  'type' => 'box',
-                                  'layout' => 'baseline',
-                                  'contents' => 
-                                  array (
-                                    0 => 
-                                    array (
-                                      'type' => 'text',
-                                      'text' => 'แอปพลิเคชั่นเพื่อเพิ่มประสิทธิภาพการใช้ประโยชน์ที่ดินด้านการเกษตร',
-                                      'size' => 'sm',
-                                      'weight' => 'bold',
-                                      'wrap' => true,
-                                    ),
-                                  ),
-                                ),
-                                2 => 
-                                array (
-                                  'type' => 'box',
-                                  'layout' => 'vertical',
-                                  'contents' => 
-                                  array (
-                                    0 => 
-                                    array (
-                                      'type' => 'text',
-                                      'text' => 'แอปพลิเคชั่น What2Grow TV เป็นโปรแกรมวิดีโอทางเลือกหนึ่งที่ใช้ถ่ายทอดองค์ความรู้ด้านการเพิ่มประสิทธิภาพการเพาะปลูกพืช หรือเลี้ยงสัตว์เศรษฐกิจ เน้นการลดต้นทุน เพิ่มผลผลิต',
-                                      'size' => 'xxs',
-                                      'wrap' => true,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            'footer' => 
-                            array (
-                              'type' => 'box',
-                              'layout' => 'vertical',
-                              'spacing' => 'sm',
-                              'contents' => 
-                              array (
-                                0 => 
-                                array (
-                                  'type' => 'button',
-                                  'action' => 
-                                  array (
-                                    'type' => 'uri',
-                                    'label' => 'กดเพื่อดาวน์โหลด',
-                                    'uri' => 'https://play.google.com/store/apps/details?id=th.or.nectect.www.what2grow',
-                                  ),
-                                  'color' => '#E1424F',
-                                  'style' => 'primary',
-                                ),
-                              ),
-                            ),
-                          ),
-                          2 => 
-                          array (
-                            'type' => 'bubble',
-                            'hero' => 
-                            array (
-                              'type' => 'image',
-                              'url' => 'https://raw.githubusercontent.com/dekliangkae7941/botchaokaset/master/78787.jpg',
-                              'size' => 'full',
-                              'aspectRatio' => '4:3',
-                              'aspectMode' => 'cover',
-                            ),
-                            'body' => 
-                            array (
-                              'type' => 'box',
-                              'layout' => 'vertical',
-                              'spacing' => 'sm',
-                              'contents' => 
-                              array (
-                                0 => 
-                                array (
-                                  'type' => 'text',
-                                  'text' => 'คำนวณปุ๋ยสั่งตัด',
-                                  'size' => 'xl',
-                                  'weight' => 'bold',
-                                  'wrap' => true,
-                                ),
-                                1 => 
-                                array (
-                                  'type' => 'box',
-                                  'layout' => 'baseline',
-                                  'contents' => 
-                                  array (
-                                    0 => 
-                                    array (
-                                      'type' => 'text',
-                                      'text' => ' คำนวณการใช้ปุ๋ยสั่งตัดและปุ๋ยตามค่าวิเคราะห์ดิน',
-                                      'size' => 'sm',
-                                      'weight' => 'bold',
-                                      'wrap' => true,
-                                    ),
-                                  ),
-                                ),
-                                2 => 
-                                array (
-                                  'type' => 'box',
-                                  'layout' => 'vertical',
-                                  'contents' => 
-                                  array (
-                                    0 => 
-                                    array (
-                                      'type' => 'text',
-                                      'text' => 'แอปพลิเคชัน FCS: คำนวณปุ๋ยสั่งตัด เป็นโปรแกรมคำนวณการใช้ปุ๋ยสั่งตัดหรือปุ๋ยตามค่าวิเคราะห์ดินนอกจากจะได้ธาตุอาหารหลักที่ตรงตามความต้องการของพืชแล้วยังประหยัดต้นทุน ลดการสูญเสีย และช่วยลดผลกระทบต่อสิ่งแวดล้อม',
-                                      'size' => 'xxs',
-                                      'wrap' => true,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            'footer' => 
-                            array (
-                              'type' => 'box',
-                              'layout' => 'vertical',
-                              'spacing' => 'sm',
-                              'contents' => 
-                              array (
-                                0 => 
-                                array (
-                                  'type' => 'button',
-                                  'action' => 
-                                  array (
-                                    'type' => 'uri',
-                                    'label' => 'กดเพื่อดาวน์โหลด',
-                                    'uri' => 'https://play.google.com/store/apps/details?id=th.or.nectec.android.fcs',
-                                  ),
-                                  'color' => '#8D42E1',
-                                  'style' => 'primary',
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  )
-                );
+                  $arrayPostData['replyToken'] = $replyToken;
+                  //$arrayPostData['to'] = $uid;
+                  $arrayPostData['messages'][0]['type'] = "flex";
+                  $arrayPostData['messages'][0]['altText'] = "$command";
+                  $arrayPostData['messages'][0]['contents']['type'] = "carousel";
+
+                  $datacountrowtype1 = 0;
+                  $datacountrowtype2 = 0;
+                  $datacountrowtype3 = 2;
+
                   
                   while($row = pg_fetch_array($result)){
                       $main_name = $row['main_name'];
@@ -1633,10 +1383,63 @@ elseif ($command != '') {
                       $url_link = $row['url_link'];
                       $url_image = $row['url_image'];
 
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['type'] = "text";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['text'] = "$main_name";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['size'] = "lg";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['weight'] = "bold";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['color'] = "#ffffff";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['wrap'] = true;
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['styles']['header']['backgroundColor'] = "#cb4335";
+                  
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['type'] = "box";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['layout'] = "vertical";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['spacing'] = "md";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['type'] = "box";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['layout'] = "vertical";                       
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "$title";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['weight'] = "bold";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+                  $datacountrowtype += 1;
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "$description";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+                  $datacountrowtype += 1;
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "--------------------------------------------------";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+                  $datacountrowtype += 1;                    
+                  
+                  /*$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['type'] = "button";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['type'] = "action";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['type']['action']['type'] = "uri";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['type']['action']['label'] = "กดเพื่อดาวน์โหลด";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['type']['action']['uri'] = "$url_link";
+                  */
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['layout'] = "vertical";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['type'] = "text";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['size'] = "xs";
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['wrap'] = true;
+                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['align'] = "center";
+                  //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['uri'] = "line://nv/location";
+                  //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
+                  $datacountrowtype1 += 1;    
                   }
-
-              }   
-          }    
+                  pg_free_result($result);
+                  replyMsg($arrayHeader,$arrayPostData);
+              }
+            }
         }
         elseif($command == "ราคาน้ำมัน"){
             $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
