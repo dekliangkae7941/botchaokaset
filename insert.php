@@ -18,7 +18,6 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>main name</td><td>title</td><td>description</td><td>url_link</td><td>url_image</td><td>แก้ไข</td><td>ลบ</td></tr>";
     while($row = pg_fetch_array($result)) { 
-      echo "<tr>";
       echo "<td>" .$row["main_name"] .  "</td> "; 
       echo "<td>" .$row["title"] .  "</td> ";  
       echo "<td>" .$row["description"] .  "</td> ";
@@ -29,7 +28,6 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
       
       //ลบข้อมูล
       echo "<td><a href='UserDelete.php?ID=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\">del</a></td> ";
-      echo "</tr>";
     }
     echo "</table>";
     //5. close connection
