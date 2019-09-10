@@ -10,6 +10,7 @@ list-style: none;
 </style>
 </head>
 <body>
+
 <!--<h2>Enter data into book table</h2>
 <ul>
 <form name="insert" action="insert.php" method="POST" >
