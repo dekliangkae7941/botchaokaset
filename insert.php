@@ -4,9 +4,12 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
   echo "<center><h1>Doesn't work =(</h1></center>";
   }else
    echo "<center><h1>Good connection</h1></center>";
-   $query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
-   '$_POST[price]')";
-   $result = pg_query($query);
+   //$query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
+   //'$_POST[price]')";
+   //$result = pg_query($query);
+
+   $querylog = "INSERT INTO admin_log VALUES ('$_POST[main]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
+   $result = pg_query($querylog);
    
 
 
