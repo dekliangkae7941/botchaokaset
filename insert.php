@@ -16,18 +16,20 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
     
     echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
-    echo "<tr align='center' bgcolor='#CCCCCC'><td>main name</td><td>title</td><td>description</td><td>url_link</td><td>url_image</td><td>แก้ไข</td><td>ลบ</td></tr>";
+    echo "<tr align='center'><td>main name</td><td>title</td><td>description</td><td>url_link</td><td>url_image</td><td>แก้ไข</td><td>ลบ</td></tr>";
     while($row = pg_fetch_array($result)) { 
+      echo "<tr>";
       echo "<td>" .$row["main_name"] .  "</td> "; 
       echo "<td>" .$row["title"] .  "</td> ";  
       echo "<td>" .$row["description"] .  "</td> ";
       echo "<td>" .$row["url_link"] .  "</td> ";
       echo "<td>" .$row["url_image"] .  "</td> ";
       //แก้ไขข้อมูล
-      echo "<td><a href='UserUpdateForm.php?ID=$row[0]'>edit</a></td> ";
+      echo "<td><a href='Update_log.php?main_name=$row[0]'>edit</a></td> ";
       
       //ลบข้อมูล
-      echo "<td><a href='UserDelete.php?ID=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\">del</a></td> ";
+      echo "<td><a href='Delete_log.php?main_name=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\">del</a></td> ";
+      echo "</tr>";
     }
     echo "</table>";
     //5. close connection
