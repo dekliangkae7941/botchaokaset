@@ -7,8 +7,7 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
    //$query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
    //'$_POST[price]')";
    //$result = pg_query($query);
-   $main_id = 1;
-   $querylog = "INSERT INTO admin_log VALUES ('$main_id','$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
+   $querylog = "INSERT INTO admin_log VALUES ('$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
    $result = pg_query($querylog);
       $query = "SELECT * FROM admin_log"; 
     //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
@@ -20,7 +19,6 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
     echo "<tr align='center' bgcolor='#CCCCCC'><td>main name</td><td>title</td><td>description</td><td>url_link</td><td>url_image</td><td>แก้ไข</td><td>ลบ</td></tr>";
     while($row = pg_fetch_array($result)) { 
       echo "<tr>";
-      echo "<td>" .$row["main_id"] .  "</td> "; 
       echo "<td>" .$row["main_name"] .  "</td> "; 
       echo "<td>" .$row["title"] .  "</td> ";  
       echo "<td>" .$row["description"] .  "</td> ";
@@ -34,6 +32,5 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
       echo "</tr>";
     }
     echo "</table>";
-    $main_id += 1;
     //5. close connection
 ?>
