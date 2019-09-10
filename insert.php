@@ -10,9 +10,28 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
 
    $querylog = "INSERT INTO admin_log VALUES ('$_POST[main]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
    $result = pg_query($querylog);
-   
-
-
-
-
+      $query = "SELECT * FROM admin_log"; 
+    //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
+    $result = pg_query($dbconn, $query); 
+    //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล: 
+    
+    echo "<table border='1' align='center' width='500'>";
+    //หัวข้อตาราง
+    echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>Uername</td><td>ชื่อ</td><td>นามสกุล</td><td>อีเมล์</td><td>แก้ไข</td><td>ลบ</td></tr>";
+    while($row = mysqli_fetch_array($result)) { 
+      echo "<tr>";
+      echo "<td>" .$row["main"] .  "</td> "; 
+      echo "<td>" .$row["title"] .  "</td> ";  
+      echo "<td>" .$row["description"] .  "</td> ";
+      echo "<td>" .$row["url_link"] .  "</td> ";
+      echo "<td>" .$row["url_image"] .  "</td> ";
+      //แก้ไขข้อมูล
+      echo "<td><a href='UserUpdateForm.php?ID=$row[0]'>edit</a></td> ";
+      
+      //ลบข้อมูล
+      echo "<td><a href='UserDelete.php?ID=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\">del</a></td> ";
+      echo "</tr>";
+    }
+    echo "</table>";
+    //5. close connection
 ?>
