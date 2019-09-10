@@ -1408,13 +1408,6 @@ elseif ($command != '') {
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['flex'] = $datacountrowtype1;
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['size'] = "sm";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['wrap'] = true;
-
-                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['type'] = "button";
-                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['action']['type'] = "action";
-                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['action']['type']['action']['type'] = "uri";
-                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['action']['type']['action']['label'] = "กดเพื่อดาวน์โหลด";
-                  $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][1]['action']['type']['action']['uri'] = "$url_link";
-                  
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['layout'] = "vertical";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['type'] = "text";
