@@ -23,7 +23,7 @@ list-style: none;
 <h2>input knowledge</h2>
 <ul>
 <form name="insert" action="insert.php" method="POST" >
-<li>Main : </li><li><input type="text" name="main" /></li>
+<li>Main : </li><li><input type="text" name="main_name" /></li>
 <li>Title : </li><li><input type="text" name="title" /></li>
 <li>Description : </li><li><input type="text" name="description" /></li>
 <li>url_link : </li><li><input type="text" name="url_link" /></li>
