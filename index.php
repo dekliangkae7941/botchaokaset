@@ -1372,17 +1372,14 @@ elseif ($command != '') {
                   $arrayPostData['messages'][0]['contents']['type'] = "carousel";
 
                   $datacountrowtype1 = 0;
-                  $datacountrowtype2 = 0;
-                  $datacountrowtype3 = 2;
-
-                  
+                  $datacountrowtype = 0;
                   while($row = pg_fetch_array($result)){
                       $main_name = $row['main_name'];
                       $title = $row['title'];
                       $description = $row['description'];
                       $url_link = $row['url_link'];
                       $url_image = $row['url_image'];
-
+                      
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
