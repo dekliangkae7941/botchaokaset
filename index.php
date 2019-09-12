@@ -37,6 +37,7 @@
   </form>
   <br />
   <br />
+  
   <p>ตารางแสดงข้อมูล</p>            
   <table class="table table-bordered">
     <thead>
@@ -46,6 +47,7 @@
         <th>description</th>
         <th>urllink</th>
         <th>urlimage</th>
+        <th>ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
