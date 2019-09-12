@@ -11,10 +11,10 @@
 <body>
 
 <div class="container">
-<h2>เพิ่มคำสำหรับ Chatbot</h2>
+<h2>เพิ่มข้อมูลข่าวสารและคลังความรู้</h2>
   <form action="insert.php" method="post">
     <div class="form-group">
-      <label for="main_name">MainName</label>
+      <label for="main_name">Main Name</label>
       <input type="text" class="form-control" id="main_name"  name="main_name">
     </div>
     <div class="form-group">
@@ -26,17 +26,53 @@
       <input type="text" class="form-control" id="description"  name="description">
     </div>
     <div class="form-group">
-      <label for="url_link">UrlLink</label>
+      <label for="url_link">Url Link</label>
       <input type="text" class="form-control" id="url_link"  name="url_link">
     </div>
     <div class="form-group">
-      <label for="url_image">UrlImage</label>
+      <label for="url_image">Url Image</label>
       <input type="text" class="form-control" id="url_image"  name="url_image">
     </div>
     <button type="submit" class="btn btn-default">บันทึก</button>
   </form>
   <br />
   <br />
+  <p>ตารางแสดงข้อมูล</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>mainname</th>
+        <th>title</th>
+        <th>description</th>
+        <th>urllink</th>
+        <th>urlimage</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
+    include "connectdb.php";
+    $sql = "SELECT * FROM admin_log";
+    $result = pg_query($dbconn, $sql);
+    if(pg_num_rows($result) > 0){
+      while($row = pg_fetch_array($result)){
+        echo "<tr>
+                    <td>".$row['main_name']."</td>
+                    <td>".$row['title']."</td>
+                    <td>".$row['description']."</td>
+                    <td>".$row['url_link']."</td>
+                    <td>".$row['url_image']."</td>
+                    <td><a href=\"delete.php?id=".$row['id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
+                    </tr>";
+      }
+    }
+    ?>
+      
+     
+    </tbody>
+  </table>
+</div>
+
+
   <!--<h2>input knowledge</h2>
 <ul>
 <form name="insert" action="insert.php" method="POST" >
