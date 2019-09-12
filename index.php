@@ -42,12 +42,12 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th colspan="1">mainname</th>
-        <th colspan="1">title</th>
-        <th colspan="2">description</th>
-        <th colspan="1">urllink</th>
-        <th colspan="1">urlimage</th>
-        <th colspan="1">ดำเนินงาน</th>
+        <th>mainname</th>
+        <th>title</th>
+        <th>description</th>
+        <th>urllink</th>
+        <th>urlimage</th>
+        <th>ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
