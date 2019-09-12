@@ -7,8 +7,23 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
    //$query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
    //'$_POST[price]')";
    //$result = pg_query($query);
+   include "connectdb.php";
+
+   //$keyword = $_POST['keyword'];
+   //$intent = $_POST['intent'];
    $querylog = "INSERT INTO admin_log VALUES ('$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
-   $result = pg_query($querylog);
+   //$result = pg_query($querylog);
+
+   if ($result = pg_query($querylog)) {
+       echo "<center>บันทึกสำเร็จ</center>";
+       header('refresh: 2; url=');
+       exit(0);
+   } else {
+       echo "<center>ไม่สามารถบันทึกได้</center>";
+       header('refresh: 2; url=');
+       exit(0);
+   }
+   
       $query = "SELECT * FROM admin_log"; 
     //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
     $result = pg_query($dbconn, $query); 
