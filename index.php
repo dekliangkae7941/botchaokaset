@@ -52,7 +52,7 @@
     </thead>
     <tbody>
     <?php
-    include "connectdb.php";
+    include "connect_db.php";
     $sql = "SELECT * FROM admin_log";
     $result = pg_query($dbconn, $sql);
     if(pg_num_rows($result) > 0){
