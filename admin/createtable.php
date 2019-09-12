@@ -1,4 +1,4 @@
-<?php
+/*<?php
 include "config.php";
 
 $sql = "DROP TABLE data ";
@@ -9,7 +9,7 @@ if($res){
 	echo "No DROP";
 }
 
-$sql = "CREATE TABLE data (
+$sql = "CREATE TABLE data_tent(
     id int(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     keyword varchar(255),
     intent varchar(255)
