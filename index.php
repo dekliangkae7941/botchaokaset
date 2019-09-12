@@ -57,7 +57,6 @@
     $result = pg_query($dbconn, $query); 
       while($row = pg_fetch_array($result)){
         echo "<tr>  
-                    <td>".$row['main_id']."</td>
                     <td>".$row['main_name']."</td>
                     <td>".$row['title']."</td>
                     <td>".$row['description']."</td>
