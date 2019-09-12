@@ -1,41 +1,11 @@
-
 <?php
+    include "connectdb.php";
    //$query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
    //'$_POST[price]')";
    //$result = pg_query($query);
-   include "connectdb.php";
-
-   //$keyword = $_POST['keyword'];
-   //$intent = $_POST['intent'];
-   /*/$main_id = '';
-   $querylog = "INSERT INTO admin_log VALUES ('$main_id','$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
-   //$result = pg_query($querylog);
-
-   if ($result = pg_query($querylog)) {
-       echo "<center>บันทึกสำเร็จ</center>";
-       //header('refresh: 2; url=');
-       exit(0);
-   } else {
-       echo "<center>ไม่สามารถบันทึกได้</center>";
-       //header('refresh: 2; url=');
-       exit(0);
-   }*/
-    $main_name = $_POST['main_name'];
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $url_link = $_POST['url_link'];
-    $url_image = $_POST['url_image'];
-    $sql = "INSERT INTO admin_log (main_id,main_name, title,description,url_link,url_image) VALUES ('','".$main_name."', '".$title."','".$description."','".$url_link."','".$url_image."')";
-    if ($dbconn->pg_query($sql) === TRUE) {
-        echo "<center>บันทึกสำเร็จ</center>";
-        header('refresh: 2; url=/admin');
-        exit(0);
-    } else {
-        echo "<center>ไม่สามารถบันทึกได้</center>";
-        header('refresh: 2; url=/admin');
-        exit(0);
-    }
-      /*$query = "SELECT * FROM admin_log"; 
+   $querylog = "INSERT INTO admin_log VALUES ('','$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
+   $result = pg_query($querylog);
+    $query = "SELECT * FROM admin_log"; 
     //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
     $result = pg_query($dbconn, $query); 
     //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล: 
@@ -58,6 +28,6 @@
       echo "</tr>";
     }
     echo "</table>";
-    //5. close connection*/
+    //5. close connection
 
 ?>
