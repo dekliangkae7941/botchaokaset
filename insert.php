@@ -8,7 +8,7 @@
    //$keyword = $_POST['keyword'];
    //$intent = $_POST['intent'];
    $main_id = '';
-   $querylog = "INSERT INTO admin_log VALUES ($_POST[main_id],'$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
+   $querylog = "INSERT INTO admin_log VALUES ('$_POST[main_id]','$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
    //$result = pg_query($querylog);
 
    if ($result = pg_query($querylog)) {
