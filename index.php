@@ -1483,7 +1483,7 @@ elseif ($command != '') {
                             array (
                               'type' => 'message',
                               'label' => 'พืชไร่',
-                              'text' => 'พืชไร่',
+                              'text' => 'เตือนภัยพืชไร่',
                             ),
                             'color' => '#DC9B3A',
                             'style' => 'primary',
@@ -1500,7 +1500,7 @@ elseif ($command != '') {
                             array (
                               'type' => 'message',
                               'label' => 'พืชสวน',
-                              'text' => 'พืชสวน',
+                              'text' => 'เตือนภัยพืชสวน',
                             ),
                             'color' => '#4ED946',
                             'style' => 'primary',
@@ -1517,7 +1517,7 @@ elseif ($command != '') {
                             array (
                               'type' => 'message',
                               'label' => 'ปศุสัตว์',
-                              'text' => 'ปศุสัตว์',
+                              'text' => 'เตือนภัยปศุสัตว์',
                             ),
                             'color' => '#E75959',
                             'style' => 'primary',
@@ -1534,7 +1534,7 @@ elseif ($command != '') {
                             array (
                               'type' => 'message',
                               'label' => 'ประมง',
-                              'text' => 'ประมง',
+                              'text' => 'เตือนภัยประมง',
                             ),
                             'color' => '#3E79C9',
                             'style' => 'primary',
@@ -1558,9 +1558,8 @@ elseif ($command != '') {
                       ),
                     ),
                   )
-            )
-        );
-
+              )
+          );
         }
         elseif($command == "ราคาน้ำมัน"){
             $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
