@@ -1468,14 +1468,6 @@ elseif ($command != '') {
                             'align' => 'start',
                             'wrap' => true,
                           ),
-                          1 => 
-                          array (
-                            'type' => 'text',
-                            'text' => 'ที่สนใจ เพื่อรับแจ้งเตือน',
-                            'size' => 'md',
-                            'align' => 'start',
-                            'wrap' => true,
-                          ),
                         ),
                       ),
                       'body' => 
