@@ -1443,6 +1443,133 @@ elseif ($command != '') {
               }
             }
         }
+        elseif($command == "เตือนภัย"){
+          $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array (
+                array (
+                    'type' => 'flex',
+                    'altText' => 'Flex Message',
+                    'contents' => 
+                    array (
+                      'type' => 'bubble',
+                      'direction' => 'ltr',
+                      'header' => 
+                      array (
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => 
+                        array (
+                          0 => 
+                          array (
+                            'type' => 'text',
+                            'text' => 'กรุณาเลือกประเภทแปลงเพาะปลูก',
+                            'size' => 'md',
+                            'align' => 'start',
+                            'wrap' => true,
+                          ),
+                          1 => 
+                          array (
+                            'type' => 'text',
+                            'text' => 'ที่สนใจ เพื่อรับแจ้งเตือน',
+                            'size' => 'md',
+                            'align' => 'start',
+                            'wrap' => true,
+                          ),
+                        ),
+                      ),
+                      'body' => 
+                      array (
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => 
+                        array (
+                          0 => 
+                          array (
+                            'type' => 'button',
+                            'action' => 
+                            array (
+                              'type' => 'message',
+                              'label' => 'พืชไร่',
+                              'text' => 'พืชไร่',
+                            ),
+                            'color' => '#DC9B3A',
+                            'style' => 'primary',
+                          ),
+                          1 => 
+                          array (
+                            'type' => 'separator',
+                            'margin' => 'sm',
+                          ),
+                          2 => 
+                          array (
+                            'type' => 'button',
+                            'action' => 
+                            array (
+                              'type' => 'message',
+                              'label' => 'พืชสวน',
+                              'text' => 'พืชสวน',
+                            ),
+                            'color' => '#4ED946',
+                            'style' => 'primary',
+                          ),
+                          3 => 
+                          array (
+                            'type' => 'separator',
+                            'margin' => 'sm',
+                          ),
+                          4 => 
+                          array (
+                            'type' => 'button',
+                            'action' => 
+                            array (
+                              'type' => 'message',
+                              'label' => 'ปศุสัตว์',
+                              'text' => 'ปศุสัตว์',
+                            ),
+                            'color' => '#E75959',
+                            'style' => 'primary',
+                          ),
+                          5 => 
+                          array (
+                            'type' => 'separator',
+                            'margin' => 'sm',
+                          ),
+                          6 => 
+                          array (
+                            'type' => 'button',
+                            'action' => 
+                            array (
+                              'type' => 'message',
+                              'label' => 'ประมง',
+                              'text' => 'ประมง',
+                            ),
+                            'color' => '#3E79C9',
+                            'style' => 'primary',
+                          ),
+                        ),
+                      ),
+                      'footer' => 
+                      array (
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => 
+                        array (
+                          0 => 
+                          array (
+                            'type' => 'text',
+                            'text' => 'ข้อมูลจาก Chaokaset Mobile',
+                            'align' => 'center',
+                            'color' => '#CBC5C5',
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+            )
+        );
+
+        }
         elseif($command == "ราคาน้ำมัน"){
             $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
                     array(
