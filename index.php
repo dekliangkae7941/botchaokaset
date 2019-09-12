@@ -52,7 +52,7 @@
     </thead>
     <tbody>
     <?php
-    include "connect_db.php";
+    include "connectdb.php";
     $query = "SELECT * FROM admin_log"; 
     $result = pg_query($dbconn, $query); 
       while($row = pg_fetch_array($result)){
@@ -71,7 +71,7 @@
     </tbody>
   </table>
 </div>
-
+<!--
 
 <h2>input knowledge</h2>
 <ul>
@@ -83,7 +83,7 @@
 <li>url_image : </li><li><input type="text" name="url_image" /></li>
 <li><input type="submit" /></li>
 </form>
-
+-->
 <!--<h2>Enter data into book table</h2>
 <ul>
 <form name="insert" action="insert.php" method="POST" >
