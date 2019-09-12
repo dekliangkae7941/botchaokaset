@@ -47,11 +47,12 @@
         <th>description</th>
         <th>urllink</th>
         <th>urlimage</th>
+        <th>ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
     <?php
-    include "connectdb.php";
+    include "connect_db.php";
     $sql = "SELECT * FROM admin_log";
     $result = pg_query($dbconn, $sql);
     if(pg_num_rows($result) > 0){
@@ -74,7 +75,7 @@
 </div>
 
 
-  <!--<h2>input knowledge</h2>
+<h2>input knowledge</h2>
 <ul>
 <form name="insert" action="insert.php" method="POST" >
 <li>Main : </li><li><input type="text" name="main_name" /></li>
@@ -83,7 +84,7 @@
 <li>url_link : </li><li><input type="text" name="url_link" /></li>
 <li>url_image : </li><li><input type="text" name="url_image" /></li>
 <li><input type="submit" /></li>
-</form>-->
+</form>
 
 <!--<h2>Enter data into book table</h2>
 <ul>
@@ -112,7 +113,7 @@
 
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
-
+/*
 $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
@@ -154,6 +155,7 @@ if($result = pg_query($dbconn, $sql)){
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
 }
+*/
 // Close connection
 //dfb33833ca384effa6b7d26c0145ecab//APIKEYข่าว
 #--------------------------------------------------------------------------------------------------------------------#
