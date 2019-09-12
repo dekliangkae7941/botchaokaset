@@ -1,5 +1,5 @@
 <?php
-$userId=$_GET[userId];
+$userId='Udac6e87952f7ba83e230875996a1107f';
 if($userId == ''){
     exit();
 }
