@@ -33,4 +33,5 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
     }
     echo "</table>";
     //5. close connection
+
 ?>
