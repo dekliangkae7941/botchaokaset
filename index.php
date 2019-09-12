@@ -48,7 +48,7 @@ include('connectdb.php');
  /////////////////////////////////////////////////////////////////
 if (isset($_POST['order_id']) && $_POST['order_id']!="") {
 	$order_id = $_POST['order_id'];
-	$url = "https://botphp2019.herokuapp.com/index.php/".$order_id;
+	$url = "https://botphp2019.herokuapp.com/index.php/";
 	$client = curl_init($url);
 	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 	$response = curl_exec($client);
