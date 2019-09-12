@@ -38,10 +38,10 @@
     <tbody>
     <?php
     include "config.php";
-    $sql = "select * from data";
-    $res = $conn->query($sql);
+    $sql = "SELECT * FROM data_tent";
+    $res = $dbconn->pg_query($sql);
       if($res->num_rows > 0){
-        while ($row = $res->fetch_assoc()) {
+        while ($row = $res->pg_fetch_assoc()) {
               echo "<tr>
                     <td>".$row['keyword']."</td>
                     <td>".$row['intent']."</td>
