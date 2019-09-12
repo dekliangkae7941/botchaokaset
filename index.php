@@ -53,9 +53,8 @@
     <tbody>
     <?php
     include "connect_db.php";
-    $sql = "SELECT * FROM admin_log";
-    $result = pg_query($dbconn, $sql);
-    if(pg_num_rows($result) > 0){
+    $query = "SELECT * FROM admin_log"; 
+    $result = pg_query($dbconn, $query); 
       while($row = pg_fetch_array($result)){
         echo "<tr>
                     <td>".$row['main_name']."</td>
@@ -66,7 +65,6 @@
                     <td><a href=\"delete.php?id=".$row['id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     </tr>";
       }
-    }
     ?>
       
      
