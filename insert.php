@@ -8,11 +8,11 @@
    $sql = "INSERT INTO admin_log (main_id,main_name, title,description,url_link,url_image) VALUES ('','$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
    if ($dbconn->pg_query($sql) === TRUE) {
        echo "<center>บันทึกสำเร็จ</center>";
-       header('refresh: 2; url=/admin');
+       header('refresh: 2; url=');
        exit(0);
    } else {
        echo "<center>ไม่สามารถบันทึกได้</center>";
-       header('refresh: 2; url=/admin');
+       header('refresh: 2; url=');
        exit(0);
    }
       /*$query = "SELECT * FROM admin_log"; 
