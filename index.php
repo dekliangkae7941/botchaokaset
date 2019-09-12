@@ -57,13 +57,13 @@
     $result = pg_query($dbconn, $query); 
       while($row = pg_fetch_array($result)){
         echo "<tr>  
-                
+                    <td>".$row['main_id']."</td>
                     <td>".$row['main_name']."</td>
                     <td>".$row['title']."</td>
                     <td>".$row['description']."</td>
                     <td>".$row['url_link']."</td>
                     <td>".$row['url_image']."</td>
-                    <td><a href=\"delete.php?id=".$row['id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
+                    <td><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     </tr>";
       }
     ?>
