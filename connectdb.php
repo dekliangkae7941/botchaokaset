@@ -3,5 +3,5 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
 if (!$dbconn){
 echo "<center><h1>Doesn't work =(</h1></center>";
 }else
- echo "<center><h1>Good connection</h1></center>";
+ //echo "<center><h1>Good connection</h1></center>";
 ?>
