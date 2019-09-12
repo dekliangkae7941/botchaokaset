@@ -113,7 +113,7 @@
 
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
-
+/*
 $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
@@ -155,6 +155,7 @@ if($result = pg_query($dbconn, $sql)){
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
 }
+*/
 // Close connection
 //dfb33833ca384effa6b7d26c0145ecab//APIKEYข่าว
 #--------------------------------------------------------------------------------------------------------------------#
