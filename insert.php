@@ -4,17 +4,22 @@
    //'$_POST[price]')";
    //$result = pg_query($query);
    include "connectdb.php";
-   
-   $sql = "INSERT INTO admin_log VALUES ($_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
-   if ($dbconn->pg_query($sql) === TRUE) {
+
+   //$keyword = $_POST['keyword'];
+   //$intent = $_POST['intent'];
+   $querylog = "INSERT INTO admin_log VALUES ('$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
+   //$result = pg_query($querylog);
+
+   if ($result = pg_query($querylog)) {
        echo "<center>บันทึกสำเร็จ</center>";
-       header('refresh: 2; url=');
+       //header('refresh: 2; url=');
        exit(0);
    } else {
        echo "<center>ไม่สามารถบันทึกได้</center>";
-       header('refresh: 2; url=');
+       //header('refresh: 2; url=');
        exit(0);
    }
+   
       /*$query = "SELECT * FROM admin_log"; 
     //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
     $result = pg_query($dbconn, $query); 
