@@ -20,6 +20,15 @@ list-style: none;
 <li><input type="submit" /></li>
 </form>
 </ul>-->
+<div style="width:700px; margin:0 auto;">
+
+<h3>Demo Create and Consume Simple REST API in PHP</h3>   
+<form action="" method="POST">
+<label>Enter Order ID:</label><br />
+<input type="text" name="order_id" placeholder="Enter Order ID" required/>
+<br /><br />
+<button type="submit" name="submit">Submit</button>
+</form>    
 
 <h2>input knowledge</h2>
 <ul>
@@ -37,7 +46,18 @@ list-style: none;
 <?php
 include('connectdb.php');
  /////////////////////////////////////////////////////////////////
- 
+if (isset($_POST['order_id']) && $_POST['order_id']!="") {
+	$order_id = $_POST['order_id'];
+	$url = "https://botphp2019.herokuapp.com/index.php/".$order_id;
+	$client = curl_init($url);
+	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+	$response = curl_exec($client);
+	$result = json_decode($response);
+	
+	echo "<table>";
+	echo "<tr><td>Order ID:</td><td>$result->order_id</td></tr>";
+	echo "</table>";
+}
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
 
