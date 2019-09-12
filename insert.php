@@ -3,11 +3,12 @@
    //$query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
    //'$_POST[price]')";
    //$result = pg_query($query);
+
    include "connectdb.php";
 
    //$keyword = $_POST['keyword'];
    //$intent = $_POST['intent'];
-   $querylog = "INSERT INTO admin_log VALUES ('$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
+   $querylog = "INSERT INTO admin_log VALUES ('','$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
    //$result = pg_query($querylog);
 
    if ($result = pg_query($querylog)) {
@@ -20,7 +21,7 @@
        exit(0);
    }
    
-      $query = "SELECT * FROM admin_log"; 
+      /*$query = "SELECT * FROM admin_log"; 
     //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
     $result = pg_query($dbconn, $query); 
     //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล: 
@@ -43,6 +44,6 @@
       echo "</tr>";
     }
     echo "</table>";
-    //5. close connection
+    //5. close connection*/
 
 ?>
