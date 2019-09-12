@@ -11,17 +11,15 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
    //$result = pg_query($querylog);
     if ($result = pg_query($querylog)) {
       echo "<center>บันทึกสำเร็จ</center>";
-      header('refresh: 2; url=');
       exit(0);
     } else {
         echo "<center>ไม่สามารถบันทึกได้</center>";
-        header('refresh: 2; url=');
         exit(0);
     }
 
     $query = "SELECT * FROM admin_log"; 
     //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
-    $result = pg_query($dbconn, $query); 
+    $resultt = pg_query($dbconn, $query); 
     //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล: 
     
     echo "<table border='1' align='center' width='500'>";
