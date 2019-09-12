@@ -3,7 +3,7 @@
    //$query = "INSERT INTO book VALUES ('$_POST[bookid]','$_POST[book_name]',
    //'$_POST[price]')";
    //$result = pg_query($query);
-   $querylog = "INSERT INTO admin_log VALUES ('','$_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
+   $querylog = "INSERT INTO admin_log VALUES ($_POST[main_name]','$_POST[title]','$_POST[description]','$_POST[url_link]','$_POST[url_image]')";
    $result = pg_query($querylog);
     $query = "SELECT * FROM admin_log"; 
     //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
