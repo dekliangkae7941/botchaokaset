@@ -42,12 +42,12 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>mainname</th>
-        <th>title</th>
-        <th>description</th>
-        <th>urllink</th>
-        <th>urlimage</th>
-        <th>ดำเนินงาน</th>
+        <th colspan="2">mainname</th>
+        <th colspan="3">title</th>
+        <th colspan="4">description</th>
+        <th colspan="2">urllink</th>
+        <th colspan="2">urlimage</th>
+        <th colspan="1">ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
@@ -57,7 +57,7 @@
     $result = pg_query($dbconn, $query); 
       while($row = pg_fetch_array($result)){
         echo "<tr>  
-                    <td>".$row['main_name']."</td>
+                    <td >".$row['main_name']."</td>
                     <td>".$row['title']."</td>
                     <td>".$row['description']."</td>
                     <td>".$row['url_link']."</td>
