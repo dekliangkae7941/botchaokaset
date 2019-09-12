@@ -1,15 +1,52 @@
-
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Insert data to PostgreSQL with php - creating a simple web application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style>
-li {
-list-style: none;
-}
-</style>
+  <title>หน้าสำหรับเพิ่มข้อมูล</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<div class="container">
+<h2>เพิ่มคำสำหรับ Chatbot</h2>
+  <form action="insert.php" method="post">
+    <div class="form-group">
+      <label for="main_name">MainName</label>
+      <input type="text" class="form-control" id="main_name"  name="main_name">
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title"  name="title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description"  name="description">
+    </div>
+    <div class="form-group">
+      <label for="url_link">UrlLink</label>
+      <input type="text" class="form-control" id="url_link"  name="url_link">
+    </div>
+    <div class="form-group">
+      <label for="url_image">UrlImage</label>
+      <input type="text" class="form-control" id="url_image"  name="url_image">
+    </div>
+    <button type="submit" class="btn btn-default">บันทึก</button>
+  </form>
+  <br />
+  <br />
+  <!--<h2>input knowledge</h2>
+<ul>
+<form name="insert" action="insert.php" method="POST" >
+<li>Main : </li><li><input type="text" name="main_name" /></li>
+<li>Title : </li><li><input type="text" name="title" /></li>
+<li>Description : </li><li><input type="text" name="description" /></li>
+<li>url_link : </li><li><input type="text" name="url_link" /></li>
+<li>url_image : </li><li><input type="text" name="url_image" /></li>
+<li><input type="submit" /></li>
+</form>-->
 
 <!--<h2>Enter data into book table</h2>
 <ul>
@@ -30,16 +67,7 @@ list-style: none;
 <button type="submit" name="submit">Submit</button>
 </form>    
 
-<h2>input knowledge</h2>
-<ul>
-<form name="insert" action="insert.php" method="POST" >
-<li>Main : </li><li><input type="text" name="main_name" /></li>
-<li>Title : </li><li><input type="text" name="title" /></li>
-<li>Description : </li><li><input type="text" name="description" /></li>
-<li>url_link : </li><li><input type="text" name="url_link" /></li>
-<li>url_image : </li><li><input type="text" name="url_image" /></li>
-<li><input type="submit" /></li>
-</form>
+
 </ul>
 </body>
 </html>
