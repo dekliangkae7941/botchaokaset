@@ -1,10 +1,6 @@
 <?php
 include "config.php";
-
-$keyword = $_POST['keyword'];
-$intent = $_POST['intent'];
-
-$sql = "INSERT INTO data_intent VALUES ('".$keyword."', '".$intent."')";
+$sql = "INSERT INTO data_intent VALUES ('$_POST[keyword]','$_POST[intent]')";
 if ($result = pg_query($sql)) {
     echo "<center>บันทึกสำเร็จ</center>";
     header('refresh: 2; index.php');
