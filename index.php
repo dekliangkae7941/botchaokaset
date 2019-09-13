@@ -42,12 +42,12 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>mainname</th>
-        <th>title</th>
-        <th>description</th>
-        <th>urllink</th>
-        <th>urlimage</th>
-        <th>ดำเนินงาน</th>
+        <th colspan="1">mainname</th>
+        <th colspan="1">title</th>
+        <th colspan="2">description</th>
+        <th colspan="1">urllink</th>
+        <th colspan="1">urlimage</th>
+        <th colspan="1">ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
@@ -57,12 +57,12 @@
     $result = pg_query($dbconn, $query); 
       while($row = pg_fetch_array($result)){
         echo "<tr>  
-                    <td>".$row['main_name']."</td>
-                    <td>".$row['title']."</td>
-                    <td>".$row['description']."</td>
-                    <td>".$row['url_link']."</td>
-                    <td>".$row['url_image']."</td>
-                    <td><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
+                    <td><th colspan=\"1\">".$row['main_name']."</th></td>
+                    <td><th colspan=\"1\">".$row['title']."</th></td>
+                    <td><th colspan=\"2\">".$row['description']."</th></td>
+                    <td><th colspan=\"1\">".$row['url_link']."</th></td>
+                    <td><th colspan=\"1\">".$row['url_image']."</th></td>
+                    <td><th colspan=\"1\"><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></th></td>
                     </tr>";
       }
     ?>
