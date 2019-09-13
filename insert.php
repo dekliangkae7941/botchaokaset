@@ -11,7 +11,7 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
    //$result = pg_query($querylog);
     if ($result = pg_query($querylog)) {
       echo "<center>บันทึกสำเร็จ</center>";
-      redirect('index.php');
+      redirect('index');
       exit(0);
     } else {
         echo "<center>ไม่สามารถบันทึกได้</center>";
