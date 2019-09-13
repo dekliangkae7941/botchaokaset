@@ -44,7 +44,7 @@
       <tr>
         <th colspan="1">mainname</th>
         <th colspan="1">title</th>
-        <th colspan="2">description</th>
+        <th colspan="3">description</th>
         <th colspan="1">urllink</th>
         <th colspan="1">urlimage</th>
         <th colspan="1">ดำเนินงาน</th>
