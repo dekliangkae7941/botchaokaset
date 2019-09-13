@@ -59,7 +59,7 @@
         echo "<tr>  
                     <td colspan=\"1\">".$row['main_name']."</td>
                     <td colspan=\"1\">".$row['title']."</td>
-                    <td colspan=\"2\">".$row['description']."</td>
+                    <td colspan=\"3\">".$row['description']."</td>
                     <td colspan=\"1\">".$row['url_link']."</td>
                     <td colspan=\"1\">".$row['url_image']."</td>
                     <td colspan=\"1\"><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
