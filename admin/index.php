@@ -14,12 +14,12 @@
 <h2>เพิ่มคำสำหรับ Chatbot</h2>
   <form action="insert.php" method="post">
     <div class="form-group">
-      <label for="email">คำที่ค้นหา</label>
-      <input type="text" class="form-control" id="email"  name="keyword">
+      <label for="keyword">คำที่ค้นหา</label>
+      <input type="text" class="form-control" id="keyword"  name="keyword">
     </div>
     <div class="form-group">
-      <label for="pwd">คำที่ตอบ</label>
-      <input type="text" class="form-control" id="pwd"  name="intent">
+      <label for="intent">คำที่ตอบ</label>
+      <input type="text" class="form-control" id="intent"  name="intent">
     </div>
    
     <button type="submit" class="btn btn-default">บันทึก</button>
@@ -39,17 +39,14 @@
     <?php
     include "config.php";
     $sql = "SELECT * FROM data_tent";
-    $res = $dbconn->pg_query($sql);
-      if($res->num_rows > 0){
-        while ($row = $res->pg_fetch_assoc()) {
+    $result = pg_query($sql);
+        while ($row = pg_fetch_array($result)) {
               echo "<tr>
                     <td>".$row['keyword']."</td>
                     <td>".$row['intent']."</td>
                     <td><a href=\"delete.php?id=".$row['id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     </tr>";
         }
-      }
-
     ?>
       
      
