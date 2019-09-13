@@ -44,7 +44,7 @@
               echo "<tr>
                     <td>".$row['keyword']."</td>
                     <td>".$row['intent']."</td>
-                    <td><a href=\"delete.php?id=".$row['id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
+                    <td><a href=\"delete.php?tent_id=".$row['tent_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     </tr>";
         }
     ?>
