@@ -15,6 +15,7 @@ $dbconn = pg_connect("host=ec2-107-22-211-248.compute-1.amazonaws.com dbname=dan
       exit(0);
     } else {
         echo "<center>ไม่สามารถบันทึกได้</center>";
+        header('refresh: 2; index.php');
         exit(0);
     }
 
