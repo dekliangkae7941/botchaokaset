@@ -15,5 +15,4 @@
         exit(0);
     }
     //5. close connection
-
 ?>
