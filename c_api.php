@@ -7,7 +7,7 @@ $querylocation = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e23087
         $latitude = $rowlocation['latitude'];
         $longitude = $rowlocation['longitude'];
         if($userId == 'Udac6e87952f7ba83e230875996a1107f'){
-            $myObj->userId = $_POST['userId'];
+            $myObj->userId = $userId;
             $myObj->latitud = $latitude;
             $myObj->longitude = $longitude;
             $myJSON = json_encode($myObj);
