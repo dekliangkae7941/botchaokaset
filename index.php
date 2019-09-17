@@ -670,6 +670,40 @@ elseif ($command != '') {
         $latitude = $rowlocation['latitude'];
         $longitude = $rowlocation['longitude'];
         $address = $rowlocation['address'];
+        function index_post()
+        {   	
+        // echo "index_posttum";
+          //$this->load->model('Da_adddata', 'dd');
+          //$dd = $this->dd;
+          $post = $_POST;
+          $status_login = 0;
+          $Key =$post['Key'];
+          $user =$post['userId'];
+          $lat =$post['latitud'];
+          $lon =$post['longitude'];
+          //$dd->ak_key = $Key;
+          //$dd->us_user = $user;
+          //$dd->ev_id = $event;*/
+          //$respon =$dd->insert_review();
+          //echo $respon;
+
+        }
+
+        function index_put()
+        {
+            echo "PUT_request";
+        }
+
+        function index_patch()
+        {
+            echo "PATCH_request";
+        }
+
+        function index_delete()
+        {
+            echo "DELETE_request";
+        }
+
         if($latitude == NULL || $longitude == NULL ){
             $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
             $mreply = array(
