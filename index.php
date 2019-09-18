@@ -47,7 +47,7 @@
         <th colspan="3">description</th>
         <th colspan="1">urllink</th>
         <th colspan="1">urlimage</th>
-        <th colspan="1">ดำเนินงาน</th>
+        <th colspan="2">ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
@@ -63,6 +63,7 @@
                     <td colspan=\"1\">".$row['url_link']."</td>
                     <td colspan=\"1\">".$row['url_image']."</td>
                     <td colspan=\"1\"><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
+                    <td colspan=\"1\"><a href=\"edit.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     </tr>";
       }
     ?>
