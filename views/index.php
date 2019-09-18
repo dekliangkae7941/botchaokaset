@@ -1275,7 +1275,7 @@ elseif ($command != '') {
                       
                       $uurl_image = $row['url_image'];
 											$datacountrowtype = 0;
-											$url = $row['url_link'];;
+											$url = $row['url_link'];
 											$array = get_headers($url);
 											$string = $array[0];
 											if(strpos($string,"200")){
