@@ -1272,16 +1272,16 @@ elseif ($command != '') {
                       $main_name = $row['main_name'];
                       $ttitle = $row['title'];
                       $ddescription = $row['description'];
-                      
-                      $uurl_image = $row['url_image'];
+                      $uurl_link = $row['url_link'];
 											$datacountrowtype = 0;
-											$url = $row['url_link'];
+
+											$url = $row['url_image'];
 											$array = get_headers($url);
 											$string = $array[0];
 											if(strpos($string,"200")){
-													$uurl_link = $row['url_link'];
+													$uurl_image = $url;
 											}else{
-												$uurl_link = 'https://scontent.cdninstagram.com/vp/b3249111d14ee7ead8f672680a255ffc/5DD3CD05/t51.2885-15/e35/s480x480/66881617_365323837467302_8265523363007935424_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com';
+												$uurl_image = 'https://scontent.fbkk5-1.fna.fbcdn.net/v/t1.0-9/44431968_311787679611478_8778612801666023424_n.jpg?_nc_cat=109&_nc_oc=AQmbNFVapwCey9afytGHOPceLn2L2bET_BpnWL3bUwPboAUzUDgZd1kXBVPHXuzNFeo&_nc_ht=scontent.fbkk5-1.fna&oh=15d4474eee49d78be44847332b6846b2&oe=5DF5DBCA';
 											}
 
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
