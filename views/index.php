@@ -1272,9 +1272,18 @@ elseif ($command != '') {
                       $main_name = $row['main_name'];
                       $ttitle = $row['title'];
                       $ddescription = $row['description'];
-                      $uurl_link = $row['url_link'];
+                      
                       $uurl_image = $row['url_image'];
-                      $datacountrowtype = 0;
+											$datacountrowtype = 0;
+											$url = $row['url_link'];;
+											$array = get_headers($url);
+											$string = $array[0];
+											if(strpos($string,"200")){
+													$uurl_link = $row['url_link'];
+											}else{
+												$uurl_link = 'https://scontent.cdninstagram.com/vp/b3249111d14ee7ead8f672680a255ffc/5DD3CD05/t51.2885-15/e35/s480x480/66881617_365323837467302_8265523363007935424_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com';
+											}
+
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['type'] = "image";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['url'] = "$uurl_image";
