@@ -42,12 +42,12 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th colspan="1">mainname</th>
-        <th colspan="1">title</th>
-        <th colspan="3">description</th>
-        <th colspan="1">urllink</th>
-        <th colspan="1">urlimage</th>
-        <th colspan="2">ดำเนินงาน</th>
+        <th colspan="1" style="text-align:center">mainname</th>
+        <th colspan="1" style="text-align:center">title</th>
+        <th colspan="3" style="text-align:center">description</th>
+        <th colspan="1" style="text-align:center">urllink</th>
+        <th colspan="1" style="text-align:center">urlimage</th>
+        <th colspan="2" style="text-align:center">ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
@@ -62,7 +62,7 @@
                     <td colspan=\"3\">".$row['description']."</td>
                     <td colspan=\"1\">".$row['url_link']."</td>
                     <td colspan=\"1\">".$row['url_image']."</td>
-                    <td colspan=\"1\"><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
+                    <td colspan=\"1\" ><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     <td colspan=\"1\"><a href=\"edit.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     </tr>";
       }
