@@ -119,18 +119,15 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
             $plan_category = $rowlog['plan_category'];
             //$ddisplayName = $rowlog['displayName'];
             $address = $rowlog['address'];
+            $latitude = $rowlog['latitude'];
+            $longitude = $rowlog['longitude'];
             //$ppictureUrl = $rowlog['pictureUrl'];
             echo $plan_category."\n" ;
             //echo $displayName ."\n";
             echo $address ."\n";
             //echo $pictureUrl ."\n";
-/////////////////////////
-$querylog2 = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
-  $resultlog2 = pg_query($dbconn, $querylog2);
-  $rowlo2g = pg_fetch_array($resultlog2);
-  $latitude = $rowlog2['latitude'];
-  $longitude = $rowlog2['longitude'];
-  echo "$latitude : $longitude";
+/////////////////////////  
+          echo $latitude." : ".$longitude;
   //////////////////////////////////
   $urisubtype = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
   $response = Unirest\Request::post("$urisubtype");
@@ -144,8 +141,11 @@ $querylog2 = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996
   $resultclot = $json['data']['list'][1]['coord_latitude'];
   $resultclon = $json['data']['list'][1]['coord_longitude'];
   $resultcdis = $json['data']['list'][1]['coord_distance'];
-
-echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
+  echo $latitude." : ".$longitude;
+  echo $resultlo." : ".$resultpn;
+  echo $resultclot." : ".$resultclon;
+  echo $resultcdis;
+//echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
 
 
 $sql = "SELECT * FROM line_type WHERE category_id = '1'";
