@@ -138,11 +138,11 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   $latitudep = $json['data']['current']['latitude'];
   $longitudep = $json['data']['current']['longitude'];
 
-  $resultlo = $json['data']['list'][1]['location_name'];
-  $resultpn = $json['data']['list'][1]['province_name'];
-  $resultclot = $json['data']['list'][1]['coord_latitude'];
-  $resultclon = $json['data']['list'][1]['coord_longitude'];
-  $resultcdis = $json['data']['list'][1]['coord_distance'];
+  $resultlo = $json['data']['list'][0]['location_name'];
+  $resultpn = $json['data']['list'][0]['province_name'];
+  $resultclot = $json['data']['list'][0]['coord_latitude'];
+  $resultclon = $json['data']['list'][0]['coord_longitude'];
+  $resultcdis = $json['data']['list'][0]['coord_distance'];
   echo $latitude." : ".$longitude;
   echo $resultlo." : ".$resultpn;
   echo $resultclot." : ".$resultclon;
