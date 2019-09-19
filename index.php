@@ -127,7 +127,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
             echo $address ."\n";
             //echo $pictureUrl ."\n";
 /////////////////////////  
-          echo $latitude." : ".$longitude;
+          echo $latitude." : ".$longitude."\n";
   //////////////////////////////////
   $limit = 1;
   $urisubtype = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
@@ -139,7 +139,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   $resultclot = $json['data']['list'][0]['coord_latitude'];
   $resultclon = $json['data']['list'][0]['coord_longitude'];
   $resultcdis = $json['data']['list'][0]['coord_distance'];
-  //echo $latitude." : ".$longitude;
+  echo $latitude." : ".$longitude;
   echo $resultlo." : ".$resultpn;
   echo $resultclot." : ".$resultclon;
   echo $resultcdis;
