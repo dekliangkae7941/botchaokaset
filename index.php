@@ -148,6 +148,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   // echo $latitude." : ".$longitude;
   // echo $resultlo." : ".$resultpn;
   // echo $resultclot." : ".$resultclon;
+  echo "12345678";
   echo $json["status"];
 //echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
 
