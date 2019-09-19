@@ -129,12 +129,12 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
 /////////////////////////  
           echo $latitude." : ".$longitude."\n";
   //////////////////////////////////
-
+  echo "12345678";
 
 
   /////////////////////////////////////////
   $limit = 10;
-  $uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+  //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
   $data = array('latitude' => $latitude, 'longitude' => $longitude,'limit' => $limit );
   $header = array('Accept' => 'application/json');
   $response = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$header,$data);
