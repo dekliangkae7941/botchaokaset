@@ -135,8 +135,8 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   $json['status'] = true;
   $latitude = $latitudep;
   $longitude = $longitudep;
-  $latitudep = $json['data']['current']['latitude'];
-  $longitudep = $json['data']['current']['longitude'];
+  $latitudep = $_POST['data']['current']['latitude'];
+  $longitudep = $_POST['data']['current']['longitude'];
 
   $resultlo = $json['data']['list'][0]['location_name'];
   $resultpn = $json['data']['list'][0]['province_name'];
