@@ -112,7 +112,7 @@
 
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
-/*
+
 $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
@@ -125,12 +125,29 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
             echo $address ."\n";
             //echo $pictureUrl ."\n";
 /////////////////////////
-$querylog = "SELECT * FROM line_log ";
-                $resultlog = pg_query($dbconn, $querylog);
-                $rowlog = pg_fetch_array($resultlog);
-                $latitude = $rowlog['latitude'];
-                $longitude = $rowlog['longitude'];
-                echo "$latitude : $longitude";
+$querylog2 = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
+  $resultlog2 = pg_query($dbconn, $querylog2);
+  $rowlo2g = pg_fetch_array($resultlog2);
+  $latitude = $rowlog2['latitude'];
+  $longitude = $rowlog2['longitude'];
+  echo "$latitude : $longitude";
+  //////////////////////////////////
+  $urisubtype = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+  $response = Unirest\Request::post("$urisubtype");
+  $json = json_decode($response->raw_body, true);
+
+  $latitude = $json['data']['current']['latitude'];
+  $latitude = $json['data']['current']['longitude'];
+
+  $resultlo = $json['data']['list'][1]['location_name'];
+  $resultpn = $json['data']['list'][1]['province_name'];
+  $resultclot = $json['data']['list'][1]['coord_latitude'];
+  $resultclon = $json['data']['list'][1]['coord_longitude'];
+  $resultcdis = $json['data']['list'][1]['coord_distance'];
+
+echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
+
+
 $sql = "SELECT * FROM line_type WHERE category_id = '1'";
 if($result = pg_query($dbconn, $sql)){
     if(pg_num_rows($result) > 0){
@@ -154,7 +171,7 @@ if($result = pg_query($dbconn, $sql)){
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
 }
-*/
+
 // Close connection
 //dfb33833ca384effa6b7d26c0145ecab//APIKEYข่าว
 #--------------------------------------------------------------------------------------------------------------------#
@@ -1118,12 +1135,7 @@ elseif ($command != '') {
                     $rowlog = pg_fetch_array($resultlog);
                     $latitude = $rowlog['latitude'];
                     $longitude = $rowlog['longitude'];
-                    $urisubtype = "https://chaokaset.openservice.in.th/index.php/Location/scan";
-                    $response = Unirest\Request::get("$urisubtype");
-                    $json = json_decode($response->raw_body, true);
-                    $resultasn = $json[1]['subtype_name'];
-                    $resultasid = $json[1]['subtype_id'];
-                    $resultatid = $json[1]['type_id'];
+                    
                     if($latitude == NULL && $longitude == NULL){
                         $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
                         $mreply = array(
