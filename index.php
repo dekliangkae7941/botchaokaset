@@ -131,7 +131,6 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   //////////////////////////////////
   echo "12345678";
 
-
   /////////////////////////////////////////
   $limit = 10;
   //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
