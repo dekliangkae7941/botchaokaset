@@ -133,8 +133,8 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   $response = Unirest\Request::post("$urisubtype");
   $json = json_decode($response->raw_body, true);
   
-  $latitude = $_POST['data']['current']['latitude'];
-  $longitude = $_POST['data']['current']['longitude'];
+  $latitude = $json['data']['current']['latitude'];
+  $longitude = $json['data']['current']['longitude'];
 
   $resultlo = $json['data']['list'][1]['location_name'];
   $resultpn = $json['data']['list'][1]['province_name'];
