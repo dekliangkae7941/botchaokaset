@@ -508,11 +508,11 @@ elseif ($command != '') {
     $query = "UPDATE line_log SET displayName = '$displayName' WHERE userid = '$userId'";
     $result = pg_query($query);
     if($command == 'Location' || $command == 'สภาพอากาศ'){
-        include('view/v_weather.php');
+        include('views/v_weather.php');
     }
     elseif($command == 'พืชไร่'||$command == 'พืชสวน'||$command == 'ประมง'||$command == 'ปศุสัตว์'){
         //$command = $plan_category;
-        include('view/v_follow.php');
+        include('views/v_follow.php');
     }elseif($command == "แก้ไขที่อยู่"){
         $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
         $mreply = array(
@@ -537,11 +537,11 @@ elseif ($command != '') {
         );  
     }
     elseif($command == "ราคาตลาด"){
-      include('view/v_price.php');
+      include('viewss/v_price.php');
     }
     /////////////
     else {
-      include('view/v_case.php');
+      include('viewss/v_case.php');
                           
           /*$uri = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
           $response = Unirest\Request::get("$uri");
