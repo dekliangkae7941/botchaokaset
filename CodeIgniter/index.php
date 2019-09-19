@@ -112,48 +112,25 @@
 
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
-
+/*
 $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plan_category = $rowlog['plan_category'];
             //$ddisplayName = $rowlog['displayName'];
             $address = $rowlog['address'];
-            $latitude = $rowlog['latitude'];
-            $longitude = $rowlog['longitude'];
             //$ppictureUrl = $rowlog['pictureUrl'];
             echo $plan_category."\n" ;
             //echo $displayName ."\n";
             echo $address ."\n";
             //echo $pictureUrl ."\n";
-/////////////////////////  
-          echo $latitude." : ".$longitude."\n";
-  //////////////////////////////////
-  echo "12345678";
-
-
-  /////////////////////////////////////////
-  $limit = 10;
-  //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
-  $data = array('latitude' => $latitude, 'longitude' => $longitude,'limit' => $limit );
-  $header = array('Accept' => 'application/json');
-  $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$header,json_encode($data));
-  $json = json_decode($response1->raw_body, true);
-  //echo json_encode($json);
-  // $resultlo = $json['data']['list'][0]['location_name'];
-  // $resultpn = $json['data']['list'][0]['province_name'];
-  // $resultclot = $json['data']['list'][0]['coord_latitude'];
-  // $resultclon = $json['data']['list'][0]['coord_longitude'];
-  // $resultcdis = $json['data']['list'][0]['coord_distance'];
-  // $resultcdis = $json['data']['list'][0]['coord_distance'];
-  // echo $latitude." : ".$longitude;
-  // echo $resultlo." : ".$resultpn;
-  // echo $resultclot." : ".$resultclon;
-  echo "12345678";
-  echo $json["status"];
-//echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
-
-
+/////////////////////////
+$querylog = "SELECT * FROM line_log ";
+                $resultlog = pg_query($dbconn, $querylog);
+                $rowlog = pg_fetch_array($resultlog);
+                $latitude = $rowlog['latitude'];
+                $longitude = $rowlog['longitude'];
+                echo "$latitude : $longitude";
 $sql = "SELECT * FROM line_type WHERE category_id = '1'";
 if($result = pg_query($dbconn, $sql)){
     if(pg_num_rows($result) > 0){
@@ -177,7 +154,7 @@ if($result = pg_query($dbconn, $sql)){
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
 }
-
+*/
 // Close connection
 //dfb33833ca384effa6b7d26c0145ecab//APIKEYข่าว
 #--------------------------------------------------------------------------------------------------------------------#
