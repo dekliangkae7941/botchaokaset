@@ -133,21 +133,22 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
 
 
   /////////////////////////////////////////
-  $limit = 1;
+  $limit = 10;
   $uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
   $data = array('latitude' => $latitude, 'longitude' => $longitude,'limit' => $limit );
   $response = Unirest\Request::post("$uri",array(),$data);
   $json = json_decode($response->raw_body, true);
   //echo json_encode($json);
-  $resultlo = $json['data']['list'][0]['location_name'];
-  $resultpn = $json['data']['list'][0]['province_name'];
-  $resultclot = $json['data']['list'][0]['coord_latitude'];
-  $resultclon = $json['data']['list'][0]['coord_longitude'];
-  $resultcdis = $json['data']['list'][0]['coord_distance'];
-  echo $latitude." : ".$longitude;
-  echo $resultlo." : ".$resultpn;
-  echo $resultclot." : ".$resultclon;
-  echo $resultcdis;
+  // $resultlo = $json['data']['list'][0]['location_name'];
+  // $resultpn = $json['data']['list'][0]['province_name'];
+  // $resultclot = $json['data']['list'][0]['coord_latitude'];
+  // $resultclon = $json['data']['list'][0]['coord_longitude'];
+  // $resultcdis = $json['data']['list'][0]['coord_distance'];
+  // $resultcdis = $json['data']['list'][0]['coord_distance'];
+  // echo $latitude." : ".$longitude;
+  // echo $resultlo." : ".$resultpn;
+  // echo $resultclot." : ".$resultclon;
+  echo $json["status"];
 //echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
 
 
