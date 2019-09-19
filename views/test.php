@@ -26,7 +26,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
   $data = array('latitude' => $latitude, 'longitude' => $longitude,'limit' => $limit );
   $header = array('Accept' => 'application/json');
-  $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$header,$data);
+  $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$header,json_encode($data));
   $json = json_decode($response1->raw_body, true);
   //echo json_encode($json);
   // $resultlo = $json['data']['list'][0]['location_name'];
