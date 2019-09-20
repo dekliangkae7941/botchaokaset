@@ -1891,14 +1891,14 @@ elseif ($command != '') {
             $resultclot = $json['data']['list'][0]['coord_latitude'];
             $resultclon = $json['data']['list'][0]['coord_longitude'];
             $resultcdis = $json['data']['list'][0]['coord_distance'];
-            $resultcdis = $json['data']['list'][0]['coord_distance'];
-            echo $latitude." : ".$longitude;
-            echo $resultlo." : ".$resultpn;
-            echo $resultclot." : ".$resultclon;
-            echo "12345678";
-            echo $json["status"];
+            
+            // echo $latitude." : ".$longitude;
+            // echo $resultlo." : ".$resultpn;
+            // echo $resultclot." : ".$resultclon;
+            // echo "12345678";
+            // echo $json["status"];
             $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
-            $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "\n";
+            $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
             $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "\n";
 
             $mreply = array(
