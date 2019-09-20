@@ -1880,7 +1880,7 @@ elseif ($command != '') {
             //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
             
             $headers = array('Accept' => 'application/json');
-            $data = array('latitude' => "$latitude", 'longitude' => "$longitude",'limit' => "$limit" );
+            $data = array('latitude' => "$latitude", 'longitude' => "$longitude");
             $body = Unirest\Request\Body::json($data);
             $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
 
@@ -1898,18 +1898,20 @@ elseif ($command != '') {
                 $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "\n";
-
+                if($resultlo == 'ตลาดหนองลุง'){
+                  $mreply = array(
+                    'replyToken' => $replyToken,
+                    'messages' => array(
+                        array(
+                            'type' => 'text',
+                            'text' => $text
+                        )
+                    )
+                );
+                }
                 
               }
-              $mreply = array(
-                'replyToken' => $replyToken,
-                'messages' => array(
-                    array(
-                        'type' => 'text',
-                        'text' => $text
-                    )
-                )
-            );
+              
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
