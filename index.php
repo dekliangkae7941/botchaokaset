@@ -1760,6 +1760,9 @@ elseif ($command != '') {
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
+                var_dump($resultlo);
+                var_dump($location_name);
+                echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
                 if($resultlo == $location_name){
                   $mreply = array(
                     'replyToken' => $replyToken,
