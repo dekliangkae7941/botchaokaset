@@ -254,7 +254,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = $userId";
                 $resultclon = $temp['coord_longitude'];
                 $resultcdis = $temp['coord_distance'];
                 $resultclen = $json['data']['lenght'];
-              }
+              
             
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
@@ -263,6 +263,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = $userId";
                 var_dump($location_name);
                 echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
                 if($resultlo == $location_name){
+                  echo '5555555555';
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
@@ -292,6 +293,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = $userId";
                     )
                   );
                 }
+              }
           }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
