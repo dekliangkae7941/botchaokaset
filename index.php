@@ -1220,6 +1220,7 @@ elseif ($command != '') {
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     $datacountrowtype = 0;
+                    
                         while($rowstype = pg_fetch_array($resultstype)){
                             $location_name = $rowstype['location_name'];
                             $province_name = $rowstype['province_name'];
@@ -1229,7 +1230,25 @@ elseif ($command != '') {
                             $lastupdate = $rowstype['lastupdate'];
                             $clatitude = $rowstype['coord_latitude'];
                             $clongitude = $rowstype['coord_longitude'];
-                                    
+                            
+                            
+                            $headers = array('Accept' => 'application/json');
+                            $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+                            $body = Unirest\Request\Body::json($data);
+                            $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+
+                            $json = json_decode($response1->raw_body, true);
+                            //echo json_encode($json);
+                              foreach($json['data']['list'] as $temp){
+                                $resultlo = $temp['location_name'];
+                                $resultpn = $temp['province_name'];
+                                $resultclot = $temp['coord_latitude'];
+                                $resultclon = $temp['coord_longitude'];
+                                $resultcdis = $temp['coord_distance'];
+                                $resultclen = $json['data']['lenght'];
+
+                              }
+                              if($location_name == $resultlo){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ : $location_name ";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
@@ -1237,7 +1256,7 @@ elseif ($command != '') {
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                             $datacountrowtype += 1;
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
-                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "จังหวัด $province_name";
+                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "จังหวัด $province_name ระยะทาง $resultcdis";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
@@ -1268,7 +1287,7 @@ elseif ($command != '') {
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                             $datacountrowtype += 1;
-                            
+                              }                            
                         }
                       
                     /*
