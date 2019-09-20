@@ -1777,7 +1777,8 @@ elseif ($command != '') {
                     )
                   );
                 }
-                }else{
+              
+                else{
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
@@ -1788,6 +1789,7 @@ elseif ($command != '') {
                     )
                   );
                 }
+              }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
