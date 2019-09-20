@@ -258,11 +258,14 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                var_dump($resultlo);
-                var_dump($location_name);
+                //var_dump($resultlo);
+                //var_dump($location_name);
                 echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
                 if($resultlo == $location_name){
                   echo '5555555555';
+                  echo $text1;
+                  echo $text2;
+                  echo $text3;
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
@@ -279,6 +282,8 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
                         )
                     )
                   );
+                  // $result = json_encode($mreply);
+                  // $client->replyMessage($mreply);
                 }
               
                 else{
