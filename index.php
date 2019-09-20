@@ -1880,7 +1880,7 @@ elseif ($command != '') {
             //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
             
             $headers = array('Accept' => 'application/json');
-            $data = array('latitude' => "$latitude", 'longitude' => "$longitude" ,'limit' => "$limit");
+            $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
             $body = Unirest\Request\Body::json($data);
             $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
 
@@ -1898,7 +1898,7 @@ elseif ($command != '') {
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                if($resultlo == "กลุ่มผู้ผลิตหน่อไม้ฝรั่งบ้านปลักไม้ลาย"){
+                if($resultlo == "ร้านน้องส้มโอ"){
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
