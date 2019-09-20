@@ -1818,25 +1818,14 @@ elseif ($command != '') {
 
         }
         elseif($command == "ท"){
-          $querylog = "SELECT * FROM line_log WHERE userid = $userId";
+            $querylog = "SELECT * FROM line_log WHERE userid = $userId";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plan_category = $rowlog['plan_category'];
             //$ddisplayName = $rowlog['displayName'];
-            $address = $rowlog['address'];
             $latitude = $rowlog['latitude'];
             $longitude = $rowlog['longitude'];
-            //$ppictureUrl = $rowlog['pictureUrl'];
-            echo $plan_category."\n" ;
-            //echo $displayName ."\n";
-            echo $address ."\n";
-            //echo $pictureUrl ."\n";
-  /////////////////////////  
-            echo $latitude." : ".$longitude."\n";
-    //////////////////////////////////
-            echo "123456788888888";
-            
-            /////////////////////////////////////////
+        
             $limit = 10;
             $headers = array('Accept' => 'application/json');
             $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
@@ -1872,30 +1861,18 @@ elseif ($command != '') {
                     // echo $text1;
                     // echo $text2;
                     // echo $text3;
-                    $mreply = array(
-                      'replyToken' => $replyToken,
-                      'messages' => array(
-                          array(
-                              'type' => 'text',
-                              'text' => "55555555555555555555"
-                          )
-                      )
-                    );
-                  }
-                
-                  else{
-                    $mreply = array(
-                      'replyToken' => $replyToken,
-                      'messages' => array(
-                          array(
-                              'type' => 'text',
-                              'text' => "fuck"
-                          )
-                      )
-                    );
-                
+                    $arrayPostData['replyToken'] = $replyToken;
+                    //$arrayPostData['to'] = $uid;
+                    $arrayPostData['messages'][0]['type'] = "text";
+                    $arrayPostData['messages'][0]['text'] = $resultpn;
+                    replyMsg($arrayHeader,$arrayPostData);
+                  }else{
+                    $arrayPostData['replyToken'] = $replyToken;
+                    //$arrayPostData['to'] = $uid;
+                    $arrayPostData['messages'][0]['type'] = "text";
+                    $arrayPostData['messages'][0]['text'] = "fuckkk";
+                    replyMsg($arrayHeader,$arrayPostData);
                 }
-                
               }
             }
             // $resultlo = $json['data']['list'][$i]['location_name'];
