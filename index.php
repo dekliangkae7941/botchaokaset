@@ -1221,10 +1221,11 @@ elseif ($command != '') {
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['wrap'] = true;*/
                     //$datacountrowtype += 1;
     //echo "$latitude : $longitude";
-                    $querystype = "SELECT DISTINCT location_name,  * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
-                    WHERE subtype_id = '$subtype_id' 
-                    ORDER BY lo,la
-                    LIMIT 3";
+                    // $querystype = "SELECT DISTINCT location_name,  * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
+                    // WHERE subtype_id = '$subtype_id' 
+                    // ORDER BY lo,la
+                    // LIMIT 3";
+                    $querystype = "SELECT * FROM line_subtype_all LIMIT 3";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     $datacountrowtype = 0;
@@ -1237,7 +1238,27 @@ elseif ($command != '') {
                             $lastupdate = $rowstype['lastupdate'];
                             $clatitude = $rowstype['coord_latitude'];
                             $clongitude = $rowstype['coord_longitude'];
-                                    
+                            
+                            $headers = array('Accept' => 'application/json');
+                            $data = array('latitude' => "$clatitude", 'longitude' => "$clongitude" );
+                            $body = Unirest\Request\Body::json($data);
+                            $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+                
+                            $json = json_decode($response1->raw_body, true);
+                            //echo json_encode($json);
+                              foreach($json['data']['list'] as $temp){
+                                $resultlo = $temp['location_name'];
+                                $resultpn = $temp['province_name'];
+                                $resultclot = $temp['coord_latitude'];
+                                $resultclon = $temp['coord_longitude'];
+                                $resultcdis = $temp['coord_distance'];
+                                $resultclen = $json['data']['lenght'];
+                
+                                // $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
+                                // $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
+                                // $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
+                                if($resultlo == $location_name){
+
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ : $location_name ";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
@@ -1245,7 +1266,7 @@ elseif ($command != '') {
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                             $datacountrowtype += 1;
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
-                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "จังหวัด $province_name";
+                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "จังหวัด $province_name : ระยะทาง $resultclen";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
@@ -1276,7 +1297,7 @@ elseif ($command != '') {
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                             $datacountrowtype += 1;
-                            
+                            }
                         }
                       
                     /*
@@ -1894,7 +1915,6 @@ elseif ($command != '') {
                 $resultcdis = $temp['coord_distance'];
                 $resultclen = $json['data']['lenght'];
 
-
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
@@ -1914,11 +1934,9 @@ elseif ($command != '') {
                             'text' => $text3
                         )
                     )
-                );
+                  );
                 }
-              
-                
-                }
+              }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
