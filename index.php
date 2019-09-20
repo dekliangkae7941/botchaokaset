@@ -1746,7 +1746,7 @@ elseif ($command != '') {
             
           while($rowstype = pg_fetch_array($resultstype)){
             $location_name = $rowstype['location_name'];
-          }
+          
             //echo json_encode($json);
               foreach($json['data']['list'] as $temp){
                 $resultlo = $temp['location_name'];
@@ -1755,7 +1755,8 @@ elseif ($command != '') {
                 $resultclon = $temp['coord_longitude'];
                 $resultcdis = $temp['coord_distance'];
                 $resultclen = $json['data']['lenght'];
-              
+              }
+            
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
@@ -1789,7 +1790,7 @@ elseif ($command != '') {
                     )
                   );
                 }
-              }
+          }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
