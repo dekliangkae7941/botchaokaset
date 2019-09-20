@@ -1143,6 +1143,12 @@ elseif ($command != '') {
                     $rowlog = pg_fetch_array($resultlog);
                     $latitude = $rowlog['latitude'];
                     $longitude = $rowlog['longitude'];
+                    $headers = array('Accept' => 'application/json');
+                    $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+                    $body = Unirest\Request\Body::json($data);
+                    $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+
+                    $json = json_decode($response1->raw_body, true);
                     if($latitude == NULL && $longitude == NULL){
                         $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
                         $mreply = array(
@@ -1232,23 +1238,17 @@ elseif ($command != '') {
                             $clongitude = $rowstype['coord_longitude'];
                             
                             
-                            $headers = array('Accept' => 'application/json');
-                            $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
-                            $body = Unirest\Request\Body::json($data);
-                            $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
-
-                            $json = json_decode($response1->raw_body, true);
+                            
                             //echo json_encode($json);
-                              foreach($json['data']['list'] as $temp){
+                            foreach($json['data']['list'] as $temp){ 
                                 $resultlo = $temp['location_name'];
                                 $resultpn = $temp['province_name'];
                                 $resultclot = $temp['coord_latitude'];
                                 $resultclon = $temp['coord_longitude'];
                                 $resultcdis = $temp['coord_distance'];
                                 $resultclen = $json['data']['lenght'];
-
-                              }
-                              if($location_name == $resultlo){
+                            }
+                            if($location_name == $resultlo){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ : $location_name ";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
@@ -1287,8 +1287,9 @@ elseif ($command != '') {
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                             $datacountrowtype += 1;
-                              }                            
-                        }
+                            }   
+                            
+                        }                         
                       
                     /*
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['type'] = "button";
@@ -1306,6 +1307,7 @@ elseif ($command != '') {
                     //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['uri'] = "line://nv/location";
                     //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
                     $datacountrowtype1 += 1;    
+                    
                     }
                 
                     pg_free_result($resulttype);
