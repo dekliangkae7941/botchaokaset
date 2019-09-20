@@ -1898,7 +1898,7 @@ elseif ($command != '') {
                 $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                 if($resultlo == "ร้านน้องส้มโอ"){
+                //  if($resultlo == "ร้านน้องส้มโอ"){
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
@@ -1908,7 +1908,7 @@ elseif ($command != '') {
                         )
                     )
                 );
-                 }
+                //  }
                 
               }
               
