@@ -1894,10 +1894,12 @@ elseif ($command != '') {
                 $resultclot = $temp['coord_latitude'];
                 $resultclon = $temp['coord_longitude'];
                 $resultcdis = $temp['coord_distance'];
+                $resultclen = $json['data']['lenght'];
+
 
                 $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
-                $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "\n";
+                $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
                 if($resultlo == "ร้านน้องส้มโอ"){
                   $mreply = array(
                     'replyToken' => $replyToken,
