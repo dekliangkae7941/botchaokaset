@@ -1899,10 +1899,10 @@ elseif ($command != '') {
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
                 if($resultlo == "กลุ่มผู้ผลิตหน่อไม้ฝรั่งบ้านปลักไม้ลาย"){
-                $arrayPostData['replyToken'] = $replyToken;
-                $arrayPostData['messages'][$temp]['type'] = "text";
-                $arrayPostData['messages'][$temp]['text'] = "$text1 **** $text2 ++++++ $text3";
-                replyMsg($arrayHeader,$arrayPostData);
+                  $arrayPostData['replyToken'] = $replyToken;
+                  $arrayPostData['messages'][$temp]['type'] = "text";
+                  $arrayPostData['messages'][$temp]['text'] = "$text1 **** $text2 ++++++ $text3";
+                  replyMsg($arrayHeader,$arrayPostData);
                 }
               }
               
