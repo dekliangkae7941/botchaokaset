@@ -1713,7 +1713,7 @@ elseif ($command != '') {
 
         }
         elseif($command == "ท"){
-          $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
+          $querylog = "SELECT * FROM line_log WHERE userid = $userId";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plan_category = $rowlog['plan_category'];
@@ -1730,17 +1730,21 @@ elseif ($command != '') {
             echo $latitude." : ".$longitude."\n";
     //////////////////////////////////
             echo "123456788888888";
-
+            
             /////////////////////////////////////////
             $limit = 10;
-            //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
-            
             $headers = array('Accept' => 'application/json');
             $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
             $body = Unirest\Request\Body::json($data);
             $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
-
             $json = json_decode($response1->raw_body, true);
+            //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+            $querystype = "SELECT * FROM line_subtype_all WHERE subtype_id = 1";
+                    ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
+            $resultstype = pg_query($dbconn, $querystype);
+            
+          while($rowstype = pg_fetch_array($resultstype)){
+            $location_name = $rowstype['location_name'];
             //echo json_encode($json);
               foreach($json['data']['list'] as $temp){
                 $resultlo = $temp['location_name'];
@@ -1753,7 +1757,7 @@ elseif ($command != '') {
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                if($resultlo == "ร้านน้องส้มโอ"){
+                if($resultlo == "$location_name"){
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
@@ -1787,7 +1791,7 @@ elseif ($command != '') {
 
 
           //echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
-
+            }
 
         }
         #ตัวอย่าง Message Type "Text + Sticker" https://chaokaset.openservice.in.th/index.php/priceservices/getSubtype/2
