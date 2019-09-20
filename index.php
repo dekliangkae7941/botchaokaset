@@ -242,7 +242,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
             $querystype = "SELECT * FROM line_subtype_all WHERE subtype_id = $n";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
             $resultstype = pg_query($dbconn, $querystype);
-            var_dump($json);
+            //var_dump($json);
           while($rowstype = pg_fetch_array($resultstype)){
             $location_name = $rowstype['location_name'];
           
@@ -260,7 +260,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
                 //var_dump($resultlo);
                 //var_dump($location_name);
-                echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+                //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
                 if($resultlo == $location_name){
                   echo '5555555555';
                   echo $text1;
