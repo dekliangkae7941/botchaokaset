@@ -138,7 +138,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   $headers = array('Accept' => 'application/json');
   $data = array('latitude' => "$latitude", 'longitude' => "$longitude",'limit' => "$limit" );
   $body = Unirest\Request\Body::json($data);
-  $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+  $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$body,$headers);
 
   $json = json_decode($response1->raw_body, true);
   //echo json_encode($json);
@@ -2086,8 +2086,6 @@ elseif ($command != '') {
                             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
                             $result = curl_exec( $ch );
                             curl_close( $ch );
-
-
         }
         /////////
     }
