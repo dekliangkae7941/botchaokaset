@@ -1838,8 +1838,7 @@ elseif ($command != '') {
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
             $resultstype = pg_query($dbconn, $querystype);
             
-            while($rowstype = pg_fetch_array($resultstype)){
-              $location_name = $rowstype['location_name'];
+           
             
               //echo json_encode($json);
                 foreach($json['data']['list'] as $temp){
@@ -1853,6 +1852,8 @@ elseif ($command != '') {
                   $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                   $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                   $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
+                  while($rowstype = pg_fetch_array($resultstype)){
+                    $location_name = $rowstype['location_name'];
                   //var_dump($resultlo);
                   //var_dump($location_name);
                   //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
@@ -1861,6 +1862,7 @@ elseif ($command != '') {
                     // echo $text1;
                     // echo $text2;
                     // echo $text3;
+
                     $arrayPostData['replyToken'] = $replyToken;
                     //$arrayPostData['to'] = $uid;
                     $arrayPostData['messages'][0]['type'] = "text";
