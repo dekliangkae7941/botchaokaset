@@ -1755,11 +1755,11 @@ elseif ($command != '') {
                 $resultclon = $temp['coord_longitude'];
                 $resultcdis = $temp['coord_distance'];
                 $resultclen = $json['data']['lenght'];
-              }
+              
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                if($resultlo == "$location_name"){
+                if($resultlo == $location_name){
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
@@ -1776,6 +1776,7 @@ elseif ($command != '') {
                         )
                     )
                   );
+                }
                 }else{
                   $mreply = array(
                     'replyToken' => $replyToken,
