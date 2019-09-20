@@ -1886,8 +1886,6 @@ elseif ($command != '') {
 
             $json = json_decode($response1->raw_body, true);
             //echo json_encode($json);
-            for($i=0;$i<=$response1->raw_body;$i++){
-              }
               foreach($json['data']['list'] as $temp){
                 $resultlo = $temp['location_name'];
                 $resultpn = $temp['province_name'];
@@ -1900,7 +1898,7 @@ elseif ($command != '') {
                 $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                if($resultlo == "ร้านน้องส้มโอ"){
+                if($temp['location_name'] == "ร้านน้องส้มโอ"){
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
