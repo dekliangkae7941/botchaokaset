@@ -212,7 +212,7 @@ $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 
 #------------------------------------------------------------------------#
-$querylog = "SELECT * FROM line_log WHERE userid = $userId";
+$querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4c8697'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plan_category = $rowlog['plan_category'];
