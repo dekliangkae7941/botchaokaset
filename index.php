@@ -1877,19 +1877,10 @@ elseif ($command != '') {
                       'messages' => array(
                           array(
                               'type' => 'text',
-                              'text' => $text1
-                          ),
-                          array(
-                            'type' => 'text',
-                            'text' => $text2
-                          ),array(
-                              'type' => 'text',
-                              'text' => $text3
+                              'text' => "55555555555555555555"
                           )
                       )
                     );
-                    $result = json_encode($mreply);
-                    $client->replyMessage($mreply);
                   }
                 
                   else{
