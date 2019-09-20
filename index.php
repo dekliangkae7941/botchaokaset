@@ -254,7 +254,6 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
                 $resultclon = $temp['coord_longitude'];
                 $resultcdis = $temp['coord_distance'];
                 $resultclen = $json['data']['lenght'];
-              }
             
                 $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
@@ -294,6 +293,8 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
                   );
               
               }
+              
+            }
           }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
