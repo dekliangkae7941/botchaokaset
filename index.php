@@ -1215,10 +1215,8 @@ elseif ($command != '') {
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][1]['wrap'] = true;*/
                     //$datacountrowtype += 1;
                     //echo "$latitude : $longitude";
-                    $querystype = "SELECT DISTINCT location_name,  * ,ABS(coord_longitude-$longitude)as lo ,ABS(coord_latitude-$latitude)as la FROM line_subtype_all
-                    WHERE subtype_id = '$subtype_id' 
-                    ORDER BY lo,la
-                    LIMIT 3";
+                    $querystype = "SELECT * FROM line_subtype_all
+                    WHERE subtype_id = '$subtype_id'";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     $datacountrowtype = 0;
