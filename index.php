@@ -1849,56 +1849,64 @@ elseif ($command != '') {
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
             $resultstype = pg_query($dbconn, $querystype);
             
-          while($rowstype = pg_fetch_array($resultstype)){
-            $location_name = $rowstype['location_name'];
-          
-            //echo json_encode($json);
-              foreach($json['data']['list'] as $temp){
-                $resultlo = $temp['location_name'];
-                $resultpn = $temp['province_name'];
-                $resultclot = $temp['coord_latitude'];
-                $resultclon = $temp['coord_longitude'];
-                $resultcdis = $temp['coord_distance'];
-                $resultclen = $json['data']['lenght'];
-              }
+            while($rowstype = pg_fetch_array($resultstype)){
+              $location_name = $rowstype['location_name'];
             
-                $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
-                $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
-                $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                var_dump($resultlo);
-                var_dump($location_name);
-                echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-                if($resultlo == $location_name){
-                  $mreply = array(
-                    'replyToken' => $replyToken,
-                    'messages' => array(
-                        array(
-                            'type' => 'text',
-                            'text' => $text1
-                        ),
-                        array(
-                          'type' => 'text',
-                          'text' => $text2
-                        ),array(
-                            'type' => 'text',
-                            'text' => $text3
-                        )
-                    )
-                  );
-                }
+              //echo json_encode($json);
+                foreach($json['data']['list'] as $temp){
+                  $resultlo = $temp['location_name'];
+                  $resultpn = $temp['province_name'];
+                  $resultclot = $temp['coord_latitude'];
+                  $resultclon = $temp['coord_longitude'];
+                  $resultcdis = $temp['coord_distance'];
+                  $resultclen = $json['data']['lenght'];
               
-                else{
-                  $mreply = array(
-                    'replyToken' => $replyToken,
-                    'messages' => array(
-                        array(
+                  $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
+                  $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
+                  $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
+                  //var_dump($resultlo);
+                  //var_dump($location_name);
+                  //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+                  if($resultlo == $location_name){
+                    // echo '5555555555';
+                    // echo $text1;
+                    // echo $text2;
+                    // echo $text3;
+                    $mreply = array(
+                      'replyToken' => $replyToken,
+                      'messages' => array(
+                          array(
+                              'type' => 'text',
+                              'text' => $text1
+                          ),
+                          array(
                             'type' => 'text',
-                            'text' => "fuck"
-                        )
-                    )
-                  );
+                            'text' => $text2
+                          ),array(
+                              'type' => 'text',
+                              'text' => $text3
+                          )
+                      )
+                    );
+                    $result = json_encode($mreply);
+                    $client->replyMessage($mreply);
+                  }
+                
+                  else{
+                    $mreply = array(
+                      'replyToken' => $replyToken,
+                      'messages' => array(
+                          array(
+                              'type' => 'text',
+                              'text' => "fuck"
+                          )
+                      )
+                    );
+                
                 }
-          }
+                
+              }
+            }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
