@@ -1899,23 +1899,26 @@ elseif ($command != '') {
                 $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
                 if($resultlo == "กลุ่มผู้ผลิตหน่อไม้ฝรั่งบ้านปลักไม้ลาย"){
-                  $arrayPostData['replyToken'] = $replyToken;
-                  $arrayPostData['messages'][$temp]['type'] = "text";
-                  $arrayPostData['messages'][$temp]['text'] = "$text1 **** $text2 ++++++ $text3";
-                  replyMsg($arrayHeader,$arrayPostData);
+                  $mreply = array(
+                    'replyToken' => $replyToken,
+                    'messages' => array(
+                        array(
+                            'type' => 'text',
+                            'text' => $text1
+                        ),
+                        array(
+                          'type' => 'text',
+                          'text' => $text2
+                        ),array(
+                          'type' => 'text',
+                          'text' => $text3
+                      )
+                    )
+                );
                 }
-              }
               
-              //   $mreply = array(
-              //     'replyToken' => $replyToken,
-              //     'messages' => array(
-              //         array(
-              //             'type' => 'text',
-              //             'text' => $text
-              //         )
-              //     )
-              // );
-              //   }
+                
+                }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
