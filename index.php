@@ -1143,12 +1143,6 @@ elseif ($command != '') {
                     $rowlog = pg_fetch_array($resultlog);
                     $latitude = $rowlog['latitude'];
                     $longitude = $rowlog['longitude'];
-                    $urisubtype = "https://chaokaset.openservice.in.th/index.php/Location/scan";
-                    $response = Unirest\Request::get("$urisubtype");
-                    $json = json_decode($response->raw_body, true);
-                    $resultasn = $json[1]['subtype_name'];
-                    $resultasid = $json[1]['subtype_id'];
-                    $resultatid = $json[1]['type_id'];
                     if($latitude == NULL && $longitude == NULL){
                         $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
                         $mreply = array(
@@ -1317,12 +1311,11 @@ elseif ($command != '') {
                     //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
                     $datacountrowtype1 += 1;    
                     }
-                
-                    pg_free_result($resulttype);
                     replyMsg($arrayHeader,$arrayPostData);
-                }
-                }
-            }       
+            }   
+          }
+        }    
+      }
         /////////////////////////
         /*$querynotify = "SELECT plan_category from line_notifysent";
                     $resultnotify = pg_query($dbconn, $querynotify);
