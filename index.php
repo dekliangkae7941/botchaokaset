@@ -1884,8 +1884,9 @@ elseif ($command != '') {
             $body = Unirest\Request\Body::json($data);
             $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
 
-            $json = json_decode($response1->raw_body, true);
+            
             //echo json_encode($json);
+            while($json = json_decode($response1->raw_body, true)){
             $resultlo = $json['data']['list'][0]['location_name'];
             $resultpn = $json['data']['list'][0]['province_name'];
             $resultclot = $json['data']['list'][0]['coord_latitude'];
@@ -1910,7 +1911,7 @@ elseif ($command != '') {
                   )
               )
           );
-
+        }
 
           //echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
 
