@@ -1880,7 +1880,7 @@ elseif ($command != '') {
             //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
             
             $headers = array('Accept' => 'application/json');
-            $data = array('latitude' => "$latitude", 'longitude' => "$longitude");
+            $data = array('latitude' => "$latitude", 'longitude' => "$longitude" ,'limit' => "$limit");
             $body = Unirest\Request\Body::json($data);
             $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
 
