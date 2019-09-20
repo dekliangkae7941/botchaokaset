@@ -1886,30 +1886,41 @@ elseif ($command != '') {
 
             $json = json_decode($response1->raw_body, true);
             //echo json_encode($json);
-            $resultlo = $json['data']['list'][1]['location_name'];
-            $resultpn = $json['data']['list'][1]['province_name'];
-            $resultclot = $json['data']['list'][1]['coord_latitude'];
-            $resultclon = $json['data']['list'][1]['coord_longitude'];
-            $resultcdis = $json['data']['list'][1]['coord_distance'];
+            for($i=0;$i<=$response1->raw_body;$i++){
+              }
+              foreach($json['data']['list'] as $temp){
+                $resultlo = $temp['location_name'];
+                $resultpn = $temp['province_name'];
+                $resultclot = $temp['coord_latitude'];
+                $resultclon = $temp['coord_longitude'];
+                $resultcdis = $temp['coord_distance'];
+                
+                $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
+                $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
+                $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "\n";
+
+                $mreply = array(
+                  'replyToken' => $replyToken,
+                  'messages' => array(
+                      array(
+                          'type' => 'text',
+                          'text' => $text
+                      )
+                  )
+              );
+              }
+            // $resultlo = $json['data']['list'][$i]['location_name'];
+            // $resultpn = $json['data']['list'][$i]['province_name'];
+            // $resultclot = $json['data']['list'][$i]['coord_latitude'];
+            // $resultclon = $json['data']['list'][$i]['coord_longitude'];
+            // $resultcdis = $json['data']['list'][$i]['coord_distance'];
             
             // echo $latitude." : ".$longitude;
             // echo $resultlo." : ".$resultpn;
             // echo $resultclot." : ".$resultclon;
             // echo "12345678";
             // echo $json["status"];
-            $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
-            $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
-            $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "\n";
-
-            $mreply = array(
-              'replyToken' => $replyToken,
-              'messages' => array(
-                  array(
-                      'type' => 'text',
-                      'text' => $text
-                  )
-              )
-          );
+            
 
 
           //echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
