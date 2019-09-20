@@ -1894,21 +1894,22 @@ elseif ($command != '') {
                 $resultclot = $temp['coord_latitude'];
                 $resultclon = $temp['coord_longitude'];
                 $resultcdis = $temp['coord_distance'];
-                
+
                 $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                 $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                 $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "\n";
 
-                $mreply = array(
-                  'replyToken' => $replyToken,
-                  'messages' => array(
-                      array(
-                          'type' => 'text',
-                          'text' => $text
-                      )
-                  )
-              );
+                
               }
+              $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array(
+                        'type' => 'text',
+                        'text' => $text
+                    )
+                )
+            );
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
