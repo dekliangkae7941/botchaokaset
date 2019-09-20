@@ -1886,39 +1886,56 @@ elseif ($command != '') {
 
             $json = json_decode($response1->raw_body, true);
             //echo json_encode($json);
-              foreach($json['data']['list'] as $temp){
-                $resultlo = $temp['location_name'];
-                $resultpn = $temp['province_name'];
-                $resultclot = $temp['coord_latitude'];
-                $resultclon = $temp['coord_longitude'];
-                $resultcdis = $temp['coord_distance'];
-                $resultclen = $json['data']['lenght'];
-
-
-                $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
-                $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
-                $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                if($resultlo == "กลุ่มผู้ผลิตหน่อไม้ฝรั่งบ้านปลักไม้ลาย"){
-                  $mreply = array(
-                    'replyToken' => $replyToken,
-                    'messages' => array(
-                        array(
-                            'type' => 'text',
-                            'text' => $text1
-                        ),
-                        array(
-                          'type' => 'text',
-                          'text' => $text2
-                        ),array(
-                          'type' => 'text',
-                          'text' => $text3
-                      )
-                    )
-                );
-                }
               
                 
-                }
+                        $arrayPostData['replyToken'] = $replyToken;
+                        //$arrayPostData['to'] = $uid;
+                        $arrayPostData['messages'][0]['type'] = "flex";
+                        $arrayPostData['messages'][0]['altText'] = "$command";
+                        $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+                        
+                        $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
+                        $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
+                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "$command";
+                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
+                        $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
+    
+                        $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+                        $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+                        $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
+                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
+                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "กรุณาเลือกประเภทของ$command ";
+                        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
+                        foreach($json['data']['list'] as $temp){
+                          $resultlo = $temp['location_name'];
+                          $resultpn = $temp['province_name'];
+                          $resultclot = $temp['coord_latitude'];
+                          $resultclon = $temp['coord_longitude'];
+                          $resultcdis = $temp['coord_distance'];
+                          $resultclen = $json['data']['lenght'];
+
+                          $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
+                          $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
+                          $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
+                          $datacountrowmarket = 0;
+                              // $datacountrowmarket += 1;
+                              $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
+                              $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
+                              $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
+                              $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$text1 $text2 $text3";
+                              $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "ราคา";
+                          $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
+                          $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
+                          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
+                          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
+                          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
+                          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
+                          $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+                          replyMsg($arrayHeader,$arrayPostData);
+                
+              }
             // $resultlo = $json['data']['list'][$i]['location_name'];
             // $resultpn = $json['data']['list'][$i]['province_name'];
             // $resultclot = $json['data']['list'][$i]['coord_latitude'];
