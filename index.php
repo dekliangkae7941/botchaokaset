@@ -138,7 +138,7 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
   $headers = array('Accept' => 'application/json');
   $data = array('latitude' => "$latitude", 'longitude' => "$longitude",'limit' => "$limit" );
   $body = Unirest\Request\Body::json($data);
-  $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$body,$headers);
+  $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
 
   $json = json_decode($response1->raw_body, true);
   //echo json_encode($json);
@@ -1853,6 +1853,66 @@ elseif ($command != '') {
                       )
                 )
             );
+
+
+        }
+        elseif($command == "ท"){
+          $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
+            $resultlog = pg_query($dbconn, $querylog);
+            $rowlog = pg_fetch_array($resultlog);
+            $plan_category = $rowlog['plan_category'];
+            //$ddisplayName = $rowlog['displayName'];
+            $address = $rowlog['address'];
+            $latitude = $rowlog['latitude'];
+            $longitude = $rowlog['longitude'];
+            //$ppictureUrl = $rowlog['pictureUrl'];
+            echo $plan_category."\n" ;
+            //echo $displayName ."\n";
+            echo $address ."\n";
+            //echo $pictureUrl ."\n";
+  /////////////////////////  
+            echo $latitude." : ".$longitude."\n";
+    //////////////////////////////////
+            echo "123456788888888";
+
+            /////////////////////////////////////////
+            $limit = 10;
+            //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+            
+            $headers = array('Accept' => 'application/json');
+            $data = array('latitude' => "$latitude", 'longitude' => "$longitude",'limit' => "$limit" );
+            $body = Unirest\Request\Body::json($data);
+            $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+
+            $json = json_decode($response1->raw_body, true);
+            //echo json_encode($json);
+            $resultlo = $json['data']['list'][0]['location_name'];
+            $resultpn = $json['data']['list'][0]['province_name'];
+            $resultclot = $json['data']['list'][0]['coord_latitude'];
+            $resultclon = $json['data']['list'][0]['coord_longitude'];
+            $resultcdis = $json['data']['list'][0]['coord_distance'];
+            $resultcdis = $json['data']['list'][0]['coord_distance'];
+            echo $latitude." : ".$longitude;
+            echo $resultlo." : ".$resultpn;
+            echo $resultclot." : ".$resultclon;
+            echo "12345678";
+            echo $json["status"];
+            $text .= " พื้นที่ : " . $latitude." : ".$longitude. "\n";
+            $text .= " สภาพอากาศ : " . $resultlo." : ".$resultpn . "\n";
+            $text .= " รายละเอียด : " . $resultclot." : ".$resultclon . "\n";
+
+            $mreply = array(
+              'replyToken' => $replyToken,
+              'messages' => array(
+                  array(
+                      'type' => 'text',
+                      'text' => $text
+                  )
+              )
+          );
+
+
+          //echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
 
 
         }
