@@ -31,7 +31,7 @@
 
 <div class="container">
 <h2>แก้ไขข้อมูลข่าวสารและคลังความรู้</h2>
-  <form action="update.php" method="post">
+  <form action="update.php?main_id=<?=$row['main_id']; ?>" method="post">
     <div class="form-group">
       <label for="main_name">Main Name</label>
       <input type="text" class="form-control" id="main_name"  name="main_name" value="<?php echo $row['main_name']; ?>">
