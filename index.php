@@ -142,7 +142,7 @@
   echo $resultclot." : ".$resultclon;
   echo "12345678";
   echo $json["status"];
-echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
+// echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
 
 
 // $sql = "SELECT * FROM line_type WHERE category_id = '1'";
