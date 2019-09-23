@@ -1952,6 +1952,7 @@ elseif ($command != '') {
           //var_dump($json);
         while($rowstype = pg_fetch_array($resultstype)){
           $location_name = $rowstype['location_name'];
+          $subtype_name = $rowstype['subtype_name'];
         
           //echo json_encode($json);
             foreach($json['data']['list'] as $temp){
@@ -1960,6 +1961,7 @@ elseif ($command != '') {
               $resultclot = $temp['coord_latitude'];
               $resultclon = $temp['coord_longitude'];
               $resultcdis = $temp['coord_distance'];
+              $resultcdis = $temp['subtype_name'];
               $resultclen = $json['data']['lenght'];
           
               $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
@@ -1968,7 +1970,7 @@ elseif ($command != '') {
               //var_dump($resultlo);
               //var_dump($location_name);
               //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-              if($resultlo == $location_name){
+              if($subtype_name === $subtype_name){
                 // echo '5555555555';
                 // echo $text1. "\n";
                 // echo $text2. "\n";
@@ -1978,7 +1980,7 @@ elseif ($command != '') {
                   'messages' => array(
                       array(
                           'type' => 'text',
-                          'text' => "$text1"
+                          'text' => "$text1\\$text2//$text3"
                       )
                   )
                 );
