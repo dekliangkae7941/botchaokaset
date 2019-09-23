@@ -1978,7 +1978,7 @@ elseif ($command != '') {
                   'messages' => array(
                       array(
                           'type' => 'text',
-                          'text' => $text1
+                          'text' => "$text1"
                       )
                   )
                 );
@@ -1991,7 +1991,7 @@ elseif ($command != '') {
                   'messages' => array(
                       array(
                           'type' => 'text',
-                          'text' => "fuck"
+                          'text' => "$text3"
                       )
                   )
                 );
