@@ -1991,7 +1991,7 @@ elseif ($command != '') {
                   'messages' => array(
                       array(
                           'type' => 'text',
-                          'text' => "$text3"
+                          'text' => "$text1\\$text2//$text3"
                       )
                   )
                 );
