@@ -113,23 +113,23 @@
 #--------------------------------------------------------------------------------------------------------------------#
 // Attempt select query execution
 
-$querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
-            $resultlog = pg_query($dbconn, $querylog);
-            $rowlog = pg_fetch_array($resultlog);
-            $plan_category = $rowlog['plan_category'];
-            //$ddisplayName = $rowlog['displayName'];
-            $address = $rowlog['address'];
-            $latitude = $rowlog['latitude'];
-            $longitude = $rowlog['longitude'];
-            //$ppictureUrl = $rowlog['pictureUrl'];
-            echo $plan_category."\n" ;
-            //echo $displayName ."\n";
-            echo $address ."\n";
-            //echo $pictureUrl ."\n";
-/////////////////////////  
-          echo $latitude." : ".$longitude."\n";
-  //////////////////////////////////
-  echo "123456788888888";
+// $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
+//             $resultlog = pg_query($dbconn, $querylog);
+//             $rowlog = pg_fetch_array($resultlog);
+//             $plan_category = $rowlog['plan_category'];
+//             //$ddisplayName = $rowlog['displayName'];
+//             $address = $rowlog['address'];
+//             $latitude = $rowlog['latitude'];
+//             $longitude = $rowlog['longitude'];
+//             //$ppictureUrl = $rowlog['pictureUrl'];
+//             echo $plan_category."\n" ;
+//             //echo $displayName ."\n";
+//             echo $address ."\n";
+//             //echo $pictureUrl ."\n";
+// /////////////////////////  
+//           echo $latitude." : ".$longitude."\n";
+//   //////////////////////////////////
+//   echo "123456788888888";
 
   /////////////////////////////////////////
   // $limit = 10;
@@ -156,29 +156,29 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a
 //echo "$latitude //$latitude ///$resultlo //$resultpn// $resultclot //$resultclon// $resultcdis";
 
 
-$sql = "SELECT * FROM line_type WHERE category_id = '1'";
-if($result = pg_query($dbconn, $sql)){
-    if(pg_num_rows($result) > 0){
-        echo "<table>";
-            echo "<tr>";
-                echo "<th>id</th>";
-                echo "<th>first_name</th>";
-            echo "</tr>";
-        while($row = pg_fetch_array($result)){
-            echo "<tr>";
-                echo "<td>" . $row['type_id'] . "</td>";
-                echo "<td>" . $row['type_name'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        // Free result set
-        pg_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
-}
+// $sql = "SELECT * FROM line_type WHERE category_id = '1'";
+// if($result = pg_query($dbconn, $sql)){
+//     if(pg_num_rows($result) > 0){
+//         echo "<table>";
+//             echo "<tr>";
+//                 echo "<th>id</th>";
+//                 echo "<th>first_name</th>";
+//             echo "</tr>";
+//         while($row = pg_fetch_array($result)){
+//             echo "<tr>";
+//                 echo "<td>" . $row['type_id'] . "</td>";
+//                 echo "<td>" . $row['type_name'] . "</td>";
+//             echo "</tr>";
+//         }
+//         echo "</table>";
+//         // Free result set
+//         pg_free_result($result);
+//     } else{
+//         echo "No records matching your query were found.";
+//     }
+// } else{
+//     echo "ERROR: Could not able to execute $sql. " . pg_result_error($link);
+// }
 
 // Close connection
 //dfb33833ca384effa6b7d26c0145ecab//APIKEYข่าว
