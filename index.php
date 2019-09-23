@@ -1237,12 +1237,12 @@ elseif ($command != '') {
                     $rowlog = pg_fetch_array($resultlog);
                     $latitude = $rowlog['latitude'];
                     $longitude = $rowlog['longitude'];
-                    $headers = array('Accept' => 'application/json');
-                    $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
-                    $body = Unirest\Request\Body::json($data);
-                    $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+                    // $headers = array('Accept' => 'application/json');
+                    // $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+                    // $body = Unirest\Request\Body::json($data);
+                    // $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
 
-                    $json = json_decode($response1->raw_body, true);
+                    // $json = json_decode($response1->raw_body, true);
                     if($latitude == NULL && $longitude == NULL){
                         $text = "กรุณาอนุญาตการเข้าถึงที่อยู่ตำแหน่งของคุณ โดยการกดปุ่มระบุตำแหน่งด้านล่าง เพื่อบันทึกที่อยู่ของท่าน";
                         $mreply = array(
@@ -1266,6 +1266,109 @@ elseif ($command != '') {
                             )
                         ); 
                     }else{
+
+                      $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4c8697'";
+                      $resultlog = pg_query($dbconn, $querylog);
+                      $rowlog = pg_fetch_array($resultlog);
+                      $plan_category = $rowlog['plan_category'];
+                      //$ddisplayName = $rowlog['displayName'];
+                      $address = $rowlog['address'];
+                      $latitude = $rowlog['latitude'];
+                      $longitude = $rowlog['longitude'];
+                      //$ppictureUrl = $rowlog['pictureUrl'];
+                      echo $plan_category."\n" ;
+                      //echo $displayName ."\n";
+                      echo $address ."\n";
+                      //echo $pictureUrl ."\n";
+            /////////////////////////  
+                      echo $latitude." : ".$longitude."\n";
+              //////////////////////////////////
+                      echo "123456788888888";
+                      
+                      /////////////////////////////////////////
+                      $limit = 10;
+                      $headers = array('Accept' => 'application/json');
+                      $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+                      $body = Unirest\Request\Body::json($data);
+                      $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+                      $json = json_decode($response1->raw_body, true);
+                      //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+                      $n = 1;
+                      $querystype = "SELECT * FROM line_subtype_all WHERE subtype_id = $n";
+                              ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
+                      $resultstype = pg_query($dbconn, $querystype);
+                      //var_dump($json);
+                    while($rowstype = pg_fetch_array($resultstype)){
+                      $location_name = $rowstype['location_name'];
+                    
+                      //echo json_encode($json);
+                        foreach($json['data']['list'] as $temp){
+                          $resultlo = $temp['location_name'];
+                          $resultpn = $temp['province_name'];
+                          $resultclot = $temp['coord_latitude'];
+                          $resultclon = $temp['coord_longitude'];
+                          $resultcdis = $temp['coord_distance'];
+                          $resultclen = $json['data']['lenght'];
+                      
+                          $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
+                          $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
+                          $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
+                          //var_dump($resultlo);
+                          //var_dump($location_name);
+                          //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+                          if($resultlo == $location_name){
+                            echo '5555555555';
+                            echo $text1. "\n";
+                            echo $text2. "\n";
+                            echo $text3. "\n";
+                            $mreply = array(
+                              'replyToken' => $replyToken,
+                              'messages' => array(
+                                  array(
+                                      'type' => 'text',
+                                      'text' => $text1
+                                  ),
+                                  array(
+                                    'type' => 'text',
+                                    'text' => $text2
+                                  ),array(
+                                      'type' => 'text',
+                                      'text' => $text3
+                                  )
+                              )
+                            );
+                            // $result = json_encode($mreply);
+                            // $client->replyMessage($mreply);
+                          }
+                        
+                          else{
+                            $mreply = array(
+                              'replyToken' => $replyToken,
+                              'messages' => array(
+                                  array(
+                                      'type' => 'text',
+                                      'text' => "fuck"
+                                  )
+                              )
+                            );
+                        
+                        }
+                        
+                      }
+                    }
+                      // $resultlo = $json['data']['list'][$i]['location_name'];
+                      // $resultpn = $json['data']['list'][$i]['province_name'];
+                      // $resultclot = $json['data']['list'][$i]['coord_latitude'];
+                      // $resultclon = $json['data']['list'][$i]['coord_longitude'];
+                      // $resultcdis = $json['data']['list'][$i]['coord_distance'];
+                      
+                      // echo $latitude." : ".$longitude;
+                      // echo $resultlo." : ".$resultpn;
+                      // echo $resultclot." : ".$resultclon;
+                      // echo "12345678";
+                      // echo $json["status"];
+                      
+          
                     $arrayPostData['replyToken'] = $replyToken;
                     //$arrayPostData['to'] = $uid;
                     $arrayPostData['messages'][0]['type'] = "flex";
@@ -1321,6 +1424,8 @@ elseif ($command != '') {
                     $resultstype = pg_query($dbconn, $querystype);
                     $datacountrowtype = 0;
                     
+
+
                         while($rowstype = pg_fetch_array($resultstype)){
                             $location_name = $rowstype['location_name'];
                             $province_name = $rowstype['province_name'];
