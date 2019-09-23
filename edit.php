@@ -34,23 +34,23 @@
   <form action="update.php" method="post">
     <div class="form-group">
       <label for="main_name">Main Name</label>
-      <input type="text" class="form-control" id="main_name"  name="main_name" value="<?php $row['main_name']; ?>">
+      <input type="text" class="form-control" id="main_name"  name="main_name" value="<?php echo $row['main_name']; ?>">
     </div>
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title"  name="title" value="<?php $title; ?>">
+      <input type="text" class="form-control" id="title"  name="title" value="<?php echo $title; ?>">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description"  name="description" value="<?php $description; ?>">
+      <input type="text" class="form-control" id="description"  name="description" value="<?php echo $description; ?>">
     </div>
     <div class="form-group">
       <label for="url_link">Url Link</label>
-      <input type="text" class="form-control" id="url_link"  name="url_link" value="<?php $url_link; ?>">
+      <input type="text" class="form-control" id="url_link"  name="url_link" value="<?php echo $url_link; ?>">
     </div>
     <div class="form-group">
       <label for="url_image">Url Image</label>
-      <input type="text" class="form-control" id="url_image"  name="url_image" value="<?php $url_image; ?>">
+      <input type="text" class="form-control" id="url_image"  name="url_image" value="<?php echo $url_image; ?>">
     </div>
     <button type="submit" class="btn btn-default">บันทึการแก้ไข</button>
   </form>
