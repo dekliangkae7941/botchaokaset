@@ -201,7 +201,7 @@ $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 
 #------------------------------------------------------------------------#
-$querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4c8697'";
+$querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             $resultlog = pg_query($dbconn, $querylog);
             $rowlog = pg_fetch_array($resultlog);
             $plan_category = $rowlog['plan_category'];
@@ -210,14 +210,14 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
             $latitude = $rowlog['latitude'];
             $longitude = $rowlog['longitude'];
             //$ppictureUrl = $rowlog['pictureUrl'];
-            echo $plan_category."\n" ;
-            //echo $displayName ."\n";
-            echo $address ."\n";
-            //echo $pictureUrl ."\n";
-  /////////////////////////  
-            echo $latitude." : ".$longitude."\n";
-    //////////////////////////////////
-            echo "123456788888888";
+  //           echo $plan_category."\n" ;
+  //           //echo $displayName ."\n";
+  //           echo $address ."\n";
+  //           //echo $pictureUrl ."\n";
+  // /////////////////////////  
+  //           echo $latitude." : ".$longitude."\n";
+  //   //////////////////////////////////
+  //           echo "123456788888888";
             
             /////////////////////////////////////////
             $limit = 10;
@@ -274,7 +274,6 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
                   // $result = json_encode($mreply);
                   // $client->replyMessage($mreply);
                 }
-              
                 else{
                   $mreply = array(
                     'replyToken' => $replyToken,
