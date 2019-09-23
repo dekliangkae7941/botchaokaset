@@ -13,7 +13,7 @@
       exit(0);
     } else {
         echo "<center>ไม่สามารถแก้ไขได้</center>";
-        header('refresh: 2; index.php');
+        header('refresh: 1; index.php');
         exit(0);
     }
     //5. close connection
