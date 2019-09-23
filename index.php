@@ -1438,8 +1438,16 @@ elseif ($command != '') {
                       $ttitle = $row['title'];
                       $ddescription = $row['description'];
                       $uurl_link = $row['url_link'];
-                      $uurl_image = $row['url_image'];
+                      //$uurl_image = $row['url_image'];
                       $datacountrowtype = 0;
+                      $url = $row['url_image'];
+											$array = get_headers($url);
+                      $string = $array[0];
+											if(strpos($string,"200")){
+													$uurl_image = $url;
+											}else{
+												$uurl_image = 'https://i0.wp.com/www.redeyereloading.com/wp-content/uploads/2017/08/error-page-background-img.jpg?ssl=1';
+											}
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['type'] = "image";
                   $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['hero']['url'] = "$uurl_image";
