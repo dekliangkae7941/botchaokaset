@@ -1,19 +1,19 @@
 <?php
     include "connectdb.php";
     $main_id = $_GET['main_id'];
-    $main_name = $_GET['main_name'];
-    $title = $_GET['title'];
-    $description = $_GET['description'];
-    $url_link = $_GET['url_link'];
-    $url_image = $_GET['url_image'];
-    // $query = "SELECT * FROM admin_log WHERE main_id = $main_id"; 
-    // $result = pg_query($dbconn, $query); 
-    // $row = pg_fetch_array($result);
-    // $main_name = $row['main_name'];
-    // $title = $row['title'];
-    // $description = $row['description'];
-    // $url_link = $row['url_link'];
-    // $url_image = $row['url_image'];
+    // $main_name = $_GET['main_name'];
+    // $title = $_GET['title'];
+    // $description = $_GET['description'];
+    // $url_link = $_GET['url_link'];
+    // $url_image = $_GET['url_image'];
+    $query = "SELECT * FROM admin_log WHERE main_id = $main_id"; 
+    $result = pg_query($dbconn, $query); 
+    $row = pg_fetch_array($result);
+    $main_name = $row['main_name'];
+    $title = $row['title'];
+    $description = $row['description'];
+    $url_link = $row['url_link'];
+    $url_image = $row['url_image'];
     
 
 ?>
