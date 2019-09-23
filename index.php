@@ -33,7 +33,7 @@
       <label for="url_image">Url Image</label>
       <input type="text" class="form-control" id="url_image"  name="url_image">
     </div>
-    <button type="submit" class="btn btn-default">บันทึก</button>
+    <button type="submit" class="btn btn-primary">บันทึก</button>
   </form>
   <br />
   <br />

@@ -52,7 +52,7 @@
       <label for="url_image">Url Image</label>
       <input type="text" class="form-control" id="url_image"  name="url_image" value="<?php echo $url_image; ?>">
     </div>
-    <button type="submit" class="btn btn-default">บันทึการแก้ไข</button>
+    <button type="submit" class="btn btn-primary">บันทึการแก้ไข</button>
   </form>
   <br />
   <br />
