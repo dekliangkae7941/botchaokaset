@@ -34,7 +34,7 @@
   <form action="update.php" method="post">
     <div class="form-group">
       <label for="main_name">Main Name</label>
-      <input type="text" class="form-control" id="main_name"  name="main_name" value="<?php $main_name; ?>">
+      <input type="text" class="form-control" id="main_name"  name="main_name" value="<?php $row['main_name']; ?>">
     </div>
     <div class="form-group">
       <label for="title">Title</label>
