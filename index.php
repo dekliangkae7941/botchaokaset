@@ -252,9 +252,9 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
                 //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
                 if($resultlo == $location_name){
                   echo '5555555555';
-                  echo $text1;
-                  echo $text2;
-                  echo $text3;
+                  echo $text1. "\n";
+                  echo $text2. "\n";
+                  echo $text3. "\n";
                   $mreply = array(
                     'replyToken' => $replyToken,
                     'messages' => array(
