@@ -290,17 +290,17 @@ $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4
               
             }
           }
-            $resultlo = $json['data']['list'][$i]['location_name'];
-            $resultpn = $json['data']['list'][$i]['province_name'];
-            $resultclot = $json['data']['list'][$i]['coord_latitude'];
-            $resultclon = $json['data']['list'][$i]['coord_longitude'];
-            $resultcdis = $json['data']['list'][$i]['coord_distance'];
+            // $resultlo = $json['data']['list'][$i]['location_name'];
+            // $resultpn = $json['data']['list'][$i]['province_name'];
+            // $resultclot = $json['data']['list'][$i]['coord_latitude'];
+            // $resultclon = $json['data']['list'][$i]['coord_longitude'];
+            // $resultcdis = $json['data']['list'][$i]['coord_distance'];
             
-            echo $latitude." : ".$longitude;
-            echo $resultlo." : ".$resultpn;
-            echo $resultclot." : ".$resultclon;
-            echo "12345678";
-            echo $json["status"];
+            // echo $latitude." : ".$longitude;
+            // echo $resultlo." : ".$resultpn;
+            // echo $resultclot." : ".$resultclon;
+            // echo "12345678";
+            // echo $json["status"];
             
 
 
