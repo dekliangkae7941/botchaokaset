@@ -1266,7 +1266,7 @@ elseif ($command != '') {
                         ); 
                     }else{
 
-                      $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4c8697'";
+                      $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
                       $resultlog = pg_query($dbconn, $querylog);
                       $rowlog = pg_fetch_array($resultlog);
                       $plan_category = $rowlog['plan_category'];
@@ -1384,7 +1384,7 @@ elseif ($command != '') {
                     //$datacountrowtype += 1;
                     //echo "$latitude : $longitude";
                     $querystype = "SELECT * FROM line_subtype_all
-                    WHERE subtype_id = '$subtype_id' LIMIT 3";
+                    WHERE subtype_id = '$subtype_id' and coord_latitude IS NOT NULL ORDER BY coord_latitude DESC LIMIT 5";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     //var_dump($json);
@@ -1425,6 +1425,7 @@ elseif ($command != '') {
                             //   $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                             //   $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
                             //echo json_encode($json);
+                          if($clatitude != '' && $clongitude != ''){
                             foreach($json['data']['list'] as $temp){ 
                                 $resultlo = $temp['location_name'];
                                 $resultpn = $temp['province_name'];
@@ -1483,7 +1484,8 @@ elseif ($command != '') {
                                       )
                                     );
                             }
-                            }   
+                            }
+                          }   
                           }                    
                       
                     /*
