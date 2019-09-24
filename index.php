@@ -1283,16 +1283,15 @@ elseif ($command != '') {
                       echo $latitude." : ".$longitude."\n";
               //////////////////////////////////
                       echo "123456788888888";
-                      
-                      /////////////////////////////////////////
-                      // $limit = 10;
-                      // $headers = array('Accept' => 'application/json');
-                      // $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
-                      // $body = Unirest\Request\Body::json($data);
-                      // $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
-                      // $json = json_decode($response1->raw_body, true);
-                      // //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
-                      // $n = 1;
+                      ///////////////////////////////////////
+                      $limit = 10;
+                      $headers = array('Accept' => 'application/json');
+                      $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+                      $body = Unirest\Request\Body::json($data);
+                      $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+                      $json = json_decode($response1->raw_body, true);
+                      //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+                      $n = 1;
                       
                         //   if($resultlo == $location_name){
                            
@@ -1384,7 +1383,7 @@ elseif ($command != '') {
                     //$datacountrowtype += 1;
                     //echo "$latitude : $longitude";
                     $querystype = "SELECT * FROM line_subtype_all
-                    WHERE subtype_id = '$subtype_id' and coord_latitude IS NOT NULL LIMIT 10";
+                    WHERE subtype_id = '$subtype_id' and coord_latitude IS NOT NULL LIMIT 2";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     //var_dump($json);
@@ -1434,7 +1433,7 @@ elseif ($command != '') {
                                 $resultcdis = $temp['coord_distance'];
                                 $resultclen = $json['data']['lenght'];
                             
-                            if($location_name == $resultlo){
+                            if($location_name == $resultlo && $ssubtype_name == $resultcsbt){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ : $location_name ";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
@@ -1474,12 +1473,15 @@ elseif ($command != '') {
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                             $datacountrowtype += 1;
                             }else{
-                              $$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "fffffffff ";
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
-                              $datacountrowtype += 1;
+                              $mreply = array(
+                                      'replyToken' => $replyToken,
+                                      'messages' => array(
+                                          array(
+                                              'type' => 'text',
+                                              'text' => "fuck"
+                                          )
+                                      )
+                                    );
                             }
                           }   
                           }                    
