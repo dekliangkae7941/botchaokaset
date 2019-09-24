@@ -1285,14 +1285,14 @@ elseif ($command != '') {
                       echo "123456788888888";
                       
                       /////////////////////////////////////////
-                      $limit = 10;
-                      $headers = array('Accept' => 'application/json');
-                      $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
-                      $body = Unirest\Request\Body::json($data);
-                      $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
-                      $json = json_decode($response1->raw_body, true);
-                      //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
-                      $n = 1;
+                      // $limit = 10;
+                      // $headers = array('Accept' => 'application/json');
+                      // $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+                      // $body = Unirest\Request\Body::json($data);
+                      // $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+                      // $json = json_decode($response1->raw_body, true);
+                      // //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+                      // $n = 1;
                       
                         //   if($resultlo == $location_name){
                            
@@ -1411,7 +1411,7 @@ elseif ($command != '') {
                             $lastupdate = $rowstype['lastupdate'];
                             $clatitude = $rowstype['coord_latitude'];
                             $clongitude = $rowstype['coord_longitude'];
-                            
+                            $ssubtype_name = $rowstype['subtype_name'];
                             
                             // foreach($json['data']['list'] as $temp){
                             //   $resultlo = $temp['location_name'];
@@ -1428,12 +1428,13 @@ elseif ($command != '') {
                             foreach($json['data']['list'] as $temp){ 
                                 $resultlo = $temp['location_name'];
                                 $resultpn = $temp['province_name'];
+                                $resultcsbt = $temp['subtype_name'];
                                 $resultclot = $temp['coord_latitude'];
                                 $resultclon = $temp['coord_longitude'];
                                 $resultcdis = $temp['coord_distance'];
                                 $resultclen = $json['data']['lenght'];
                             
-                            if($location_name == $resultlo){
+                            if($location_name == $resultlo && $ssubtype_name == $resultcsbt){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ : $location_name ";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
