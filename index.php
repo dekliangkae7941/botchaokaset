@@ -1383,7 +1383,7 @@ elseif ($command != '') {
                     //$datacountrowtype += 1;
                     //echo "$latitude : $longitude";
                     $querystype = "SELECT * FROM line_subtype_all
-                    WHERE subtype_id = '$subtype_id' and coord_latitude IS NOT NULL LIMIT 2";
+                    WHERE subtype_id = '$subtype_id' and coord_latitude IS NOT NULL";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     //var_dump($json);
