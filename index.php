@@ -1266,33 +1266,33 @@ elseif ($command != '') {
                         ); 
                     }else{
 
-                      $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4c8697'";
-                      $resultlog = pg_query($dbconn, $querylog);
-                      $rowlog = pg_fetch_array($resultlog);
-                      $plan_category = $rowlog['plan_category'];
-                      //$ddisplayName = $rowlog['displayName'];
-                      $address = $rowlog['address'];
-                      $latitude = $rowlog['latitude'];
-                      $longitude = $rowlog['longitude'];
-                      //$ppictureUrl = $rowlog['pictureUrl'];
-                      echo $plan_category."\n" ;
-                      //echo $displayName ."\n";
-                      echo $address ."\n";
-                      //echo $pictureUrl ."\n";
-            /////////////////////////  
-                      echo $latitude." : ".$longitude."\n";
-              //////////////////////////////////
-                      echo "123456788888888";
+            //           $querylog = "SELECT * FROM line_log WHERE userid = 'Uce43ca495fb4439ce5734a02aa4c8697'";
+            //           $resultlog = pg_query($dbconn, $querylog);
+            //           $rowlog = pg_fetch_array($resultlog);
+            //           $plan_category = $rowlog['plan_category'];
+            //           //$ddisplayName = $rowlog['displayName'];
+            //           $address = $rowlog['address'];
+            //           $latitude = $rowlog['latitude'];
+            //           $longitude = $rowlog['longitude'];
+            //           //$ppictureUrl = $rowlog['pictureUrl'];
+            //           echo $plan_category."\n" ;
+            //           //echo $displayName ."\n";
+            //           echo $address ."\n";
+            //           //echo $pictureUrl ."\n";
+            // /////////////////////////  
+            //           echo $latitude." : ".$longitude."\n";
+            //   //////////////////////////////////
+            //           echo "123456788888888";
                       
-                      /////////////////////////////////////////
-                      $limit = 10;
-                      $headers = array('Accept' => 'application/json');
-                      $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
-                      $body = Unirest\Request\Body::json($data);
-                      $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
-                      $json = json_decode($response1->raw_body, true);
-                      //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
-                      $n = 1;
+            //           /////////////////////////////////////////
+            //           $limit = 10;
+            //           $headers = array('Accept' => 'application/json');
+            //           $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+            //           $body = Unirest\Request\Body::json($data);
+            //           $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+            //           $json = json_decode($response1->raw_body, true);
+            //           //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
+            //           $n = 1;
                       
                         //   if($resultlo == $location_name){
                            
@@ -1384,7 +1384,7 @@ elseif ($command != '') {
                     //$datacountrowtype += 1;
                     //echo "$latitude : $longitude";
                     $querystype = "SELECT * FROM line_subtype_all
-                    WHERE subtype_id = '$subtype_id' LIMIT 3";
+                    WHERE subtype_id = '$subtype_id'";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     //var_dump($json);
