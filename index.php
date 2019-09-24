@@ -1425,7 +1425,6 @@ elseif ($command != '') {
                             //   $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                             //   $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
                             //echo json_encode($json);
-                          if($clatitude != '' && $clongitude != ''){
                             foreach($json['data']['list'] as $temp){ 
                                 $resultlo = $temp['location_name'];
                                 $resultpn = $temp['province_name'];
@@ -1483,7 +1482,6 @@ elseif ($command != '') {
                                           )
                                       )
                                     );
-                            }
                             }
                           }   
                           }                    
