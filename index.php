@@ -1399,7 +1399,14 @@ elseif ($command != '') {
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     $datacountrowtype = 0;
-                    
+                    foreach($json['data']['list'] as $temp){ 
+                      $resultlo = $temp['location_name'];
+                      $resultpn = $temp['province_name'];
+                      $resultcsbt = $temp['subtype_name'];
+                      $resultclot = $temp['coord_latitude'];
+                      $resultclon = $temp['coord_longitude'];
+                      $resultcdis = $temp['coord_distance'];
+                      $resultclen = $json['data']['lenght'];
 
 
                         while($rowstype = pg_fetch_array($resultstype)){
@@ -1412,29 +1419,10 @@ elseif ($command != '') {
                             $clatitude = $rowstype['coord_latitude'];
                             $clongitude = $rowstype['coord_longitude'];
                             $ssubtype_name = $rowstype['subtype_name'];
+                           
                             
-                            // foreach($json['data']['list'] as $temp){
-                            //   $resultlo = $temp['location_name'];
-                            //   $resultpn = $temp['province_name'];
-                            //   $resultclot = $temp['coord_latitude'];
-                            //   $resultclon = $temp['coord_longitude'];
-                            //   $resultcdis = $temp['coord_distance'];
-                            //   $resultclen = $json['data']['lenght'];
-          
-                            //   $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
-                            //   $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
-                            //   $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                            //echo json_encode($json);
-                            foreach($json['data']['list'] as $temp){ 
-                                $resultlo = $temp['location_name'];
-                                $resultpn = $temp['province_name'];
-                                $resultcsbt = $temp['subtype_name'];
-                                $resultclot = $temp['coord_latitude'];
-                                $resultclon = $temp['coord_longitude'];
-                                $resultcdis = $temp['coord_distance'];
-                                $resultclen = $json['data']['lenght'];
                             
-                            if($location_name == $resultlo && $ssubtype_name == $resultcsbt){
+                            if($location_name == $resultlo){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ : $location_name ";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
