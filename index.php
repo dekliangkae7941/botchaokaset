@@ -1970,7 +1970,7 @@ elseif ($command != '') {
               //var_dump($resultlo);
               //var_dump($location_name);
               //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-              if($subtype_name === $subtype_name){
+              if($subtype_name == $subtype_name){
                 // echo '5555555555';
                 // echo $text1. "\n";
                 // echo $text2. "\n";
