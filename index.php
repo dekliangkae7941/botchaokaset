@@ -1293,68 +1293,34 @@ elseif ($command != '') {
                       $json = json_decode($response1->raw_body, true);
                       //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
                       $n = 1;
-                      $querystype = "SELECT * FROM line_subtype_all WHERE subtype_id = $n";
-                              ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
-                      $resultstype = pg_query($dbconn, $querystype);
-                      //var_dump($json);
-                    while($rowstype = pg_fetch_array($resultstype)){
-                      $location_name = $rowstype['location_name'];
-                    
-                      //echo json_encode($json);
-                        foreach($json['data']['list'] as $temp){
-                          $resultlo = $temp['location_name'];
-                          $resultpn = $temp['province_name'];
-                          $resultclot = $temp['coord_latitude'];
-                          $resultclon = $temp['coord_longitude'];
-                          $resultcdis = $temp['coord_distance'];
-                          $resultclen = $json['data']['lenght'];
                       
-                          $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
-                          $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
-                          $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                          //var_dump($resultlo);
-                          //var_dump($location_name);
-                          //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-                          if($resultlo == $location_name){
-                            echo '5555555555';
-                            echo $text1. "\n";
-                            echo $text2. "\n";
-                            echo $text3. "\n";
-                            $mreply = array(
-                              'replyToken' => $replyToken,
-                              'messages' => array(
-                                  array(
-                                      'type' => 'text',
-                                      'text' => $text1
-                                  ),
-                                  array(
-                                    'type' => 'text',
-                                    'text' => $text2
-                                  ),array(
-                                      'type' => 'text',
-                                      'text' => $text3
-                                  )
-                              )
-                            );
-                            // $result = json_encode($mreply);
-                            // $client->replyMessage($mreply);
-                          }
+                        //   if($resultlo == $location_name){
+                           
+
+
+
+
+
+
+
+
+                        //     // $result = json_encode($mreply);
+                        //     // $client->replyMessage($mreply);
+                        //   }
                         
-                          else{
-                            $mreply = array(
-                              'replyToken' => $replyToken,
-                              'messages' => array(
-                                  array(
-                                      'type' => 'text',
-                                      'text' => "fuck"
-                                  )
-                              )
-                            );
+                        //   else{
+                        //     $mreply = array(
+                        //       'replyToken' => $replyToken,
+                        //       'messages' => array(
+                        //           array(
+                        //               'type' => 'text',
+                        //               'text' => "fuck"
+                        //           )
+                        //       )
+                        //     );
                         
-                        }
-                        
-                      }
-                    }
+                        // }
+                      
                       // $resultlo = $json['data']['list'][$i]['location_name'];
                       // $resultpn = $json['data']['list'][$i]['province_name'];
                       // $resultclot = $json['data']['list'][$i]['coord_latitude'];
@@ -1421,6 +1387,17 @@ elseif ($command != '') {
                     WHERE subtype_id = '$subtype_id'";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
+                    //var_dump($json);
+                    // while($rowstype = pg_fetch_array($resultstype)){
+                    // $location_name = $rowstype['location_name'];
+
+                    //echo json_encode($json);
+                    
+                    //var_dump($resultlo);
+                    //var_dump($location_name);
+                    //echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+                    ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
+                    $resultstype = pg_query($dbconn, $querystype);
                     $datacountrowtype = 0;
                     
 
@@ -1436,7 +1413,17 @@ elseif ($command != '') {
                             $clongitude = $rowstype['coord_longitude'];
                             
                             
-                            
+                            // foreach($json['data']['list'] as $temp){
+                            //   $resultlo = $temp['location_name'];
+                            //   $resultpn = $temp['province_name'];
+                            //   $resultclot = $temp['coord_latitude'];
+                            //   $resultclon = $temp['coord_longitude'];
+                            //   $resultcdis = $temp['coord_distance'];
+                            //   $resultclen = $json['data']['lenght'];
+          
+                            //   $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
+                            //   $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
+                            //   $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
                             //echo json_encode($json);
                             foreach($json['data']['list'] as $temp){ 
                                 $resultlo = $temp['location_name'];
@@ -1445,7 +1432,7 @@ elseif ($command != '') {
                                 $resultclon = $temp['coord_longitude'];
                                 $resultcdis = $temp['coord_distance'];
                                 $resultclen = $json['data']['lenght'];
-                            }
+                            
                             if($location_name == $resultlo){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ : $location_name ";
@@ -1485,8 +1472,18 @@ elseif ($command != '') {
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "sm";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
                             $datacountrowtype += 1;
+                            }else{
+                              $mreply = array(
+                                      'replyToken' => $replyToken,
+                                      'messages' => array(
+                                          array(
+                                              'type' => 'text',
+                                              'text' => "fuck"
+                                          )
+                                      )
+                                    );
+                            }
                             }   
-                            
                         }                         
                       
                     /*
@@ -1505,14 +1502,14 @@ elseif ($command != '') {
                     //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['uri'] = "line://nv/location";
                     //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
                     $datacountrowtype1 += 1;    
-                    
+                      
                     }
-                
+                  
                     pg_free_result($resulttype);
                     replyMsg($arrayHeader,$arrayPostData);
+                  }
                 }
-                }
-            }       
+              }    
  
         elseif($command == "ข่าวสารและคลังความรู้"){
           $query = "SELECT * FROM admin_log";
