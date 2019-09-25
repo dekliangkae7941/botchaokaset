@@ -45,7 +45,7 @@
                         $plan_category = $row['plan_category'];
                     if($plan_category != ''){
                     $arrayPostData['replyToken'] = $replyToken;
-                    //$arrayPostData['to'][0] = $uid;
+                    $arrayPostData['to'][0] = 'Udac6e87952f7ba83e230875996a1107f';
                     $arrayPostData['messages'][0]['type'] = "flex";
                     $arrayPostData['messages'][0]['altText'] = "เตือนภัยเกษตร";
                     $arrayPostData['messages'][0]['contents']['type'] = "bubble";
@@ -84,7 +84,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-                    replyMsg($arrayHeader,$arrayPostData);
+                    pushMsg($arrayHeader,$arrayPostData);
                     } 
                     }
                 }
