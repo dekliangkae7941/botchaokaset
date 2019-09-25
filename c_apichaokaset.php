@@ -4,7 +4,7 @@
      $environment =$post['environment']; //สภาพแวดล้อม
      $plant_type =$post['plant_type']; //ชนิดพืช
      $growth_phase =$post['growth_phase']; //ระยะการเจริญเติบโต
-     $problem  =$post['problem']; //ปัญหา
+     $problem =$post['problem']; //ปัญหา
      $possible_symptoms =$post['possible_symptoms']; //อาการที่อาจพบ
      $prevention =$post['prevention']; //แนวทางป้องกัน
     $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
