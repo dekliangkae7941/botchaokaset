@@ -18,7 +18,9 @@
     //  $mapi->hh = $h;
     //  echo json($h);
     //  echo "kijlkjjh";
-        echo json_encode($a,$s,$d,$f,$g,$h);
+    $data = array('a' => "$a", 's' => "$s", 'd' => "$d", 'f' => "$f", 'g' => "$g", 'h' => "$h" );
+    //$body = Unirest\Request\Body::json($data);
+        echo json_encode($data);
      //$respon =$mapi->insert_review();
      //echo $respon;
        
