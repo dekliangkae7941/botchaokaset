@@ -21,6 +21,7 @@ class API
      $mapi->gg = $g;
      $mapi->hh = $h;
      echo $h;
+     echo "kijlkjjh";
      //$respon =$mapi->insert_review();
      //echo $respon;
        
