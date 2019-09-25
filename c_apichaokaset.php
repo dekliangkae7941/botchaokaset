@@ -1,7 +1,4 @@
 <?php
-class api
-{
-    public function data_api(){
     $post = $_POST;
     //$status_login = 0;
     $environment =$post['environment']; //สภาพแวดล้อม
@@ -14,8 +11,5 @@ class api
                   'problem' => "$problem", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
     echo json_encode($data);
      //$respon =$mapi->insert_review();
-     //echo $respon;
-    }
-}
-       
+     //echo $respon;       
 ?>
