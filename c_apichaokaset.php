@@ -16,8 +16,10 @@
     //  $mapi->ff = $f;
     //  $mapi->gg = $g;
     //  $mapi->hh = $h;
-     echo json_encode($h);
-     echo "kijlkjjh";
+    //  echo json($h);
+    //  echo "kijlkjjh";
+     $data = array('a' => "$a", 'h' => "$h" );
+        echo json($data);
      //$respon =$mapi->insert_review();
      //echo $respon;
        
