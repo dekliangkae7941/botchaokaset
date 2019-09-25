@@ -1,7 +1,7 @@
 <?php
-echo "12345678";
-     $this->load->model('m_api', 'mapi');
-     $mapi = $this->mapi;
+    echo "12345678";
+    //  $this->load->model('m_api', 'mapi');
+    //  $mapi = $this->mapi;
      
      $post = $_POST;
      //$status_login = 0;
@@ -11,12 +11,12 @@ echo "12345678";
      $f =$post['f'];
      $g =$post['g'];
      $h =$post['h'];
-     $mapi->aa = $a;
-     $mapi->ss = $s;
-     $mapi->dd = $d;
-     $mapi->ff = $f;
-     $mapi->gg = $g;
-     $mapi->hh = $h;
+    //  $mapi->aa = $a;
+    //  $mapi->ss = $s;
+    //  $mapi->dd = $d;
+    //  $mapi->ff = $f;
+    //  $mapi->gg = $g;
+    //  $mapi->hh = $h;
      echo $h;
      echo "kijlkjjh";
      //$respon =$mapi->insert_review();
