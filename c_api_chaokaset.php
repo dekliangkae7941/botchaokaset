@@ -40,11 +40,11 @@
         $query = "SELECT * FROM line_log";
             if($result = pg_query($dbconn, $query)){
                 if(pg_num_rows($result) > 0){
-                    while($row = pg_fetch_array($result)){
-                        $userid = $row['userid'];
-                        $plan_category = $row['plan_category'];
-                    if($plan_category != ''){
-                    $arrayPostData['replyToken'] = $replyToken;
+                    $row = pg_fetch_array($result);
+                    $userid = $row['userid'];
+                    $plan_category = $row['plan_category'];
+                    //if($plan_category != ''){
+                    //$arrayPostData['replyToken'] = $replyToken;
                     $arrayPostData['to'][0] = 'Udac6e87952f7ba83e230875996a1107f';
                     $arrayPostData['messages'][0]['type'] = "flex";
                     $arrayPostData['messages'][0]['altText'] = "เตือนภัยเกษตร";
@@ -85,7 +85,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                     pushMsg($arrayHeader,$arrayPostData);
-                    } 
+//} 
                     }
                 }
             }
