@@ -1,25 +1,14 @@
 <?php
-    echo "12345678";
-    //  $this->load->model('m_api', 'mapi');
-    //  $mapi = $this->mapi;
      $post = $_POST;
      //$status_login = 0;
-     $a =$post['a'];
-     $s =$post['s'];
-     $d =$post['d'];
-     $f =$post['f'];
-     $g =$post['g'];
-     $h =$post['h'];
-    //  $mapi->aa = $a;
-    //  $mapi->ss = $s;
-    //  $mapi->dd = $d;
-    //  $mapi->ff = $f;
-    //  $mapi->gg = $g;
-    //  $mapi->hh = $h;
-    //  echo json($h);
-    //  echo "kijlkjjh";
-    $data = array('a' => "$a", 's' => "$s", 'd' => "$d", 'f' => "$f", 'g' => "$g", 'h' => "$h" );
-    //$body = Unirest\Request\Body::json($data);
+     $environment =$post['environment']; //สภาพแวดล้อม
+     $plant_type =$post['plant_type']; //ชนิดพืช
+     $growth_phase =$post['growth_phase']; //ระยะการเจริญเติบโต
+     $problem  =$post['problem ']; //ปัญหา
+     $possible_symptoms =$post['possible_symptoms']; //อาการที่อาจพบ
+     $prevention =$post['prevention']; //แนวทางป้องกัน
+    $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
+                  'problem ' => "$problem ", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
         echo json_encode($data);
      //$respon =$mapi->insert_review();
      //echo $respon;
