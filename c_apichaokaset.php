@@ -1,7 +1,5 @@
 <?php
-class API
-{
-    public function index_api() 
+function index_api() 
     { 
      $this->load->model('m_api', 'mapi');
      $mapi = $this->mapi;
@@ -26,5 +24,4 @@ class API
      //echo $respon;
        
     }
-}
 ?>
