@@ -201,14 +201,6 @@ $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 
 #------------------------------------------------------------------------#
-include("c_api_chaokaset.php");
-  $environment =$_GET['environment']; //สภาพแวดล้อม
-  $plant_type =$_GET['plant_type']; //ชนิดพืช
-  $growth_phase =$_GET['growth_phase']; //ระยะการเจริญเติบโต
-  $problem =$_GET['problem']; //ปัญหา
-  $possible_symptoms =$_GET['possible_symptoms']; //อาการที่อาจพบ
-  $prevention =$_GET['prevention'];
-  echo "555555".$environment;
 // $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
 //             $resultlog = pg_query($dbconn, $querylog);
 //             $rowlog = pg_fetch_array($resultlog);
@@ -382,19 +374,6 @@ function replyMsg($arrayHeader,$arrayPostData){
     $result = curl_exec($ch);
     curl_close ($ch);
 }
-/*function pushMsg($arrayHeader,$arrayPostData){
-    $strUrl = "https://api.line.me/v2/bot/message/push";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,$strUrl);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    $result = curl_exec($ch);
-    curl_close ($ch);
-}*/
 #-------------------------[EVENT TYPE]-------------------------#
 if ($type == 'memberJoined') {
     $text = "เมื่อมีผู้ใช้เข้ากลุ่ม";
@@ -1076,7 +1055,7 @@ elseif ($command != '') {
             if($resultmarket = pg_query($dbconn, $querymarket)){
                 if(pg_num_rows($resultmarket) > 0){
                     $arrayPostData['replyToken'] = $replyToken;
-                    //$arrayPostData['to'] = $uid;
+                    //$arrayPostData['to'][0] = $uid;
                     $arrayPostData['messages'][0]['type'] = "flex";
                     $arrayPostData['messages'][0]['altText'] = "$command";
                     $arrayPostData['messages'][0]['contents']['type'] = "bubble";
@@ -2242,19 +2221,11 @@ elseif ($command != '') {
         }
         /////////
     }
-}else{
-  include("c_api_chaokaset.php");
-  $environment =$_GET['environment']; //สภาพแวดล้อม
-  $plant_type =$_GET['plant_type']; //ชนิดพืช
-  $growth_phase =$_GET['growth_phase']; //ระยะการเจริญเติบโต
-  $problem =$_GET['problem']; //ปัญหา
-  $possible_symptoms =$_GET['possible_symptoms']; //อาการที่อาจพบ
-  $prevention =$_GET['prevention'];
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);
     $client->replyMessage($mreply);
 }
-    file_put_contents('log.txt',file_get_contents('php://input'));
+  file_put_contents('log.txt',file_get_contents('php://input'));
   pg_close($dbconn);
 ?>
