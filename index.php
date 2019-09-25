@@ -201,33 +201,14 @@ $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 
 #------------------------------------------------------------------------#
-
-
-function index_api() 
-    { 
-    //  $this->load->model('m_api', 'mapi');
-    //  $mapi = $this->mapi;
-     
-     $post = $_POST;
-     //$status_login = 0;
-     $a =$post['a'];
-     $s =$post['s'];
-     $d =$post['d'];
-     $f =$post['f'];
-     $g =$post['g'];
-     $h =$post['h'];
-    //  $mapi->aa = $a;
-    //  $mapi->ss = $s;
-    //  $mapi->dd = $d;
-    //  $mapi->ff = $f;
-    //  $mapi->gg = $g;
-    //  $mapi->hh = $h;
-     echo $h;
-     echo "kijlkjjh";
-     //$respon =$mapi->insert_review();
-     //echo $respon;
-       
-    }
+include("c_api_chaokaset.php");
+  $environment =$_GET['environment']; //สภาพแวดล้อม
+  $plant_type =$_GET['plant_type']; //ชนิดพืช
+  $growth_phase =$_GET['growth_phase']; //ระยะการเจริญเติบโต
+  $problem =$_GET['problem']; //ปัญหา
+  $possible_symptoms =$_GET['possible_symptoms']; //อาการที่อาจพบ
+  $prevention =$_GET['prevention'];
+  echo $environment;
 // $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
 //             $resultlog = pg_query($dbconn, $querylog);
 //             $rowlog = pg_fetch_array($resultlog);
@@ -2262,11 +2243,13 @@ elseif ($command != '') {
         /////////
     }
 }else{
-  // $headers = array('Accept' => 'application/json');
-  // $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
-  // $body = Unirest\Request\Body::json($data);
-  // $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
-  // $json = json_decode($response1->raw_body, true);
+  include("c_api_chaokaset.php");
+  $environment =$_GET['environment']; //สภาพแวดล้อม
+  $plant_type =$_GET['plant_type']; //ชนิดพืช
+  $growth_phase =$_GET['growth_phase']; //ระยะการเจริญเติบโต
+  $problem =$_GET['problem']; //ปัญหา
+  $possible_symptoms =$_GET['possible_symptoms']; //อาการที่อาจพบ
+  $prevention =$_GET['prevention'];
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);
