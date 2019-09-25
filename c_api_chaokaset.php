@@ -37,7 +37,7 @@
     // echo json_encode($data);
     if(isset($environment) && $environment!=''){
         echo "success";
-        $query = "SELECT * FROM line_log";
+        $query = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
             if($result = pg_query($dbconn, $query)){
                 if(pg_num_rows($result) > 0){
                     $row = pg_fetch_array($result);
@@ -45,7 +45,7 @@
                     $plan_category = $row['plan_category'];
                     //if($plan_category != ''){
                     //$arrayPostData['replyToken'] = $replyToken;
-                    $arrayPostData['to'][0] = 'Udac6e87952f7ba83e230875996a1107f';
+                    $arrayPostData['to'][0] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
                     $arrayPostData['messages'][0]['altText'] = "เตือนภัยเกษตร";
                     $arrayPostData['messages'][0]['contents']['type'] = "bubble";
