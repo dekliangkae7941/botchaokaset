@@ -7,9 +7,14 @@
     $problem =$post['problem']; //ปัญหา
     $possible_symptoms =$post['possible_symptoms']; //อาการที่อาจพบ
     $prevention =$post['prevention']; //แนวทางป้องกัน
-    $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
-                  'problem' => "$problem", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
-    echo json_encode($data);
+    // $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
+    //               'problem' => "$problem", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
+    // echo json_encode($data);
+    if(isset($environment) && $environment!=''){
+        echo "abc";
+    }else{
+        echo "not post";
+    }
      //$respon =$mapi->insert_review();
      //echo $respon;       
 ?>
