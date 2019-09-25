@@ -1,7 +1,5 @@
 <?php
 echo "12345678";
-function index_api() 
-    { 
      $this->load->model('m_api', 'mapi');
      $mapi = $this->mapi;
      
@@ -24,5 +22,4 @@ function index_api()
      //$respon =$mapi->insert_review();
      //echo $respon;
        
-    }
 ?>
