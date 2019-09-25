@@ -39,7 +39,8 @@
     // echo json_encode($data);
     if(isset($environment) && $environment!=''){
         echo "success";
-        
+        echo $environment;
+
     }else{
         echo "not post";
     }
