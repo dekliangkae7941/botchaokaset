@@ -18,8 +18,7 @@
     //  $mapi->hh = $h;
     //  echo json($h);
     //  echo "kijlkjjh";
-     $data = array('a' => "$a", 'h' => "$h" );
-        echo json($data);
+        echo json($a);
      //$respon =$mapi->insert_review();
      //echo $respon;
        
