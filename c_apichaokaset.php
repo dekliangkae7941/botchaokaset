@@ -2,7 +2,6 @@
     echo "12345678";
     //  $this->load->model('m_api', 'mapi');
     //  $mapi = $this->mapi;
-     
      $post = $_POST;
      //$status_login = 0;
      $a =$post['a'];
@@ -17,7 +16,7 @@
     //  $mapi->ff = $f;
     //  $mapi->gg = $g;
     //  $mapi->hh = $h;
-     echo $h;
+     echo json_encode(array_merge($h));
      echo "kijlkjjh";
      //$respon =$mapi->insert_review();
      //echo $respon;
