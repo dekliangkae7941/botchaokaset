@@ -208,7 +208,7 @@ include("c_api_chaokaset.php");
   $problem =$_GET['problem']; //ปัญหา
   $possible_symptoms =$_GET['possible_symptoms']; //อาการที่อาจพบ
   $prevention =$_GET['prevention'];
-  echo $environment;
+  echo "555555".$environment;
 // $querylog = "SELECT * FROM line_log WHERE userid = 'Udac6e87952f7ba83e230875996a1107f'";
 //             $resultlog = pg_query($dbconn, $querylog);
 //             $rowlog = pg_fetch_array($resultlog);
