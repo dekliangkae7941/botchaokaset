@@ -205,8 +205,8 @@ $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
 
 function index_api() 
     { 
-     $this->load->model('m_api', 'mapi');
-     $mapi = $this->mapi;
+    //  $this->load->model('m_api', 'mapi');
+    //  $mapi = $this->mapi;
      
      $post = $_POST;
      //$status_login = 0;
@@ -216,12 +216,12 @@ function index_api()
      $f =$post['f'];
      $g =$post['g'];
      $h =$post['h'];
-     $mapi->aa = $a;
-     $mapi->ss = $s;
-     $mapi->dd = $d;
-     $mapi->ff = $f;
-     $mapi->gg = $g;
-     $mapi->hh = $h;
+    //  $mapi->aa = $a;
+    //  $mapi->ss = $s;
+    //  $mapi->dd = $d;
+    //  $mapi->ff = $f;
+    //  $mapi->gg = $g;
+    //  $mapi->hh = $h;
      echo $h;
      echo "kijlkjjh";
      //$respon =$mapi->insert_review();
