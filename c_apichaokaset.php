@@ -1,4 +1,5 @@
 <?php
+echo "12345678";
 function index_api() 
     { 
      $this->load->model('m_api', 'mapi');
