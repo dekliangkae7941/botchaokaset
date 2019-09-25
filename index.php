@@ -2261,6 +2261,12 @@ elseif ($command != '') {
         }
         /////////
     }
+}else{
+  // $headers = array('Accept' => 'application/json');
+  // $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+  // $body = Unirest\Request\Body::json($data);
+  // $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+  // $json = json_decode($response1->raw_body, true);
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);
