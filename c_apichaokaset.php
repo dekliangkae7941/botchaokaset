@@ -7,7 +7,7 @@ class API
      $mapi = $this->mapi;
      
      $post = $_POST;
-     $status_login = 0;
+     //$status_login = 0;
      $a =$post['a'];
      $s =$post['s'];
      $d =$post['d'];
@@ -20,7 +20,7 @@ class API
      $mapi->ff = $f;
      $mapi->gg = $g;
      $mapi->hh = $h;
-     echo $mapi->aa;
+     echo $h;
      //$respon =$mapi->insert_review();
      //echo $respon;
        
