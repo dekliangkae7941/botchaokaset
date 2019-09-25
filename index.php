@@ -1097,7 +1097,7 @@ elseif ($command != '') {
                     replyMsg($arrayHeader,$arrayPostData);
                             }
                 }
-                
+ //////////////////////// 
                 /*$command = $c;
                 if ($command == $c) {
                     $typename = $type_name;
@@ -2221,6 +2221,8 @@ elseif ($command != '') {
         }
         /////////
     }
+}else{
+  include("c_api_chaokaset.php");
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);

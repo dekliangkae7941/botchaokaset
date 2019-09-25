@@ -6,8 +6,6 @@
     #-------------------------[Token]-------------------------#
     $channelAccessToken = 'YhqOTnlfJE6/yjWpkPRNR03ryOXTb7R8QaOVBkVL1Q5zAEhV8xJaMKBgGoLRZcVfA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vyxnO+4kUs2EpOJtHjNpnb9ED5kGu9OFa3G17TukVvILQdB04t89/1O/w1cDnyilFU='; 
     $channelSecret = '83255aed1b77104d01142b5542945438';
-
-
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     $arrayHeader = array();
@@ -39,7 +37,58 @@
     // echo json_encode($data);
     if(isset($environment) && $environment!=''){
         echo "success";
-        echo $environment;
+        $query = "SELECT * FROM line_log";
+            if($result = pg_query($dbconn, $query)){
+                if(pg_num_rows($result) > 0){
+                    while($row = pg_fetch_array($result)){
+                        $userid = $row['userid'];
+                        $plan_category = $row['plan_category'];
+                    if($plan_category != ''){
+                    $arrayPostData['replyToken'] = $replyToken;
+                    //$arrayPostData['to'][0] = $uid;
+                    $arrayPostData['messages'][0]['type'] = "flex";
+                    $arrayPostData['messages'][0]['altText'] = "เตือนภัยเกษตร";
+                    $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+                    
+                    $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
+                    $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
+                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
+                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "เตือนภัยเกษตร $plan_category";
+                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
+                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
+
+                    $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+                    $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+                    $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "เตือนภัย $plant_type";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
+                    $datacountrowmarket = 0;
+                    // while($rowmarket = pg_fetch_array($resultmarket)){
+                    //     $datacountrowmarket += 1;
+                    //     $type_id = $rowmarket['type_id'];
+                    //     $type_name = $rowmarket['type_name'];
+                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
+                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
+                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
+                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
+                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "ราคา$type_name";
+                
+                    // }
+                    // pg_free_result($resultmarket);
+                    $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
+                    $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
+                    $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
+                    $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                    $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
+                    $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
+                    $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
+                    $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+                    replyMsg($arrayHeader,$arrayPostData);
+                    } 
+                    }
+                }
+            }
 
     }else{
         echo "not post";
