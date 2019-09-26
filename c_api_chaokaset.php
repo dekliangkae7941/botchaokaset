@@ -50,8 +50,9 @@
                     while($rowlog = pg_fetch_array($resultlog)){
                     //$row = pg_fetch_array($result);plan_category = '$plan_category_name' and 
                     $userid = $rowlog['userid'];
-                    //$plan_category = $rowlog['plan_category'];
+                    $plan_category = $rowlog['plan_category'];
                     $rowuserid = 0;
+                    
                     //$arrayPostData['replyToken'] = $replyToken;
                     $arrayPostData['to'][$rowuserid] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
