@@ -37,19 +37,24 @@
     // echo json_encode($data);
     if(isset($environment) && $environment!=''){
         echo "success";
-        $query = "SELECT * FROM line_log";
-            if($result = pg_query($dbconn, $query)){
-                if(pg_num_rows($result) > 0){
+        $queryp = "SELECT * FROM line_plant";
+        $resultp = pg_query($dbconn, $queryp);
+        $row = pg_fetch_array($resultp);
+        $plan_category_name = $row['plan_category_name'];
+        $plan_typedb = $row['plan_type'];
+
+
+        if($plan_typedb == $plan_typep){
+            $query = "SELECT * FROM line_log";
+            if($resultlog = pg_query($dbconn, $query)){
+                if(pg_num_rows($resultlog) > 0){
+                    while($rowlog = pg_fetch_array($resultlog)){
                     $row = pg_fetch_array($result);
-                    $userid = $row['userid'];
-                    $plan_category = $row['plan_category'];
+                    $userid = $rowlog['userid'];
+                    $plan_category = $rowlog['plan_category'];
                     $rowuserid = 0;
-                    $queryp = "SELECT * FROM line_plant";
-                    $resultp = pg_query($dbconn, $queryp);
-                    $row = pg_fetch_array($resultp);
-                    $plan_category_name = $row['plan_category_name'];
-                    $plan_typep = $row['plan_type'];
-                    if($plan_typep == $plan_typep && $plan_category == $plan_category_name){
+                    
+                    if($plan_category == $plan_category_name){
                     //$arrayPostData['replyToken'] = $replyToken;
                     $arrayPostData['to'][$rowuserid] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
@@ -91,6 +96,8 @@
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                     pushMsg($arrayHeader,$arrayPostData);
 //}                
+                    }
+                    }
                     }
                 }
             }
