@@ -37,14 +37,12 @@
     // echo json_encode($data);
     if(isset($environment) && $environment!=''){
         echo "success";
-        $queryp = "SELECT * FROM line_plant";
+        $queryp = "SELECT * FROM line_plant WHERE plan_type = $plant_type";
         $resultp = pg_query($dbconn, $queryp);
         $row = pg_fetch_array($resultp);
+        //while($row = pg_fetch_array($resultp)){
         $plan_category_name = $row['plan_category_name'];
         $plan_typedb = $row['plan_type'];
-
-
-        if($plan_typedb == $plant_type){
             $query = "SELECT * FROM line_log WHERE plan_category = '$plan_category_name'";
             if($resultlog = pg_query($dbconn, $query)){
                 if(pg_num_rows($resultlog) > 0){
@@ -95,9 +93,10 @@
                     pushMsg($arrayHeader,$arrayPostData);
 //}                
                     }
-                    }
-                }
+                  
+                
             }
+        }
     }else{
         echo "not post";
     }
