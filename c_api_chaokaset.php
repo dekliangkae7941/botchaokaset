@@ -45,16 +45,14 @@
 
 
         if($plan_typedb == $plant_type){
-            $query = "SELECT * FROM line_log";
+            $query = "SELECT * FROM line_log WHERE plan_category = '$plan_category_name'";
             if($resultlog = pg_query($dbconn, $query)){
                 if(pg_num_rows($resultlog) > 0){
                     while($rowlog = pg_fetch_array($resultlog)){
                     $row = pg_fetch_array($result);
                     $userid = $rowlog['userid'];
-                    $plan_category = $rowlog['plan_category'];
+                    //$plan_category = $rowlog['plan_category'];
                     $rowuserid = 0;
-                    
-                    if($plan_category_name == $plan_category){
                     //$arrayPostData['replyToken'] = $replyToken;
                     $arrayPostData['to'][$rowuserid] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
@@ -96,7 +94,6 @@
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
                     pushMsg($arrayHeader,$arrayPostData);
 //}                
-                    }
                     }
                     }
                 }
