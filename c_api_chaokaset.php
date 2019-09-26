@@ -63,7 +63,7 @@
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "เตือนภัย$plan_category";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['color'] = "#ffffff";
-                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "xl";
+                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
 
                     $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
@@ -71,7 +71,7 @@
                     $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$plant_type";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "xxl";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
                     $rowtext += 1;
@@ -112,7 +112,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
-                    $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#DE593D";
+                    $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#E67E22";
                     //$rowuserid += 1;
                     pushMsg($arrayHeader,$arrayPostData);
 //}                
