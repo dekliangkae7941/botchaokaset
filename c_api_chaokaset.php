@@ -42,8 +42,7 @@
         $row = pg_fetch_array($resultp);
         //while($row = pg_fetch_array($resultp)){
         $plan_category_name = $row['plan_category_name'];
-        $plan_typedb = $row['plan_type'];
-            $query = "SELECT * FROM line_log WHERE plan_category = '$plan_category_name'";
+        $query = "SELECT * FROM line_log WHERE plan_category = '$plan_category_name'";
             if($resultlog = pg_query($dbconn, $query)){
                 if(pg_num_rows($resultlog) > 0){
                     while($rowlog = pg_fetch_array($resultlog)){
@@ -70,18 +69,7 @@
                     $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][0]['text'] = "เตือนภัย $plant_type";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][0]['wrap'] = true;
-                    // while($rowmarket = pg_fetch_array($resultmarket)){
-                    //     $datacountrowmarket += 1;
-                    //     $type_id = $rowmarket['type_id'];
-                    //     $type_name = $rowmarket['type_name'];
-                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['type'] = "button";
-                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['style'] = "secondary";
-                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['type'] = "message";
-                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['label'] = "$type_name";
-                    //     $arrayPostData['messages'][0]['contents']['body']['contents'][$datacountrowmarket]['action']['text'] = "ราคา$type_name";
-                
-                    // }
-                    // pg_free_result($resultmarket);
+                   
                     $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
                     $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
@@ -90,6 +78,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
+                    $rowuserid += 1;
                     pushMsg($arrayHeader,$arrayPostData);
 //}                
                     }
