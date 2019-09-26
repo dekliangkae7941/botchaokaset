@@ -37,21 +37,22 @@
     // echo json_encode($data);
     if(isset($environment) && $environment!=''){
         echo "success";
-        $queryp = "SELECT * FROM line_plant WHERE plan_type = $plant_type";
+        echo $plant_type;
+        $queryp = "SELECT * FROM line_plant WHERE plan_type = $plant_type ";
         $resultp = pg_query($dbconn, $queryp);
         $row = pg_fetch_array($resultp);
         //while($row = pg_fetch_array($resultp)){
         $plan_category_name = $row['plan_category_name'];
-        $query = "SELECT * FROM line_log WHERE plan_category = '$plan_category_name'";
+        $query = "SELECT * FROM line_log WHERE userid='Udac6e87952f7ba83e230875996a1107f'";
             if($resultlog = pg_query($dbconn, $query)){
                 if(pg_num_rows($resultlog) > 0){
                     while($rowlog = pg_fetch_array($resultlog)){
-                    //$row = pg_fetch_array($result);
+                    //$row = pg_fetch_array($result);plan_category = '$plan_category_name' and 
                     $userid = $rowlog['userid'];
                     //$plan_category = $rowlog['plan_category'];
                     $rowuserid = 0;
                     //$arrayPostData['replyToken'] = $replyToken;
-                    $arrayPostData['to'][0] = $userid;
+                    $arrayPostData['to'][$rowuserid] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
                     $arrayPostData['messages'][0]['altText'] = "เตือนภัยเกษตร";
                     $arrayPostData['messages'][0]['contents']['type'] = "bubble";
