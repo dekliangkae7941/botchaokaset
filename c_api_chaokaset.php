@@ -44,7 +44,7 @@
         $plan_typedb = $row['plan_type'];
 
 
-        if($plan_typedb == $plan_typep){
+        if($plan_typedb == $plant_type){
             $query = "SELECT * FROM line_log";
             if($resultlog = pg_query($dbconn, $query)){
                 if(pg_num_rows($resultlog) > 0){
@@ -54,7 +54,7 @@
                     $plan_category = $rowlog['plan_category'];
                     $rowuserid = 0;
                     
-                    if($plan_category == $plan_category_name){
+                    if($plan_category_name == $plan_category){
                     //$arrayPostData['replyToken'] = $replyToken;
                     $arrayPostData['to'][$rowuserid] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
