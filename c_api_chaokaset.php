@@ -46,12 +46,12 @@
             if($resultlog = pg_query($dbconn, $query)){
                 if(pg_num_rows($resultlog) > 0){
                     while($rowlog = pg_fetch_array($resultlog)){
-                    $row = pg_fetch_array($result);
+                    //$row = pg_fetch_array($result);
                     $userid = $rowlog['userid'];
                     //$plan_category = $rowlog['plan_category'];
                     $rowuserid = 0;
                     //$arrayPostData['replyToken'] = $replyToken;
-                    $arrayPostData['to'][$rowuserid] = $userid;
+                    $arrayPostData['to'][0] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
                     $arrayPostData['messages'][0]['altText'] = "เตือนภัยเกษตร";
                     $arrayPostData['messages'][0]['contents']['type'] = "bubble";
@@ -78,7 +78,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#f4ee42";
-                    $rowuserid += 1;
+                    //$rowuserid += 1;
                     pushMsg($arrayHeader,$arrayPostData);
 //}                
                     }
