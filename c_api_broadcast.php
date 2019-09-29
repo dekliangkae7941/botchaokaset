@@ -26,16 +26,16 @@
     }
     $post = $_POST;
     //$status_login = 0;
-    $environment =$post['environment']; //สภาพแวดล้อม
-    $plant_type =$post['plant_type']; //ชนิดพืช
-    $growth_phase =$post['growth_phase']; //ระยะการเจริญเติบโต
-    $problem =$post['problem']; //ปัญหา
-    $possible_symptoms =$post['possible_symptoms']; //อาการที่อาจพบ
-    $prevention =$post['prevention']; //แนวทางป้องกัน
+    $header =$post['header']; //สภาพแวดล้อม
+    $main  =$post['main']; //ระยะการเจริญเติบโต
+    $title =$post['title']; //ชนิดพืช
+    $body1 =$post['body1']; //ระยะการเจริญเติบโต
+    $body2 =$post['body2']; //ปัญหา
+    //แนวทางป้องกัน
     // $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
     //               'problem' => "$problem", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
     // echo json_encode($data);
-    if(isset($environment) && $environment!=''){
+    if(isset($header) && $header!=''){
         echo "success";
         $query = "SELECT * FROM line_log";
             if($resultlog = pg_query($dbconn, $query)){
@@ -54,7 +54,7 @@
                     $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
                     $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "เตือนภัย$plan_category";
+                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "เตือนภัย$header";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['color'] = "#ffffff";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
@@ -63,37 +63,25 @@
                     $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
                     $arrayPostData['messages'][0]['contents']['body']['spacing'] = "md";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$plant_type";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$main";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "xxl";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
                     $rowtext += 1;
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "สภาพแวดล้อม : $environment";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$title";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
                     //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
                     $rowtext += 1;
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "ระยะการเจริญเติบโต : $growth_phase";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$body1";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
                     //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
                     $rowtext += 1;
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "ปัญหาที่ควรระวัง : $problem";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
-                    //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
-                    $rowtext += 1;
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "อาการที่อาจพบ : $possible_symptoms";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
-                    //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
-                    $rowtext += 1;
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "แนวทางป้องกัน : $prevention";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$body2";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
                     //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
@@ -105,13 +93,11 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
-                    $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#EA3535";
+                    $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#7725C8";
                     //$rowuserid += 1;
                     pushMsg($arrayHeader,$arrayPostData);
 //}                
-                    }
-                  
-                
+                    } 
             }
         }
     }else{
