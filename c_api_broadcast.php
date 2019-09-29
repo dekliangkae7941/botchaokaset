@@ -37,12 +37,7 @@
     // echo json_encode($data);
     if(isset($environment) && $environment!=''){
         echo "success";
-        $queryp = "SELECT * FROM line_plant WHERE plant_type = '$plant_type' ";
-        $resultp = pg_query($dbconn, $queryp);
-        $row = pg_fetch_array($resultp);
-        //while($row = pg_fetch_array($resultp)){
-        $plant_category_name = $row['plant_category_name'];
-        $query = "SELECT * FROM line_log WHERE plan_category = '$plant_category_name'";
+        $query = "SELECT * FROM line_log";
             if($resultlog = pg_query($dbconn, $query)){
                 if(pg_num_rows($resultlog) > 0){
                     while($rowlog = pg_fetch_array($resultlog)){
