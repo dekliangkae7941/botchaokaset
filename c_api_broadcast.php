@@ -11,7 +11,7 @@
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
-    function pushMsg($arrayHeader,$arrayPostData){
+    function pushbMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/push";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -95,7 +95,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#7725C8";
                     //$rowuserid += 1;
-                    pushMsg($arrayHeader,$arrayPostData);
+                    pushbMsg($arrayHeader,$arrayPostData);
 //}                
                     } 
             }
