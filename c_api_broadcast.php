@@ -35,7 +35,7 @@
     // $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
     //               'problem' => "$problem", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
     // echo json_encode($data);
-    if( $header!=''){
+    if($header==''){
         echo "success";
         $query = "SELECT * FROM line_log";
             if($resultlog = pg_query($dbconn, $query)){
