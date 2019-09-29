@@ -47,7 +47,7 @@
                     //$arrayPostData['replyToken'] = $replyToken;
                     $arrayPostData['to'][0] = $userid;
                     $arrayPostData['messages'][0]['type'] = "flex";
-                    $arrayPostData['messages'][0]['altText'] = "เตือนภัยเกษตร";
+                    $arrayPostData['messages'][0]['altText'] = "broadcast";
                     $arrayPostData['messages'][0]['contents']['type'] = "bubble";
                     
                     $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
@@ -69,7 +69,7 @@
                     $rowtext += 1;
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$title";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "lg";
                     //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
                     $rowtext += 1;
