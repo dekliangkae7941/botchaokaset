@@ -43,7 +43,6 @@
                     while($rowlog = pg_fetch_array($resultlog)){
                     //$row = pg_fetch_array($result);plan_category = '$plan_category_name' and 
                     $userid = $rowlog['userid'];
-                    $plan_category = $rowlog['plan_category'];
                     $rowtext = 0;
                     //$arrayPostData['replyToken'] = $replyToken;
                     $arrayPostData['to'][0] = $userid;
@@ -54,7 +53,7 @@
                     $arrayPostData['messages'][0]['contents']['header']['type'] = "box";
                     $arrayPostData['messages'][0]['contents']['header']['layout'] = "vertical";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "เตือนภัย$header";
+                    $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] = "$header";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['color'] = "#ffffff";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] = "lg";
                     $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] = "bold";
