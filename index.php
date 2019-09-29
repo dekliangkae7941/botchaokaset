@@ -1692,13 +1692,13 @@ elseif ($command != '') {
               )
           );
         }
-        if($command == "ราคาน้ำมัน"){
+        if($command == "เตือนภัยพืชสวน"){
 
-        }elseif($command == "ราคาน้ำมัน"){
+        }elseif($command == "เตือนภัยพืชไร่"){
 
-        }elseif($command == "ราคาน้ำมัน"){
+        }elseif($command == "เตือนภัยประมง"){
 
-        }elseif($command == "ราคาน้ำมัน"){
+        }elseif($command == "เตือนภัยประมง"){
 
         }
 
