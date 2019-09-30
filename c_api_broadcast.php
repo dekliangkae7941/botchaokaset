@@ -29,8 +29,8 @@
     $header =$post['header']; //สภาพแวดล้อม
     $main  =$post['main']; //ระยะการเจริญเติบโต
     $title =$post['title']; //ชนิดพืช
-    $body1 =$post['body1']; //ระยะการเจริญเติบโต
-    $body2 =$post['body2']; //ปัญหา
+    $des =$post['des']; //ระยะการเจริญเติบโต
+    //$body2 =$post['body2']; //ปัญหา
     //แนวทางป้องกัน
     // $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
     //               'problem' => "$problem", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
@@ -74,13 +74,7 @@
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
                     $rowtext += 1;
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$body1";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
-                    //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
-                    $rowtext += 1;
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$body2";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$des";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "md";
                     //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
