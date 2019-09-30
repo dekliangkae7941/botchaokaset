@@ -1928,6 +1928,38 @@ elseif ($command != '') {
               )
           );
         }
+        elseif($command == "เลือกชนิดการเตือนภัย"){
+          $mreply = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => "กรุณากรอกชนิดพืชที่ต้องการเพื่อค้นหาเตือนภัย"
+                )
+            )
+          );
+          if($command!= ''){
+            $mreply = array(
+              'replyToken' => $replyToken,
+              'messages' => array(
+                  array(
+                      'type' => 'text',
+                      'text' => "โอเค1111111111"
+                  )
+              )
+            );
+          }else{
+            $mreply = array(
+              'replyToken' => $replyToken,
+              'messages' => array(
+                  array(
+                      'type' => 'text',
+                      'text' => "โอเค2222222"
+                  )
+              )
+            );
+          }
+        }
         if($command == "เตือนภัยพืชสวน"){
           $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
             $response = Unirest\Request::get("$uriw");
