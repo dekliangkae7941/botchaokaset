@@ -1846,8 +1846,9 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => 'กรุณาเลือกประเภทการเตือนภัย',
-                            'size' => 'md',
+                            'text' => 'ประเภทการเตือนภัย',
+                            'size' => 'lg',
+                            'weight' => 'bold',
                             'align' => 'start',
                             'wrap' => true,
                           ),
@@ -1904,11 +1905,6 @@ elseif ($command != '') {
                             ),
                             'color' => '#7460EE',
                             'style' => 'primary',
-                          ),
-                          5 => 
-                          array (
-                            'type' => 'separator',
-                            'margin' => 'sm',
                           ),
                         ),
                       ),
