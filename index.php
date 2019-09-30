@@ -2156,17 +2156,103 @@ elseif ($command != '') {
               )
           );
         }
-        if($command == "เตือนภัยพืชสวน"){
+        // if($command == "เตือนภัยพืชสวน"){
 
-        }elseif($command == "เตือนภัยพืชไร่"){
+        // }elseif($command == "เตือนภัยพืชไร่"){
 
-        }elseif($command == "เตือนภัยประมง"){
+        // }elseif($command == "เตือนภัยประมง"){
 
-        }elseif($command == "เตือนภัยประมง"){
+        // }elseif($command == "เตือนภัยประมง"){
 
-        }
+        // }
+            $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
+            $response = Unirest\Request::get("$uriw");
+            $json = json_decode($response->raw_body, true);
+            $resultasn = $json[0]['name'];
+            $resultasid = $json[0]['growing'];
+            $resultatid = $json[0]['weather'];
+            $mreply = array(
+                'replyToken' => $replyToken,
+                'messages' => array(
+                    array (
+                        'type' => 'flex',
+                        'altText' => 'Flex Message',
+                        'contents' => 
+                        array (
+                          'type' => 'bubble',
+                          'direction' => 'ltr',
+                          'header' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'สภาพอากาศวันนี้',
+                                'size' => 'lg',
+                                'align' => 'start',
+                                'wrap' => true,
+                              ),
+                            ),
+                          ),
+                          'hero' => 
+                          array (
+                            'type' => 'image',
+                            'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
+                            'size' => 'full',
+                            'aspectRatio' => '1.51:1',
+                            'aspectMode' => 'fit',
+                          ),
+                          'body' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "sname : $resultasn",
+                                'size' => 'md',
+                              ),
+                              1 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "sid : $resultasid",
+                                'size' => 'md',
+                              ),
+                              2 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "tid : $resultatid",
+                                'size' => 'md',
+                              ),
+                            ),
+                          ),
+                          'footer' => 
+                          array (
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'contents' => 
+                            array (
+                              0 => 
+                              array (
+                                'type' => 'text',
+                                'text' => 'ข้อมูลจาก api.openweathermap',
+                                'size' => 'sm',
+                                'align' => 'center',
+                                'color' => '#CBC5C5',
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                )
+            );
 
-        elseif($command == "ราคาน้ำมัน"){
+        if($command == "ราคาน้ำมัน"){
             $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
                     array(
                         "trace"      => 1,		// enable trace to view what is happening
