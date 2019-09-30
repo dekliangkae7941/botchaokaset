@@ -35,7 +35,7 @@
     // $data = array('environment' => "$environment", 'plant_type' => "$plant_type", 'growth_phase' => "$growth_phase",
     //               'problem' => "$problem", 'possible_symptoms' => "$possible_symptoms", 'prevention' => "$prevention" );
     // echo json_encode($data);
-    if(isset($environment) && $environment!=''){
+    if(isset($environment) && $environment!='' && $plant_type!='' && $growth_phase!='' && $problem!='' && $possible_symptoms!='' && $prevention!=''){
         echo "success";
         $queryp = "SELECT * FROM line_plant WHERE plant_type = '$plant_type' ";
         $resultp = pg_query($dbconn, $queryp);
