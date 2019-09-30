@@ -2058,7 +2058,7 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => 'กรุณาเลือกประเภทแปลงเพาะปลูก',
+                            'text' => 'กรุณาเลือกประเภทการเตือนภัย',
                             'size' => 'md',
                             'align' => 'start',
                             'wrap' => true,
@@ -2078,7 +2078,7 @@ elseif ($command != '') {
                             array (
                               'type' => 'message',
                               'label' => 'พืชไร่',
-                              'text' => 'เตือนภัยพืชไร่',
+                              'text' => 'เตือนภัยล่าสุด',
                             ),
                             'color' => '#DC9B3A',
                             'style' => 'primary',
@@ -2095,7 +2095,7 @@ elseif ($command != '') {
                             array (
                               'type' => 'message',
                               'label' => 'พืชสวน',
-                              'text' => 'เตือนภัยพืชสวน',
+                              'text' => 'เตือนภัยใกล้ตัว',
                             ),
                             'color' => '#4ED946',
                             'style' => 'primary',
@@ -2112,7 +2112,7 @@ elseif ($command != '') {
                             array (
                               'type' => 'message',
                               'label' => 'ปศุสัตว์',
-                              'text' => 'เตือนภัยปศุสัตว์',
+                              'text' => 'ชนิดการเตือนภัย',
                             ),
                             'color' => '#E75959',
                             'style' => 'primary',
@@ -2121,18 +2121,6 @@ elseif ($command != '') {
                           array (
                             'type' => 'separator',
                             'margin' => 'sm',
-                          ),
-                          6 => 
-                          array (
-                            'type' => 'button',
-                            'action' => 
-                            array (
-                              'type' => 'message',
-                              'label' => 'ประมง',
-                              'text' => 'เตือนภัยประมง',
-                            ),
-                            'color' => '#3E79C9',
-                            'style' => 'primary',
                           ),
                         ),
                       ),
