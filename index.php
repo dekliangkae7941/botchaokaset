@@ -1865,10 +1865,10 @@ elseif ($command != '') {
                             'action' => 
                             array (
                               'type' => 'message',
-                              'label' => 'พืชไร่',
-                              'text' => 'เตือนภัยล่าสุด',
+                              'label' => 'เตือนภัยเกษตรล่าสุด',
+                              'text' => 'เตือนภัยเกษตรล่าสุด',
                             ),
-                            'color' => '#DC9B3A',
+                            'color' => '#E56745',
                             'style' => 'primary',
                           ),
                           1 => 
@@ -1882,8 +1882,8 @@ elseif ($command != '') {
                             'action' => 
                             array (
                               'type' => 'message',
-                              'label' => 'พืชสวน',
-                              'text' => 'เตือนภัยใกล้ตัว',
+                              'label' => 'เตือนภัยเกษตรใกล้ตัว',
+                              'text' => 'เตือนภัยเกษตรใกล้ตัว',
                             ),
                             'color' => '#4ED946',
                             'style' => 'primary',
@@ -1899,10 +1899,10 @@ elseif ($command != '') {
                             'action' => 
                             array (
                               'type' => 'message',
-                              'label' => 'ปศุสัตว์',
-                              'text' => 'ชนิดการเตือนภัย',
+                              'label' => 'เลือกชนิดการเตือนภัย',
+                              'text' => 'เลือกชนิดการเตือนภัย',
                             ),
-                            'color' => '#E75959',
+                            'color' => '#7460EE',
                             'style' => 'primary',
                           ),
                           5 => 
