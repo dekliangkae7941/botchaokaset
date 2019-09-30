@@ -1938,7 +1938,11 @@ elseif ($command != '') {
                 )
             )
           );
-          if($command!= ''){
+          $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
+          $response = Unirest\Request::get("$uriw");
+          $json = json_decode($response->raw_body, true);
+          $resultasn = $json[0]['name'];
+          if($command == $resultasn){
             $mreply = array(
               'replyToken' => $replyToken,
               'messages' => array(
