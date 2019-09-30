@@ -2156,16 +2156,8 @@ elseif ($command != '') {
               )
           );
         }
-        // if($command == "เตือนภัยพืชสวน"){
-
-        // }elseif($command == "เตือนภัยพืชไร่"){
-
-        // }elseif($command == "เตือนภัยประมง"){
-
-        // }elseif($command == "เตือนภัยประมง"){
-
-        // }
-            $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
+        if($command == "เตือนภัยพืชสวน"){
+          $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
             $response = Unirest\Request::get("$uriw");
             $json = json_decode($response->raw_body, true);
             $resultasn = $json[0]['name'];
@@ -2251,6 +2243,14 @@ elseif ($command != '') {
                       )
                 )
             );
+        }elseif($command == "เตือนภัยพืชไร่"){
+
+        }elseif($command == "เตือนภัยประมง"){
+
+        }elseif($command == "เตือนภัยประมง"){
+
+        }
+            
 
         if($command == "ราคาน้ำมัน"){
             $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
