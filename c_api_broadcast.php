@@ -70,7 +70,7 @@
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['text'] = "$title";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['size'] = "lg";
-                    //$arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
+                    $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['weight'] = "bold";
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['wrap'] = true;
                     $rowtext += 1;
                     $arrayPostData['messages'][0]['contents']['body']['contents'][$rowtext]['type'] = "text";
