@@ -968,28 +968,492 @@ elseif ($command != '') {
         );  
     }
     elseif($command == "ราคาตลาด"){
-      $url = "https://bots.dialogflow.com/line/37d316a1-c0b5-46ca-9b85-e58789028d26/webhook";
-      $headers = getallheaders();
-      file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
-      file_put_contents('body.txt',file_get_contents('php://input'));
-      $headers['Host'] = "bots.dialogflow.com";
-      $json_headers = array();
-      foreach($headers as $k=>$v){
-          $json_headers[]=$k.":".$v;
-      }
-        $inputJSON = file_get_contents('php://input');
-        $ch = curl_init();
-        curl_setopt( $ch, CURLOPT_URL, $url);
-        curl_setopt( $ch, CURLOPT_POST, 1);
-        curl_setopt( $ch, CURLOPT_BINARYTRANSFER, true);
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $inputJSON);
-        curl_setopt( $ch, CURLOPT_HTTPHEADER, $json_headers);
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 1); 
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-        $result = curl_exec( $ch );
-        curl_close( $ch );
+      $mreply = array(
+        'replyToken' => $replyToken,
+        'messages' => array (
+            array (
+              'type' => 'flex',
+              'altText' => 'ราคาตลาดเกษตร',
+              'contents' => 
+              array (
+                'type' => 'carousel',
+                'contents' => 
+                array (
+                  0 => 
+                  array (
+                    'type' => 'bubble',
+                    'hero' => 
+                    array (
+                      'type' => 'image',
+                      'url' => 'https://raw.githubusercontent.com/dekliangkae7941/chaobot2019/master/c_rice.png',
+                      'size' => 'full',
+                      'aspectRatio' => '20:13',
+                      'aspectMode' => 'cover',
+                    ),
+                    'body' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'text',
+                          'text' => 'ตลาดข้าว',
+                          'size' => 'xl',
+                          'weight' => 'bold',
+                          'wrap' => true,
+                        ),
+                        1 => 
+                        array (
+                          'type' => 'box',
+                          'layout' => 'baseline',
+                          'contents' => 
+                          array (
+                            0 => 
+                            array (
+                              'type' => 'text',
+                              'text' => 'ข้อมูลราคาข้าววันนี้',
+                              'flex' => 0,
+                              'size' => 'sm',
+                              'weight' => 'bold',
+                              'wrap' => true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    'footer' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'button',
+                          'action' => 
+                          array (
+                            'type' => 'message',
+                            'label' => 'เลือกเลย',
+                            'text' => 'ราคาข้าว',
+                          ),
+                          'color' => '#D09F27',
+                          'style' => 'primary',
+                        ),
+                      ),
+                    ),
+                  ),
+                  1 => 
+                  array (
+                    'type' => 'bubble',
+                    'hero' => 
+                    array (
+                      'type' => 'image',
+                      'url' => 'https://raw.githubusercontent.com/dekliangkae7941/chaobot2019/master/c_vegetable.png',
+                      'size' => 'full',
+                      'aspectRatio' => '20:13',
+                      'aspectMode' => 'cover',
+                    ),
+                    'body' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'text',
+                          'text' => 'ตลาดผัก',
+                          'size' => 'xl',
+                          'weight' => 'bold',
+                          'wrap' => true,
+                        ),
+                        1 => 
+                        array (
+                          'type' => 'box',
+                          'layout' => 'baseline',
+                          'flex' => 1,
+                          'contents' => 
+                          array (
+                            0 => 
+                            array (
+                              'type' => 'text',
+                              'text' => 'ข้อมูลราคาผักวันนี้',
+                              'flex' => 0,
+                              'size' => 'sm',
+                              'weight' => 'bold',
+                              'wrap' => true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    'footer' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'button',
+                          'action' => 
+                          array (
+                            'type' => 'message',
+                            'label' => 'เลือกเลย',
+                            'text' => 'ราคาผัก',
+                          ),
+                          'color' => '#25AA4D',
+                          'style' => 'primary',
+                        ),
+                      ),
+                    ),
+                  ),
+                  2 => 
+                  array (
+                    'type' => 'bubble',
+                    'hero' => 
+                    array (
+                      'type' => 'image',
+                      'url' => 'https://raw.githubusercontent.com/dekliangkae7941/chaobot2019/master/c_fruit.png',
+                      'size' => 'full',
+                      'aspectRatio' => '20:13',
+                      'aspectMode' => 'cover',
+                    ),
+                    'body' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'text',
+                          'text' => 'ตลาดผลไม้',
+                          'size' => 'xl',
+                          'weight' => 'bold',
+                          'wrap' => true,
+                        ),
+                        1 => 
+                        array (
+                          'type' => 'box',
+                          'layout' => 'baseline',
+                          'contents' => 
+                          array (
+                            0 => 
+                            array (
+                              'type' => 'text',
+                              'text' => 'ข้อมูลราคาผลไม้วันนี้',
+                              'flex' => 0,
+                              'size' => 'sm',
+                              'weight' => 'bold',
+                              'wrap' => true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    'footer' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'button',
+                          'action' => 
+                          array (
+                            'type' => 'message',
+                            'label' => 'เลือกเลย',
+                            'text' => 'ราคาผลไม้',
+                          ),
+                          'color' => '#A562F0',
+                          'style' => 'primary',
+                        ),
+                      ),
+                    ),
+                  ),
+                  3 => 
+                  array (
+                    'type' => 'bubble',
+                    'hero' => 
+                    array (
+                      'type' => 'image',
+                      'url' => 'https://raw.githubusercontent.com/dekliangkae7941/chaobot2019/master/c_agri.png',
+                      'size' => 'full',
+                      'aspectRatio' => '20:13',
+                      'aspectMode' => 'cover',
+                    ),
+                    'body' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'text',
+                          'text' => 'ตลาดพืชเศรษฐกิจ',
+                          'size' => 'xl',
+                          'weight' => 'bold',
+                          'wrap' => true,
+                        ),
+                        1 => 
+                        array (
+                          'type' => 'box',
+                          'layout' => 'baseline',
+                          'contents' => 
+                          array (
+                            0 => 
+                            array (
+                              'type' => 'text',
+                              'text' => 'ข้อมูลราคาพืชเศรษฐกิจวันนี้',
+                              'flex' => 0,
+                              'size' => 'sm',
+                              'weight' => 'bold',
+                              'wrap' => true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    'footer' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'button',
+                          'action' => 
+                          array (
+                            'type' => 'message',
+                            'label' => 'เลือกเลย',
+                            'text' => 'ราคาพืชเศรษฐกิจ',
+                          ),
+                          'color' => '#F7921E',
+                          'style' => 'primary',
+                        ),
+                      ),
+                    ),
+                  ),
+                  4 => 
+                  array (
+                    'type' => 'bubble',
+                    'hero' => 
+                    array (
+                      'type' => 'image',
+                      'url' => 'https://raw.githubusercontent.com/dekliangkae7941/chaobot2019/master/c_flower.png',
+                      'size' => 'full',
+                      'aspectRatio' => '20:13',
+                      'aspectMode' => 'cover',
+                    ),
+                    'body' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'text',
+                          'text' => 'ตลาดดอกไม้',
+                          'size' => 'xl',
+                          'weight' => 'bold',
+                          'wrap' => true,
+                        ),
+                        1 => 
+                        array (
+                          'type' => 'box',
+                          'layout' => 'baseline',
+                          'contents' => 
+                          array (
+                            0 => 
+                            array (
+                              'type' => 'text',
+                              'text' => 'ข้อมูลราคาดอกไม้วันนี้',
+                              'flex' => 0,
+                              'size' => 'sm',
+                              'weight' => 'bold',
+                              'wrap' => true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    'footer' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'button',
+                          'action' => 
+                          array (
+                            'type' => 'message',
+                            'label' => 'เลือกเลย',
+                            'text' => 'ราคาดอกไม้',
+                          ),
+                          'color' => '#E8479A',
+                          'style' => 'primary',
+                        ),
+                      ),
+                    ),
+                  ),
+                  5 => 
+                  array (
+                    'type' => 'bubble',
+                    'hero' => 
+                    array (
+                      'type' => 'image',
+                      'url' => 'https://raw.githubusercontent.com/dekliangkae7941/chaobot2019/master/c_livestock.png',
+                      'size' => 'full',
+                      'aspectRatio' => '20:13',
+                      'aspectMode' => 'cover',
+                    ),
+                    'body' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'text',
+                          'text' => 'ตลาดปศุสัตว์',
+                          'size' => 'xl',
+                          'weight' => 'bold',
+                          'wrap' => true,
+                        ),
+                        1 => 
+                        array (
+                          'type' => 'box',
+                          'layout' => 'baseline',
+                          'contents' => 
+                          array (
+                            0 => 
+                            array (
+                              'type' => 'text',
+                              'text' => 'ข้อมูลราคาสัตว์วันนี้',
+                              'flex' => 0,
+                              'size' => 'sm',
+                              'weight' => 'bold',
+                              'wrap' => true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    'footer' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'button',
+                          'action' => 
+                          array (
+                            'type' => 'message',
+                            'label' => 'เลือกเลย',
+                            'text' => 'ราคาปศุสัตว์',
+                          ),
+                          'color' => '#D04C27',
+                          'style' => 'primary',
+                        ),
+                      ),
+                    ),
+                  ),
+                  6 => 
+                  array (
+                    'type' => 'bubble',
+                    'hero' => 
+                    array (
+                      'type' => 'image',
+                      'url' => 'https://raw.githubusercontent.com/dekliangkae7941/chaobot2019/master/c_aquatic.png',
+                      'size' => 'full',
+                      'aspectRatio' => '20:13',
+                      'aspectMode' => 'cover',
+                    ),
+                    'body' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'text',
+                          'text' => 'ตลาดสัตว์น้ำ',
+                          'size' => 'xl',
+                          'weight' => 'bold',
+                          'wrap' => true,
+                        ),
+                        1 => 
+                        array (
+                          'type' => 'box',
+                          'layout' => 'baseline',
+                          'contents' => 
+                          array (
+                            0 => 
+                            array (
+                              'type' => 'text',
+                              'text' => 'ข้อมูลราคาสัตว์น้ำวันนี้',
+                              'flex' => 0,
+                              'size' => 'sm',
+                              'weight' => 'bold',
+                              'wrap' => true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    'footer' => 
+                    array (
+                      'type' => 'box',
+                      'layout' => 'vertical',
+                      'spacing' => 'sm',
+                      'contents' => 
+                      array (
+                        0 => 
+                        array (
+                          'type' => 'button',
+                          'action' => 
+                          array (
+                            'type' => 'message',
+                            'label' => 'เลือกเลย',
+                            'text' => 'ราคาสัตว์น้ำ',
+                          ),
+                          'color' => '#276DD0',
+                          'style' => 'primary',
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        )
+        );
   }
     /////////////
     else {
