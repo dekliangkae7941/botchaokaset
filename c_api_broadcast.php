@@ -86,7 +86,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
-                    $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#7725C8";
+                    $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#9545E5";
                     //$rowuserid += 1;
                     pushbMsg($arrayHeader,$arrayPostData);
 //}                
