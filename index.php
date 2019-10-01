@@ -1927,15 +1927,20 @@ elseif ($command != '') {
             $response = Unirest\Request::get("$uriw");
             $json = json_decode($response->raw_body, true);
             $i = 0;
-              $resultasn = $json[$i]['name'];
-              $resultasid = $json[$i]['growing'];
-              $resultatid = $json[$i]['weather'];
+              $name = $json[$i]['name'];
+              $growing = $json[$i]['growing'];
+              $weather = $json[$i]['weather'];
+              $problem = $json[$i]['problem'];
+              $warning = $json[$i]['detail']['warning'];
+              $solution = $json[$i]['detail']['solution'];
+              $date_start = $json[$i]['detail']['date_start'];
+              $date_end = $json[$i]['detail']['date_end'];
               $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
                     array (
                         'type' => 'flex',
-                        'altText' => 'Flex Message',
+                        'altText' => 'เตือนภัยเกษตรล่าสุด',
                         'contents' => 
                         array (
                           'type' => 'bubble',
@@ -1949,21 +1954,21 @@ elseif ($command != '') {
                               0 => 
                               array (
                                 'type' => 'text',
-                                'text' => 'สภาพอากาศวันนี้',
+                                'text' => 'เตือนภัยเกษตรล่าสุด',
                                 'size' => 'lg',
                                 'align' => 'start',
                                 'wrap' => true,
                               ),
                             ),
                           ),
-                          'hero' => 
-                          array (
-                            'type' => 'image',
-                            'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
-                            'size' => 'full',
-                            'aspectRatio' => '1.51:1',
-                            'aspectMode' => 'fit',
-                          ),
+                          // 'hero' => 
+                          // array (
+                          //   'type' => 'image',
+                          //   'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
+                          //   'size' => 'full',
+                          //   'aspectRatio' => '1.51:1',
+                          //   'aspectMode' => 'fit',
+                          // ),
                           'body' => 
                           array (
                             'type' => 'box',
@@ -1973,19 +1978,44 @@ elseif ($command != '') {
                               0 => 
                               array (
                                 'type' => 'text',
-                                'text' => "sname : $resultasn",
-                                'size' => 'md',
+                                'text' => "$name",
+                                'size' => 'xxl',
+                                'weight' => 'bold',
                               ),
                               1 => 
                               array (
                                 'type' => 'text',
-                                'text' => "sid : $resultasid",
+                                'text' => "ระยะเวลา วันที่ $date_start ถึงวันที่ $date_end",
                                 'size' => 'md',
                               ),
                               2 => 
                               array (
                                 'type' => 'text',
-                                'text' => "tid : $resultatid",
+                                'text' => "สพาพแวดล้อม : $weather",
+                                'size' => 'md',
+                              ),
+                              3 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "ระยะการเจริญเติบโต : $growing",
+                                'size' => 'md',
+                              ),
+                              4 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "ปัญหาที่ควรระวัง : $problem",
+                                'size' => 'md',
+                              ),
+                              5 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "อาการที่อาจพบ : $warning",
+                                'size' => 'md',
+                              ),
+                              6 => 
+                              array (
+                                'type' => 'text',
+                                'text' => "แนวทางป้องกัน : $solution",
                                 'size' => 'md',
                               ),
                             ),
@@ -1999,7 +2029,7 @@ elseif ($command != '') {
                               0 => 
                               array (
                                 'type' => 'text',
-                                'text' => 'ข้อมูลจาก api.openweathermap',
+                                'text' => 'ข้อมูลจาก Chaokaset Application',
                                 'size' => 'sm',
                                 'align' => 'center',
                                 'color' => '#CBC5C5',
@@ -2010,14 +2040,6 @@ elseif ($command != '') {
                       )
                 )
             );          
-            
-        }elseif($command == "เตือนภัยพืชไร่"){
-
-        }elseif($command == "เตือนภัยประมง"){
-
-        }elseif($command == "เตือนภัยประมง"){
-
-        }
             
 
         if($command == "ราคาน้ำมัน"){
