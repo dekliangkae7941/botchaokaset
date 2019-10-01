@@ -1832,7 +1832,7 @@ elseif ($command != '') {
             'messages' => array (
                 array (
                     'type' => 'flex',
-                    'altText' => 'Flex Message',
+                    'altText' => 'เตือนภัย',
                     'contents' => 
                     array (
                       'type' => 'bubble',
@@ -1947,6 +1947,7 @@ elseif ($command != '') {
                           'direction' => 'ltr',
                           'header' => 
                           array (
+                            'backgroundColor' => '#7FFA6B',
                             'type' => 'box',
                             'layout' => 'vertical',
                             'contents' => 
@@ -1981,42 +1982,49 @@ elseif ($command != '') {
                                 'text' => "$name",
                                 'size' => 'xxl',
                                 'weight' => 'bold',
+                                'wrap' => true,
                               ),
                               1 => 
                               array (
                                 'type' => 'text',
                                 'text' => "ระยะเวลา วันที่ $date_start ถึงวันที่ $date_end",
                                 'size' => 'md',
+                                'wrap' => true,
                               ),
                               2 => 
                               array (
                                 'type' => 'text',
                                 'text' => "สพาพแวดล้อม : $weather",
                                 'size' => 'md',
+                                'wrap' => true,
                               ),
                               3 => 
                               array (
                                 'type' => 'text',
                                 'text' => "ระยะการเจริญเติบโต : $growing",
                                 'size' => 'md',
+                                'wrap' => true,
                               ),
                               4 => 
                               array (
                                 'type' => 'text',
                                 'text' => "ปัญหาที่ควรระวัง : $problem",
                                 'size' => 'md',
+                                'wrap' => true,
                               ),
                               5 => 
                               array (
                                 'type' => 'text',
                                 'text' => "อาการที่อาจพบ : $warning",
                                 'size' => 'md',
+                                'wrap' => true,
                               ),
                               6 => 
                               array (
                                 'type' => 'text',
                                 'text' => "แนวทางป้องกัน : $solution",
                                 'size' => 'md',
+                                'wrap' => true,
                               ),
                             ),
                           ),
