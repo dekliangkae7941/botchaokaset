@@ -1948,7 +1948,7 @@ elseif ($command != '') {
                           'direction' => 'ltr',
                           'header' => 
                           array (
-                            'backgroundColor' => '#7FFA6B',
+                            'backgroundColor' => '#F460A6',
                             'type' => 'box',
                             'layout' => 'vertical',
                             'contents' => 
