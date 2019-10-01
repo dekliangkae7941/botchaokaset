@@ -1926,7 +1926,7 @@ elseif ($command != '') {
           $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
             $response = Unirest\Request::get("$uriw");
             $json = json_decode($response->raw_body, true);
-            for($i=0;$i<=4;$i++){
+            $i = 0;
               $resultasn = $json[$i]['name'];
               $resultasid = $json[$i]['growing'];
               $resultatid = $json[$i]['weather'];
@@ -2009,9 +2009,7 @@ elseif ($command != '') {
                         ),
                       )
                 )
-            );
-            }
-            
+            );          
             
         }elseif($command == "เตือนภัยพืชไร่"){
 
