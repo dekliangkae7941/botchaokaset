@@ -342,7 +342,7 @@ elseif ($type == 'follow' || $command == "แก้ไขแปลงเพา�
                       0 => 
                       array (
                         'type' => 'text',
-                        'text' => 'ข้อมูลจาก Chaokaset Mobile',
+                        'text' => 'ข้อมูลจาก Chaokaset Application',
                         'align' => 'center',
                         'color' => '#CBC5C5',
                       ),
@@ -1341,7 +1341,7 @@ elseif ($command != '') {
                     $arrayPostData['messages'][0]['contents']['footer']['type'] = "box";
                     $arrayPostData['messages'][0]['contents']['footer']['layout'] = "vertical";
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                    $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Application";
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] = "xs";
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
@@ -1735,7 +1735,7 @@ elseif ($command != '') {
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['layout'] = "vertical";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['type'] = "text";
-                    $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Mobile";
+                    $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Application";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['size'] = "xs";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['wrap'] = true;
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['align'] = "center";
@@ -1901,7 +1901,7 @@ elseif ($command != '') {
                           0 => 
                           array (
                             'type' => 'text',
-                            'text' => 'ข้อมูลจาก Chaokaset Mobile',
+                            'text' => 'ข้อมูลจาก Chaokaset Application',
                             'align' => 'center',
                             'color' => '#CBC5C5',
                           ),
@@ -1989,7 +1989,7 @@ elseif ($command != '') {
                               1 => 
                               array (
                                 'type' => 'text',
-                                'text' => "ระยะเวลา : วันที่ $date_start",
+                                'text' => "ระยะเวลา : วันที่ $date_end",
                                 'size' => 'md',
                                 'wrap' => true,
                               ),
