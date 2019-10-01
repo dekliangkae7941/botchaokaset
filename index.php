@@ -1839,6 +1839,7 @@ elseif ($command != '') {
                       'direction' => 'ltr',
                       'header' => 
                       array (
+                        'backgroundColor' => '#D7D9D7',
                         'type' => 'box',
                         'layout' => 'vertical',
                         'contents' => 
@@ -1957,6 +1958,7 @@ elseif ($command != '') {
                                 'type' => 'text',
                                 'text' => 'เตือนภัยเกษตรล่าสุด',
                                 'size' => 'lg',
+                                'weight' => 'bold',
                                 'align' => 'start',
                                 'wrap' => true,
                               ),
@@ -1987,7 +1989,7 @@ elseif ($command != '') {
                               1 => 
                               array (
                                 'type' => 'text',
-                                'text' => "ระยะเวลา วันที่ $date_start ถึงวันที่ $date_end",
+                                'text' => "ระยะเวลา : วันที่ $date_start",
                                 'size' => 'md',
                                 'wrap' => true,
                               ),
