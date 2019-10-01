@@ -1889,23 +1889,6 @@ elseif ($command != '') {
                             'color' => '#4ED946',
                             'style' => 'primary',
                           ),
-                          3 => 
-                          array (
-                            'type' => 'separator',
-                            'margin' => 'sm',
-                          ),
-                          4 => 
-                          array (
-                            'type' => 'button',
-                            'action' => 
-                            array (
-                              'type' => 'message',
-                              'label' => 'เลือกชนิดการเตือนภัย',
-                              'text' => 'เลือกชนิดการเตือนภัย',
-                            ),
-                            'color' => '#7460EE',
-                            'style' => 'primary',
-                          ),
                         ),
                       ),
                       'footer' => 
@@ -1928,7 +1911,7 @@ elseif ($command != '') {
               )
           );
         }
-        elseif($command == "เลือกชนิดการเตือนภัย"){
+        elseif($command == "เตือนภัยเกษตรใกล้ตัว"){
           $mreply = array(
             'replyToken' => $replyToken,
             'messages' => array(
@@ -1938,40 +1921,16 @@ elseif ($command != '') {
                 )
             )
           );
-          $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
-          $response = Unirest\Request::get("$uriw");
-          $json = json_decode($response->raw_body, true);
-          $resultasn = $json[0]['name'];
-          if($command == $resultasn){
-            $mreply = array(
-              'replyToken' => $replyToken,
-              'messages' => array(
-                  array(
-                      'type' => 'text',
-                      'text' => "โอเค1111111111"
-                  )
-              )
-            );
-          }else{
-            $mreply = array(
-              'replyToken' => $replyToken,
-              'messages' => array(
-                  array(
-                      'type' => 'text',
-                      'text' => "โอเค2222222"
-                  )
-              )
-            );
-          }
         }
-        if($command == "เตือนภัยพืชสวน"){
+        if($command == "เตือนภัยเกษตรล่าสุด"){
           $uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
             $response = Unirest\Request::get("$uriw");
             $json = json_decode($response->raw_body, true);
-            $resultasn = $json[0]['name'];
-            $resultasid = $json[0]['growing'];
-            $resultatid = $json[0]['weather'];
-            $mreply = array(
+            for($i=0;$i<=4;$i++){
+              $resultasn = $json[$i]['name'];
+              $resultasid = $json[$i]['growing'];
+              $resultatid = $json[$i]['weather'];
+              $mreply = array(
                 'replyToken' => $replyToken,
                 'messages' => array(
                     array (
@@ -2051,6 +2010,9 @@ elseif ($command != '') {
                       )
                 )
             );
+            }
+            
+            
         }elseif($command == "เตือนภัยพืชไร่"){
 
         }elseif($command == "เตือนภัยประมง"){
