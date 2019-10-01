@@ -601,7 +601,7 @@ elseif ($command != '') {
                 'messages' => array(
                     array (
                         'type' => 'flex',
-                        'altText' => 'Flex Message',
+                        'altText' => 'สภาพอากาศ',
                         'contents' => 
                         array (
                           'type' => 'bubble',
