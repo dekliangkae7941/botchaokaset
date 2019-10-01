@@ -2040,7 +2040,8 @@ elseif ($command != '') {
                       )
                 )
             );          
-            
+          }
+        
 
         if($command == "ราคาน้ำมัน"){
             $client = new SoapClient("http://www.pttplc.com/webservice/pttinfo.asmx?WSDL",
