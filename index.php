@@ -1960,6 +1960,7 @@ elseif ($command != '') {
                                 'size' => 'lg',
                                 'weight' => 'bold',
                                 'align' => 'start',
+                                'color' => '#ffffff',
                                 'wrap' => true,
                               ),
                             ),
