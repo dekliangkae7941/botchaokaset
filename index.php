@@ -84,7 +84,7 @@ require_once('./unirest-php-master/src/Unirest.php');
 $uriww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
             $response = Unirest\Request::get("$uriww");
             $json = json_decode($response->raw_body, true);
-
+            $i = 0;
             $datacountrowtype1 = 0;
             $datacountrowtype2 = 0;
             for($i=0;$i<=4;$i++){
