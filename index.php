@@ -96,7 +96,7 @@ $uriww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
               $solution = $json[$i]['detail']['solution'];
               $date_start = $json[$i]['detail']['date_start'];
               $date_end = $json[$i]['detail']['date_end'];
-            echo $name;
+            echo "555555".$name;
             }
 
 #------------------------------------------------------------------------------------------------------------#
