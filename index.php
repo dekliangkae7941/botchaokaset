@@ -1928,6 +1928,21 @@ elseif ($command != '') {
             $response = Unirest\Request::get("$uriw");
             $json = json_decode($response->raw_body, true);
             $i = 0;
+
+            
+              /////////////////////////////////
+  
+            $arrayPostData['replyToken'] = $replyToken;
+            //$arrayPostData['to'] = $uid;
+            $arrayPostData['messages'][0]['type'] = "flex";
+            $arrayPostData['messages'][0]['altText'] = "$command";
+            $arrayPostData['messages'][0]['contents']['type'] = "carousel";
+
+            $datacountrowtype1 = 0;
+            $datacountrowtype2 = 0;
+            for($i=0;$i<=4;$i++){
+                //$datacountrowtype2 += 1;
+                //$datacountrowtype3 += 1;
               $name = $json[$i]['name'];
               $growing = $json[$i]['growing'];
               $weather = $json[$i]['weather'];
@@ -1936,121 +1951,207 @@ elseif ($command != '') {
               $solution = $json[$i]['detail']['solution'];
               $date_start = $json[$i]['detail']['date_start'];
               $date_end = $json[$i]['detail']['date_end'];
-              $mreply = array(
-                'replyToken' => $replyToken,
-                'messages' => array(
-                    array (
-                        'type' => 'flex',
-                        'altText' => 'เตือนภัยเกษตรล่าสุด',
-                        'contents' => 
-                        array (
-                          'type' => 'bubble',
-                          'direction' => 'ltr',
-                          'header' => 
-                          array (
-                            'backgroundColor' => '#F460A6',
-                            'type' => 'box',
-                            'layout' => 'vertical',
-                            'contents' => 
-                            array (
-                              0 => 
-                              array (
-                                'type' => 'text',
-                                'text' => 'เตือนภัยเกษตรล่าสุด',
-                                'size' => 'lg',
-                                'weight' => 'bold',
-                                'align' => 'start',
-                                'color' => '#ffffff',
-                                'wrap' => true,
-                              ),
-                            ),
-                          ),
-                          // 'hero' => 
-                          // array (
-                          //   'type' => 'image',
-                          //   'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
-                          //   'size' => 'full',
-                          //   'aspectRatio' => '1.51:1',
-                          //   'aspectMode' => 'fit',
-                          // ),
-                          'body' => 
-                          array (
-                            'type' => 'box',
-                            'layout' => 'vertical',
-                            'contents' => 
-                            array (
-                              0 => 
-                              array (
-                                'type' => 'text',
-                                'text' => "$name",
-                                'size' => 'xxl',
-                                'weight' => 'bold',
-                                'wrap' => true,
-                              ),
-                              1 => 
-                              array (
-                                'type' => 'text',
-                                'text' => "ระยะเวลา : วันที่ $date_end",
-                                'size' => 'md',
-                                'wrap' => true,
-                              ),
-                              2 => 
-                              array (
-                                'type' => 'text',
-                                'text' => "สพาพแวดล้อม : $weather",
-                                'size' => 'md',
-                                'wrap' => true,
-                              ),
-                              3 => 
-                              array (
-                                'type' => 'text',
-                                'text' => "ระยะการเจริญเติบโต : $growing",
-                                'size' => 'md',
-                                'wrap' => true,
-                              ),
-                              4 => 
-                              array (
-                                'type' => 'text',
-                                'text' => "ปัญหาที่ควรระวัง : $problem",
-                                'size' => 'md',
-                                'wrap' => true,
-                              ),
-                              5 => 
-                              array (
-                                'type' => 'text',
-                                'text' => "อาการที่อาจพบ : $warning",
-                                'size' => 'md',
-                                'wrap' => true,
-                              ),
-                              6 => 
-                              array (
-                                'type' => 'text',
-                                'text' => "แนวทางป้องกัน : $solution",
-                                'size' => 'md',
-                                'wrap' => true,
-                              ),
-                            ),
-                          ),
-                          'footer' => 
-                          array (
-                            'type' => 'box',
-                            'layout' => 'horizontal',
-                            'contents' => 
-                            array (
-                              0 => 
-                              array (
-                                'type' => 'text',
-                                'text' => 'ข้อมูลจาก Chaokaset Application',
-                                'size' => 'sm',
-                                'align' => 'center',
-                                'color' => '#CBC5C5',
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                )
-            );          
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['text'] = "$command";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['size'] = "lg";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['weight'] = "bold";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['color'] = "#ffffff";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['contents'][0]['wrap'] = true;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['styles']['header']['backgroundColor'] = "#25BAC8";
+            
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['type'] = "box";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['layout'] = "vertical";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['spacing'] = "md";
+
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['type'] = "box";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['layout'] = "vertical";
+
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "$name ";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+            $datacountrowtype += 1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "จังหวัด";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+            $datacountrowtype += 1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "ราคา";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "lg";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['weight'] = "bold";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
+            $datacountrowtype += 1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "ระยะทาง กิโลเมตร";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+            $datacountrowtype += 1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "อัปเดตล่าสุด ";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
+            $datacountrowtype += 1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "แหล่งที่มา :";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;   
+            $datacountrowtype += 1;
+                    
+                    // $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+                    // $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "--------------------------------------------------";
+                    // $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
+                    // $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+                    // $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+                    // $datacountrowtype += 1;                 
+              
+            /*
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['type'] = "button";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['action']['type'] = "action";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['action']['type']['action']['type'] = "location";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][1]['action']['type']['action']['label'] = "กดที่นี่เพื่อหาร้านค้าใกล้ตัว";*/
+
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['type'] = "box";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['layout'] = "vertical";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['text'] = "ข้อมูลจาก Chaokaset Application";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['size'] = "xs";
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['wrap'] = true;
+            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['align'] = "center";
+            //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['action']['uri'] = "line://nv/location";
+            //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
+            $datacountrowtype1 += 1;    
+          
+            }
+          
+            pg_free_result($resulttype);
+            replyMsg($arrayHeader,$arrayPostData);
+
+
+            //   $mreply = array(
+            //     'replyToken' => $replyToken,
+            //     'messages' => array(
+            //         array (
+            //             'type' => 'flex',
+            //             'altText' => 'เตือนภัยเกษตรล่าสุด',
+            //             'contents' => 
+            //             array (
+            //               'type' => 'bubble',
+            //               'direction' => 'ltr',
+            //               'header' => 
+            //               array (
+            //                 'backgroundColor' => '#F460A6',
+            //                 'type' => 'box',
+            //                 'layout' => 'vertical',
+            //                 'contents' => 
+            //                 array (
+            //                   0 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => 'เตือนภัยเกษตรล่าสุด',
+            //                     'size' => 'lg',
+            //                     'weight' => 'bold',
+            //                     'align' => 'start',
+            //                     'color' => '#ffffff',
+            //                     'wrap' => true,
+            //                   ),
+            //                 ),
+            //               ),
+            //               // 'hero' => 
+            //               // array (
+            //               //   'type' => 'image',
+            //               //   'url' => 'https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg',
+            //               //   'size' => 'full',
+            //               //   'aspectRatio' => '1.51:1',
+            //               //   'aspectMode' => 'fit',
+            //               // ),
+            //               'body' => 
+            //               array (
+            //                 'type' => 'box',
+            //                 'layout' => 'vertical',
+            //                 'contents' => 
+            //                 array (
+            //                   0 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => "$name",
+            //                     'size' => 'xxl',
+            //                     'weight' => 'bold',
+            //                     'wrap' => true,
+            //                   ),
+            //                   1 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => "ระยะเวลา : วันที่ $date_end",
+            //                     'size' => 'md',
+            //                     'wrap' => true,
+            //                   ),
+            //                   2 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => "สพาพแวดล้อม : $weather",
+            //                     'size' => 'md',
+            //                     'wrap' => true,
+            //                   ),
+            //                   3 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => "ระยะการเจริญเติบโต : $growing",
+            //                     'size' => 'md',
+            //                     'wrap' => true,
+            //                   ),
+            //                   4 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => "ปัญหาที่ควรระวัง : $problem",
+            //                     'size' => 'md',
+            //                     'wrap' => true,
+            //                   ),
+            //                   5 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => "อาการที่อาจพบ : $warning",
+            //                     'size' => 'md',
+            //                     'wrap' => true,
+            //                   ),
+            //                   6 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => "แนวทางป้องกัน : $solution",
+            //                     'size' => 'md',
+            //                     'wrap' => true,
+            //                   ),
+            //                 ),
+            //               ),
+            //               'footer' => 
+            //               array (
+            //                 'type' => 'box',
+            //                 'layout' => 'horizontal',
+            //                 'contents' => 
+            //                 array (
+            //                   0 => 
+            //                   array (
+            //                     'type' => 'text',
+            //                     'text' => 'ข้อมูลจาก Chaokaset Application',
+            //                     'size' => 'sm',
+            //                     'align' => 'center',
+            //                     'color' => '#CBC5C5',
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //           )
+            //     )
+            // );          
           }
         
 
