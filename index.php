@@ -2009,7 +2009,7 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['contents'][1]['text'] = "ราคา";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['contents'][1]['flex'] = $i;
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['contents'][1]['size'] = "lg";
-            $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['contents'][1]['weight'] = "bold";
+            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['contents'][1]['weight'] = "bold";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['contents'][1]['wrap'] = true;  
             
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][2]['type'] = "box";
@@ -2025,7 +2025,7 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][2]['contents'][1]['text'] = "ราคา";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][2]['contents'][1]['flex'] = $i;
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][2]['contents'][1]['size'] = "lg";
-            $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][2]['contents'][1]['weight'] = "bold";
+            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][2]['contents'][1]['weight'] = "bold";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][2]['contents'][1]['wrap'] = true;   
             
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][3]['type'] = "box";
@@ -2041,7 +2041,7 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][3]['contents'][1]['text'] = "ราคา";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][3]['contents'][1]['flex'] = $i;
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][3]['contents'][1]['size'] = "lg";
-            $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][3]['contents'][1]['weight'] = "bold";
+            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][3]['contents'][1]['weight'] = "bold";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][3]['contents'][1]['wrap'] = true;   
             
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][4]['type'] = "box";
@@ -2057,7 +2057,7 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][4]['contents'][1]['text'] = "ราคา";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][4]['contents'][1]['flex'] = $i;
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][4]['contents'][1]['size'] = "lg";
-            $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][4]['contents'][1]['weight'] = "bold";
+            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][4]['contents'][1]['weight'] = "bold";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][4]['contents'][1]['wrap'] = true;   
             
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['type'] = "box";
@@ -2073,7 +2073,7 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['contents'][1]['text'] = "ราคา";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['contents'][1]['flex'] = $i;
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['contents'][1]['size'] = "lg";
-            $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['contents'][1]['weight'] = "bold";
+            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['contents'][1]['weight'] = "bold";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['contents'][1]['wrap'] = true;   
             
             ////////////////////////////////////////////////////////
