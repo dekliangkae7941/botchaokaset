@@ -1957,10 +1957,10 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['type'] = "flex";
             $arrayPostData['messages'][0]['altText'] = "$command";
             $arrayPostData['messages'][0]['contents']['type'] = "carousel";
-
+            $datacountrowtype = 0;
             $datacountrowtype1 = 0;
             $datacountrowtype2 = 0;
-            for($i=0;$i<=4;$i++){
+            //for($i=0;$i<=4;$i++){
                 //$datacountrowtype2 += 1;
                 //$datacountrowtype3 += 1;
               $name = $json[$i]['name'];
@@ -2051,7 +2051,7 @@ elseif ($command != '') {
             //$arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['footer']['contents'][0]['style'] = "primary";
             $datacountrowtype1 += 1;    
           
-            }
+            //}
           
             pg_free_result($resulttype);
             replyMsg($arrayHeader,$arrayPostData);
