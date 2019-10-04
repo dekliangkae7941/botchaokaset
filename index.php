@@ -1515,7 +1515,7 @@ elseif ($command != '') {
                                             'type' => 'action',
                                             'action' => array(
                                                 'type' => 'location',
-                                                'label' => 'กดเพื่อระบุตำแ���น่งของท่าน'
+                                                'label' => 'กดเพื่อระบุตำแหน่งของท่าน'
                                                 )
                                             )
                                         )
@@ -1551,15 +1551,7 @@ elseif ($command != '') {
                       $json = json_decode($response1->raw_body, true);
                       //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
                       $n = 1;
-                      foreach($json['data']['list'] as $temp){ 
-                        $resultlo = $temp['location_name'];
-                        $resultpn = $temp['province_name'];
-                        $resultcsbt = $temp['subtype_name'];
-                        $resultclot = $temp['coord_latitude'];
-                        $resultclon = $temp['coord_longitude'];
-                        $resultcdis = $temp['coord_distance'];
-                        $resultclen = $json['data']['lenght'];
-                      }
+                      
                         //   if($resultlo == $location_name){
                            
 
@@ -1941,7 +1933,10 @@ elseif ($command != '') {
             $response = Unirest\Request::get("$uriw");
             $json = json_decode($response->raw_body, true);
             $i = 0;
-            /////////////////////////////////
+
+            
+              /////////////////////////////////
+  
             $arrayPostData['replyToken'] = $replyToken;
             //$arrayPostData['to'] = $uid;
             $arrayPostData['messages'][0]['type'] = "flex";
@@ -2017,13 +2012,13 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][5]['wrap'] = true;   
             $datacountrowtype += 1;
                     
-            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
-            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "--------------------------------------------------";
-            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $i;
-            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
-            // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
-            // $datacountrowtype += 1;                 
-      
+                    // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
+                    // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "--------------------------------------------------";
+                    // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $i;
+                    // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['size'] = "md";
+                    // $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][$datacountrowtype]['wrap'] = true;
+                    // $datacountrowtype += 1;                 
+              
             /*
             $arrayPostData['messages'][0]['contents']['contents'][$i]['footer']['contents'][1]['type'] = "button";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['footer']['contents'][1]['action']['type'] = "action";
