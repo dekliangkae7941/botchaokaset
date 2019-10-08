@@ -1397,14 +1397,14 @@ elseif ($command != '') {
         elseif ($command == "ราคาเบญจมาศ") {
             $typeid = 34;
         }
-            $querytype = "SELECT line_type.type_name, line_subtype.type_id, line_subtype.subtype_id,line_subtype.subtype_name,
-            line_subtype_all.location_name,line_subtype_all.product_price ,line_subtype_all.coord_latitude
-            FROM line_type
-            INNER JOIN line_subtype ON line_type.type_id=line_subtype.type_id
-            INNER JOIN line_subtype_all ON line_subtype.subtype_id=line_subtype_all.subtype_id 
-            where line_type.type_id = '$typeid'
-            order by line_subtype_all.product_price DESC";
-            // $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' ORDER BY subtype_id limit 9";
+            // $querytype = "SELECT line_type.type_name, line_subtype.type_id, line_subtype.subtype_id,line_subtype.subtype_name,
+            // line_subtype_all.location_name,line_subtype_all.product_price ,line_subtype_all.coord_latitude
+            // FROM line_type
+            // INNER JOIN line_subtype ON line_type.type_id=line_subtype.type_id
+            // INNER JOIN line_subtype_all ON line_subtype.subtype_id=line_subtype_all.subtype_id 
+            // where line_type.type_id = '$typeid'
+            // order by line_subtype_all.product_price DESC";
+            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' ORDER BY subtype_id limit 9";
             if($resulttype = pg_query($dbconn, $querytype)){
                 if(pg_num_rows($resulttype) > 0){
                     $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
@@ -1466,8 +1466,8 @@ elseif ($command != '') {
                     $datacountrowtype2 = 0;
                     $datacountrowtype3 = 2;
                     while($rowtype = pg_fetch_array($resulttype)){
-                        $subtype_id = $rowtype['line_subtype_all.subtype_id'];
-                        $subtype_name = $rowtype['line_subtype_all.subtype_name'];
+                        $subtype_id = $rowtype['subtype_id'];
+                        $subtype_name = $rowtype['subtype_name'];
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['type'] = "box";
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['header']['layout'] = "vertical";
