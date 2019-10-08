@@ -1,4 +1,5 @@
 <?php
+    include "index.php";
     include "bot_header.php";
     include "admin/connectdb.php";
     include "c_func_bot.php";
