@@ -4,6 +4,7 @@
 include "bot_header.php";
 include "admin/connectdb.php";
 include "index.php";
+$$type = $_GET['type'];
 if ($type == 'memberJoined') {
     $text = "เมื่อมีผู้ใช้เข้ากลุ่ม";
         $mreply = array(
@@ -209,3 +210,10 @@ elseif ($type == 'unfollow') {
         )
     );
 }
+if (isset($mreply)) {
+    $result = json_encode($mreply);
+    $client->replyMessage($mreply);
+}
+  file_put_contents('log.txt',file_get_contents('php://input'));
+  pg_close($dbconn);
+?>
