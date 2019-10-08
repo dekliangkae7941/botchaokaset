@@ -1404,7 +1404,7 @@ elseif ($command != '') {
             // INNER JOIN line_subtype_all ON line_subtype.subtype_id=line_subtype_all.subtype_id 
             // where line_type.type_id = '$typeid'
             // order by line_subtype_all.product_price DESC";
-            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' ORDER BY subtype_id limit 9";
+            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
             if($resulttype = pg_query($dbconn, $querytype)){
                 if(pg_num_rows($resulttype) > 0){
                     $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
