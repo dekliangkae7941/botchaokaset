@@ -5,9 +5,7 @@ include "bot_header.php";
 include "admin/connectdb.php";
 
 #-------------------------[EVENT TYPE]-------------------------#
-if($type != ''){
-  include "bot_event_type.php";
-}
+include "bot_event_type.php";
 ///////////
 #-------------------------[MSG TYPE]-------------------------#
 /*elseif ($msg_type == 'file') {
