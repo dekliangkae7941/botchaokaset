@@ -1,18 +1,16 @@
 <?php
-include "config.php";
+include "connectdb.php";
 
-$tent_id = $_GET['tent_id'];
+$main_id = $_GET['main_id'];
 // echo $id;
-$sql = "DELETE FROM data_tent WHERE tent_id=".$tent_id;
-
+$sql = "DELETE FROM admin_log WHERE main_id=".$main_id;
 if ($result = pg_query($sql)) {
     echo "<center>ลบสำเร็จ</center>";
-    header('refresh: 2; index.php');
+    header('refresh: 1; index.php');
     exit(0);
-} else {
-    echo "<center>ไม่สามารถลบได้</center>";
-    header('refresh: 2; index.php');
-    exit(0);
-}
-
+  } else {
+      echo "<center>ไม่สามารถลบได้</center>";
+      header('refresh: 1; index.php');
+      exit(0);
+  }
 ?>
