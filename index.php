@@ -1512,7 +1512,7 @@ elseif ($command != '') {
                     $datacountrowtype2 = 0;
                     $datacountrowtype3 = 2;
                     $counter = 0;
-                    $max = 15;
+                    $max = 10;
                     
                     while($rowtype = pg_fetch_array($resulttype)  and ($counter < $max)){
                         //$datacountrowtype2 += 1;
