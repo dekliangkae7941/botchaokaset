@@ -3,11 +3,8 @@
 #--------------------------------------------------------------------------------------------------------------------#
 include "bot_header.php";
 include "admin/connectdb.php";
-
+include "bot_event_type.php";
 #-------------------------[EVENT TYPE]-------------------------#
-if($type != ''){
-  include "bot_event_type.php";
-}
 ///////////
 #-------------------------[MSG TYPE]-------------------------#
 /*elseif ($msg_type == 'file') {
@@ -177,7 +174,7 @@ $stickerurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" . $sti
     );
 }*/
 ///////////////////
-elseif ($msg_type == 'location') {
+if ($msg_type == 'location') {
     ////คือกดสภาพอากาศ แล้วส่งคำว่า lo...ไป เมื่อส่งไปให้ดึงข้อมูลละติ ลองจิ ของโลเคชันจากดาต้าเบสออกมาละส่งไปopenwเลย ส่วนโปรไฟล์จะมีให้แก้ไขที่อยู่ และแก้ไขแปลงผัก
     $query = "UPDATE line_log SET latitude = '$msg_latitude',longitude = '$msg_longitude', address = '$msg_address' WHERE userid = '$userId'";
     $result = pg_query($query);
