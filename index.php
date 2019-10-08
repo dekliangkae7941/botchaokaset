@@ -1397,7 +1397,7 @@ elseif ($command != '') {
         elseif ($command == "ราคาเบญจมาศ") {
             $typeid = 34;
         }
-            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' ORDER BY subtype_id limit 10";
+            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' ORDER BY subtype_id limit 9";
             if($resulttype = pg_query($dbconn, $querytype)){
                 if(pg_num_rows($resulttype) > 0){
                     $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
@@ -1481,7 +1481,7 @@ elseif ($command != '') {
                       
 
                     $querystype = "SELECT * FROM line_subtype_all
-                    WHERE subtype_id = '$subtype_id' and coord_latitude IS NOT NULL";
+                    WHERE subtype_id = '$subtype_id' and coord_latitude IS NOT NULL ORDER BY subtype_id limit 9";
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     //var_dump($json);
