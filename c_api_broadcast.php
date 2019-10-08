@@ -2,7 +2,7 @@
     #-------------------------[Include]-------------------------#
     include "bot_header.php";
     include "admin/connectdb.php";
-    include "C_bot.php";
+    include "c_func_bot.php";
     $post = $_POST;
     //$status_login = 0;
     $header =$post['header']; //สภาพแวดล้อม

@@ -23,7 +23,7 @@
 #--------------------------------------------------------------------------------------------------------------------#
 include "bot_header.php";
 include "admin/connectdb.php";
-include "C_bot.php";
+include "c_func_bot.php";
 
 #-------------------------[EVENT TYPE]-------------------------#
 if ($type == 'memberJoined') {
