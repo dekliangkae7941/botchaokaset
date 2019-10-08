@@ -1554,10 +1554,11 @@ elseif ($command != '') {
                     ///ถ้าผู้ใช้มีlocationให้เลือกพื้นที่ใกล้ที่สุดมา3อัน แต่ถ้าไม่มีโลเคชันบอทจะเลือกข้อมูลที่ราคาแพงสุดมา3อัน || หรือวนไปให้ส่งโลเคชัน ???
                     $resultstype = pg_query($dbconn, $querystype);
                     $datacountrowtype = 0;
-                    
+                    $counter = 0;
+                    $max = 20;
 
 
-                        while($rowstype = pg_fetch_array($resultstype)){
+                        while($rowstype = pg_fetch_array($resultstype) and ($counter < $max)){
                             $location_name = $rowstype['location_name'];
                             $province_name = $rowstype['province_name'];
                             $unit_name = $rowstype['unit_name'];
