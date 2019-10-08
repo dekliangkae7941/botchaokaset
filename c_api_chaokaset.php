@@ -1,6 +1,8 @@
 <?php
     
     #-------------------------[Include]-------------------------#
+    require_once('./include/line_class.php');
+    require_once('./unirest-php-master/src/Unirest.php');
     include("admin/connectdb.php");
     include("bot_header.php");
     #-------------------------[Token]-------------------------#
