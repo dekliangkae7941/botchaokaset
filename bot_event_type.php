@@ -1,6 +1,8 @@
 <?php
 // include "bot_header.php";
 // include "admin/connectdb.php";
+include "bot_header.php";
+include "admin/connectdb.php";
 include "index.php";
 if ($type == 'memberJoined') {
     $text = "เมื่อมีผู้ใช้เข้ากลุ่ม";
