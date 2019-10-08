@@ -1397,7 +1397,7 @@ elseif ($command != '') {
         elseif ($command == "ราคาเบญจมาศ") {
             $typeid = 34;
         }
-            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid'";
+            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' limit 15";
             if($resulttype = pg_query($dbconn, $querytype)){
                 if(pg_num_rows($resulttype) > 0){
                     $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
@@ -1434,74 +1434,21 @@ elseif ($command != '') {
                             )
                         ); 
                     }else{
+                    $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
+                    $resultlog = pg_query($dbconn, $querylog);
+                    $rowlog = pg_fetch_array($resultlog);
+                    $plan_category = $rowlog['plan_category'];
+                    //$ddisplayName = $rowlog['displayName'];
+                    $address = $rowlog['address'];
+                    $latitude = $rowlog['latitude'];
+                    $longitude = $rowlog['longitude'];
+                    $headers = array('Accept' => 'application/json');
+                    $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
+                    $body = Unirest\Request\Body::json($data);
+                    $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
+                    $json = json_decode($response1->raw_body, true);
+                    //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";    
 
-                      $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
-                      $resultlog = pg_query($dbconn, $querylog);
-                      $rowlog = pg_fetch_array($resultlog);
-                      $plan_category = $rowlog['plan_category'];
-                      //$ddisplayName = $rowlog['displayName'];
-                      $address = $rowlog['address'];
-                      $latitude = $rowlog['latitude'];
-                      $longitude = $rowlog['longitude'];
-                      //$ppictureUrl = $rowlog['pictureUrl'];
-                      echo $plan_category."\n" ;
-                      //echo $displayName ."\n";
-                      echo $address ."\n";
-                      //echo $pictureUrl ."\n";
-            /////////////////////////  
-                      echo $latitude." : ".$longitude."\n";
-              //////////////////////////////////
-                      echo "123456788888888";
-                      ///////////////////////////////////////
-                      $limit = 10;
-                      $headers = array('Accept' => 'application/json');
-                      $data = array('latitude' => "$latitude", 'longitude' => "$longitude" );
-                      $body = Unirest\Request\Body::json($data);
-                      $response1 = Unirest\Request::post('https://chaokaset.openservice.in.th/index.php/priceservices/getmarket',$headers,$body);
-                      $json = json_decode($response1->raw_body, true);
-                      //$uri = "https://chaokaset.openservice.in.th/index.php/priceservices/getmarket";
-                      $n = 1;
-                      
-                        //   if($resultlo == $location_name){
-                           
-
-
-
-
-
-
-
-
-                        //     // $result = json_encode($mreply);
-                        //     // $client->replyMessage($mreply);
-                        //   }
-                        
-                        //   else{
-                        //     $mreply = array(
-                        //       'replyToken' => $replyToken,
-                        //       'messages' => array(
-                        //           array(
-                        //               'type' => 'text',
-                        //               'text' => "fuck"
-                        //           )
-                        //       )
-                        //     );
-                        
-                        // }
-                      
-                      // $resultlo = $json['data']['list'][$i]['location_name'];
-                      // $resultpn = $json['data']['list'][$i]['province_name'];
-                      // $resultclot = $json['data']['list'][$i]['coord_latitude'];
-                      // $resultclon = $json['data']['list'][$i]['coord_longitude'];
-                      // $resultcdis = $json['data']['list'][$i]['coord_distance'];
-                      
-                      // echo $latitude." : ".$longitude;
-                      // echo $resultlo." : ".$resultpn;
-                      // echo $resultclot." : ".$resultclon;
-                      // echo "12345678";
-                      // echo $json["status"];
-                      
-          
                     $arrayPostData['replyToken'] = $replyToken;
                     //$arrayPostData['to'] = $uid;
                     $arrayPostData['messages'][0]['type'] = "flex";
@@ -1511,13 +1458,7 @@ elseif ($command != '') {
                     $datacountrowtype1 = 0;
                     $datacountrowtype2 = 0;
                     $datacountrowtype3 = 2;
-                    $counter = 0;
-                    $max = 10;
-                    
-                    while($rowtype = pg_fetch_array($resulttype)  and ($counter < $max)){
-                        //$datacountrowtype2 += 1;
-                        //$datacountrowtype3 += 1;
-                        
+                    while($rowtype = pg_fetch_array($resulttype)){
                         $subtype_id = $rowtype['subtype_id'];
                         $subtype_name = $rowtype['subtype_name'];
                     $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['type'] = "bubble";
