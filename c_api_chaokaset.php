@@ -1,24 +1,22 @@
 <?php
     
     #-------------------------[Include]-------------------------#
-    require_once('./include/line_class.php');
-    require_once('./unirest-php-master/src/Unirest.php');
     include("admin/connectdb.php");
     include("bot_header.php");
     #-------------------------[Token]-------------------------#
-    // function pushMsg($arrayHeader,$arrayPostData){
-    //     $strUrl = "https://api.line.me/v2/bot/message/multicast";
-    //     $ch = curl_init();
-    //     curl_setopt($ch, CURLOPT_URL,$strUrl);
-    //     curl_setopt($ch, CURLOPT_HEADER, false);
-    //     curl_setopt($ch, CURLOPT_POST, true);
-    //     curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-    //     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    //     $result = curl_exec($ch);
-    //     curl_close ($ch);
-    // }
+    function pushMsg($arrayHeader,$arrayPostData){
+        $strUrl = "https://api.line.me/v2/bot/message/multicast";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+    }
     $post = $_POST;
     //$status_login = 0;
     $environment =$post['environment']; //สภาพแวดล้อม
