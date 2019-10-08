@@ -1,118 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>หน้าสำหรับเพิ่มข้อมูล</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<div class="container">
-<h2>เพิ่มข้อมูลข่าวสารและคลังความรู้</h2>
-  <form action="insert.php" method="post">
-    <div class="form-group">
-      <label for="main_name">Main Name</label>
-      <input type="text" class="form-control" id="main_name"  name="main_name">
-    </div>
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="title"  name="title">
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" class="form-control" id="description"  name="description">
-    </div>
-    <div class="form-group">
-      <label for="url_link">Url Link</label>
-      <input type="text" class="form-control" id="url_link"  name="url_link">
-    </div>
-    <div class="form-group">
-      <label for="url_image">Url Image</label>
-      <input type="text" class="form-control" id="url_image"  name="url_image">
-    </div>
-    <button type="submit" class="btn btn-primary">บันทึก</button>
-  </form>
-  <br />
-  <br />
-  
-  <p>ตารางแสดงข้อมูล</p>            
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th colspan="1" style="text-align:center">mainname</th>
-        <th colspan="1" style="text-align:center">title</th>
-        <th colspan="3" style="text-align:center">description</th>
-        <th colspan="1" style="text-align:center">urllink</th>
-        <th colspan="1" style="text-align:center">urlimage</th>
-        <th colspan="2" style="text-align:center">ดำเนินงาน</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php
-    include "connectdb.php";
-    $query = "SELECT * FROM admin_log"; 
-    $result = pg_query($dbconn, $query); 
-      while($row = pg_fetch_array($result)){
-        echo "<tr>  
-                    <td colspan=\"1\">".$row['main_name']."</td>
-                    <td colspan=\"1\">".$row['title']."</td>
-                    <td colspan=\"3\">".$row['description']."</td>
-                    <td colspan=\"1\">".$row['url_link']."</td>
-                    <td colspan=\"1\">".$row['url_image']."</td>
-                    <td colspan=\"1\" ><a href=\"edit.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-warning\">แก้ไขข้อมูล</button></a></td>
-                    <td colspan=\"1\"><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
-                    </tr>";
-      }
-    ?>
-      
-     
-    </tbody>
-  </table>
-</div>
-</ul>
-</body>
-</html>
 <?php
-#-------------------------[Include]-------------------------#
-require_once('./include/line_class.php');
-require_once('./unirest-php-master/src/Unirest.php');
 #-------------------------[Token]-------------------------#
+
+// $uriww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
+//             $response = Unirest\Request::get("$uriww");
+//             $json = json_decode($response->raw_body, true);
+//             $i = 0;
+//             $datacountrowtype1 = 0;
+//             $datacountrowtype2 = 0;
+//             for($i=0;$i<=4;$i++){
+//                 //$datacountrowtype2 += 1;
+//                 //$datacountrowtype3 += 1;
+//               $name = $json[$i]['name'];
+//               $growing = $json[$i]['growing'];
+//               $weather = $json[$i]['weather'];
+//               $problem = $json[$i]['problem'];
+//               $warning = $json[$i]['detail']['warning'];
+//               $solution = $json[$i]['detail']['solution'];
+//               $date_start = $json[$i]['detail']['date_start'];
+//               $date_end = $json[$i]['detail']['date_end'];
+//             echo "555555".$name;
+//             }
 #--------------------------------------------------------------------------------------------------------------------#
-$uriww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
-            $response = Unirest\Request::get("$uriww");
-            $json = json_decode($response->raw_body, true);
-            $i = 0;
-            $datacountrowtype1 = 0;
-            $datacountrowtype2 = 0;
-            for($i=0;$i<=4;$i++){
-                //$datacountrowtype2 += 1;
-                //$datacountrowtype3 += 1;
-              $name = $json[$i]['name'];
-              $growing = $json[$i]['growing'];
-              $weather = $json[$i]['weather'];
-              $problem = $json[$i]['problem'];
-              $warning = $json[$i]['detail']['warning'];
-              $solution = $json[$i]['detail']['solution'];
-              $date_start = $json[$i]['detail']['date_start'];
-              $date_end = $json[$i]['detail']['date_end'];
-            echo "555555".$name;
-            }
-
-#------------------------------------------------------------------------------------------------------------#
-
-$channelAccessToken = 'YhqOTnlfJE6/yjWpkPRNR03ryOXTb7R8QaOVBkVL1Q5zAEhV8xJaMKBgGoLRZcVfA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vyxnO+4kUs2EpOJtHjNpnb9ED5kGu9OFa3G17TukVvILQdB04t89/1O/w1cDnyilFU='; 
-$channelSecret = '83255aed1b77104d01142b5542945438';
-
-
-$content = file_get_contents('php://input');
-$arrayJson = json_decode($content, true);
-$arrayHeader = array();
-$arrayHeader[] = "Content-Type: application/json";
-$arrayHeader[] = "Authorization: Bearer {$channelAccessToken}";
-
+include "bot_header.php";
 #-------------------------[Events]-------------------------#
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);

@@ -11,49 +11,67 @@
 <body>
 
 <div class="container">
-<h2>เพิ่มคำสำหรับ Chatbot</h2>
+<h2>เพิ่มข้อมูลข่าวสารและคลังความรู้</h2>
   <form action="insert.php" method="post">
     <div class="form-group">
-      <label for="keyword">คำที่ค้นหา</label>
-      <input type="text" class="form-control" id="keyword"  name="keyword">
+      <label for="main_name">Main Name</label>
+      <input type="text" class="form-control" id="main_name"  name="main_name">
     </div>
     <div class="form-group">
-      <label for="intent">คำที่ตอบ</label>
-      <input type="text" class="form-control" id="intent"  name="intent">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title"  name="title">
     </div>
-   
-    <button type="submit" class="btn btn-default">บันทึก</button>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description"  name="description">
+    </div>
+    <div class="form-group">
+      <label for="url_link">Url Link</label>
+      <input type="text" class="form-control" id="url_link"  name="url_link">
+    </div>
+    <div class="form-group">
+      <label for="url_image">Url Image</label>
+      <input type="text" class="form-control" id="url_image"  name="url_image">
+    </div>
+    <button type="submit" class="btn btn-primary">บันทึก</button>
   </form>
   <br />
   <br />
-  <h2>ข้อความ</h2>
-  <p>ตัวอย่างการค้นหาคำเพื่อตอบสำหรับ chatbot</p>            
+  
+  <p>ตารางแสดงข้อมูล</p>            
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>คำที่ค้นหา</th>
-        <th>คำที่ตอบ</th>
-        <th>ดำเนินงาน</th>
+        <th colspan="1" style="text-align:center">mainname</th>
+        <th colspan="1" style="text-align:center">title</th>
+        <th colspan="3" style="text-align:center">description</th>
+        <th colspan="1" style="text-align:center">urllink</th>
+        <th colspan="1" style="text-align:center">urlimage</th>
+        <th colspan="2" style="text-align:center">ดำเนินงาน</th>
       </tr>
     </thead>
     <tbody>
     <?php
-    include "config.php";
-    $sql = "SELECT * FROM data_tent";
-    $result = pg_query($sql);
-        while ($row = pg_fetch_array($result)) {
-              echo "<tr>
-                    <td>".$row['keyword']."</td>
-                    <td>".$row['intent']."</td>
-                    <td><a href=\"delete.php?tent_id=".$row['tent_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
+    include "connectdb.php";
+    $query = "SELECT * FROM admin_log"; 
+    $result = pg_query($dbconn, $query); 
+      while($row = pg_fetch_array($result)){
+        echo "<tr>  
+                    <td colspan=\"1\">".$row['main_name']."</td>
+                    <td colspan=\"1\">".$row['title']."</td>
+                    <td colspan=\"3\">".$row['description']."</td>
+                    <td colspan=\"1\">".$row['url_link']."</td>
+                    <td colspan=\"1\">".$row['url_image']."</td>
+                    <td colspan=\"1\" ><a href=\"edit.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-warning\">แก้ไขข้อมูล</button></a></td>
+                    <td colspan=\"1\"><a href=\"delete.php?main_id=".$row['main_id']."\"><button type=\"button\" class=\"btn btn-danger\">ลบข้อมูล</button></a></td>
                     </tr>";
-        }
+      }
     ?>
       
      
     </tbody>
   </table>
 </div>
-
+</ul>
 </body>
 </html>
