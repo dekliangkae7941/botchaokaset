@@ -1,5 +1,5 @@
 <?php
-include "bot_header.php";
+include("bot_header.php");
 #-------------------------[Func]-------------------------#
 function replyMsg($arrayHeader,$arrayPostData){
     $strUrl = "https://api.line.me/v2/bot/message/reply";
@@ -14,7 +14,7 @@ function replyMsg($arrayHeader,$arrayPostData){
     $result = curl_exec($ch);
     curl_close ($ch);
 }
-function pushbMsg($arrayHeader,$arrayPostData){
+function pushMsg($arrayHeader,$arrayPostData){
     $strUrl = "https://api.line.me/v2/bot/message/multicast";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL,$strUrl);

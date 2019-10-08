@@ -1,10 +1,10 @@
 <?php
     #-------------------------[Include]-------------------------#
-    include "bot_header.php";
-    include "admin/connectdb.php";
-    include "c_func_bot.php";
+    include("bot_header.php");
+    include("c_func_bot.php");
+    include("admin/connectdb.php");
+    
     $post = $_POST;
-    //$status_login = 0;
     $environment =$post['environment']; //สภาพแวดล้อม
     $plant_type =$post['plant_type']; //ชนิดพืช
     $growth_phase =$post['growth_phase']; //ระยะการเจริญเติบโต

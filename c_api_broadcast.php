@@ -1,8 +1,9 @@
 <?php
     #-------------------------[Include]-------------------------#
-    include "bot_header.php";
-    include "admin/connectdb.php";
-    include "c_func_bot.php";
+    include("bot_header.php");
+    include("c_func_bot.php");
+    include("admin/connectdb.php");
+    #-------------------------[Token]-------------------------#
     $post = $_POST;
     //$status_login = 0;
     $header =$post['header']; //สภาพแวดล้อม
@@ -67,7 +68,7 @@
                     $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] = "center";
                     $arrayPostData['messages'][0]['contents']['styles']['header']['backgroundColor'] = "#9545E5";
                     //$rowuserid += 1;
-                    pushbMsg($arrayHeader,$arrayPostData);
+                    pushMsg($arrayHeader,$arrayPostData);
 //}                
                     } 
             }
