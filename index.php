@@ -1397,7 +1397,7 @@ elseif ($command != '') {
         elseif ($command == "ราคาเบญจมาศ") {
             $typeid = 34;
         }
-            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' ORDER BY subtype_id limit 15";
+            $querytype = "SELECT * FROM line_subtype WHERE type_id = '$typeid' ORDER BY subtype_id limit 10";
             if($resulttype = pg_query($dbconn, $querytype)){
                 if(pg_num_rows($resulttype) > 0){
                     $querylog = "SELECT * FROM line_log WHERE userid = '$userId'";
