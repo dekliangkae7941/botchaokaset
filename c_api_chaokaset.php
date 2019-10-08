@@ -1,9 +1,8 @@
 <?php
     #-------------------------[Include]-------------------------#
     include("bot_header.php");
-    include("c_func_bot.php");
     include("admin/connectdb.php");
-    
+
     $post = $_POST;
     $environment =$post['environment']; //สภาพแวดล้อม
     $plant_type =$post['plant_type']; //ชนิดพืช
