@@ -22,6 +22,7 @@
 //             }
 #--------------------------------------------------------------------------------------------------------------------#
 include "bot_header.php";
+include "admin/connectdb.php";
 #-------------------------[Events]-------------------------#
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
