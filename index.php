@@ -1437,15 +1437,6 @@ elseif ($command != '') {
                             //   $text1 = " พื้นที่ : " . $latitude." : ".$longitude. "\n";
                             //   $text2 = " สภาพอากาศ : " . $resultlo." : ".$resultpn . "//" .$resultcdis."\n";
                             //   $text3 = " รายละเอียด : " . $resultclot." : ".$resultclon . "//" .$resultclen."\n";
-                            if($clatitude == 0 && $clongitude == 0){
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['type'] = "text";
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['text'] = "ยังไม่มีข้อมูล $subtype_name";
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['flex'] = $datacountrowtype1;
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['size'] = "xl";
-                              $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
-                              //$datacountrowtype += 1;
-  
-                              }else{
                             //echo json_encode($json);
                             foreach($json['data']['list'] as $temp){ 
                                 $resultlo = $temp['location_name'];
@@ -1458,8 +1449,16 @@ elseif ($command != '') {
                                 //echo $number;
                                 $resultresultcdis = round($resultcdis,2);
                                 // echo $result;
-                            
-                            if($location_name == $resultlo && $ssubtype_name == $resultcsbt){
+                            if($clatitude == 0 && $clongitude == 0 && $location_name != $resultlo){
+                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['type'] = "text";
+                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['text'] = "ยังไม่มีข้อมูล $subtype_name";
+                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['flex'] = $datacountrowtype1;
+                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['size'] = "xl";
+                            $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['wrap'] = true;
+                            //$datacountrowtype += 1;
+
+                            }
+                            elseif($location_name == $resultlo && $ssubtype_name == $resultcsbt){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ใกล้ตัว : $location_name ";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['flex'] = $datacountrowtype1;
@@ -1506,7 +1505,6 @@ elseif ($command != '') {
                             // $datacountrowtype += 1;
                             }
                           } 
-                        }  
                         }                    
                       
                     /*
