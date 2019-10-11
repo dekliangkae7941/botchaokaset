@@ -1751,7 +1751,7 @@ elseif ($command != '') {
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][0]['wrap'] = true;
             $datacountrowtype += 1;
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['type'] = "text";
-            $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['text'] = "สพาพแวดล้อม : $weather";
+            $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['text'] = "สภาพแวดล้อม : $weather";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['flex'] = $i;
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['size'] = "md";
             $arrayPostData['messages'][0]['contents']['contents'][$i]['body']['contents'][0]['contents'][1]['wrap'] = true;
@@ -1870,7 +1870,7 @@ elseif ($command != '') {
             //                   2 => 
             //                   array (
             //                     'type' => 'text',
-            //                     'text' => "สพาพแวดล้อม : $weather",
+            //                     'text' => "สภาพแวดล้อม : $weather",
             //                     'size' => 'md',
             //                     'wrap' => true,
             //                   ),
