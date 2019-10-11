@@ -1449,7 +1449,7 @@ elseif ($command != '') {
                                 //echo $number;
                                 $resultresultcdis = round($resultcdis,2);
                                 // echo $result;
-                            if($clatitude == 0 && $clongitude == 0 && $location_name != $resultlo){
+                            if($clatitude == 0 && $clongitude == 0 && $ssubtype_name != $resultcsbt){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['text'] = "ยังไม่มีข้อมูล $subtype_name";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][0]['flex'] = $datacountrowtype1;
