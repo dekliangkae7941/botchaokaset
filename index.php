@@ -1449,6 +1449,7 @@ elseif ($command != '') {
                                 //echo $number;
                                 $resultresultcdis = round($resultcdis,2);
                                 // echo $result;
+                                
                             if($location_name == $resultlo && $ssubtype_name == $resultcsbt ){
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['type'] = "text";
                             $arrayPostData['messages'][0]['contents']['contents'][$datacountrowtype1]['body']['contents'][0]['contents'][$datacountrowtype]['text'] = "สถานที่ใกล้ตัว : $location_name ";
