@@ -3,7 +3,7 @@
 #--------------------------------------------------------------------------------------------------------------------#
 include "bot_header.php";
 include "admin/connectdb.php";
-include "index.php";
+// include "index.php";
 $command = $_GET['command'];
 if($command == 'Location' || $command == 'สภาพอากาศ'){
 // $command == 'Location' || $command == 'สภาพอากาศ';
