@@ -1,5 +1,5 @@
 <?php
-#-------------------------[Token]-------------------------#
+#-------------------------[include]-------------------------#
 #--------------------------------------------------------------------------------------------------------------------#
 include "bot_header.php";
 include "admin/connectdb.php";
@@ -60,16 +60,6 @@ elseif ($type == 'leave') {
 elseif ($type == 'follow' || $command == "แก้ไขแปลงเพาะปลูก") {
     $query = "INSERT INTO line_log (userid , displayName) VALUES ('$userId','$displayName')";
     $result = pg_query($query);
-	    //$text = "เมื่อผู้ใช้กดติดตามบอท";
-    /*$mreply = array(
-        'replyToken' => $replyToken,
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => 'สวัสดีจ้าคุณ '.$displayName.' userId ของคุณคือ '.$userId
-            )
-        )
-    );*/
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array (
