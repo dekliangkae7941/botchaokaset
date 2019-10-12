@@ -4,7 +4,8 @@
 include "bot_header.php";
 include "admin/connectdb.php";
 include "index.php";
-
+$command = $_GET['command'];
+if($command == 'Location' || $command == 'สภาพอากาศ'){
 // $command == 'Location' || $command == 'สภาพอากาศ';
 $querylocation = "SELECT * FROM line_log WHERE userid = '$userId'";
 $resultlocation= pg_query($dbconn, $querylocation);
@@ -130,4 +131,5 @@ if($latitude == NULL || $longitude == NULL ){
               )
         )
     );
+}
 }

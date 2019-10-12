@@ -391,10 +391,8 @@ elseif ($msg_type == 'location') {
 elseif ($command != '') {
     $query = "UPDATE line_log SET displayName = '$displayName' WHERE userid = '$userId'";
     $result = pg_query($query);
-    if($command == 'Location' || $command == 'สภาพอากาศ'){
-      include "case_location.php";
-    }
-    elseif($command == 'พืชไร่'||$command == 'พืชสวน'||$command == 'ประมง'||$command == 'ปศุสัตว์'){
+    include "case_location.php";
+    if($command == 'พืชไร่'||$command == 'พืชสวน'||$command == 'ประมง'||$command == 'ปศุสัตว์'){
         //$command = $plan_category;
         $queryplan = "UPDATE line_log SET plan_category = '$command' WHERE userid = '$userId'";
         $resultplan = pg_query($queryplan);
