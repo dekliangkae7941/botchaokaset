@@ -15,7 +15,7 @@ $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 //รับข้อความจากผู้ใช้
 //$messages = $arrayJson['events'][0]['message']['text'];
 //รับ id ของผู้ใช
-$uid        = $arrayJson['events'][0]['source']['userId'];
+// $uid        = $arrayJson['events'][0]['source']['userId'];
 $userId     = $client->parseEvents()[0]['source']['userId'];
 $groupId    = $client->parseEvents()[0]['source']['groupId'];
 $replyToken = $client->parseEvents()[0]['replyToken'];
