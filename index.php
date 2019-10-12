@@ -386,6 +386,8 @@ elseif ($msg_type == 'location') {
     );
 
 }
+
+#--------------------------------------------[case]--------------------------------------------#
 elseif ($command != '') {
     $query = "UPDATE line_log SET displayName = '$displayName' WHERE userid = '$userId'";
     $result = pg_query($query);
