@@ -4,13 +4,13 @@
   $table = "";
   $response = array(
     "status" => false,
-    "$table" => $table,
+    "sql" => "",
     "data" => null
   );
   if(isset($_GET["table"])){
     $table = $_GET["table"];
-    $response["table"] = $table;
     $querylog = "SELECT * FROM ".$table;
+    $response["sql"] = $querylog;
     if ($result = pg_query($querylog)) {
       $response["status"] = true;
       $response["data"] = array();
@@ -21,5 +21,4 @@
   }
 
   echo json_encode($response);
-  exit(0);
 ?>
