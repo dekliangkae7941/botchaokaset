@@ -14,7 +14,7 @@
     if ($result = pg_query($querylog)) {
       $response["status"] = true;
       $response["data"] = array();
-      while ($row = pg_fetch_row($result)) {
+      while ($row = pg_fetch_assoc($result)) {
         array_push($response["data"], $row);
       }
     }
