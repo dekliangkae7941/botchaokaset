@@ -2447,8 +2447,6 @@ elseif ($command != '') {
         }
         /////////
     }
-}else{
-  include("c_api_chaokaset.php");
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);
