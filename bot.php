@@ -388,29 +388,6 @@ elseif ($msg_type == 'location') {
 
 #--------------------------------------[case]--------------------------------------------#
 elseif ($command != '') {
-<<<<<<< HEAD
-=======
-//   $current_page = 'homepage';
-
-// // Change value if page is specified
-// if(array_key_exists('page',$_GET) {
-//     $current_page = $_GET['page'];
-// }
-
-// Check page
-// switch ($command) {
-//     case 'Location' || 'สภาพอากาศ':
-//         include 'case_locatio.php';
-//         break;
-//     case 'contacts':
-//         include 'contents/contacts.php';
-//         break;
-//     case 'homepage':
-//     default:
-//         include 'contents/homepage.php';
-// }
-
->>>>>>> parent of 657593a... Update index.php
 
     $query = "UPDATE line_log SET displayName = '$displayName' WHERE userid = '$userId'";
     $result = pg_query($query);
