@@ -11,23 +11,17 @@ $uriwww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent"
             $i = 0;
             
               /////////////////////////////////
-  
-            $datacountrowtype = 0;
-            $datacountrowtype1 = 0;
-            $datacountrowtype2 = 0;
-            for($i=0;$i<=4;$i++){
                 //$datacountrowtype2 += 1;
                 //$datacountrowtype3 += 1;
-              $name = $json[$i]['name'];
-              $growing = $json[$i]['growing'];
-              $weather = $json[$i]['weather'];
-              $problem = $json[$i]['problem'];
-              $warning = $json[$i]['detail']['warning'];
-              $solution = $json[$i]['detail']['solution'];
-              $date_start = $json[$i]['detail']['date_start'];
-              $date_end = $json[$i]['detail']['date_end'];
+              $name = $json[1]['name'];
+              $growing = $json[1]['growing'];
+              $weather = $json[1]['weather'];
+              $problem = $json[1]['problem'];
+              $warning = $json[1]['detail']['warning'];
+              $solution = $json[1]['detail']['solution'];
+              $date_start = $json[1]['detail']['date_start'];
+              $date_end = $json[1]['detail']['date_end'];
               
-            }
               echo $name;
               echo $growing;
               echo $weather;
