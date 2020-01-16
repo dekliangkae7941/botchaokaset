@@ -4,8 +4,8 @@
 include "bot_header.php";
 include "admin/connectdb.php";
 
-$uriw = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
-            $response = Unirest\Request::get("$uriw");
+$uriwww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
+            $response = Unirest\Request::get("$uriwww");
             $json = json_decode($response->raw_body, true);
             $i = 0;
 
