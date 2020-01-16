@@ -22,7 +22,7 @@ $uriwww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent"
               $date_start = $json[1]['detail']['date_start'];
               $date_end = $json[1]['detail']['date_end'];
               
-              echo $name;
+              print_r($json);
               echo $growing;
               echo $weather;
               echo $problem;
