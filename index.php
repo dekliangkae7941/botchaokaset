@@ -3,7 +3,7 @@
 echo "555555";
 $json = file_get_contents('https://chaokaset.openservice.in.th/index.php/doaservices/notifysent');
 $obj = json_decode($json);
-echo $obj[0]->plant_name;
+echo $obj[0]->growing;
 #--------------------------------------------------------------------------------------------------------------------#
 include "bot_header.php";
 include "admin/connectdb.php";
