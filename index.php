@@ -8,15 +8,9 @@ $uriwww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent"
             $response = Unirest\Request::get("$uriwww");
             $json = json_decode($response->raw_body, true);
             $i = 0;
-
             
               /////////////////////////////////
   
-            $arrayPostData['replyToken'] = $replyToken;
-            //$arrayPostData['to'] = $uid;
-            $arrayPostData['messages'][0]['type'] = "flex";
-            $arrayPostData['messages'][0]['altText'] = "$command";
-            $arrayPostData['messages'][0]['contents']['type'] = "carousel";
             $datacountrowtype = 0;
             $datacountrowtype1 = 0;
             $datacountrowtype2 = 0;
@@ -31,13 +25,14 @@ $uriwww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent"
               $solution = $json[$i]['detail']['solution'];
               $date_start = $json[$i]['detail']['date_start'];
               $date_end = $json[$i]['detail']['date_end'];
+              
+            }
               echo $name;
               echo $growing;
               echo $weather;
               echo $problem;
               echo $warning;
               echo $solution;
-            }
 
 
 #-------------------------[EVENT TYPE]-------------------------#
