@@ -1,34 +1,39 @@
 <?php
 #-------------------------[include]-------------------------#
 echo "555555";
+$json = file_get_contents('https://chaokaset.openservice.in.th/index.php/doaservices/notifysent');
+$obj = json_decode($json);
+echo $obj[0]->$growing;
 #--------------------------------------------------------------------------------------------------------------------#
 include "bot_header.php";
 include "admin/connectdb.php";
 
-$uriwww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
-            $response = Unirest\Request::get("$uriwww");
-            $json = json_decode($response->raw_body, true);
-            $i = 0;
+
+
+// $uriwww = "https://chaokaset.openservice.in.th/index.php/doaservices/notifysent";
+//             $response = Unirest\Request::get("$uriwww");
+//             $json = json_decode($response->raw_body, true);
+//             $i = 0;
             
-              /////////////////////////////////
-                //$datacountrowtype2 += 1;
-                //$datacountrowtype3 += 1;
-              $name = $json[1]['name'];
-              $growing = $json[1]['growing'];
-              $weather = $json[1]['weather'];
-              $problem = $json[1]['problem'];
-              $warning = $json[1]['detail']['warning'];
-              $solution = $json[1]['detail']['solution'];
-              $date_start = $json[1]['detail']['date_start'];
-              $date_end = $json[1]['detail']['date_end'];
+//               /////////////////////////////////
+//                 //$datacountrowtype2 += 1;
+//                 //$datacountrowtype3 += 1;
+//               $name = $json[1]['name'];
+//               $growing = $json[1]['growing'];
+//               $weather = $json[1]['weather'];
+//               $problem = $json[1]['problem'];
+//               $warning = $json[1]['detail']['warning'];
+//               $solution = $json[1]['detail']['solution'];
+//               $date_start = $json[1]['detail']['date_start'];
+//               $date_end = $json[1]['detail']['date_end'];
               
-              print_r($json);
-              print_r($growing);
-              echo $growing;
-              echo $weather;
-              echo $problem;
-              echo $warning;
-              echo $solution;
+//               print_r($json);
+//               print_r($growing);
+//               echo $growing;
+//               echo $weather;
+//               echo $problem;
+//               echo $warning;
+//               echo $solution;
 
 
 #-------------------------[EVENT TYPE]-------------------------#
