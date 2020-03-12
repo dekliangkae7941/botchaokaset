@@ -3,8 +3,8 @@
 require_once('./include/line_class.php');
 require_once('./unirest-php-master/src/Unirest.php');
 #-------------------------[Token]-------------------------#
-$channelAccessToken = 'SUmLfYZ8t8MIO/DqtQtGrt8cusyPvPDyjDcw6TG1mCOadegMAh+bPOF99IMRBIwDA7VhuzmpTUfkkYIIkgjdfohQ5bf8XV781/5J/gIy5vxCtlvPx+4cV3zo9neI1msXvhbzz87r71YdIkPujGqNAgdB04t89/1O/w1cDnyilFU='; 
-$channelSecret = 'b80c29dab1824c3acfbc9d0fab03e95f';
+$channelAccessToken = 'sc4SdwKzEgZL+61DQKc9hIA31M7z1ir9zDuM7KZxmVbnUgXxdSa25YwDF8q+RUKLP+yqUFRISOWRQS/lKk0qcwga9TsRBoA/TQEu8+UjPme1Z4wYngN5NAaS5J5Wp3wNzBxvrTO2zaSdgJYGcgbGVgdB04t89/1O/w1cDnyilFU='; 
+$channelSecret = '3ff3cebae9f29ec347321723bc718eec';
 
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
