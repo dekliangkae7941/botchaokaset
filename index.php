@@ -1,5 +1,14 @@
 <?php
 
+$txt1 = "Learn PHP";
+$txt2 = "W3Schools.com";
+$cars = array("Volvo", "BMW", "Toyota");
+
+echo $txt1 . "<br>";
+echo "Study PHP at " . $txt2 . "<br>";
+echo "My car is a " . $cars[0];
+
+
 $uri = "https://api.openweathermap.org/data/2.5/weather?lat=14.2469023&lon=100.6058911&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
 $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
@@ -9,6 +18,6 @@ $response = Unirest\Request::get("$uri");
     $resultd = $json['main']['temp'];
     $resulte = $json['coord']['lon'];
 
-echo $resulta;
+
 
 ?>
